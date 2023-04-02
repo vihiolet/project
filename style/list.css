@@ -1,0 +1,39 @@
+.list .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.list article{
+    display: flex;   
+    width: calc(50% - 3.5px);
+}
+.list a:hover{
+    opacity: 0.8;
+}
+.list .text, .list .icon{
+    margin: 10px;
+}
+.list .icon span{
+    font-size: 15px;
+}
+
+/*미디어쿼리 시작*/
+@media (min-width: 768px){
+    .list .container{
+         justify-content: flex-start;         /*4행 space-between 초기화*/
+    }
+    .list article{
+        width: calc(33.3333% - 30px);
+        margin: 0 15px 50px;        
+    }
+}
+@media (min-width: 1200px){
+    .list{
+        width: 1200px;
+        margin: 0 auto;
+        padding: 0 !important;
+    }
+    .list article{
+        width: calc(25% - 30px);
+    }
+}

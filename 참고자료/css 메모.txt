@@ -1,0 +1,70 @@
+background-image로 하니까 이미지가 브라우저 크기에 따라서 확대되고 축소된다
+img태그는 width랑 height를 100% 주면 이미지 자체가 바뀌지 않는다
+
+flex-grow: 1; flex-shrink: 1; flex-basis: 300px;
+
+background-image: url(img/B004985155.jpg);
+<!--테이블 table-->
+테이블의 너비는 지정해줘야 하고 높이는 내용에 따라 맞춰진다
+표 너비 고정(개별 조절할 수 있게) table-layout : fixed 
+테이블 테두리와 셀(td) 테두리 사이 간격(default: 2px) 0  collapse; border-spacing: 0 (상속)*/
+
+calc()
+괄호 안의 식을 계산한 결과를 속성값으로 사용하게 해주는 함수
+곱셈과 나눗셈의 좌우에는 공백이 없어도 된다 하지만, 덧셈과 뺄셈의 좌우에는 공백이 있어야 한다
+ex) width: calc(50% - 3.5px); /*50%에서 3.5px 뺀 값을 width값으로 준다*/
+
+<!--flex 속성 설명-->
+축의 방향 설정
+flex-direction 
+row(기본값) : 행(가로) 방향으로 배치
+column : 열(세로) 방향으로 배치 (bolck요소처럼 배치됨)
+
+줄넘김 처리 설정
+flex-wrap
+nowrap(기본값) : 줄바꿈 X
+wrap : 줄바꿈 O
+
+flex-flow
+flex-direction과 flex-wrap의 속성을 함께 지정
+순서대로 설정값을 지정하고 한 칸 띄우면 됨
+
+주축 방향 정렬
+justify-content  *justify 옳음을 보여 주다, 행 끝을 나란히 맞추다
+flex-start(기본값) : 시작점으로 정렬, flex-direction이 row이면 왼쪽, column이면 위쪽
+flex-end : 끝점으로 정렬,  flex-direction이 row이면 오른쪽, column이면 아래쪽
+center : 아이템을 가운데로 정렬
+space-between : 아이템 사이에 간격을 줌
+space-around : 아이템 둘레에 간격을 줌
+
+수직축 방향 정렬
+align-items  *align 나란히 만들다, 일직선으로 하다 얼라인
+stretch(기본값) : 수직축 방향으로 늘어남
+flex-start : 시작점으로 정렬, flex-direction이 row이면 위쪽, column이면 왼쪽
+flex-end : 끝점으로 정렬,  flex-direction이 row이면 아래쪽, column이면 오른쪽
+center : 아이템을 가운데로 정렬
+baseline : 텍스트 베이스라인 기준으로 정렬
+
+flex-wrap:wrap이 설정된 상태에서 행이 2줄 이상 되었을 때 수직축 방향 설정
+align-content
+stretch
+flex-start
+flex-end
+center
+space-between
+space-around
+(justify-content와 align-items의 속성이 혼합되어있네)
+
+<!--img태그-->
+img 태그는 width값 웬만하면 100% 줘야됨 - common.css로 뺏으니까 개별 너비 조절은 따로 하기
+
+/*미디어쿼리*/
+@media (min-width: 768px){ ~ }
+768px 이상에 실행되므로 1200px에도 실행이 된다
+따라서 margin같은 여백은 768px 사이즈에 한 번 주면 1200px 사이즈에도 실행됨
+
+오늘(4/1) 개발 일기
+space-between이 아이템 사이에 일정한 여백을 주는건데 이 설정을 모바일 버전에 썼다
+그런데 테블릿 버전은 아이템이 3개가 한 줄인데 만약 2개가 남았을 때 그 2개의 아이템 사이에도 여백을 줘서 중간이 뻥 뚤린다
+그래서 space-between은 그대로 두고(모바일이 기본) 미디어쿼리의 768px 사이즈에서 justify-content의 기본값인 flex-start로 초기화 했다
+
