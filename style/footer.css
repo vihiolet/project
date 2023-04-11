@@ -1,0 +1,52 @@
+footer{
+    background-color: #e9eaeb;
+    height: 200px;    
+}
+footer .container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.foot1 a{
+    display: block;
+    font-size: 20px;
+}
+
+.foot1 .icon{
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 19px;
+    width: 2em;
+    line-height: 2em;
+    border-radius: 50%;
+    text-align: center;
+    background: #b2b2b3;
+    color: #fff;
+    margin-top: 15px;
+}
+
+.foot2{
+    height: 150px;
+    width: 65%;
+}
+.foot2 ul{
+    font-size: 19px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.foot2 ul a{
+    display: block;
+    font-size: 15px;
+}
+/*미디어쿼리 시작*/
+@media (min-width: 768px){
+    .foot1 .icon{        
+        margin-right: 10px;
+    }    
+    .foot2 a:hover{
+        color: blueviolet;
+    }
+}
