@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*메인페이지만 여백 다르게*/
 .step2, .step3{
     padding: 0 6% 0 6%;
@@ -75,3 +76,31 @@
         flex: 1;
     }
 }
+=======
+/*슬라이드*/
+.slider {
+    width: 100%;
+    overflow: hidden;
+    height: 300px;
+}
+
+.slider ul {
+/*    width: 100%;*/
+    position: relative;    /*요소를 흐르듯이 슬라이딩하는데 필요함*/
+}
+
+.slider ul li {
+    /*    width: 100%;*/
+    float: left;            /*다음 li요소를 옆에 붙여야 하기 때문에 필요함 없으면 다음 요소가 없어서 공백이 슬라이드 됨*/
+}
+img{
+    width: 50%;
+    float: left;            /*사진 반틈 텍스트 영역 반틈*/
+}
+.text{
+    width: 50%;
+    height: 500px;
+    float: left;            /*사진 반틈 텍스트 영역 반틈*/
+    background: rgb(248, 245, 241);
+}
+>>>>>>> 759409f077fddcdbe81323319b05237a8863c481
