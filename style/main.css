@@ -1,18 +1,34 @@
 /*메인페이지만 여백 다르게*/
-.step2, .step3{
+.step2, .step3, .step4 {
     padding: 0 6% 0 6%;
 }
 
-.step1 div{
+/*슬라이드 step1*/
+.step1 .slider {
     width: 100%;
     height: 650px;
     overflow: hidden;
     margin-bottom: 6%;
 }
 
-.step2 div{
+.step1 .slider ul {
     width: 100%;
-    height: 150px;
+    position: relative;    /*요소를 흐르듯이 슬라이딩하는데 필요함*/
+}
+
+.step1 .slider ul li {
+    width: 100%;
+    float: left;            /*다음 li요소를 옆에 붙여야 하기 때문에 필요함 없으면 다음 요소가 없어서 공백이 슬라이드 됨*/
+}
+.step1 .slider ul li img{
+    width: 100%;
+    float: left;            /*사진 반틈 텍스트 영역 반틈*/
+}
+
+/*step2*/
+.step2 .banner{
+    width: 100%;
+    height: 130px;
     border-radius: 5px;
     background: #222;
 }
@@ -39,89 +55,116 @@
     font-weight: 600;
 }   
 
-/*슬라이드*/
-.slider {
+/*step3*/
+.step3 div {
     width: 100%;
     overflow: hidden;
-    height: 450px;
+    height: 400px;
     padding-top: 5.5%;
 }
 
-.slider ul {
+.step3 div ul {
     width: 100%;
     position: relative;    /*요소를 흐르듯이 슬라이딩하는데 필요함*/
 }
 
-.slider ul li {
+.step3 div ul li {
     width: 100%;
     float: left;            /*다음 li요소를 옆에 붙여야 하기 때문에 필요함 없으면 다음 요소가 없어서 공백이 슬라이드 됨*/
 }
-.slider ul li img{
+.step3 div ul li img{
     width: 50%;
     float: left;            /*사진 반틈 텍스트 영역 반틈*/
 }
-.text{
+.step3 div ul li .text{
     width: 50%;
-    height: 450px;
-    float: left;            /*사진 반틈 텍스트 영역 반틈*/
+    height: 400px;         /*모바일 디바이스에서는 px값 쓰면 안 된다 추후에 미디어쿼리 이용 필수 */
+    float: left;                /*사진 반틈 텍스트 영역 반틈*/
     background: rgb(248, 245, 241);
 }
 
+/*step4*/
+.step4 .keywordEx{
+    width: 100%;
+}
+.step4 .keywordEx .tit{
+    font-size: 32px;
+    font-weight: 600;
+    padding-top: 4%;
+    padding-bottom: 3%;
+}
+.step4 .keywordEx .keylist li{
+    float: left;
+}
+.step4 .keywordEx .keylist li:not(:first-child){
+    padding-left: 10px;
+}
+.step4 .keywordEx .keylist li span{
+    padding: 5px 18px 5px 18px;
+    background: #333;
+    color: #fff;
+    border-radius: 50px;
+}
+
+.step4 .keywordEx .prolist{
+    width: 100%;
+    padding-top: 3%;
+    padding-bottom: 5.5%;
+}
+
+.step4 .keywordEx .prolist li:not(:first-child){
+     padding-left: 20px;
+}
+.step4 .keywordEx .prolist li:not(:last-child){
+     padding-right: 20px;
+}
+.step4 .keywordEx .prolist li img{    
+    height: 280px;    
+}
+.step4 .keywordEx .prolist li p{
+    font-size: 18px;
+    padding-top: 25px;
+    font-weight: 600;
+}   
+
+.step4 .keyword{
+    width: 100%;
+    line-height: 40px;    
+    background-color: #f8f5f1;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.step4 .keyword .tit{
+    font-size: 22px;
+    padding-left: 50px;
+    font-weight: 600;
+}
+.step4 .keyword .slide {
+    display: inline-block;
+    padding-left: 100%;    
+    animation: marquee 13s linear infinite;
+}
+.step4 .keyword .slide span{
+    padding: 5px 18px 5px 18px;
+    background: #333;
+    color: #fff;
+    border-radius: 50px;
+}
+    
+@keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+}
+
+/*미디어쿼리 시작*/
 @media(min-width: 768px){
-    .step2 ul{
+    .step2 ul, .step4 .keywordEx .prolist{
         display: flex;
     }
-    .step2 ul li{
+    .step2 ul li, .step4 .keywordEx .prolist li{
         flex: 1;
     }
 }
-/*슬라이드*/
-.slider {
-    width: 100%;
-    overflow: hidden;
-    height: 300px;
-}
-
-.slider ul {
-/*    width: 100%;*/
-    position: relative;    /*요소를 흐르듯이 슬라이딩하는데 필요함*/
-}
-
-.slider ul li {
-    /*    width: 100%;*/
-    float: left;            /*다음 li요소를 옆에 붙여야 하기 때문에 필요함 없으면 다음 요소가 없어서 공백이 슬라이드 됨*/
-}
-img{
-    width: 50%;
-    float: left;            /*사진 반틈 텍스트 영역 반틈*/
-}
-.text{
-    width: 50%;
-    height: 500px;
-    float: left;            /*사진 반틈 텍스트 영역 반틈*/
-    background: rgb(248, 245, 241);
-}
-.step4 {
-        width: 100%;
-        line-height: 70px;    
-        background-color: skyblue;
-        color: white;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    .step4 p {
-        display: inline-block;
-        padding-left: 100%;    
-        animation: marquee 25s linear infinite;
-    }
-    .step4 p span{
-        padding: 5px 18px 5px 18px;
-        background: #333;
-        color: #fff;
-        border-radius: 50px;
-    }
-    
-    @keyframes marquee {
-        0%   { transform: translate(0, 0); }
-        100% { transform: translate(-100%, 0); }
-    }
