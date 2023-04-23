@@ -134,45 +134,48 @@
     white-space: nowrap;
     overflow: hidden;
     margin-bottom: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 30px;
 }
 .step4 .keyword .tit{
     font-size: 22px;
     padding-left: 50px;
     font-weight: 600;
+    color: #999;
 }
 .step4 .keyword > div{
+/*    --gap: 5rem;*/
     display: flex;
     overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin-top: 80px;
+/*    gap: var(--gap);*/
+    margin-top: 20px;
 }
 .step4 .keyword .slide {
     display: flex;
     align-items: center;
     justify-content: space-around;
     min-width: 100%;
-    gap: 20px;
-    /* -webkit-animation: 100s linear infinite scroll; */
+/*    gap: var(--gap);*/
+/*    -webkit-animation: 100s linear infinite marquee;*/
     animation: 20s linear infinite marquee;
 }
-/*
 .step4 .keyword .slide li{
-    padding: 5px 15px 5px 15px;
+    padding: 5px 12px 5px 12px;
     background: #333;
     color: #fff;
     border-radius: 50px;
 }
-*/
     
 @keyframes marquee {
     0%   { transform: translateX(0); }
+/*    100% { transform: translateX(calc(-100% - var(--gap))); }*/
     100% { transform: translateX(-100%); }
 }
+/*에니메이션이 다시 시작할 때 버벅거리다가 잘 되다가 그러는데 나중에 확인 한 번 더 하고 주석 정리*/
 
 /*미디어쿼리 시작*/
 @media(min-width: 768px){
