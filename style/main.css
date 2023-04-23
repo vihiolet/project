@@ -142,21 +142,36 @@
     padding-left: 50px;
     font-weight: 600;
 }
-.step4 .keyword .slide {
-    display: inline-block;
-    padding-left: 100%;    
-    animation: marquee 13s linear infinite;
+.step4 .keyword > div{
+    display: flex;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-top: 80px;
 }
-.step4 .keyword .slide span{
-    padding: 5px 18px 5px 18px;
+.step4 .keyword .slide {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 20px;
+    /* -webkit-animation: 100s linear infinite scroll; */
+    animation: 20s linear infinite marquee;
+}
+/*
+.step4 .keyword .slide li{
+    padding: 5px 15px 5px 15px;
     background: #333;
     color: #fff;
     border-radius: 50px;
 }
+*/
     
 @keyframes marquee {
-    0%   { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
 }
 
 /*미디어쿼리 시작*/
