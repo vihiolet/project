@@ -11,15 +11,15 @@ header {
     display: inline-block;
     line-height: 70px;
     padding: 0 20px 0 20px;
-    background: blueviolet;
-    color: #fff;
+/*    background: blueviolet;*/
+    color: blueviolet;
     font-size: 24px;
 }
 .head2 a{
     display: block;
-    padding: 15px;
+    padding: 20px;
     color: inherit;
-    font-size:  12px;
+    font-size:  17px;
 }
 /*미디어쿼리 시작*/
 @media (min-width: 768px){
