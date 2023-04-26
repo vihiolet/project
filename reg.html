@@ -10,6 +10,36 @@
 <body>
    <section class="reg">
         <div class="container"> 
+            <form action="" method="post" enctype="multipart/form-data" name="">
+                <div class="reviewWrap tit">
+                    <input type="radio" name="tit" id="tit1" class="btn" >
+                    <label for="tit1" class="tit1"><i class="fa-solid fa-face-laugh"></i> 만족해요</label>
+                    <input type="radio" name="tit" id="tit2" class="btn" >
+                    <label for="tit2" class="tit2"><i class="fa-solid fa-face-meh"></i> 보통이요</label>
+                    <input type="radio" name="tit" id="tit3" class="btn" >
+                    <label for="tit3" class="tit3"><i class="fa-solid fa-face-sad-tear"></i> 아쉬워요</label>
+                </div>
+                <div class="reviewWrap sub">
+                   <div>
+                        <span>가격대</span>
+                        <input type="radio" name="sub" id="sub1_1" class="btn" >
+                        <label for="sub1_1" class="tit1">높아요</label>
+                        <input type="radio" name="sub" id="sub1_2" class="btn" >
+                        <label for="sub1_2" class="tit1">낮아요</label>   
+                   </div>
+                    <div>
+                        <span>품질</span>
+                        <input type="radio" name="sub" id="sub2_1" class="btn" >
+                        <label for="sub2_1" class="tit1">좋아요</label>
+                        <input type="radio" name="sub" id="sub2_2" class="btn" >
+                        <label for="sub2_2" class="tit1">그럭저럭</label>   
+                   </div>
+                </div>
+                <div>
+                    <input type="submit" value="등록">
+                    <input type="reset" value="다시쓰기">
+                </div>
+            </form>
        </div>
     </section>    
 </body>
