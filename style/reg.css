@@ -1,22 +1,30 @@
 .reg{
-        width: 700px;
-        margin: 0 auto;
+    width: 600px;
+    margin: 0 auto;
+}
+input[type=radio],  input[type=radio] + label{
+    cursor: pointer;
+}
+.review_tit{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 11% 0 5% 0;
 }
 form{
-        width: 100%;
+    width: 100%;
         
 }
 .reviewWrap{
-    border:  1px solid #cfcfcf;
+/*    border:  1px solid #cfcfcf;*/
     width: 100%;
     display: flex;
-    cursor: pointer;
     box-shadow: 0px 4px 17px 0px #ddd;
     border-radius: 10px;
 }
 
 .tit{    
-    line-height: 70px;
+    line-height: 60px;
 }
     
 .tit label{
@@ -29,22 +37,22 @@ form{
 }
     
 input[type=radio]:checked + .tit1{
-    background: #9384D1;
-    color: #3A1078;
+    box-shadow: 0 0 0 1px #5600ff;
+    color: #5600ff;
     border-radius: 10px 0 0 10px;
 }
 input[type=radio]:checked + .tit2{
-    background: #C9A7EB;
-    color: #4E31AA;
+    box-shadow: 0 0 0 1px #5600ff;
+    color: #5600ff;
 }
 input[type=radio]:checked + .tit3{    /* A + B -> A 옆에 있는 B을 선택(호출) */
-    background: #ECC9EE;
-    color: #4E31AA;
+    box-shadow: 0 0 0 1px #5600ff;
+    color: #5600ff;
     border-radius: 0 10px 10px 0;
 }
 .sub{
-    margin-top: 15px;
-    height: 130px;
+    margin-top: 5%;
+    height: 140px;
     align-items: center;
 }
 
@@ -56,23 +64,42 @@ input[type=radio]:checked + .tit3{    /* A + B -> A 옆에 있는 B을 선택(�
 .subtitle{
     color: #666;
 /*    font-size: 15px;*/
-    margin: 0 0 10px 0;    /*common.css연결하면 margin-bottom: 10px;으로 바꾸기*/
+    margin-bottom: 20px;
 }
 
 .btn2{
     width: 10px;
 }
 
+.sub input[type=radio]{
+    vertical-align: middle;
+    appearance: none;
+    border: 1px solid #5600ff;
+    border-radius: 50%;
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.sub input[type="radio"]:checked {
+  border: 5px solid #5600ff;
+}
+
+/*키보드 사용자(웹접근성) 고려*/
+.sub input[type="radio"]:focus-visible {
+  outline-offset: max(2px, 0.1em);
+  outline: max(2px, 0.1em) dotted tomato;
+}
+
 .button{
     width: 100%;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 8%;
 }
 .button input{
-    width: 150px;
+    width: 170px;
     height: 50px;
     text-align: center;
-    background: linear-gradient(#c9bcff, #4f29eb);  
+    background: linear-gradient(#b088ff, #5600ff);  
     border: none;
     border-radius: 10px;
     color: #fff;
