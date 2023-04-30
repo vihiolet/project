@@ -23,18 +23,18 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 	   IOException {
 	      request.setCharacterEncoding("UTF-8");
-	      String RequestURI =request.getRequestURI();
-	      String contextPath =request.getContextPath();
-	      String command =RequestURI.substring(contextPath.length());
-	      ActionForward forward =null;
-	      Action action =null;
+	      String RequestURI = request.getRequestURI();
+	      String contextPath = request.getContextPath();
+	      String command = RequestURI.substring(contextPath.length());
+	      ActionForward forward = null;
+	      Action action = null;
 
-	      if(command.equals("/ReviewWriteForm.bo")) {
+	      if(command.equals("/ReviewWriteForm.on")) {
 	         forward = new ActionForward();
-	         forward.setPath("board/qna_board_write.jsp");
+	         forward.setPath("/review/review_write.jsp");
 	         
-	      }else if(command.equals("/boardWritePro.bo")) {
-	          action =new ReviewWriteProAction();
+	      }else if(command.equals("/reviewWritePro.on")) {
+	          action = new ReviewWriteProAction();
 	          try {
 	             forward=action.execute(request, response);
 	          }catch(Exception e) {

@@ -23,13 +23,20 @@ public class ReviewWriteProAction implements Action{
 	   ReviewBean reviewBean = null;
 	   ServletContext context = request.getServletContext();
 	   reviewBean = new ReviewBean();
-	   reviewBean.setPro_code(Integer.parseInt(request.getParameter("pro_code")));
+	   
+//	   reviewBean.setTest(request.getParameter("test"));
+//	   System.out.println(request.getParameter("test"));
+	   
+	   reviewBean.setPro_code(Integer.parseInt(request.getParameter("pro_code")));	   	   
 	   reviewBean.setTit_fg(Integer.parseInt(request.getParameter("tit_fg")));
+	   System.out.println(Integer.parseInt(request.getParameter("tit_fg")));
 	   reviewBean.setSub1_fg(Integer.parseInt(request.getParameter("sub1_fg")));
+	   System.out.println(Integer.parseInt(request.getParameter("sub1_fg")));
 	   reviewBean.setSub2_fg(Integer.parseInt(request.getParameter("sub2_fg")));
+	   System.out.println(Integer.parseInt(request.getParameter("sub2_fg")));
 	   reviewBean.setSub3_fg(Integer.parseInt(request.getParameter("sub3_fg")));
-	   ReviewWriteProService boardWriteProService = new ReviewWriteProService();
-	   boolean isWriteSuccess = ReviewWriteProService.registArticle(reviewBean);
+	   ReviewWriteProService reviewWriteProService = new ReviewWriteProService();
+	   boolean isWriteSuccess = reviewWriteProService.registArticle(reviewBean);
 	   
 	   if(!isWriteSuccess) {
 	      response.setContentType("text/html; charset=utf-8");
@@ -45,7 +52,7 @@ public class ReviewWriteProAction implements Action{
 	      PrintWriter out = response.getWriter();
 	      out.println("<script>");
 	      out.println("alert('등록되었습니다.');");
-	      out.println("location.href='boardList.bo'");
+	      out.println("location.href='boardWritePro.on'");
 	      out.println("</script>");
 
 	   }

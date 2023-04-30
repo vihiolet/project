@@ -3,6 +3,13 @@ import java.sql.Date;
 
 public class ReviewBean {
 
+	private String test;
+	public String getTest() {
+		return test;
+	}
+	public void setTest(String test) {
+		this.test = test;
+	}
 	private int pro_code;
 	private int tit_fg;
 	private int sub1_fg;

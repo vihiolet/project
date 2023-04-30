@@ -56,7 +56,7 @@ input[type=radio]:checked + .tit3{    /* A + B -> A 옆에 있는 B을 선택(�
 .subtitle{
     color: #666;
 /*    font-size: 15px;*/
-    margin: 0 0 10px 0;    /*common.css연결하면 margin-bottom: 10px;으로 바꾸기*/
+    margin-bottom: 10px;    
 }
 
 .btn2{

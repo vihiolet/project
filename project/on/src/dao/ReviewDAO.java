@@ -27,7 +27,7 @@ public class ReviewDAO {
 
 	}
 
-	public int insertArticle(ReviewDAO reviewDAO2) {
+	public int insertArticle(ReviewBean reviewBean) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 //		int num = 0;
@@ -45,12 +45,12 @@ public class ReviewDAO {
 
 			sql = "insert into review (pro_code, tit_fg, sub_fg1, sub_fg2, sub_fg3, create_dt ) values(?,?,?,?,?,now())";
 			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, 0);
-			pstmt.setInt(2, 0);
-			pstmt.setInt(3, 0);
-			pstmt.setInt(4, 0);
-			pstmt.setInt(5, 0);
+			pstmt = con.prepareStatement(sql);			
+			pstmt.setInt(1, reviewBean.getPro_code());			
+			pstmt.setInt(2, reviewBean.getTit_fg());
+			pstmt.setInt(3, reviewBean.getSub1_fg());
+			pstmt.setInt(4, reviewBean.getSub2_fg());
+			pstmt.setInt(5, reviewBean.getSub3_fg());
 
 			insertCount = pstmt.executeUpdate();
 		} catch (Exception e) {

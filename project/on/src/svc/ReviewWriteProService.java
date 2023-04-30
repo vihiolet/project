@@ -16,7 +16,8 @@ public class ReviewWriteProService {
 			 con = getConnection();
 			 ReviewDAO reviewDAO = ReviewDAO.getInstance();
 			 reviewDAO.setConnection(con);
-			 int insertCount = reviewDAO.insertArticle(reviewDAO);
+			 int insertCount = reviewDAO.insertArticle(reviewBean);
+			 System.out.println("안뇽?");
 			 
 			 if(insertCount > 0) {
 				 commit(con);
