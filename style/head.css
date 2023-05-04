@@ -10,7 +10,7 @@ header {
 .head1{
     display: inline-block;
     line-height: 70px;
-    padding: 0 20px 0 20px;
+/*    padding: 0 20px 0 20px;*/ /*padding 때문에 일정하게 여백 주기 어렵네*/
 /*    background: blueviolet;*/
     color: blueviolet;
     font-size: 24px;
@@ -69,4 +69,12 @@ header {
     .head2 ul{
         text-align: center;
     }
+}
+
+/*admin style*/
+.head2 ul li span {
+    font-weight: 600;
+}
+.admin_cd {
+    padding-left: 30px;
 }
