@@ -30,15 +30,52 @@
             <!--jsp로 바꿀 때 left_nemu는 include로 교체하기-->
           <div class="left_nemu">
               <ul>
-                  <li><a href="">최근 등록</a></li>
-                  <li><a href="">제품 설정</a></li>
-                  <li><a href="">관리자 설정</a></li>
-                  <li><a href="">검색점 설정</a></li>
-                  <li><a href="">후기 관리</a></li>
+                  <li>
+                      <span><a href=""><i class="fa-solid fa-boxes-packing" style="color: #ffffff;"></i> 최근 등록</a></span>
+                  </li>
+                  <li>
+                      <span><a href=""><i class="fa-solid fa-tags" style="color: #ffffff;"></i> 제품 설정</a></span>
+                  </li>
+                  <li>
+                      <span><a href=""><i class="fa-solid fa-user-gear" style="color: #ffffff;"></i> 관리자 설정</a></span>
+                  </li>
+                  <li>
+                      <span><a href=""><i class="fa-solid fa-magnifying-glass-plus" style="color: #ffffff;"></i> 검색점 설정</a></span>
+                  </li>
+                  <li>
+                      <span><a href=""><i class="fa-solid fa-pencil" style="color: #ffffff;"></i> 후기 관리</a></span>
+                  </li>
               </ul>
           </div>
           <div class="content">
-              
+              <form action="" method="post" enctype="multipart/form-data">
+                 <div class="menu_radio">
+                      <span>상품 분류</span>
+                      <input type="radio" name="menu" id="food"><label for="food">음식</label>
+                      <input type="radio" name="menu" id="clothes"><label for="clothes">옷</label>
+                      <input type="radio" name="menu" id="beauty"><label for="beauty">미용</label>
+                      <input type="radio" name="menu" id="life"><label for="life">생활</label>   
+                 </div>
+                 <div class="company_text">
+                     <span>상품 회사</span>
+                     <input type="text">
+                 </div>
+                 <div class="name_text">
+                     <span>상품 이름</span>
+                     <input type="text">
+                 </div>
+                 <div class="keyword_r">
+                     <span>검색점</span>
+                 </div>
+                 <div class="name_text">
+                     <span>상품 사진</span>
+                     <input type="text">
+                 </div>
+                  <div class="button">
+                    <input type="submit" value="등록">
+                    <input type="reset" value="다시 쓰기">
+                </div>
+              </form>
           </div>
       </div>
     </div>    
