@@ -7,14 +7,14 @@
     <title>후기등록페이지입니다</title>
 </head>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../style/common.css">
-<link rel="stylesheet" href="../style/reg.css">
+<link rel="stylesheet" href="style/common.css">
+<link rel="stylesheet" href="style/reg.css">
 <body>
    <section class="reg">
         <div class="container"> 
         	<p class="review_tit">사용 후기를 등록해주세요.</p>
             <form action="reviewWritePro.on" method="post" name="reviewform">
-            	<input type="hidden" name="pro_code" value="2">            	
+            	<input type="hidden" name="pro_code" value="3">            	
             	
                 <div class="reviewWrap tit">
                     <input type="radio" name="tit_fg" id="tit1" class="btn" value="1">
