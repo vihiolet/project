@@ -12,9 +12,9 @@
 <body>
    <section class="reg">
         <div class="container"> 
+        	<p class="review_tit">사용 후기를 등록해주세요.</p>
             <form action="reviewWritePro.on" method="post" name="reviewform">
-            	<input type="hidden" name="pro_code" value="1">
-            	
+            	<input type="hidden" name="pro_code" value="2">            	
             	
                 <div class="reviewWrap tit">
                     <input type="radio" name="tit_fg" id="tit1" class="btn" value="1">
@@ -28,23 +28,23 @@
                    <div>
                         <p class="subtitle">가격대</p>
                         <input type="radio" name="sub1_fg" id="sub1_1" class="btn2" value="1">
-                        <label for="sub1_1" class="tit1">낮아요</label>
+                        <label for="sub1_1" class="sub1">낮아요</label>
                         <input type="radio" name="sub1_fg" id="sub1_2" class="btn2" value="2">
-                        <label for="sub1_2" class="tit1">높아요</label>   
+                        <label for="sub1_2" class="sub1">높아요</label>   
                    </div>
                     <div>
                         <p class="subtitle">품질</p>
                         <input type="radio" name="sub2_fg" id="sub2_1" class="btn2" value="1">
-                        <label for="sub2_1" class="tit1">좋아요</label>
+                        <label for="sub2_1" class="sub1">좋아요</label>
                         <input type="radio" name="sub2_fg" id="sub2_2" class="btn2" value="2">
-                        <label for="sub2_2" class="tit1">그럭저럭</label>   
+                        <label for="sub2_2" class="sub1">그럭저럭</label>   
                    </div>
                    <div>
                         <p class="subtitle">대체품</p>
                         <input type="radio" name="sub3_fg" id="sub3_1" class="btn2" value="1">
-                        <label for="sub3_1" class="tit1">없어요</label>
+                        <label for="sub3_1" class="sub1">없어요</label>
                         <input type="radio" name="sub3_fg" id="sub3_2" class="btn2" value="2">
-                        <label for="sub3_2" class="tit1">있어요</label>   
+                        <label for="sub3_2" class="sub1">있어요</label>   
                    </div>
                 </div>
                 <div class="button">
