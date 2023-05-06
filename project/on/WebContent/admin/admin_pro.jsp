@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,25 +61,28 @@
                   <form action="" method="post" enctype="multipart/form-data">
                     <div class="pro_value">
                         <div class="menu_radio">                      
-                              <input type="radio" name="menu" id="food"><label for="food">음식</label>
-                              <input type="radio" name="menu" id="clothes"><label for="clothes">옷</label>
-                              <input type="radio" name="menu" id="beauty"><label for="beauty">미용</label>
-                              <input type="radio" name="menu" id="life"><label for="life">생활</label>   
+                              <input type="radio" name="menu_code" id="food"><label for="food">음식</label>
+                              <input type="radio" name="menu_code" id="clothes"><label for="clothes">옷</label>
+                              <input type="radio" name="menu_code" id="beauty"><label for="beauty">미용</label>
+                              <input type="radio" name="menu_code" id="life"><label for="life">생활</label>   
                          </div>
                          <div class="company_text">                     
-                             <input type="text">
+                             <input type="text" name="pro_company" required= "required">
                          </div>
                          <div class="name_text">                     
-                            <input type="text">
+                            <input type="text" name="pro_nm" required= "required">
                          </div>
                          <div class="keyword_r">                     
                              <input type="button" value="추가" onclick="keywordOpen()">
-                             <input type="text" class="keyInput">
-                             <input type="text" class="keyInput">
-                             <input type="text" class="keyInput">
+                             <input type="text" class="keyInput" name="srch_nm1" value="친환경" required= "required">
+                             <input type="hidden" class="keyInput" name="srch_code1" value="01" required= "required">
+                             <input type="text" class="keyInput" name="srch_nm2">
+                             <input type="hidden" class="keyInput" name="srch_code2">
+                             <input type="text" class="keyInput" name="srch_nm3">
+                             <input type="hidden" class="keyInput" name="srch_code3">
                          </div>
-                         <div class="name_text">                     
-                             <input type="text">
+                         <div class="name_img">                     
+                             <input type="file" name="pro_img" required= "required">
                          </div>                    
                      </div> 
                     <div class="button">

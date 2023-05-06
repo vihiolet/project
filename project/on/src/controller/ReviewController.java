@@ -28,10 +28,23 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 	      String command = RequestURI.substring(contextPath.length());
 	      ActionForward forward = null;
 	      Action action = null;
+	      
+	      if(command.equals("/productRegForm.on")) {
+		         forward = new ActionForward();
+		         forward.setPath("/admin/admin_pro.jsp");
+		         
+		      }else if(command.equals("/reviewWritePro.on")) {
+		          action = new ReviewWriteProAction();
+		          try {
+		             forward=action.execute(request, response);
+		          }catch(Exception e) {
+		             e.printStackTrace();
+		          }	          
+		  }
 
 	      if(command.equals("/ReviewWriteForm.on")) {
 	         forward = new ActionForward();
-	         forward.setPath("/review/review_write.jsp");
+	         forward.setPath("/front/review_write.jsp");
 	         
 	      }else if(command.equals("/reviewWritePro.on")) {
 	          action = new ReviewWriteProAction();
@@ -39,8 +52,7 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 	             forward=action.execute(request, response);
 	          }catch(Exception e) {
 	             e.printStackTrace();
-	          }
-	          
+	          }	          
 	       }
 	      
 	      if(forward!= null) {

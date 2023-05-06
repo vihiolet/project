@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import svc.ReviewWriteProService;
 
-//import com.oreilly.servlet.MultipartRequest;
-//import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 import vo.ActionForward;
 import vo.ReviewBean;
 import vo.PageInfo;
@@ -22,10 +19,7 @@ public class ReviewWriteProAction implements Action{
 	   ActionForward forward = null;
 	   ReviewBean reviewBean = null;
 	   ServletContext context = request.getServletContext();
-	   reviewBean = new ReviewBean();
-	   
-//	   reviewBean.setTest(request.getParameter("test"));
-//	   System.out.println(request.getParameter("test"));
+	   reviewBean = new ReviewBean();	   
 	   
 	   reviewBean.setPro_code(Integer.parseInt(request.getParameter("pro_code")));	   	   
 	   reviewBean.setTit_fg(Integer.parseInt(request.getParameter("tit_fg")));
