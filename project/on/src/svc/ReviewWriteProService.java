@@ -2,7 +2,7 @@ package svc;
 
 import vo.ReviewBean;
 import java.sql.Connection;
-import dao.ReviewDAO;
+import dao.DAO;
 import vo.ReviewBean;
 import static db.JdbcUtil.*;
 
@@ -14,10 +14,9 @@ public class ReviewWriteProService {
 		 Connection con = null;
 		 try {
 			 con = getConnection();
-			 ReviewDAO reviewDAO = ReviewDAO.getInstance();
-			 reviewDAO.setConnection(con);
-			 int insertCount = reviewDAO.insertArticle(reviewBean);
-			 System.out.println("안뇽?");
+			 DAO dao = DAO.getInstance();
+			 dao.setConnection(con);
+			 int insertCount = dao.insertArticle(reviewBean);
 			 
 			 if(insertCount > 0) {
 				 commit(con);

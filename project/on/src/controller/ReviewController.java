@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.AdminProRegAcrion;
 //import action.BoardDeleteProAction;
 //import action.BoardDetailAction;
 import action.ReviewListAction;
@@ -33,10 +34,11 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 		         forward = new ActionForward();
 		         forward.setPath("/admin/admin_pro.jsp");
 		         
-		      }else if(command.equals("/reviewWritePro.on")) {
-		          action = new ReviewWriteProAction();
+		      }else if(command.equals("/adminPro.on")) {
+		          action = new AdminProRegAcrion();
+		          
 		          try {
-		             forward=action.execute(request, response);
+		             forward= action.execute(request, response);
 		          }catch(Exception e) {
 		             e.printStackTrace();
 		          }	          
@@ -55,12 +57,11 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 	          }	          
 	       }
 	      
-	      if(forward!= null) {
+	      if(forward != null) {
 	          if(forward.isRedirect()) {
-	             response.sendRedirect(forward.getPath());
+	             response.sendRedirect(forward.getPath());	//redirect방식 주소 변화 o
 	          }else {
-	             RequestDispatcher dispatcher = 
-	                   request.getRequestDispatcher(forward.getPath());
+	             RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());	//forward(dispatcher) 방식 주소 변화 x
 	             dispatcher.forward(request,response);
 	          }
 	       }
