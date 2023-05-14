@@ -39,7 +39,6 @@ public class AdminProRegAcrion implements Action{
 //		adminProBean.setCreate_id(Integer.parseInt(multi.getParameter("create_id")));
 		AdminProRegService adminProRegService = new AdminProRegService();
 		boolean isSuccess = adminProRegService.registArticle(adminProBean); //등록 성공하면 true 실패하면 false
-		System.out.println("hi");
 		
 		if(!isSuccess) {	//상품 등록 실패
 			response.setContentType("text/html;charset=UTF-8");		//등록실패 한글 인코딩 (테스트 해보기) - 없으면 ???으로 뜬다

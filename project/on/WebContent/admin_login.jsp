@@ -8,6 +8,6 @@
 </head>
 <body>
 관리자페이지입니다
-<a href="/on/productRegForm.on">제품관리 페이지</a>
+<a href="/on/productRegForm.ad">제품관리 페이지</a>
 </body>
 </html>

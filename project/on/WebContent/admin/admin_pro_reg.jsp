@@ -10,45 +10,11 @@
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/admin_pro.css">
 <link rel="stylesheet" href="style/head.css">
-<link rel="stylesheet" href="style/left_menu.css">
 <body>
    <div class="admin_pro">
-     <header>
-      <div class="container">
-         <div class="container-small">
-              <a href="" class="head1">로고</a>   
-              <!--<button type="button" class="head3"><i class="fa-solid fa-bars"></i></button>-->
-         </div>
-          <nav class="head2">
-              <ul>
-                  <li class="admin_nm">관리자 : <span>admin</span></li>
-                  <li class="admin_cd">관리자코드 : <span>admin</span></li>
-              </ul>
-          </nav>
-        </div>
-      </header>
-      
-      <div class="container">
-            <!--jsp로 바꿀 때 left_nemu는 include로 교체하기-->
-          <div class="left_nemu">
-              <ul>
-                  <li>
-                      <span><a href=""><i class="fa-solid fa-boxes-packing" style="color: #ffffff;"></i> 최근 등록</a></span>
-                  </li>
-                  <li>
-                      <span><a href=""><i class="fa-solid fa-tags" style="color: #ffffff;"></i> 제품 설정</a></span>
-                  </li>
-                  <li>
-                      <span><a href=""><i class="fa-solid fa-user-gear" style="color: #ffffff;"></i> 관리자 설정</a></span>
-                  </li>
-                  <li>
-                      <span><a href=""><i class="fa-solid fa-magnifying-glass-plus" style="color: #ffffff;"></i> 검색점 설정</a></span>
-                  </li>
-                  <li>
-                      <span><a href=""><i class="fa-solid fa-pencil" style="color: #ffffff;"></i> 후기 관리</a></span>
-                  </li>
-              </ul>
-          </div>
+      <jsp:include page="../A_header.jsp"></jsp:include>	<!--헤더-->
+      <div class="container">          
+          <jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
           <div class="content">
             <div class="bg">
                 <div class="pro_tit"> 
@@ -58,7 +24,7 @@
                         <p>검색점</p>
                         <p>상품 사진</p>
                   </div>
-                  <form action="adminPro.on" method="post" enctype="multipart/form-data">
+                  <form action="adminPro.ad" method="post" enctype="multipart/form-data">
                     <div class="pro_value">
                         <div class="menu_radio">                      
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
@@ -97,7 +63,7 @@
     <script>
         let openWin;
         function keywordOpen(){
-            openWin = window.open("keyword_popup.html", "popup", "width=570, height=350, resizeable = no");
+            openWin = window.open("keyword_popup.jsp", "popup", "width=570, height=350, resizeable = no");
         }
     </script>
 </body>

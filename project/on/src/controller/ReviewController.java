@@ -29,20 +29,6 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 	      String command = RequestURI.substring(contextPath.length());
 	      ActionForward forward = null;
 	      Action action = null;
-	      
-	      if(command.equals("/productRegForm.on")) {
-		         forward = new ActionForward();
-		         forward.setPath("/admin/admin_pro.jsp");
-		         
-		      }else if(command.equals("/adminPro.on")) {
-		          action = new AdminProRegAcrion();
-		          
-		          try {
-		             forward= action.execute(request, response);
-		          }catch(Exception e) {
-		             e.printStackTrace();
-		          }	          
-		  }
 
 	      if(command.equals("/ReviewWriteForm.on")) {
 	         forward = new ActionForward();

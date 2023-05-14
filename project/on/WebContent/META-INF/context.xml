@@ -5,7 +5,7 @@
 		auth ="Container"
 		type="javax.sql.DataSource"
 		username="root" 
-		password="1111"	//비밀번호 노출 주의
+		password="1111"	
 		driverClassName ="com.mysql.cj.jdbc.Driver"
 		factory = "org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
 		url ="jdbc:mysql://localhost:3306/project?serverTimezone=Asia/Seoul"
