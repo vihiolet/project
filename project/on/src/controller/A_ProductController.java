@@ -32,6 +32,13 @@ public class A_ProductController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/adminProList.ad")) {
+			action= new AdminProRegAcrion();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null) {

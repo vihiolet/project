@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../style/left_menu.css">
+<link rel="stylesheet" href="style/left_menu.css">
 </head>
 <body>
 	<div class="left_nemu">
