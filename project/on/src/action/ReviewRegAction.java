@@ -12,7 +12,7 @@ import vo.ActionForward;
 import vo.ReviewBean;
 import vo.PageInfo;
 
-public class ReviewWriteProAction implements Action{
+public class ReviewRegAction implements Action{
 	@Override
 	   public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      

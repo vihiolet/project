@@ -15,7 +15,7 @@ import action.AdminProRegAcrion;
 import action.ReviewListAction;
 //import action.BoardModifyFormAction;
 //import action.BoardModifyProAction;
-import action.ReviewWriteProAction;
+import action.ReviewRegAction;
 
 import vo.ActionForward;
 
@@ -35,7 +35,7 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 	         forward.setPath("/front/review_write.jsp");
 	         
 	      }else if(command.equals("/reviewWritePro.on")) {
-	          action = new ReviewWriteProAction();
+	          action = new ReviewRegAction();
 	          try {
 	             forward=action.execute(request, response);
 	          }catch(Exception e) {
