@@ -5,9 +5,8 @@ public class ActionForward {
 	private boolean redirect= false;
 	private String path= null;
 	
-	public ActionForward() {
-		
-	}
+	public ActionForward() {}
+	
 	public ActionForward(String path, boolean redirect) {
 		this.path = path;
 		this.redirect = redirect;
