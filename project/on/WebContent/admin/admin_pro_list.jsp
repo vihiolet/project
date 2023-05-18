@@ -1,5 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import= "vo.PageInfo"%>
+<%@ page import= "vo.AdminProBean"%>
+<%@ page import= "java.util.*"%>
+<%@ page import= "java.text.SimpleDateFormat"%>
+
+<%
+	ArrayList<AdminProBean> articleList= (ArrayList<AdminProBean>)request.getAttribute("articleList");
+	PageInfo pageInfo= (PageInfo)request.getAttribute("pageInfo");
+	int listCount= pageInfo.getListCount();
+	int nowPage= pageInfo.getPage();
+	int maxPage= pageInfo.getMaxPage();
+	int startPage= pageInfo.getStartPage();
+	int endPage= pageInfo.getEndPage();
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
