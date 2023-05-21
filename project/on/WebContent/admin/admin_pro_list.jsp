@@ -26,10 +26,14 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-	<jsp:include page="../A_header.jsp"></jsp:include>	<!--헤더-->
+	<jsp:include page="../admin_header.jsp"></jsp:include>	<!--헤더-->
 	<div class="a_container">
 		<jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-        <div class="a_bg">         
+        <div class="a_bg">     
+        	<%
+        		if(articleList != null && listCount > 0){
+        			for(int i=0; i<articleList.size(); i++){
+        	%>    
             <article>
                 <a href="#">
                    <div class="photo">
@@ -37,55 +41,22 @@
                        <img src="img/B004985155.jpg" alt="">
                    </div>
                     <div class="text">
-                        <h3>회사명</h3>
-                        <p>제품명이들어갑니다</p>
+                        <h3><%=articleList.get(i).getPro_company() %></h3>
+                        <p><%=articleList.get(i).getPro_nm() %></p>
                     </div>
                 </a>
             </article>
-            <article>
-                <a href="#">
-                   <div class="photo">
-                       <img src="img/B004985155.jpg" alt="">
-                   </div>
-                    <div class="text">
-                        <h3>회사명</h3>
-                        <p>제품명이들어갑니다</p>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="#">
-                   <div class="photo">
-                       <img src="img/B004985155.jpg" alt="">
-                   </div>
-                    <div class="text">
-                        <h3>회사명</h3>
-                        <p>제품명이들어갑니다</p>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="#">
-                   <div class="photo">
-                       <img src="img/B004985155.jpg" alt="">
-                   </div>
-                    <div class="text">
-                        <h3>회사명</h3>
-                        <p>제품명이들어갑니다</p>
-                    </div>
-                </a>
-            </article>
-            <article>
-                <a href="#">
-                   <div class="photo">
-                       <img src="img/B004985155.jpg" alt="">
-                   </div>
-                    <div class="text">
-                        <h3>회사명</h3>
-                        <p>제품명이들어갑니다</p>
-                    </div>
-                </a>
-            </article>
+            <%
+        			}
+            %>
+            
+            <%
+        		}else{
+            %>
+            <p>등록된 글이 없습니다</p>
+            <%
+        		}
+            %>
         </div>
    </div>
 </body>

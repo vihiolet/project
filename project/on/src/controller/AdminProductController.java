@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.AdminProRegAcrion;	//상품등록 actoin
+import action.AdminProListAction;	//상품목록 actoin
 import vo.ActionForward;
 
 
@@ -33,7 +34,7 @@ public class AdminProductController extends javax.servlet.http.HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/adminProList.ad")) {
-			action= new AdminProRegAcrion();
+			action= new AdminProListAction();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
