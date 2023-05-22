@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="/on/ReviewWriteForm.on">후기 쓰러 가기</a>
+<a href="/on/ReviewWriteForm.fr">후기 쓰러 가기</a>
 </body>
 </html>

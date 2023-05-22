@@ -13,8 +13,8 @@
    <section class="reg">
         <div class="container"> 
         	<p class="review_tit">사용 후기를 등록해주세요.</p>
-            <form action="reviewWritePro.on" method="post" name="reviewform">
-            	<input type="hidden" name="pro_code" value="3">            	
+            <form action="reviewWriteRev.fr" method="post" name="reviewform">
+            	<input type="hidden" name="pro_code" value="4">            	
             	
                 <div class="reviewWrap tit">
                     <input type="radio" name="tit_fg" id="tit1" class="btn" value="1">

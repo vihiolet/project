@@ -19,8 +19,8 @@ import action.ReviewRegAction;
 
 import vo.ActionForward;
 
-@WebServlet("*.on")
-public class ReviewController extends javax.servlet.http.HttpServlet{
+@WebServlet("*.fr")
+public class FrontController extends javax.servlet.http.HttpServlet{
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException,
 	   IOException {
 	      request.setCharacterEncoding("UTF-8");
@@ -30,11 +30,11 @@ public class ReviewController extends javax.servlet.http.HttpServlet{
 	      ActionForward forward = null;
 	      Action action = null;
 
-	      if(command.equals("/ReviewWriteForm.on")) {
+	      if(command.equals("/ReviewWriteForm.fr")) {
 	         forward = new ActionForward();
 	         forward.setPath("/front/review_write.jsp");
 	         
-	      }else if(command.equals("/reviewWritePro.on")) {
+	      }else if(command.equals("/reviewWriteRev.fr")) {
 	          action = new ReviewRegAction();
 	          try {
 	             forward=action.execute(request, response);

@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import vo.AdminProBean;
 import vo.ReviewBean;
 
-public class DAO {
+public class FrontProDAO {
 	Connection con;
-	private static DAO dao;
+	private static FrontProDAO dao;
 
-	public static DAO getInstance() {
+	public static FrontProDAO getInstance() {
 		if (dao == null) {
-			dao = new DAO();		//DAO 인스턴스 생성
+			dao = new FrontProDAO();		//DAO 인스턴스 생성
 		}
 		return dao;
 	}
@@ -29,7 +29,7 @@ public class DAO {
 	//리뷰 등록
 	public int insertArticle(ReviewBean reviewBean) {
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		//ResultSet rs = null;
 //		int num = 0;
 		String sql = "";
 		int insertCount = 0;
@@ -53,41 +53,17 @@ public class DAO {
 			pstmt.setInt(5, reviewBean.getSub3_fg());
 
 			insertCount = pstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			System.out.println("boardInsert Error! :" + e);
 			e.printStackTrace();
 		} finally {
-			close(rs);
+			//close(rs);
 			close(pstmt);
 		}
 		return insertCount;
 	}
 	
-	//상품 등록
-	public int insertArticle(AdminProBean adminProBean) {
-		int insertCount = 0;
-		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-		String sql = "";
-		
-		try {			
-			sql = "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, srch_nm1, create_dt, create_id) values(?, ?, ?, ?, ?, ?, now(), 01)";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, adminProBean.getPro_nm());
-			pstmt.setInt(2, adminProBean.getMenu_code());
-			pstmt.setString(3, adminProBean.getPro_company());
-			pstmt.setString(4, adminProBean.getPro_img());
-			pstmt.setInt(5, adminProBean.getSrch_code1());
-			pstmt.setString(6, adminProBean.getSrch_nm1());
-//			pstmt.setInt(7, adminProBean.getCreate_id());
-			
-			insertCount = pstmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			System.out.println("Product Insert Error! :" + e);
-			e.printStackTrace();
-		}		
-		return insertCount;
-	}
+
 
 }

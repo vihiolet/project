@@ -2,7 +2,7 @@ package svc;
 
 import vo.ReviewBean;
 import java.sql.Connection;
-import dao.DAO;
+import dao.FrontProDAO;
 import vo.ReviewBean;
 import static db.JdbcUtil.*;
 
@@ -14,7 +14,7 @@ public class ReviewWriteProService {
 		 Connection con = null;
 		 try {
 			 con = getConnection();
-			 DAO dao = DAO.getInstance();
+			 FrontProDAO dao = FrontProDAO.getInstance();
 			 dao.setConnection(con);
 			 int insertCount = dao.insertArticle(reviewBean);
 			 

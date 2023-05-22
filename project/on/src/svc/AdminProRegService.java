@@ -1,7 +1,8 @@
 package svc;
 
 import java.sql.Connection;
-import dao.DAO;
+
+import dao.AdminProDAO;
 import vo.AdminProBean;
 import static db.JdbcUtil.*;
 
@@ -11,7 +12,7 @@ public class AdminProRegService {
 		
 		boolean isSuccess = false;
 		Connection con = getConnection();
-		 DAO dao = DAO.getInstance();		//싱글톤 방식으로 DAO 클래스에서 생성된 인스턴스를 가져옴
+		AdminProDAO dao = AdminProDAO.getInstance();		//싱글톤 방식으로 DAO 클래스에서 생성된 인스턴스를 가져옴
 		 dao.setConnection(con);
 		 int insertCount = dao.insertArticle(adminProBean);
 		 

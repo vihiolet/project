@@ -23,11 +23,8 @@ public class ReviewRegAction implements Action{
 	   
 	   reviewBean.setPro_code(Integer.parseInt(request.getParameter("pro_code")));	   	   
 	   reviewBean.setTit_fg(Integer.parseInt(request.getParameter("tit_fg")));
-	   System.out.println(Integer.parseInt(request.getParameter("tit_fg")));
 	   reviewBean.setSub1_fg(Integer.parseInt(request.getParameter("sub1_fg")));
-	   System.out.println(Integer.parseInt(request.getParameter("sub1_fg")));
 	   reviewBean.setSub2_fg(Integer.parseInt(request.getParameter("sub2_fg")));
-	   System.out.println(Integer.parseInt(request.getParameter("sub2_fg")));
 	   reviewBean.setSub3_fg(Integer.parseInt(request.getParameter("sub3_fg")));
 	   ReviewWriteProService reviewWriteProService = new ReviewWriteProService();
 	   boolean isWriteSuccess = reviewWriteProService.registArticle(reviewBean);
@@ -39,14 +36,12 @@ public class ReviewRegAction implements Action{
 	      out.println("alert('등록실패');");
 	      out.println("history.back()");
 	      out.println("</script>");
-	   }else {
-	      
-	         
+	   }else { 
 	      response.setContentType("text/html; charset=utf-8");
 	      PrintWriter out = response.getWriter();
 	      out.println("<script>");
 	      out.println("alert('등록되었습니다.');");
-	      out.println("location.href='boardWritePro.on'");
+	      out.println("location.href='.fr'");
 	      out.println("</script>");
 
 	   }
