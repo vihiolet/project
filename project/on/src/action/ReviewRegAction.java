@@ -16,18 +16,18 @@ public class ReviewRegAction implements Action{
 	@Override
 	   public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      
-	   ActionForward forward = null;
-	   ReviewBean reviewBean = null;
-	   ServletContext context = request.getServletContext();
-	   reviewBean = new ReviewBean();	   
+	   ActionForward forward= null;
+	   ReviewBean reviewBean= null;
+	   ServletContext context= request.getServletContext();
+	   reviewBean= new ReviewBean();	   
 	   
 	   reviewBean.setPro_code(Integer.parseInt(request.getParameter("pro_code")));	   	   
 	   reviewBean.setTit_fg(Integer.parseInt(request.getParameter("tit_fg")));
 	   reviewBean.setSub1_fg(Integer.parseInt(request.getParameter("sub1_fg")));
 	   reviewBean.setSub2_fg(Integer.parseInt(request.getParameter("sub2_fg")));
 	   reviewBean.setSub3_fg(Integer.parseInt(request.getParameter("sub3_fg")));
-	   ReviewWriteProService reviewWriteProService = new ReviewWriteProService();
-	   boolean isWriteSuccess = reviewWriteProService.registArticle(reviewBean);
+	   ReviewWriteProService reviewWriteProService= new ReviewWriteProService();
+	   boolean isWriteSuccess= reviewWriteProService.registArticle(reviewBean);
 	   
 	   if(!isWriteSuccess) {
 	      response.setContentType("text/html; charset=utf-8");

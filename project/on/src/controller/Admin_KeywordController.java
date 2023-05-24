@@ -8,14 +8,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import action.Action;
-import action.AdminKeyRegAction;	//검색점 action
 import action.AdminProRegAcrion;	//상품등록 actoin
 import action.AdminProListAction;	//상품목록 actoin
 import vo.ActionForward;
 
 
-@WebServlet("*.ad")
-public class AdminController extends javax.servlet.http.HttpServlet{
+@WebServlet("*.ke")
+public class Admin_KeywordController extends javax.servlet.http.HttpServlet{
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding("UTF-8");
 		String RequestURI = request.getRequestURI();
@@ -36,18 +35,6 @@ public class AdminController extends javax.servlet.http.HttpServlet{
 			}
 		}else if(command.equals("/adminProList.ad")) {
 			action= new AdminProListAction();
-			try {
-				forward= action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-		if(command.equals("/adminKey.ad")) {
-			forward= new ActionForward();
-			forward.setPath("/admin/admin_keyword.jsp");
-		}else if(command.equals("/adminKeywordReg.ad")) {
-			action= new AdminKeyRegAction();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

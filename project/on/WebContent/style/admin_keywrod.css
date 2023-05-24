@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+table{ border-collapse: collapse;}
+table td, table tr{
+/*    border: 1px solid #222;*/
+}
+.keyword_list{
+    border-top: 2px solid #333;
+    margin-top: 10px;
+}
+.keyword_tit{
+    border-bottom: 1px solid #999;
+    font-weight: 600;
+}
+.keyword_list td:not(:first-child) {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+/*    font-size: 15px;*/
+}
+.keyword_info td{    
+    border-bottom: 1px solid #ccc;
+}
+.keyword_info .key{
+	border: none;
+    text-align: center;
+}
