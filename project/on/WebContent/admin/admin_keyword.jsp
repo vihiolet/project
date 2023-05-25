@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>검색점</title>
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="style/admin_keywrod.css">
     <link rel="stylesheet" href="style/head.css">
     <link rel="stylesheet" href="style/common.css">
@@ -14,7 +15,7 @@
 	<jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
    	<form action="adminKeywordReg.ad">
       <div>
-            <input type="button" class="add" value="추가">
+            <input type="button" class="add" value="추가" onclick= "addClick()">
             <input type="submit" value="저장">
             <input type="button" value="삭제">
       </div>
@@ -42,8 +43,8 @@
    </form>    
    <script>
    		let param= {
-   			srch_name= $(".srch_name").val() ,
-   			create_id= $(".create_id").val()
+   			srch_name : $(".srch_name").val() ,
+   			create_id : $(".create_id").val()
    		}
    		//ajax 통신
    		$.ajax({
@@ -51,12 +52,15 @@
    			url: "adminKeywordReg.ad" ,
    			data: param ,
    			success: function(res){
-   				alert("hi");
+   				alert("hi?");
    			} ,
    			error: function(XMLHttpRequest, textStatus, errorThrown){
-   				alert("다시!")
+   				alert("다시!");
    			}
    		})
+   		function addClick(){
+   			$('keyword_list').addClass('keyword_info');
+   		}
    </script>
 </body>
 </html>

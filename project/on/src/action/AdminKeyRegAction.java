@@ -14,7 +14,7 @@ public class AdminKeyRegAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ActionForward forwoard= null;
+		ActionForward forward= null;
 		KeywordBean keywordBean= new KeywordBean();
 		ServletContext context= request.getServletContext();
 		
@@ -24,10 +24,12 @@ public class AdminKeyRegAction implements Action {
 		KeywordRegService keywordRegService= new KeywordRegService();
 		boolean isRegSuccess= keywordRegService.registKeyword(keywordBean);
 		
+		if(isRegSuccess) {
+			forward= new ActionForward();
+			forward.setPath("/admin/admin_keyword.jsp");	
+		}				
 		
-		
-		
-		return null;
+		return forward;
 	}
 
 }

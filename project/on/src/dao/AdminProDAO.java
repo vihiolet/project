@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import vo.AdminProBean;
+import vo.KeywordBean;
 
 public class AdminProDAO {
 	
@@ -91,14 +92,14 @@ public class AdminProDAO {
 	
 	//상품 등록
 	public int insertArticle(AdminProBean adminProBean) {
-		int insertCount = 0;
-		PreparedStatement pstmt = null;
+		int insertCount= 0;
+		PreparedStatement pstmt= null;
 //		ResultSet rs = null;
-		String sql = "";
+		String sql= "";
 		
 		try {			
-			sql = "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, srch_nm1, create_dt, create_id) values(?, ?, ?, ?, ?, ?, now(), 01)";
-			pstmt = con.prepareStatement(sql);
+			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, srch_nm1, create_dt, create_id) values(?, ?, ?, ?, ?, ?, now(), 01)";
+			pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, adminProBean.getPro_nm());
 			pstmt.setInt(2, adminProBean.getMenu_code());
 			pstmt.setString(3, adminProBean.getPro_company());
@@ -107,12 +108,34 @@ public class AdminProDAO {
 			pstmt.setString(6, adminProBean.getSrch_nm1());
 //			pstmt.setInt(7, adminProBean.getCreate_id());
 			
-			insertCount = pstmt.executeUpdate();
+			insertCount= pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
 			System.out.println("Product Insert Error! :" + e);
 			e.printStackTrace();
 		}		
+		return insertCount;
+	}
+	
+	//검색점 등록
+	public int insertKey(KeywordBean keywordBean) {
+		
+		int insertCount= 0;
+		PreparedStatement pstmt= null;
+		String sql= "";
+		
+		try {
+			sql= "insert into keyword(srch_name ,create_dt, create_id) value(?, now(), ?)";
+			pstmt= con.prepareStatement(sql);	// 이 코드가 없으면 catch문에 SQLException에서 빨간줄
+			pstmt.setString(1, keywordBean.getSrch_name());
+			pstmt.setInt(2, keywordBean.getCreate_id());
+			insertCount= pstmt.executeUpdate();
+			
+		}catch (SQLException e) {
+			System.out.println("Product Insert Error! :" + e);
+			e.printStackTrace();
+		}	
+		
 		return insertCount;
 	}
 
