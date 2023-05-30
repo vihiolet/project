@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import action.Action;
+import action.AdminKeyListAction;
 import action.AdminKeyRegAction;	//검색점 action
 import action.AdminProRegAcrion;	//상품등록 actoin
 import action.AdminProListAction;	//상품목록 actoin
@@ -44,8 +45,12 @@ public class AdminController extends javax.servlet.http.HttpServlet{
 		}
 		
 		if(command.equals("/adminKey.ad")) {
-			forward= new ActionForward();
-			forward.setPath("/admin/admin_keyword.jsp");
+			action= new AdminKeyListAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/adminKeywordReg.ad")) {
 			action= new AdminKeyRegAction();
 			try {

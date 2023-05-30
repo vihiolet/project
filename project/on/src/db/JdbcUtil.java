@@ -11,21 +11,17 @@ public class JdbcUtil {
 	public static Connection getConnection() {
 		Connection con = null;
 		
-		try {
-			
+		try {			
 			Context initCtx = new InitialContext(); 
 			Context envCtx = (Context)initCtx.lookup("java:comp/env");	
 			DataSource ds = (DataSource)envCtx.lookup("jdbc/projectOn");
 			con = ds.getConnection(); 
 			con.setAutoCommit(false); 
-
 			
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		return con; 
-		
 	}
 
 	public static void close(Connection con) {
