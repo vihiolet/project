@@ -26,6 +26,7 @@ public class AdminKeyListAction implements Action {
 		
 		int listCount= adminKeyListService.getListCount();
 		keywordList= adminKeyListService.getKeywordList(page, limit);
+		
 		int maxPage= (int)((double)listCount/limit + 0.9);
 		int startPage= ((page - 1)/limit) + limit + 1;
 		int endPage= startPage + limit - 1;
@@ -40,6 +41,7 @@ public class AdminKeyListAction implements Action {
 		
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("keywordList", keywordList);
+		System.out.println(keywordList);
 		ActionForward forword= new ActionForward();
 		forword.setPath("/admin/admin_keyword.jsp");
 		

@@ -32,7 +32,7 @@ public class AdminKeyListService {
 		KeywordLsit= adminProDAO.selectKeywordList(page, limit);
 		close(con);
 		
-		return null;
+		return KeywordLsit;
 	} 
 
 }

@@ -41,10 +41,14 @@
                 <td>사용여부</td>
                 <td>비고</td>
             </tr>
+            <%
+            	if(keywordList != null && listCount > 0){
+            		for(int i= 0; i<keywordList.size(); i++){
+            %>
             <tr class="keyword_info">
                 <td><input type="checkbox" name="" style="margin-left: 10px;"></td>
-                <td><input type="text" name="srch_name" class= "key" size="15" value="친환경"></td>
-                <td><input type="text" name="create_id" class= "key" size="15" value="0001"></td>
+                <td><input type="text" name="srch_name" class= "key" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
+                <td><input type="text" name="create_id" class= "key" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
                 <td>
                     <select name="use_yn" id="">
                         <option value="1">사용</option>
@@ -52,21 +56,34 @@
                     </select>
                 </td>
                 <td><input type="text" size="35" value="탄소중립은 탄소중립지향 검색점 이용"></td>
-            </tr>       
+            </tr>  
+            <%
+            		}
+            %> 
+            <%
+            	}else{
+            %>  
+            <p>등록된 검색점이 없습니다</p>  
+            <%
+            	}
+            %>
         </table>        
    </form>    
    <script>
+ 		//=======
+   		//ajax 통신
+   		//=======
    		let param= {
    			srch_name : $(".srch_name").val() ,
    			create_id : $(".create_id").val()
    		}
-   		//ajax 통신
+   		
    		$.ajax({
    			type: "POST" ,
    			url: "adminKeywordReg.ad" ,
    			data: param ,
    			success: function(res){
-   				alert("hi?");
+   				//alert("hi?");
    			} ,
    			error: function(XMLHttpRequest, textStatus, errorThrown){
    				alert("다시!");
@@ -75,6 +92,33 @@
    		function addClick(){
    			$('keyword_list').addClass('keyword_info');
    		}
+   		
+   		//=======
+   		//행 추가
+   		//=======
+   		let rowLenght;
+        let rowValue;
+        let fg= true;
+   	    function addClick(){    
+            if(fg){                
+                addData();
+                removeValue();                
+            }else{
+                alert('내용을 저장하고 추가하십시오');
+            }
+   		}
+        function addData(){
+            $('.keyword_list .keyword_info').eq(0).clone().appendTo('.keyword_list');            
+            rowLenght= $('.keyword_info').length;        
+        }
+       function removeValue(){
+           if(rowLenght > 1 && rowValue == undefined){
+               $('.keyword_list .keyword_info:last-child').addClass('addInput'); 
+               $('.addInput .key').val('');
+               rowValue= $('.addInput .key').val();
+               fg= false;
+            }
+       }    
    </script>
 </body>
 </html>
