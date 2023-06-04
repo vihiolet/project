@@ -46,7 +46,6 @@ public class AdminController extends javax.servlet.http.HttpServlet{
 		
 		if(command.equals("/adminKey.ad")) {
 			action= new AdminKeyListAction();
-			System.out.println(command);
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
@@ -54,6 +53,7 @@ public class AdminController extends javax.servlet.http.HttpServlet{
 			}
 		}else if(command.equals("/adminKeywordReg.ad")) {	//jsp에서 ajax에 써놨음
 			action= new AdminKeyRegAction();
+			System.out.println(command);
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

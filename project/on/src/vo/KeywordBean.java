@@ -7,6 +7,7 @@ public class KeywordBean {
 	private String srch_name;
 	private Date create_dt;
 	private int create_id;
+	private String remark;	
 	
 	public int getSrch_code() {
 		return srch_code;
@@ -31,6 +32,13 @@ public class KeywordBean {
 	}
 	public void setCreate_id(int create_id) {
 		this.create_id = create_id;
+	}
+	
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 	
 }

@@ -41,7 +41,6 @@ public class AdminKeyListAction implements Action {
 		
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("keywordList", keywordList);
-		System.out.println(keywordList);
 		ActionForward forword= new ActionForward();
 		forword.setPath("/admin/admin_keyword.jsp");
 		

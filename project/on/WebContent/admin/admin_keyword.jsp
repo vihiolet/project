@@ -27,10 +27,11 @@
 <body>
 	<jsp:include page="../admin_header.jsp"></jsp:include>	<!--헤더-->
 	<jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-   	<form action="adminKeywordReg.ad">
+   	<form action="adminKeywordReg.ad" name= "">
       <div>
-            <input type="button" class="add" value="추가" onclick= "addClick()">
-            <input type="submit" value="저장">
+            <input type="button"  class="add" value="추가" onclick= "addClick()">
+            <input type="button" value="저장">
+            <a href="javascript:regKeyword.submit()" id= 'save_btn'>저장</a>
             <input type="button" value="삭제">
       </div>
       <table class="keyword_list">
@@ -55,7 +56,7 @@
                         <option value="2">미사용</option>
                     </select>
                 </td>
-                <td><input type="text" size="35" value="탄소중립은 탄소중립지향 검색점 이용"></td>
+                <td><input type="text" size="35" value="<%=keywordList.get(i).getRemark() %>"></td>
             </tr>  
             <%
             		}
@@ -73,25 +74,29 @@
  		//=======
    		//ajax 통신
    		//=======
-   		let param= {
-   			srch_name : $(".srch_name").val() ,
-   			create_id : $(".create_id").val()
-   		}
-   		
-   		$.ajax({
-   			type: "POST" ,
-   			url: "adminKeywordReg.ad" ,
-   			data: param ,
-   			success: function(res){
-   				//alert("hi?");
-   			} ,
-   			error: function(XMLHttpRequest, textStatus, errorThrown){
-   				alert("다시!");
-   			}
+   		$('#save_btn').click(function(){
+   			
+   			//json 형식으로 데이터 set
+   			let param= {
+   		   			srch_name : $(".srch_name").val() ,
+   		   			create_id : $(".create_id").val()
+   		   		}
+   		   		
+   		   		$.ajax({
+   		   			type: "POST" ,
+   		   			url: "adminKeywordReg.ad" ,
+   		   			data: param ,
+   		   			success: function(res){
+   		   				alert("저장되었습니다");
+   		   			} ,
+   		   			error: function(XMLHttpRequest, textStatus, errorThrown){
+   		   				alert("다시!");
+   		   			}
+   		   		})
+   		   		function addClick(){
+   		   			$('keyword_list').addClass('keyword_info');
+   		   		}
    		})
-   		function addClick(){
-   			$('keyword_list').addClass('keyword_info');
-   		}
    		
    		//=======
    		//행 추가

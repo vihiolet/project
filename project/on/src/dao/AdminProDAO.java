@@ -125,10 +125,11 @@ public class AdminProDAO {
 		String sql= "";
 		
 		try {
-			sql= "insert into keyword(srch_name ,create_dt, create_id) value(?, now(), ?)";
+			sql= "insert into keyword(srch_name ,create_dt, create_id, remark) value(?, now(), ?, ?)";
 			pstmt= con.prepareStatement(sql);	// 이 코드가 없으면 catch문에 SQLException에서 빨간줄
 			pstmt.setString(1, keywordBean.getSrch_name());
 			pstmt.setInt(2, keywordBean.getCreate_id());
+			pstmt.setString(3, keywordBean.getRemark());
 			insertCount= pstmt.executeUpdate();
 			
 		}catch (SQLException e) {
@@ -164,7 +165,7 @@ public class AdminProDAO {
 	public ArrayList<KeywordBean> selectKeywordList(int page, int limit) {
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
-		String admin_key_list_sql= "select * from keyword order by srch_code asc limit ?, 10";
+		String admin_key_list_sql= "select srch_code, srch_name, create_dt, create_id, ifnull(remark, '') as remark from keyword order by srch_code asc limit ?, 10";
 		ArrayList<KeywordBean> keywordLsit= new ArrayList<KeywordBean>();
 		KeywordBean keyword= null;
 		int startrow= (page - 1) * 10;
@@ -179,6 +180,7 @@ public class AdminProDAO {
 				keyword.setCreate_id(rs.getInt("create_id"));
 				keyword.setSrch_name(rs.getString("srch_name"));
 				keyword.setCreate_dt(rs.getDate("create_dt"));
+				keyword.setRemark(rs.getString("remark"));
 				keywordLsit.add(keyword);
 			}
 		}catch(Exception e) {
