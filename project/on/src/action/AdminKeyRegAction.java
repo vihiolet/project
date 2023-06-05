@@ -19,27 +19,22 @@ public class AdminKeyRegAction implements Action {
 		ServletContext context= request.getServletContext();
 		
 		keywordBean.setSrch_name(request.getParameter("srch_name"));
-		
-		keywordBean.setSrch_name("test");
-		System.out.println(request.getParameter("srch_name"));
-		
-		//keywordBean.setCreate_id(Integer.parseInt(request.getParameter("create_id")));
-		keywordBean.setCreate_id(5);
-		//System.out.println(request.getParameter("srch_name"));
-		keywordBean.setRemark(request.getParameter("remark"));		
-		
+		keywordBean.setCreate_id(Integer.parseInt(request.getParameter("create_id")));
+		keywordBean.setRemark(request.getParameter("remark"));			
 		
 		KeywordRegService keywordRegService= new KeywordRegService();
-		boolean isRegSuccess= keywordRegService.registKeyword(keywordBean);
-		
-		System.out.println("성공여부" + isRegSuccess);
-		
-		if(isRegSuccess) {
+		boolean isRegSuccess= keywordRegService.registKeyword(keywordBean);		
+		System.out.println(isRegSuccess);
+		if(isRegSuccess) {			
 			forward= new ActionForward();
-			forward.setPath("/admin/admin_keyword.jsp");	
-		}				
-		
+			forward.setRedirect(true);
+			forward.setPath("adminKey.ke");	
+		}else {
+			
+			forward= new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("adminKey.ke");
+		}		
 		return forward;
 	}
-
 }

@@ -5,13 +5,13 @@
 <%@ page import= "java.text.SimpleDateFormat" %>
 
 <%
-	ArrayList<KeywordBean> keywordList = (ArrayList<KeywordBean>)request.getAttribute("keywordList");
-	PageInfo pageInfo= (PageInfo)request.getAttribute("pageInfo");
-	int listCount= pageInfo.getListCount();
-	int nowPage= pageInfo.getPage();
-	int maxPage= pageInfo.getMaxPage();
-	int startPage= pageInfo.getStartPage();
-	int endPage= pageInfo.getEndPage();
+		ArrayList<KeywordBean> keywordList = (ArrayList<KeywordBean>)request.getAttribute("keywordList");
+		PageInfo pageInfo= (PageInfo)request.getAttribute("pageInfo");
+		int listCount= pageInfo.getListCount();
+		int nowPage= pageInfo.getPage();
+		int maxPage= pageInfo.getMaxPage();
+		int startPage= pageInfo.getStartPage();
+		int endPage= pageInfo.getEndPage();	
 %>
 
 <!DOCTYPE html>
@@ -27,11 +27,10 @@
 <body>
 	<jsp:include page="../admin_header.jsp"></jsp:include>	<!--헤더-->
 	<jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-   	<form action="adminKeywordReg.ad" name= "">
+   	<form action="" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
             <input type="button"  class="add" value="추가" onclick= "addClick()">
-            <input type="button" value="저장">
-            <a href="javascript:regKeyword.submit()" id= 'save_btn'>저장</a>
+            <input type="submit" value="저장" id='save_btn'>            
             <input type="button" value="삭제">
       </div>
       <table class="keyword_list">
@@ -48,15 +47,15 @@
             %>
             <tr class="keyword_info">
                 <td><input type="checkbox" name="" style="margin-left: 10px;"></td>
-                <td><input type="text" name="srch_name" class= "key" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
-                <td><input type="text" name="create_id" class= "key" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
+                <td><input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
+                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
                 <td>
                     <select name="use_yn" id="">
                         <option value="1">사용</option>
                         <option value="2">미사용</option>
                     </select>
                 </td>
-                <td><input type="text" size="35" value="<%=keywordList.get(i).getRemark() %>"></td>
+                <td><input type="text" size="35" id= "remark" class= "key remark" value="<%=keywordList.get(i).getRemark() %>"></td>
             </tr>  
             <%
             		}
@@ -71,59 +70,80 @@
         </table>        
    </form>    
    <script>
- 		//=======
-   		//ajax 통신
-   		//=======
-   		$('#save_btn').click(function(){
-   			
-   			//json 형식으로 데이터 set
-   			let param= {
-   		   			srch_name : $(".srch_name").val() ,
-   		   			create_id : $(".create_id").val()
-   		   		}
-   		   		
-   		   		$.ajax({
-   		   			type: "POST" ,
-   		   			url: "adminKeywordReg.ad" ,
-   		   			data: param ,
-   		   			success: function(res){
-   		   				alert("저장되었습니다");
-   		   			} ,
-   		   			error: function(XMLHttpRequest, textStatus, errorThrown){
-   		   				alert("다시!");
-   		   			}
-   		   		})
-   		   		function addClick(){
-   		   			$('keyword_list').addClass('keyword_info');
-   		   		}
-   		})
-   		
-   		//=======
-   		//행 추가
-   		//=======
-   		let rowLenght;
-        let rowValue;
-        let fg= true;
-   	    function addClick(){    
-            if(fg){                
-                addData();
-                removeValue();                
-            }else{
-                alert('내용을 저장하고 추가하십시오');
-            }
+		//=======
+		//행 추가
+		//=======
+		let rowLenght;
+   		let rowValue;
+   		let fg= true;
+   
+	    function addClick(){    
+       		if(fg){                
+           		addData();
+           		removeValue();                
+       		}else{
+           		alert('내용을 저장하고 추가하십시오');
+       		}
+		}
+   		function addData(){
+       		$('.keyword_list .keyword_info').eq(0).clone().appendTo('.keyword_list');            
+       		rowLenght= $('.keyword_info').length;        
    		}
-        function addData(){
-            $('.keyword_list .keyword_info').eq(0).clone().appendTo('.keyword_list');            
-            rowLenght= $('.keyword_info').length;        
-        }
-       function removeValue(){
-           if(rowLenght > 1 && rowValue == undefined){
-               $('.keyword_list .keyword_info:last-child').addClass('addInput'); 
-               $('.addInput .key').val('');
-               rowValue= $('.addInput .key').val();
-               fg= false;
-            }
-       }    
+   		function removeValue(){
+      		if(rowLenght > 1 && rowValue == undefined){
+          		$('.keyword_list .keyword_info:last-child').addClass('addInput'); 
+          		$('.addInput .key').val('');
+          		rowValue= $('.addInput .key').val();
+          		fg= false;
+       		}
+      		$('.addInput #srch_name').attr('name', 'srch_name');
+      		$('.addInput #create_id').attr('name', 'create_id');
+      		$('.addInput #remark').attr('name', 'remark');
+   		}      		
+   		
+   		//===========
+   		//submit 체크
+   		//===========
+		/*function checkForm(){
+   			if(rowValue == undefined){
+   				alert('검색점을 추가 후 저장하세요.');
+   				return false;
+   			}
+   			return true;   				
+   		}*/
+   		//=======
+		//ajax 통신
+		//=======
+		$('#save_btn').on("click", function(){
+			//e.preventDefault();
+			
+			//json 형식으로 데이터 set
+			let param= {
+		   			srch_name 	: $(".addInput .srch_name").val() ,
+		   			create_id 	: $(".addInput .create_id").val() , 
+		   			remark 		: $(".addInput .remark").val()
+		   	}
+	   		$.ajax({
+		   		type: "POST" ,
+		   		url: "adminKeywordReg.ke" ,
+		   		data: param ,
+		   		success: function(data, textStatus){
+		   			if(data == 'reg success'){
+		   				console.log(data);
+		   				alert("저장되었습니다");	
+		   			}else{
+		   				alert("다시 등록하세요");
+		   			}		   			
+		   		} ,
+		   		error: function(data, textStatus){
+		   			if(rowValue == undefined){
+		   				alert('검색점을 추가 후 저장하세요.');
+		   			}else{
+		   				alert("검색점 내용을 모두 입력하세요.");	
+		   			}		   			
+		   		}
+		   	})	   		
+		})
    </script>
 </body>
 </html>
