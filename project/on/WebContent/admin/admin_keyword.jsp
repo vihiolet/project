@@ -27,7 +27,7 @@
 <body>
 	<jsp:include page="../admin_header.jsp"></jsp:include>	<!--헤더-->
 	<jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-   	<form action="" method="post" name= "regKeyword" onsubmit= "return checkForm()">
+   	<form action="adminKeywordReg.ke" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
             <input type="button"  class="add" value="추가" onclick= "addClick()">
             <input type="submit" value="저장" id='save_btn'>            
@@ -76,6 +76,7 @@
 		let rowLenght;
    		let rowValue;
    		let fg= true;
+   		let srch_name= $('.addInput #srch_name');
    
 	    function addClick(){    
        		if(fg){                
@@ -99,51 +100,33 @@
       		$('.addInput #srch_name').attr('name', 'srch_name');
       		$('.addInput #create_id').attr('name', 'create_id');
       		$('.addInput #remark').attr('name', 'remark');
-   		}      		
+   		} 
    		
    		//===========
    		//submit 체크
    		//===========
-		/*function checkForm(){
-   			if(rowValue == undefined){
-   				alert('검색점을 추가 후 저장하세요.');
+		function checkForm(){
+   			let srch_name= $('.addInput #srch_name');
+			let create_id= $('.addInput #create_id');
+			
+			//===========
+   			//필수값 체크
+   			//===========
+   			if(rowValue == undefined){   				//행추가 하지 않고 저장버튼을 눌렀을 경우
+   				alert('검색점을 추가 후 저장하세요.');   				
+   				return false;   				
+   			}else if(srch_name.val() == ''){			//검색점을 입력하지 않고 저장했을 경우
+   				alert('검색점은 필수값입니다.');
+   				//location.reload();					//새로고침
+   				return false;
+   			}else if(create_id.val() == ''){			//등록인을 입력하지 않고 저장했을 경우
+   				alert('등록인은 필수값입니다.');
+   				//location.reload();
    				return false;
    			}
+   			alert('등록되었습니다.');
    			return true;   				
-   		}*/
-   		//=======
-		//ajax 통신
-		//=======
-		$('#save_btn').on("click", function(){
-			//e.preventDefault();
-			
-			//json 형식으로 데이터 set
-			let param= {
-		   			srch_name 	: $(".addInput .srch_name").val() ,
-		   			create_id 	: $(".addInput .create_id").val() , 
-		   			remark 		: $(".addInput .remark").val()
-		   	}
-	   		$.ajax({
-		   		type: "POST" ,
-		   		url: "adminKeywordReg.ke" ,
-		   		data: param ,
-		   		success: function(data, textStatus){
-		   			if(data == 'reg success'){
-		   				console.log(data);
-		   				alert("저장되었습니다");	
-		   			}else{
-		   				alert("다시 등록하세요");
-		   			}		   			
-		   		} ,
-		   		error: function(data, textStatus){
-		   			if(rowValue == undefined){
-		   				alert('검색점을 추가 후 저장하세요.');
-		   			}else{
-		   				alert("검색점 내용을 모두 입력하세요.");	
-		   			}		   			
-		   		}
-		   	})	   		
-		})
+   		}  		
    </script>
 </body>
 </html>

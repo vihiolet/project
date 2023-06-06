@@ -40,19 +40,14 @@ public class Admin_KeywordController extends javax.servlet.http.HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/adminKeywordReg.ke")) {	//jsp에서 ajax에 써놨음
-						
-			KeywordBean keywordBean= new KeywordBean();
-			keywordBean.setSrch_name(request.getParameter("srch_name"));
-			keywordBean.setCreate_id(Integer.parseInt(request.getParameter("create_id")));
-			keywordBean.setRemark(request.getParameter("remark"));	
-			KeywordRegService keywordRegService= new KeywordRegService();
-			boolean isRegSuccess= keywordRegService.registKeyword(keywordBean);	
-			PrintWriter out = response.getWriter();
-			if(isRegSuccess) {
-				out.print("reg success");
-			}else {
-				out.print("reg fail");
+			System.out.println(command);
+			action= new AdminKeyRegAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
 			}
+			
 			
 		}
 		

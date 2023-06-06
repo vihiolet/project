@@ -23,6 +23,7 @@ public class KeywordRegService {
 			rollback(con);
 		}
 		close(con);
+		
 		return isSuccess;
 	}
 

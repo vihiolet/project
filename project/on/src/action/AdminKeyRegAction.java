@@ -24,13 +24,12 @@ public class AdminKeyRegAction implements Action {
 		
 		KeywordRegService keywordRegService= new KeywordRegService();
 		boolean isRegSuccess= keywordRegService.registKeyword(keywordBean);		
-		System.out.println(isRegSuccess);
-		if(isRegSuccess) {			
+		
+		if(isRegSuccess) {						//commit
 			forward= new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("adminKey.ke");	
-		}else {
-			
+		}else { 								//rollback			
 			forward= new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("adminKey.ke");
