@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import action.Action;
+import action.AdminKeyDeleteAction;
 import action.AdminKeyListAction;
 import action.AdminKeyRegAction;
 import action.AdminProRegAcrion;	//상품등록 actoin
@@ -39,16 +40,23 @@ public class Admin_KeywordController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/adminKeywordReg.ke")) {	//jsp에서 ajax에 써놨음
-			System.out.println(command);
+		//등록
+		}else if(command.equals("/adminKeywordReg.ke")) {	
 			action= new AdminKeyRegAction();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
-			}
-			
-			
+			}			
+		//삭제
+		}else if(command.equals("/adminKeywordDel.ke")) {	
+			System.out.println(command);
+			action= new AdminKeyDeleteAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}			
 		}
 		
 		if(forward != null) {

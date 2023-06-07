@@ -31,11 +31,11 @@
       <div>
             <input type="button"  class="add" value="추가" onclick= "addClick()">
             <input type="submit" value="저장" id='save_btn'>            
-            <input type="button" value="삭제">
+            <input type="button" value="삭제" id= "delete_btn">
       </div>
       <table class="keyword_list">
            <tr class="keyword_tit">
-                <td><input type="checkbox" name="" style="margin-left: 10px;"></td>
+                <td><input type="checkbox" name="" style="margin-left: 10px;"></td>                
                 <td>검색점</td>
                 <td>등록인</td>
                 <td>사용여부</td>
@@ -46,7 +46,11 @@
             		for(int i= 0; i<keywordList.size(); i++){
             %>
             <tr class="keyword_info">
-                <td><input type="checkbox" name="" style="margin-left: 10px;"></td>
+            	
+                <td>
+                	<input type="checkbox" name="" style="margin-left: 10px;">
+                	<input type="hidden" id= "srch_code" value="<%=keywordList.get(i).getSrch_code() %>">
+                </td>
                 <td><input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
                 <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
                 <td>
@@ -127,6 +131,23 @@
    			alert('등록되었습니다.');
    			return true;   				
    		}  		
+   		$('#delete_btn').on("click", function(e){
+   			
+   			let param= {
+   				
+   			}
+   			$.ajax({
+   				type: "POST",
+   				url: "adminKeywordDel.ke",
+   				data: { srch_code : $("#srch_code").val() },
+   				success: function(data){
+   					alert('삭제되었습니당');
+   				},
+   				error: function(data) {
+   					alert('오류!@#$%^');
+   				}
+   			})
+   		})
    </script>
 </body>
 </html>

@@ -7,7 +7,7 @@ import vo.KeywordBean;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import dao.AdminProDAO;
+import dao.AdminKeywordDAO;
 import vo.KeywordBean;
 
 public class AdminKeyListService {
@@ -16,9 +16,9 @@ public class AdminKeyListService {
 		
 		int listCount= 0;
 		Connection con = getConnection();
-		AdminProDAO adminProDAO= AdminProDAO.getInstance();
-		adminProDAO.setConnection(con);
-		listCount= adminProDAO.selectKeywordListCount();
+		AdminKeywordDAO adminKeywordDAO= AdminKeywordDAO.getInstance();
+		adminKeywordDAO.setConnection(con);
+		listCount= adminKeywordDAO.selectKeywordListCount();
 		close(con);
 		
 		return listCount;
@@ -27,9 +27,9 @@ public class AdminKeyListService {
 	public ArrayList<KeywordBean> getKeywordList(int page, int limit) {
 		ArrayList<KeywordBean> KeywordLsit= null;
 		Connection con= getConnection();
-		AdminProDAO adminProDAO= AdminProDAO.getInstance();
-		adminProDAO.setConnection(con);
-		KeywordLsit= adminProDAO.selectKeywordList(page, limit);
+		AdminKeywordDAO adminKeywordDAO= AdminKeywordDAO.getInstance();
+		adminKeywordDAO.setConnection(con);
+		KeywordLsit= adminKeywordDAO.selectKeywordList(page, limit);
 		close(con);
 		
 		return KeywordLsit;

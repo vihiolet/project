@@ -2,7 +2,7 @@ package svc;
 
 import java.sql.Connection;
 
-import dao.AdminProDAO;
+import dao.AdminKeywordDAO;
 import vo.KeywordBean;
 import static db.JdbcUtil.*;
 
@@ -12,7 +12,7 @@ public class KeywordRegService {
 		
 		boolean isSuccess= false;
 		Connection con= getConnection();
-		AdminProDAO dao= AdminProDAO.getInstance();
+		AdminKeywordDAO dao= AdminKeywordDAO.getInstance();
 		dao.setConnection(con);
 		int insertCount= dao.insertKey(keywordBean);
 		
