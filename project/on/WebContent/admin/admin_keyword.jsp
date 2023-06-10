@@ -45,12 +45,8 @@
             	if(keywordList != null && listCount > 0){
             		for(int i= 0; i<keywordList.size(); i++){
             %>
-            <tr class="keyword_info">
-            	
-                <td>
-                	<input type="checkbox" name="" style="margin-left: 10px;">
-                	<input type="hidden" id= "srch_code" value="<%=keywordList.get(i).getSrch_code() %>">
-                </td>
+            <tr class="keyword_info">            	
+                <td><input type="checkbox" name="" id= "srch_code" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
                 <td><input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
                 <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
                 <td>
@@ -131,11 +127,11 @@
    			alert('등록되었습니다.');
    			return true;   				
    		}  		
+   		
+   		//삭제
    		$('#delete_btn').on("click", function(e){
    			
-   			let param= {
-   				
-   			}
+   			
    			$.ajax({
    				type: "POST",
    				url: "adminKeywordDel.ke",
@@ -147,6 +143,7 @@
    					alert('오류!@#$%^');
    				}
    			})
+   			location.reload();
    		})
    </script>
 </body>

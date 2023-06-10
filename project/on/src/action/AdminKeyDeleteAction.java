@@ -18,7 +18,8 @@ public class AdminKeyDeleteAction implements Action {
 		if(isDelSuccess) {
 			forword= new ActionForward();
 			forword.setRedirect(true);
-			forword.setPath("adminKey.ke?page=" + nowPage);
+			//forword.setPath("adminKey.ke?page=" + nowPage);
+			forword.setPath("adminKey.ke");
 		}		
 		return forword;
 	}	
