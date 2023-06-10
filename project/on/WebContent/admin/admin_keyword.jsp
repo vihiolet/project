@@ -46,7 +46,7 @@
             		for(int i= 0; i<keywordList.size(); i++){
             %>
             <tr class="keyword_info">            	
-                <td><input type="checkbox" name="" id= "srch_code" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
+                <td><input type="checkbox" name="srch_code" id= "srch_code" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
                 <td><input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
                 <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
                 <td>
@@ -77,7 +77,8 @@
    		let rowValue;
    		let fg= true;
    		let srch_name= $('.addInput #srch_name');
-   
+   		
+   		//추가 버튼 이벤트 헨들러
 	    function addClick(){    
        		if(fg){                
            		addData();
@@ -85,11 +86,15 @@
        		}else{
            		alert('내용을 저장하고 추가하십시오');
        		}
+       		//location.reload();	
 		}
+   		
+	    //이전 행 복제
    		function addData(){
        		$('.keyword_list .keyword_info').eq(0).clone().appendTo('.keyword_list');            
        		rowLenght= $('.keyword_info').length;        
    		}
+	    //복제된 행 데이터 리셋
    		function removeValue(){
       		if(rowLenght > 1 && rowValue == undefined){
           		$('.keyword_list .keyword_info:last-child').addClass('addInput'); 
@@ -117,7 +122,6 @@
    				return false;   				
    			}else if(srch_name.val() == ''){			//검색점을 입력하지 않고 저장했을 경우
    				alert('검색점은 필수값입니다.');
-   				//location.reload();					//새로고침
    				return false;
    			}else if(create_id.val() == ''){			//등록인을 입력하지 않고 저장했을 경우
    				alert('등록인은 필수값입니다.');
@@ -130,20 +134,28 @@
    		
    		//삭제
    		$('#delete_btn').on("click", function(e){
+   			//체크한 srch_code
+   			let srch_code= $('input[type=checkbox][name=srch_code]:checked').val();  
    			
-   			
-   			$.ajax({
-   				type: "POST",
-   				url: "adminKeywordDel.ke",
-   				data: { srch_code : $("#srch_code").val() },
-   				success: function(data){
-   					alert('삭제되었습니당');
-   				},
-   				error: function(data) {
-   					alert('오류!@#$%^');
-   				}
-   			})
-   			location.reload();
+   			if(srch_code != null){
+   				$.ajax({
+   	   				type: "POST",
+   	   				url: "adminKeywordDel.ke",
+   	   				data: { srch_code : srch_code },
+   	   				success: function(data){
+   	   					//alert(data);
+   	   					alert('삭제되었습니당');
+   	   					location.reload();			//새로고침
+   	   				},
+   	   				error: function(data) {
+   	   					alert('오류!@#$%^');
+   	   					location.reload();
+   	   				}
+   	   			})
+   			}else{
+   				alert('삭제할 검색점을 선택하세요');
+   			}   			
+   			//location.reload();	//여기에 쓰면 success의 alert나 console.log가 실행 안 된다 success의 마지막에 써야 된다
    		})
    </script>
 </body>
