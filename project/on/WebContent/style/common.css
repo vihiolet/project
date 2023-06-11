@@ -16,3 +16,5 @@ table{ table-layout: fixed; border-collapse: collapse; border-spacing: 0; }
 
 /*컨텐츠 설정*/
 section, footer{padding-left: 19%; padding-right: 19%; }
+
+#pageList{ text-align: center;}
