@@ -57,8 +57,15 @@
                 </td>
                 <td><input type="text" size="35" id= "remark" class= "key remark" value="<%=keywordList.get(i).getRemark() %>"></td>
             </tr>  
+            <div class="pageList">
+            	<%if(nowPage <= 1) { %>
+               		[이전]&nbsp;
+          		<% }else {%>
+               		<a href=".ke?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
+          		<% } %>
+            </div>
             <%
-            		}
+            	}
             %> 
             <%
             	}else{
