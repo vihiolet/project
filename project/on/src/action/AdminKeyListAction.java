@@ -28,7 +28,8 @@ public class AdminKeyListAction implements Action {
 		keywordList= adminKeyListService.getKeywordList(page, limit);
 		
 		int maxPage= (int)((double)listCount/limit + 0.9);
-		int startPage= ((page - 1)/limit) + limit + 1;
+		//int startPage= ((page - 1)/limit) + limit + 1;
+		int startPage= (((int)((double)page / 10 + 0.9)) - 1) * 10 + 1;
 		int endPage= startPage + limit - 1;
 		if(endPage > maxPage) endPage = maxPage;
 		
