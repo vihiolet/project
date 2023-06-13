@@ -17,8 +17,7 @@ public class AdminKeyDeleteAction implements Action {
 		boolean isDelSuccess= actionKeyDeleteService.removeKeyword(srch_code);
 		if(isDelSuccess) {
 			forword= new ActionForward();
-			//forword.setPath("adminKey.ke?page=" + nowPage);
-			forword.setPath("adminKey.ke");
+			forword.setPath("adminKey.ke?page=" + nowPage);
 		}		
 		return forword;
 	}	

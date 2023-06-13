@@ -50,7 +50,7 @@ public class AdminProRegAcrion implements Action{
 		}else {				//상품 등록 성공
 			forward = new ActionForward();	//24행에 null로 초기화 했음
 			forward.setRedirect(true);		//redirect 방식 주소 변화 있음
-			forward.setPath("adminProList.ad");
+			forward.setPath("adminProList.pr");
 		}		
 		
 		return forward;		//ActionForward 인스턴스 즉 ActionForward 객체를 리턴한다

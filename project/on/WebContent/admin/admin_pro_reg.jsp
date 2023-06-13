@@ -24,7 +24,7 @@
                         <p>검색점</p>
                         <p>상품 사진</p>
                   </div>
-                  <form action="adminPro.ad" method="post" enctype="multipart/form-data">
+                  <form action="adminProReg.pr" method="post" enctype="multipart/form-data">
                     <div class="pro_value">
                         <div class="menu_radio">                      
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
@@ -40,7 +40,7 @@
                          </div>
                          <div class="keyword_r">                     
                              <input type="button" value="추가" onclick="keywordOpen()">
-                             <input type="text" class="keyInput" name="srch_nm1" value="친환경" required= "required">
+                             <input type="text" class="keyInput" name="srch_nm1" value="" required= "required">
                              <input type="hidden" class="keyInput" name="srch_code1" value="01" required= "required">
                              <input type="text" class="keyInput" name="srch_nm2">
                              <input type="hidden" class="keyInput" name="srch_code2">

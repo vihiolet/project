@@ -15,8 +15,8 @@ import action.AdminProListAction;	//상품목록 actoin
 import vo.ActionForward;
 
 
-@WebServlet("*.ad")
-public class AdminController extends javax.servlet.http.HttpServlet{
+@WebServlet("*.pr")
+public class AdminProController extends javax.servlet.http.HttpServlet{
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding("UTF-8");
 		String RequestURI = request.getRequestURI();
@@ -25,17 +25,17 @@ public class AdminController extends javax.servlet.http.HttpServlet{
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/productRegForm.ad")) {
+		if(command.equals("/productRegForm.pr")) {
 			forward= new ActionForward();
 			forward.setPath("/admin/admin_pro_reg.jsp");
-		}else if(command.equals("/adminPro.ad")) {
+		}else if(command.equals("/adminProReg.pr")) {
 			action= new AdminProRegAcrion();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/adminProList.ad")) {
+		}else if(command.equals("/adminProList.pr")) {
 			action= new AdminProListAction();
 			try {
 				forward= action.execute(request, response);

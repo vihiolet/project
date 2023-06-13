@@ -11,9 +11,7 @@
 		int nowPage= pageInfo.getPage();
 		int maxPage= pageInfo.getMaxPage();
 		int startPage= pageInfo.getStartPage();
-		int endPage= pageInfo.getEndPage();	
-		
-		System.out.println(startPage);
+		int endPage= pageInfo.getEndPage();
 %>
 
 <!DOCTYPE html>
