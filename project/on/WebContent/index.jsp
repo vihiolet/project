@@ -15,6 +15,11 @@
 <body>
     <header>
       <div class="container">
+      	<div class= "login">
+      		<span>관리자 로그인</span>
+      		<span>로그인/</span>
+      		<span>회원가입</span>
+      	</div>
          <div class="container-small">
               <a href="" class="head1">로고</a>   
               <button type="button" class="head3">
