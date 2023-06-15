@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -11,8 +11,8 @@
 <link rel="stylesheet" href="style/admin_pro.css">
 <link rel="stylesheet" href="style/head.css">
 <body>
-	<jsp:include page="admin_header.jsp"></jsp:include>	<!--헤더-->
-	<jsp:include page="left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
+	<jsp:include page="./include/admin_header.jsp"></jsp:include>	<!--헤더-->
+	<jsp:include page="./include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
 	관리자페이지 데시보드입니다
 </body>
 </html>

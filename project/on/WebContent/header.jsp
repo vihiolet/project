@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="style/head.css">
+<link rel="stylesheet" href="./style/common.css">
+<link rel="stylesheet" href="./style/head.css">
 <script>
     $(function(){
     $('.head3').click(function(){
@@ -15,22 +16,27 @@
 </script>
 </head>
 <body>
-  <header>
-      <div class="container">
+ <header>
+      <div class= "login">
+      		<a href= "">관리자 로그인</a>
+      		<a href= "login.jsp">로그인</a>
+      		<a href= "">회원가입</a>
+      </div>
+      <div class="container">      	
          <div class="container-small">
-              <a href="" class="head1">로고</a>   
+              <a href="index.jsp" class="head1">로고</a>   
               <button type="button" class="head3">
-<!--                  <i class="fa-solid fa-bars-staggered"></i>-->
              <i class="fa-solid fa-bars"></i>
               </button>
          </div>
           
           <nav class="head2">
               <ul>
-                  <li><a href="">TOP</a></li>
-                  <li><a href="">콘텐츠</a></li>
-                  <li><a href="">소개</a></li>
-                  <li><a href="">문의</a></li>
+                  <li><a href="">음식</a></li>
+                  <li><a href="">옷</a></li>
+                  <li><a href="">장신구</a></li>
+                  <li><a href="">미용</a></li>
+                  <li><a href="">생활</a></li>
               </ul>
           </nav>
       </div>

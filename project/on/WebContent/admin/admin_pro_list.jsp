@@ -26,9 +26,9 @@
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
-	<jsp:include page="../admin_header.jsp"></jsp:include>	<!--헤더-->
+	<jsp:include page="../include/admin_header.jsp"></jsp:include>	<!--헤더-->
 	<div class="list a_container">
-		<jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
+		<jsp:include page="../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
         <div class="container a_bg">     
         	<%
         		if(articleList != null && listCount > 0){

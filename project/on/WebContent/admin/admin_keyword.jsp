@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="style/common.css">
 </head>
 <body>
-	<jsp:include page="../admin_header.jsp"></jsp:include>	<!--헤더-->
-	<jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
+	<jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
+	<jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
    	<form action="adminKeywordReg.ke" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
             <input type="button"  class="add" value="추가" onclick= "addClick()">

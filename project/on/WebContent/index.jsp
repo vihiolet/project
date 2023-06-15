@@ -13,31 +13,8 @@
 <link rel="stylesheet" href="style/head.css">
 <link rel="stylesheet" href="style/footer.css">
 <body>
-    <header>
-      <div class="container">
-      	<div class= "login">
-      		<span>관리자 로그인</span>
-      		<span>로그인/</span>
-      		<span>회원가입</span>
-      	</div>
-         <div class="container-small">
-              <a href="" class="head1">로고</a>   
-              <button type="button" class="head3">
-             <i class="fa-solid fa-bars"></i>
-              </button>
-         </div>
-          
-          <nav class="head2">
-              <ul>
-                  <li><a href="">음식</a></li>
-                  <li><a href="">옷</a></li>
-                  <li><a href="">장신구</a></li>
-                  <li><a href="">미용</a></li>
-                  <li><a href="">생활</a></li>
-              </ul>
-          </nav>
-      </div>
-  </header>
+<!-- <a href="/on/ReviewWriteForm.fr">후기 쓰러 가기</a> -->
+    <jsp:include page="header.jsp"></jsp:include>
     <div class="step1">
        <div class="slider">
           <ul>
@@ -171,25 +148,7 @@
        </div>
    </div>
    <!--   푸터 시작-->
-  <footer>
-       <div class="container">
-          <div class="foot1">
-               <a href="">로고</a>
-               <i class="fa-brands fa-youtube icon"></i>     
-               <i class="fa-brands fa-instagram icon"></i>
-               <i class="fa-regular fa-paper-plane icon"></i>  
-          </div>
-          <div class="foot2">
-              <ul>
-                  <li><a href="">음식</a></li>
-                  <li><a href="">옷</a></li>
-                  <li><a href="">장신구</a></li>
-                  <li><a href="">미용</a></li>
-                  <li><a href="">생활</a></li>
-              </ul>
-          </div>
-       </div>        
-  </footer>
+   <jsp:include page="footer.jsp"></jsp:include>
    <script src="js/slider.js"></script>
 </body>
 </html>

@@ -12,9 +12,9 @@
 <link rel="stylesheet" href="style/head.css">
 <body>
    <div class="admin_pro">
-      <jsp:include page="../admin_header.jsp"></jsp:include>	<!--헤더-->
+      <jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
       <div class="container">          
-          <jsp:include page="../left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
+          <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
           <div class="content">
             <div class="bg">
                 <div class="pro_tit"> 

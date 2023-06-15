@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="style/header.css">
-<link rel="stylesheet" href="style/common.css">
-<link rel="stylesheet" href="style/login.css">
-<link rel="stylesheet" href="style/footer.css">
+<link rel="stylesheet" href="./style/common.css">
+<link rel="stylesheet" href="./style/login.css">
+<link rel="stylesheet" href="./style/footer.css">
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div>
     	<form action="" name= "login_form">
            <div class="loginWrap">
@@ -24,5 +24,6 @@
             </div>
         </form>
     </div>
+    <jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
