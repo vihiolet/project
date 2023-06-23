@@ -26,14 +26,13 @@ import vo.KeywordBean;
 public class AdminKeywordController extends javax.servlet.http.HttpServlet{
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.setCharacterEncoding("UTF-8");
-		String RequestURI = request.getRequestURI();
-		String contextPath = request.getContextPath();
-		String command = RequestURI.substring(contextPath.length());
-		ActionForward forward = null;
-		Action action = null;
+		String RequestURI= request.getRequestURI();
+		String contextPath= request.getContextPath();
+		String command= RequestURI.substring(contextPath.length());
+		ActionForward forward= null;
+		Action action= null;
 		
 		if(command.equals("/adminKey.ke")) {
-			System.out.println(command);
 			action= new AdminKeyListAction();
 			try {
 				forward= action.execute(request, response);
@@ -50,7 +49,6 @@ public class AdminKeywordController extends javax.servlet.http.HttpServlet{
 			}			
 		//삭제
 		}else if(command.equals("/adminKeywordDel.ke")) {	
-			System.out.println(command);
 			action= new AdminKeyDeleteAction();
 			try {
 				forward= action.execute(request, response);
