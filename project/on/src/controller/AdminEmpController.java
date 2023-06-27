@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.AdminEmpDelAction;
 import action.AdminEmpListAction;
 import action.AdminEmpRegAction;
 import action.AdminKeyListAction;
@@ -23,16 +24,23 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 		ActionForward forward= null;
 		Action action= null;
 		
-		if(command.equals("/adminEmp.emp")) {
-			System.out.println(command);
-			action= new AdminEmpListAction();
+		if(command.equals("/adminEmp.emp")) {			
+			action= new AdminEmpListAction();			
 			try {
+				System.out.println(command);
 				forward= action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("adminEmpReg.ke")) {
+		}else if(command.equals("adminEmpReg.emp")) {
 			action= new AdminEmpRegAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}else if(command.equals("adminEmpDel.emp")) {
+			action= new AdminEmpDelAction();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e){
