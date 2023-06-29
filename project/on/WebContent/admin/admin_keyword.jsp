@@ -34,7 +34,7 @@
             <input type="button" value="삭제" id= "delete_btn">
       </div>
       <table class="keyword_list">
-      		<%if(keywordList != null && listCount > 0){%>
+      	<%if(keywordList != null && listCount > 0){%>
            <tr class="keyword_tit">
                 <td><input type="checkbox" name="" style="margin-left: 10px;"></td>                
                 <td>검색점</td>
@@ -73,6 +73,7 @@
           				<a href="adminKey.ke?page=<%= a %>">[<%= a %>]</a>&nbsp;
           			<%} %>          			
           		<%} %>
+          		
           		<%if(nowPage >= maxPage){ %>
           			[다음]
           		<%}else{ %>
