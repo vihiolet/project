@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,15 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 				forward= action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
+			}
+		}
+		
+		if(forward != null) {
+			if(forward.isRedirect()) {
+				response.sendRedirect(forward.getPath());
+			}else {
+				RequestDispatcher dispatcher= request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response);
 			}
 		}
 		
