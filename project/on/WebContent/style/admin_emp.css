@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+table td, table tr{
+/*    border: 1px solid #222;*/
+}
+form{
+	width: 88%;
+    float: left;
+}
+.emp_list{
+    border-top: 2px solid #333;
+    margin-top: 10px;
+}
+.emp_tit{
+    border-bottom: 1px solid #999;
+    font-weight: 600;
+}
+.emp_list td:not(:first-child) {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+}
+.emp_info td{    
+    border-bottom: 1px solid #ccc;
+}
+.emp_info .key{
+    text-align: center;
+}
