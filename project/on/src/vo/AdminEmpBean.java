@@ -9,6 +9,7 @@ public class AdminEmpBean {
 	private Date create_dt;
 	private int create_id;
 	private String remark;
+	
 	public int getEmp_code() {
 		return emp_code;
 	}

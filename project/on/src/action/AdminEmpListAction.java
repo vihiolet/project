@@ -48,6 +48,7 @@ public class AdminEmpListAction implements Action {
 		
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("EmpList", EmpList);
+		
 		ActionForward forward= new ActionForward();
 		forward.setPath("/admin/admin_emp.jsp");		
 		

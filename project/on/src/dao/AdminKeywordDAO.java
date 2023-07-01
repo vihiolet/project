@@ -113,14 +113,18 @@ public class AdminKeywordDAO {
 		}
 		
 		//검색점 삭제
-		public int deleteKeyword(int srch_code) {
+		public int deleteKeyword(int[] srch_code) {
 			
 			PreparedStatement pstmt= null;
-			String keywortDel_sql= "delete from keyword where srch_code= ?";
+			String keywortDel_sql= "delete from keyword where";			
+			
 			int deleteCount= 0;
 			try {
 				pstmt= con.prepareStatement(keywortDel_sql);
-				pstmt.setInt(1, srch_code);
+				for(int i= 0; i< srch_code.length; i++) {					
+					keywortDel_sql += "srch_code= ?"; 
+					pstmt.setInt(1, srch_code[i]);
+				}				
 				deleteCount= pstmt.executeUpdate();
 			}catch(Exception e) {
 				System.err.println("검색점 삭제에서 오류 : " + e);

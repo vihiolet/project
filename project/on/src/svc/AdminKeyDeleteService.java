@@ -6,7 +6,7 @@ import dao.AdminKeywordDAO;
 
 public class AdminKeyDeleteService {
 
-	public boolean removeKeyword(int srch_code) {
+	public boolean removeKeyword(int[] srch_code) {
 		
 		boolean isRemoveSuccess= false;
 		Connection con= getConnection();
