@@ -36,7 +36,7 @@
       <table class="keyword_list">
       	<%if(keywordList != null && listCount > 0){%>
            <tr class="keyword_tit">
-                <td><input type="checkbox" name="" style="margin-left: 10px;"></td>                
+                <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
                 <td>검색점</td>
                 <td>등록인</td>
                 <td>사용여부</td>
@@ -149,16 +149,40 @@
   			return true;   				
   		}  		
   		
+  		//다중 체크
+  		function allCheck(){
+  			let ac= document.regKeyword.allcheck;
+  			let sc= document.regKeyword.srch_code;
+  			
+  			if(ac.checked == true){
+  				for(i= 0; i< sc.length; i++){
+  					sc[i].checked = true;
+  				}
+  			}else{
+  				for(i= 0; i< sc.length; i++){
+  					sc[i].checked = false;
+  				}
+  			}
+  		}
+  		
   		//삭제
   		$('#delete_btn').on("click", function(e){
-  			//체크한 srch_code
-  			let srch_code= $('input[type=checkbox][name=srch_code]:checked').val();  
+  			//체크한 srch_code  			
+  			const srch_codeArr= [];
+  			
+  			let srch_code= $('input[type=checkbox][name=srch_code]:checked');
+  			
+  			$(srch_code).each(function(){
+  				srch_codeArr.push($(this).val());
+  			})  			
+  			console.log(srch_codeArr);
   			
   			if(srch_code != null){
   				$.ajax({
   	   				type: "POST",
   	   				url: "adminKeywordDel.ke",
-  	   				data: { srch_code : srch_code },
+  	   				data: { "srch_codeArr" : srch_codeArr},
+  	   				traditional: true,
   	   				success: function(data){
   	   					//alert(data);
   	   					alert('삭제되었습니당');
