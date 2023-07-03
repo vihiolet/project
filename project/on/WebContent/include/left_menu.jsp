@@ -14,7 +14,7 @@
 	            <span><a href=""><i class="fa-solid fa-boxes-packing" style="color: #ffffff;"></i> 최근 등록</a></span>
 	        </li>
 	        <li>
-	            <span><a href="/on/productRegForm.pr"><i class="fa-solid fa-tags" style="color: #ffffff;"></i> 제품 설정</a></span>
+	            <span><a href="/on/adminProList.pr"><i class="fa-solid fa-tags" style="color: #ffffff;"></i> 제품 설정</a></span>
 	        </li>
 	        <li>
 	            <span><a href="/on/adminEmp.emp"><i class="fa-solid fa-user-gear" style="color: #ffffff;"></i> 관리자 설정</a></span>
