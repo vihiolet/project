@@ -116,16 +116,17 @@ public class AdminKeywordDAO {
 		public int deleteKeyword(int[] intCodeArr) {
 			
 			PreparedStatement pstmt= null;
-			String keywortDel_sql= "delete from keyword where srch_code= ?";				
+			String keywortDel_sql= "delete from keyword where srch_code= ?";
+			for(int i= 1; i< intCodeArr.length; i++) {
+				keywortDel_sql += " or srch_code= ?";
+			}	
 			
 			int deleteCount= 0;
 			try {
-				pstmt= con.prepareStatement(keywortDel_sql);		
-				for(int i= 0; i< intCodeArr.length; i++) {
-					
-					pstmt.setInt(1, intCodeArr[i]);
-					keywortDel_sql += " or srch_code= ?";	
-					System.out.println(keywortDel_sql);
+				pstmt= con.prepareStatement(keywortDel_sql);	
+				
+				for(int i= 1; i<= intCodeArr.length; i++) {					
+					pstmt.setInt(i, intCodeArr[i-1]);
 				}
 				deleteCount= pstmt.executeUpdate();
 			}catch(Exception e) {
