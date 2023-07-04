@@ -29,7 +29,10 @@
 	<jsp:include page="../include/admin_header.jsp"></jsp:include>	<!--헤더-->
 	<div class="list a_container">
 		<jsp:include page="../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-        <div class="container a_bg">     
+        <div class="container a_bg">   
+        	<div class="btn">
+        		<a href="productRegForm.pr">등록</a>
+        	</div>  
         	<%
         		if(articleList != null && listCount > 0){
         			for(int i=0; i<articleList.size(); i++){
