@@ -25,7 +25,14 @@ public class AdminProController extends javax.servlet.http.HttpServlet{
 		ActionForward forward = null;
 		Action action = null;
 		
-		if(command.equals("/productRegForm.pr")) {
+		if(command.equals("/adminProList.pr")) {			
+			action= new AdminProListAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/productRegForm.pr")) {
 			forward= new ActionForward();
 			forward.setPath("/admin/admin_pro_reg.jsp");
 		}else if(command.equals("/adminProReg.pr")) {
@@ -35,15 +42,7 @@ public class AdminProController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/adminProList.pr")) {
-			action= new AdminProListAction();
-			try {
-				forward= action.execute(request, response);
-			}catch(Exception e) {
-				e.printStackTrace();
-			}
 		}
-		
 		
 		
 		if(forward != null) {
