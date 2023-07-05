@@ -1,8 +1,10 @@
+<%@ page import= "java.util.HashMap" %>
+<%@ page import= "java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import= "vo.PageInfo"%>
 <%@ page import= "vo.AdminProBean"%>
-<%@ page import= "java.util.*"%>
 <%@ page import= "java.text.SimpleDateFormat"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
 	ArrayList<AdminProBean> articleList= (ArrayList<AdminProBean>)request.getAttribute("articleList");
@@ -41,7 +43,7 @@
                 <a href="#">
                    <div class="photo">
 <!--                      style="background-image: url(img/B004985155.jpg);"-->
-                       <img src="img/B004985155.jpg" alt="">
+                       <img src="images/$" alt="">
                    </div>
                     <div class="text">
                         <p><%=articleList.get(i).getPro_company() %></p>
@@ -54,12 +56,14 @@
             %>
             
             <%
-        		}else{
-            %>
-            <p>등록된 글이 없습니다</p>
-            <%
         		}
             %>
+            <c:if test= "${articleList == null }">
+            	<p>등록된 제품이 없습니다</p>
+            </c:if>
+            
+            <c:out value="${articleList}" />
+            
         </div>
    </div>
 </body>
