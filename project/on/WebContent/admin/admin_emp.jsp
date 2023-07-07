@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <title>사원등록</title>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <link rel="stylesheet" href="style/admin_keywrod.css">
+    <link rel="stylesheet" href="style/admin_emp.css">
     <link rel="stylesheet" href="style/head.css">
     <link rel="stylesheet" href="style/common.css">
 </head>

@@ -28,7 +28,7 @@ public class AdminProListService {
 		AdminProDAO adminProDAO= AdminProDAO.getInstance();
 		adminProDAO.setConnection(con);
 		articleList= adminProDAO.selectArticleList(page, limit);
-		close(con);
+		close(con);		
 		
 		return articleList;
 	}

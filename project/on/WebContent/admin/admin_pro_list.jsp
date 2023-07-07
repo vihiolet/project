@@ -43,7 +43,7 @@
                 <a href="#">
                    <div class="photo">
 <!--                      style="background-image: url(img/B004985155.jpg);"-->
-                       <img src="images/$" alt="">
+                       <img src="images/<%=articleList.get(i).getPro_img() %>" alt="">
                    </div>
                     <div class="text">
                         <p><%=articleList.get(i).getPro_company() %></p>
@@ -56,13 +56,17 @@
             %>
             
             <%
-        		}
+        		}else{
             %>
-            <c:if test= "${articleList == null }">
-            	<p>등록된 제품이 없습니다</p>
-            </c:if>
+            <p>등록된 제품이 없습니다d</p>
+            <%} %>
+            
             
             <c:out value="${articleList}" />
+            
+            <c:if test= "${articleList.size() == 0 }">
+            	<p>등록된 제품이 없습니다</p>
+            </c:if>
             
         </div>
    </div>
