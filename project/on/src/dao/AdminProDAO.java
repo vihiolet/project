@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import vo.AdminProBean;
+import vo.KeywordBean;
 
 public class AdminProDAO {
 	
@@ -115,7 +116,4 @@ public class AdminProDAO {
 		}		
 		return insertCount;
 	}
-	
-	
-
 }

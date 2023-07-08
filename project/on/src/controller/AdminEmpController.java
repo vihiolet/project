@@ -26,7 +26,7 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 		Action action= null;
 		
 		if(command.equals("/adminEmp.emp")) {			
-			action= new AdminEmpListAction();			
+			action= new AdminEmpListAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

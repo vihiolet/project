@@ -12,6 +12,7 @@ import action.AdminKeyListAction;
 import action.AdminKeyRegAction;	//검색점 action
 import action.AdminProRegAcrion;	//상품등록 actoin
 import action.AdminProListAction;	//상품목록 actoin
+import action.AdminProPopupAcrion;
 import vo.ActionForward;
 
 
@@ -37,6 +38,13 @@ public class AdminProController extends javax.servlet.http.HttpServlet{
 			forward.setPath("/admin/admin_pro_reg.jsp");
 		}else if(command.equals("/adminProReg.pr")) {
 			action= new AdminProRegAcrion();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("/adminProPopup.pr")) {
+			action= new AdminProPopupAcrion();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

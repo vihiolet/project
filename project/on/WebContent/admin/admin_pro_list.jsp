@@ -4,7 +4,6 @@
 <%@ page import= "vo.PageInfo"%>
 <%@ page import= "vo.AdminProBean"%>
 <%@ page import= "java.text.SimpleDateFormat"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
 	ArrayList<AdminProBean> articleList= (ArrayList<AdminProBean>)request.getAttribute("articleList");
@@ -42,7 +41,6 @@
             <article>
                 <a href="#">
                    <div class="photo">
-<!--                      style="background-image: url(img/B004985155.jpg);"-->
                        <img src="images/<%=articleList.get(i).getPro_img() %>" alt="">
                    </div>
                     <div class="text">

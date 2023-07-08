@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>관리자제품관리페이지입니다</title>
+    <title>제품관리페이지입니다</title>
 </head>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style/common.css">
@@ -40,12 +40,8 @@
                          </div>
                          <div class="keyword_r">                     
                              <input type="button" value="추가" onclick="keywordOpen()">
-                             <input type="text" class="keyInput" name="srch_nm1" value="" required= "required">
-                             <input type="hidden" class="keyInput" name="srch_code1" value="01" required= "required">
-                             <input type="text" class="keyInput" name="srch_nm2">
-                             <input type="hidden" class="keyInput" name="srch_code2">
-                             <input type="text" class="keyInput" name="srch_nm3">
-                             <input type="hidden" class="keyInput" name="srch_code3">
+                             <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value=""  required= "required">
+                             <input type="hidden" id= "keycd" class="keyInput" name="srch_code1" value="" required= "required">
                          </div>
                          <div class="name_img">                     
                              <input type="file" name="pro_img" required= "required">
@@ -63,7 +59,8 @@
     <script>
         let openWin;
         function keywordOpen(){
-            openWin = window.open("keyword_popup.jsp", "popup", "width=570, height=350, resizeable = no");
+        	
+            openWin = window.open("adminProPopup.pr", "key_popup", "width=570, height=350, resizeable = no, left= 200, top= 200");
         }
     </script>
 </body>

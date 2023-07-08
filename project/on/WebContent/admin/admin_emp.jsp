@@ -1,25 +1,17 @@
+<%@ page import= "java.util.HashMap" %>
+<%@ page import= "java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import= "vo.PageInfo" %>
 <%@ page import= "vo.AdminEmpBean" %>
-<%@ page import= "java.util.*" %>
 <%@ page import= "java.text.SimpleDateFormat" %>
-
-<%
-		ArrayList<AdminEmpBean> empList = (ArrayList<AdminEmpBean>)request.getAttribute("EmpList");
-		PageInfo pageInfo= (PageInfo)request.getAttribute("pageInfo");
-		int listCount= pageInfo.getListCount();
-		int nowPage= pageInfo.getPage();
-		int maxPage= pageInfo.getMaxPage();
-		int startPage= pageInfo.getStartPage();
-		int endPage= pageInfo.getEndPage();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
     <meta charset="UTF-8">
-    <title>사원등록</title>
-    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>관리자등록</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="style/admin_emp.css">
     <link rel="stylesheet" href="style/head.css">
     <link rel="stylesheet" href="style/common.css">
@@ -33,48 +25,33 @@
             <input type="submit" value="저장" id='save_btn'>            
             <input type="button" value="삭제" id= "delete_btn">
         </div>
-        <table class="emp_list">
-        <%if(empList != null && listCount > 0){%>
-           <tr class="emp_tit">
-                <td><input type="checkbox" name="" style="margin-left: 10px;"></td>                
-                <td>검색점</td>
-                <td>등록인</td>
-                <td>비고</td>
-            </tr>
-        	<%for(int i=0; i < empList.size(); i++) {%>    
-            	
-            <tr class="emp_info">            	
-                <td><input type="checkbox" name="emp_code" id= "emp_code" value="<%=empList.get(i).getEmp_code() %>" style="margin-left: 10px;"></td>
-                <td><input type="text" name="" id= "emp_name" class= "key emp_name" size="15" value="<%=empList.get(i).getEmp_name() %>"></td>
-                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=empList.get(i).getCreate_id() %>"></td>
-                <td><input type="text" size="35" id= "remark" class= "key remark" value="<%=empList.get(i).getRemark() %>"></td>
-            </tr>  
-            <%} %>
-        </table>
-        <div id="pageList">
-        	<%if(nowPage <= 1) { %>
-            	[이전]&nbsp;
-          	<% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
-            	<a href="adminEmp.emp?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
-          	<% } %>
-          	
-          	<%for(int a= startPage; a <= endPage; a++){ 
-          		if(a == nowPage){%>
-          			[<%=a %>]
-          		<%}else{ %>
-          			<a href="adminEmp.emp?page=<%= a %>">[<%= a %>]</a>&nbsp;
-          		<%} %>          			
-          	<%} %>
-          	
-          	<%if(nowPage >= maxPage){ %>
-          		[다음]
-          	<%}else{ %>
-          		<a href="adminKey.ke?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
-          	<%} %>
-        </div>
-        <% }else{ %>  
-            	<p>등록된 관리자가 없습니다</p>  
-        <% } %>  
+        <c:set var= "listCount" value="${pageInfo.getListCount()}" ></c:set>
+	    <c:if test= "${EmpList != null && EmpList.size() > 0}">
+        	<table class="emp_list">         		
+	        	<tr class="emp_tit">
+	                <td><input type="checkbox" name="" style="margin-left: 10px;"></td>                
+	                <td>관리자ID</td>
+	                <td>관리자비밀번호</td>
+	                <td>관리자명</td>
+	                <td>등록인ID</td>
+	                <td>비고</td>
+            	</tr>  
+	            <tr class="emp_info">            
+	            	<c:forEach var= "empList" items= "${EmpList}" varStatus="status">		
+		                <td><input type="checkbox" name="emp_code" id= "emp_code" class= "key" value="${empList.emp_code}" style="margin-left: 10px;"></td>
+		                <td><input type="text" name="emp_code" id= "emp_code" class= "key" value="${empList.emp_code}"></td>
+		                <td><input type="text" name="emp_pass" id= "emp_pass" class= "key" value="${empList.emp_pass}"></td>
+		                <td><input type="text" name="" id= "emp_name" class= "key emp_name" size="15" value="${empList.emp_name}"></td>
+		                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="${empList.create_id}"></td>
+		                <td><input type="text" size="35" id= "remark" class= "key remark" value="${empList.remark}"></td>
+	                </c:forEach>
+	            </tr> 
+	            
+        	</table>        
+        </c:if>
+        <c:if test= " ${EmpList == null && listCount.size() == 0 }">
+        	<p>등록된 관리자가 없습니다</p>
+        </c:if>
     </form>   
     <script>
 	//=======
