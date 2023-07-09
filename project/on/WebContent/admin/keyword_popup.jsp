@@ -18,20 +18,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
       	<%if(keywordList != null && listCount > 0){%>
             <p>검색점</p>
             <p>비고</p>
-            
+           <div id= "keywordList" >
         	<%for(int i=0; i < keywordList.size(); i++) {%> 
-        		<button type="button" onclick="send_data()" >         		
+        		<button type="button"  id= "keyword">         		
 	        		<input type="hidden"  name="srch_code" id= "keycd" value= "<%=keywordList.get(i).getSrch_code() %>">
 	        		<input type="text" name="srch_name" id= "keynm" value= "<%=keywordList.get(i).getSrch_name() %>">
 	        		<p id= "remark" class= "remark"><%=keywordList.get(i).getRemark() %></p>
         		</button>
             <%} %> 
-            
+            </div>
             <div id="pageList">
             	<%if(nowPage <= 1) { %>
                		[이전]&nbsp;
@@ -57,11 +58,13 @@
             <%	}else{ %>  
             	<p>등록된 검색점이 없습니다</p>  
             <% } %>            
-  <script>
-  		function send_data(){
-  			opener.document.getElementById("keycd").value = document.getElementById("keycd").value
-  			opener.document.getElementById("keynm").value = document.getElementById("keynm").value
-  		}
+  <script>  		
+  		$(document).ready(function () {
+  		  $(document).on("click", "button", function () {
+  			opener.document.getElementById("keycd").value = $(this).find("#keycd").val();
+  			opener.document.getElementById("keynm").value = $(this).find("#keynm").val();
+  		  });
+  		});
   </script>
 </body>
 </html>

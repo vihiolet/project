@@ -175,7 +175,6 @@
   			$(srch_code).each(function(){
   				srch_codeArr.push($(this).val());
   			})  			
-  			console.log(srch_codeArr);
   			
   			if(srch_code != null){
   				$.ajax({
