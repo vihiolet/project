@@ -94,11 +94,10 @@ public class AdminProDAO {
 	public int insertArticle(AdminProBean adminProBean) {
 		int insertCount= 0;
 		PreparedStatement pstmt= null;
-//		ResultSet rs = null;
 		String sql= "";
 		
 		try {			
-			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, srch_nm1, create_dt, create_id) values(?, ?, ?, ?, ?, ?, now(), 01)";
+			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, srch_nm1, create_dt, create_id) values(?, ?, ?, ?, ?, ?, now(), 1)";
 			pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, adminProBean.getPro_nm());
 			pstmt.setInt(2, adminProBean.getMenu_code());
@@ -106,7 +105,7 @@ public class AdminProDAO {
 			pstmt.setString(4, adminProBean.getPro_img());
 			pstmt.setInt(5, adminProBean.getSrch_code1());
 			pstmt.setString(6, adminProBean.getSrch_nm1());
-//			pstmt.setInt(7, adminProBean.getCreate_id());
+			//pstmt.setInt(7, adminProBean.getCreate_id());
 			
 			insertCount= pstmt.executeUpdate();
 			
@@ -115,5 +114,28 @@ public class AdminProDAO {
 			e.printStackTrace();
 		}		
 		return insertCount;
+	}
+	//삭제
+	public int deleteProduct(int[] intCodeArr) {
+		PreparedStatement pstmt= null;
+		String proDel_sql= "delete from product where menu_code= ?";
+		for(int i= 1; i< intCodeArr.length; i++) {
+			proDel_sql += " or menu_code= ?";
+		}	
+		
+		int deleteCount= 0;
+		try {
+			pstmt= con.prepareStatement(proDel_sql);	
+			
+			for(int i= 1; i<= intCodeArr.length; i++) {					
+				pstmt.setInt(i, intCodeArr[i-1]);
+			}
+			deleteCount= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.err.println("제품 삭제에서 오류 : " + e);
+		}finally {
+			close(pstmt);
+		}
+		return deleteCount;
 	}
 }

@@ -1,17 +1,18 @@
 package action;
-import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import svc.AdminKeyDeleteService;
+import svc.AdminProDeleteService;
 import vo.ActionForward;
 
-public class AdminKeyDeleteAction implements Action {
+public class AdminProDeleteAcrion implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forword = null;
-		String[] strCodeArr= request.getParameterValues("srch_codeArr");
+		String[] strCodeArr= request.getParameterValues("menu_codeArr");
 		int[] intCodeArr= null;
 		if(strCodeArr != null) {
 			intCodeArr= new int[strCodeArr.length];
@@ -21,12 +22,13 @@ public class AdminKeyDeleteAction implements Action {
 		}
 		
 		String nowPage= request.getParameter("page");
-		AdminKeyDeleteService actionKeyDeleteService = new AdminKeyDeleteService();
-		boolean isDelSuccess= actionKeyDeleteService.removeKeyword(intCodeArr);
+		AdminProDeleteService actionProDeleteService = new AdminProDeleteService();
+		boolean isDelSuccess= actionProDeleteService.removePro(intCodeArr);
 		if(isDelSuccess) {
 			forword= new ActionForward();
-			forword.setPath("adminProList.pr?page=" + nowPage);
+			forword.setPath("adminKey.ke?page=" + nowPage);
 		}		
 		return forword;
-	}	
+	}
+
 }

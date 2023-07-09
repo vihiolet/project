@@ -109,7 +109,7 @@
 			if(menu_code != null){
 				$.ajax({
 	   				type: "POST",
-	   				url: "adminKeywordDel.ke",
+	   				url: "adminProDel.pr",
 	   				data: { "menu_codeArr" : menu_codeArr},
 	   				traditional: true,
 	   				success: function(data){
