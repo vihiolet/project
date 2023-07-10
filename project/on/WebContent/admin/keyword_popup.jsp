@@ -22,8 +22,8 @@
 </head>
 <body>
       	<%if(keywordList != null && listCount > 0){%>
-            <p>검색점</p>
-            <p>비고</p>
+            <span>검색점</span>
+            <span>비고</span>
            <div id= "keywordList" >
         	<%for(int i=0; i < keywordList.size(); i++) {%> 
         		<button type="button"  id= "keyword">         		
