@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import action.LoginAction;
 import svc.LoginService;
 import vo.UserBean;
 
@@ -57,10 +59,12 @@ public class LoginController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		String id= request.getParameter("id");
-		String pass= request.getParameter("pass");
+		String pass= request.getParameter("pass");		
 		String useCookie= request.getParameter("useCookie");
-		LoginService loginService= new LoginService();
-		UserBean loginUser= loginService.getLoginUser(id, pass);
+		LoginAction loginAction= new LoginAction();
+		String salt= "";
+		pass= loginAction.getEncrypt(pass, salt);	//암호화된 비번
+		UserBean loginUser= loginAction.LoginUser(id, pass);
 		
 		//다음 로그인 시 쿠키 사용
 		if(useCookie != null) {
