@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet{
 				dispatcher.forward(request, response);
 			}else {
 				//로그인 시도
-				RequestDispatcher dispatcher= request.getRequestDispatcher("");
+				RequestDispatcher dispatcher= request.getRequestDispatcher("join.jsp");
 				dispatcher.forward(request, response);
 			}
 		}		
@@ -83,7 +83,7 @@ public class LoginController extends HttpServlet{
 			dispatcher.forward(request, response);
 		}else {
 			//로그인 실패
-			RequestDispatcher dispatcher= request.getRequestDispatcher("");
+			RequestDispatcher dispatcher= request.getRequestDispatcher("join.jsp");
 			dispatcher.forward(request, response);
 		}
 		

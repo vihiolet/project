@@ -54,13 +54,14 @@ public class LoginDAO {
 		UserBean loginMember= null;
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
+		
+		String result= "";
 		try {
 			pstmt= con.prepareStatement("select salt from users where id= ?");
 			pstmt.setString(1, id);
 			rs= pstmt.executeQuery();
 			if(rs.next()) {
-				loginMember= new UserBean();
-				loginMember.setId(rs.getString("id"));
+				result= rs.getString("id");
 			}
 		}catch(Exception e) {
 				e.printStackTrace();
@@ -72,7 +73,7 @@ public class LoginDAO {
 				e.printStackTrace();
 			}
 		}
-		return rs.toString();
+		return result;
 	}
 
 }
