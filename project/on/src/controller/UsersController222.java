@@ -10,19 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import action.LoginAction;
+import action.AdminLoginAction;
 import svc.LoginService;
 import vo.UserBean;
 
 @WebServlet("/login")
-public class LoginController extends HttpServlet{
+public class UsersController222 extends HttpServlet{
 	//
 	private static final long serialVersionUID = 1L;
 	
-	//생성자
-	public LoginController() {
-		super();
-	}
+	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
@@ -61,7 +58,7 @@ public class LoginController extends HttpServlet{
 		String id= request.getParameter("id");
 		String pass= request.getParameter("pass");		
 		String useCookie= request.getParameter("useCookie");
-		LoginAction loginAction= new LoginAction();
+		AdminLoginAction loginAction= new AdminLoginAction();
 		String salt= "";
 		pass= loginAction.getEncrypt(pass, salt);	//암호화된 비번
 		UserBean loginUser= loginAction.LoginUser(id, pass);

@@ -18,7 +18,7 @@
 <body>
  <header>
       <div class= "login">
-      		<a href= "admin_login.jsp">관리자 로그인</a>
+      		<a href= "adminJoin.ur">관리자 로그인</a>
       		<!--<a href= "login.jsp">로그인</a>-->
       		<jsp forward page= "/login">로그인</jsp forward>
       		<a href= "join.jsp">회원가입</a>

@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 </head>
 <body>
+	<form action= "" method= "post" name= "">
+		<input type= "text" name= "id">
+		<input type= "password" name= "passwd">
+		<input type= "text" name= "name">
+	</form>
 
 </body>
 </html>

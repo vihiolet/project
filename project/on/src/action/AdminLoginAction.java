@@ -12,7 +12,7 @@ import dao.LoginDAO;
 import svc.LoginService;
 import vo.UserBean;
 
-public class LoginAction {
+public class AdminLoginAction {
 
 	//암호회된 비번 반환
 	public String getEncrypt(String pass, String salt) {

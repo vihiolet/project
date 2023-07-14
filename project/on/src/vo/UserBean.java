@@ -3,7 +3,9 @@ package vo;
 public class UserBean {
 	private String id;
 	private String pass;
+	private String name;
 	private String salt;
+	
 	public String getId() {
 		return id;
 	}
@@ -16,12 +18,17 @@ public class UserBean {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getSalt() {
 		return salt;
 	}
 	public void setSalt(String salt) {
 		this.salt = salt;
-	}
-	
+	}	
 	
 }
