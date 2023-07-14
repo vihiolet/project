@@ -31,10 +31,7 @@
 		<jsp:include page="../include/admin_header.jsp"></jsp:include>	<!--헤더-->
 		<jsp:include page="../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
 		<form action="" method="post" name= "" onsubmit= "return checkForm()"> 
-	  	<div class="btn">
-	    	<a href="productRegForm.pr">등록</a>    
-	    	<input type="submit" value="저장" id='save_btn'>   
-	  	</div> 
+	  	 
 	    <table class="pro_list">
     	<%if(articleList != null && listCount > 0){%>
         	<tr class="keyword_tit">

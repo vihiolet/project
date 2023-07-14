@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% session.setAttribute("id", "admin1"); %>		<!-- id 하드코딩(세션 테스트용) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +26,10 @@
                         <p>상품 사진</p>
                   </div>
                   <form action="adminProReg.pr" method="post" enctype="multipart/form-data">
+                  	
                     <div class="pro_value">
-                        <div class="menu_radio">                      
+                    	<input type= "hidden" name= "create_id" value= "<%=(String)session.getAttribute("id") %>">
+                        <div class="menu_radio">                        	                    
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
                               <input type="radio" name="menu_code" id="clothes" value="2"><label for="clothes">옷</label>
                               <input type="radio" name="menu_code" id="beauty" value="3"><label for="beauty">미용</label>
@@ -34,6 +37,7 @@
                          </div>
                          <div class="company_text">                     
                              <input type="text" name="pro_company" required= "required">
+                             
                          </div>
                          <div class="name_text">                     
                             <input type="text" name="pro_nm" required= "required">

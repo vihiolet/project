@@ -29,14 +29,13 @@ public class AdminProRegAcrion implements Action{
 		ServletContext context = request.getServletContext();
 		realFolder= context.getRealPath(imageFolder);
 		MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize,  "UTF-8", new DefaultFileRenamePolicy());
-		//adminProBean = new AdminProBean();	//25행에 null로 초기화 하지 말고 바로 인스턴스 생성하면 안 되나?
+		adminProBean.setCreate_id(multi.getParameter("create_id"));		
 		adminProBean.setPro_nm(multi.getParameter("pro_nm"));
 		//adminProBean.setMenu_code(Integer.parseInt(multi.getParameter("menu_code")));		//자동 발번
 		adminProBean.setPro_company(multi.getParameter("pro_company"));
 		adminProBean.setPro_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		adminProBean.setSrch_code1(Integer.parseInt(multi.getParameter("srch_code1")));
 		adminProBean.setSrch_nm1(multi.getParameter("srch_nm1"));	//테스트하고 ~3까지 추가하기
-//		adminProBean.setCreate_id(Integer.parseInt(multi.getParameter("create_id")));
 		AdminProRegService adminProRegService = new AdminProRegService();
 		boolean isSuccess = adminProRegService.registArticle(adminProBean); //등록 성공하면 true 실패하면 false
 		

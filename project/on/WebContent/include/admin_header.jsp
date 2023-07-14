@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% session.setAttribute("id", "admin1"); %>		<!-- id 하드코딩(세션 테스트용) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,7 @@
           <nav class="head2">
               <ul>
                   <li class="admin_nm">관리자 : <span>admin</span></li>
-                  <li class="admin_cd">관리자코드 : <span>admin</span></li>
+                  <li class="admin_cd">관리자코드 : <span><%=(String)session.getAttribute("id") %></span></li>	<!-- 세션 id -->
               </ul>
           </nav>
         </div>
