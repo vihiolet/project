@@ -58,10 +58,44 @@ public class FrontProDAO {
 			System.out.println("boardInsert Error! :" + e);
 			e.printStackTrace();
 		} finally {
-			//close(rs);
 			close(pstmt);
 		}
 		return insertCount;
+	}
+
+	//제품 리스트
+	public ArrayList<AdminProBean> selectArticleList(int page, int limit) {
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		String sql= "select * from product limit ?, 10;";
+		ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
+		AdminProBean adminProBean= null;
+		int startrow= (page-1) *10;	
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setInt(1, startrow);			
+			rs= pstmt.executeQuery();
+			
+			while(rs.next()) {
+				adminProBean= new AdminProBean();
+				adminProBean.setPro_code(rs.getInt("pro_code"));
+				adminProBean.setPro_nm(rs.getString("pro_nm"));
+				adminProBean.setMenu_code(rs.getInt("menu_code"));
+				adminProBean.setPro_company(rs.getString("pro_company"));
+				adminProBean.setPro_img(rs.getString("pro_img"));
+				adminProBean.setCreate_id(rs.getString("create_id"));
+				articleList.add(adminProBean);
+			}
+			
+			}catch(Exception ex) {
+				System.out.println("글 목록보기에서 에러 발생 " + ex);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}
+		
+		return articleList;
 	}
 	
 

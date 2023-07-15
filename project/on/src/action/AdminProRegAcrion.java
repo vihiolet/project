@@ -31,7 +31,7 @@ public class AdminProRegAcrion implements Action{
 		MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize,  "UTF-8", new DefaultFileRenamePolicy());
 		adminProBean.setCreate_id(multi.getParameter("create_id"));		
 		adminProBean.setPro_nm(multi.getParameter("pro_nm"));
-		//adminProBean.setMenu_code(Integer.parseInt(multi.getParameter("menu_code")));		//자동 발번
+		adminProBean.setMenu_code(Integer.parseInt(multi.getParameter("menu_code")));		
 		adminProBean.setPro_company(multi.getParameter("pro_company"));
 		adminProBean.setPro_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		adminProBean.setSrch_code1(Integer.parseInt(multi.getParameter("srch_code1")));

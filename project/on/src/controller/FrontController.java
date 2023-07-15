@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.AdminProRegAcrion;
+import action.ProList1Action;
+import action.ProList2Action;
+import action.ProList3Action;
+import action.ProList4Action;
+import action.ProList5Action;
 //import action.BoardDeleteProAction;
 //import action.BoardDetailAction;
 import action.ReviewListAction;
@@ -30,7 +35,42 @@ public class FrontController extends javax.servlet.http.HttpServlet{
 	      ActionForward forward = null;
 	      Action action = null;
 
-	      if(command.equals("/ReviewWriteForm.fr")) {
+	      if(command.equals("/ProList1.fr")) {
+	    	  action = new ProList1Action();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		  }else if(command.equals("/ProList2.fr")) {
+	    	  action = new ProList2Action();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		  }else if(command.equals("/ProList3.fr")) {
+	    	  action = new ProList3Action();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		  }else if(command.equals("/ProList4.fr")) {
+	    	  action = new ProList4Action();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		  }else if(command.equals("/ProList5.fr")) {
+	    	  action = new ProList5Action();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		  }else if(command.equals("/ReviewWriteForm.fr")) {
 	         forward = new ActionForward();
 	         forward.setPath("/front/review_write.jsp");
 	         

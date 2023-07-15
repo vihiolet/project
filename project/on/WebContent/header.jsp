@@ -33,11 +33,11 @@
           
           <nav class="head2">
               <ul>
-                  <li><a href="">음식</a></li>
-                  <li><a href="">옷</a></li>
-                  <li><a href="">장신구</a></li>
-                  <li><a href="">미용</a></li>
-                  <li><a href="">생활</a></li>
+                  <li><a href="ProList1.fr">음식</a></li>
+                  <li><a href="ProList2.fr">옷</a></li>
+                  <li><a href="ProList3.fr">장신구</a></li>
+                  <li><a href="ProList4.fr">미용</a></li>
+                  <li><a href="ProList5.fr">생활</a></li>
               </ul>
           </nav>
       </div>

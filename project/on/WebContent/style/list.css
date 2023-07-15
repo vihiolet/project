@@ -23,7 +23,6 @@
 .a_container{
     height: calc(100vh - 70px); 
     display: flex;
-    background: #eee;
 }
 .a_bg{
     width: 100%;
