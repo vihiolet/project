@@ -11,7 +11,7 @@ import vo.ActionForward;
 import vo.UserBean;
 
 //회원 가입 요청
-public class AdminJoinAction implements Action{
+public class JoinAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -51,7 +51,7 @@ public class AdminJoinAction implements Action{
 		}else {
 			forword= new ActionForward();
 			forword.setRedirect(true);
-			forword.setPath("/adminLogin.ur");
+			forword.setPath("./login.jsp");
 		}
 		return forword;
 	}

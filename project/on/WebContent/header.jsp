@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import= "java.util.*" %>
+<%@ page import= "vo.UserBean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +21,10 @@
  <header>
       <div class= "login">
       		<a href= "adminJoin.ur">관리자 로그인</a>
-      		<!--<a href= "login.jsp">로그인</a>-->
-      		<jsp forward page= "/login">로그인</jsp forward>
-      		<a href= "join.jsp">회원가입</a>
+      		<c:if test= "${userInfo == null}">
+	      		<a href= "login.ur">로그인</a>
+	      		<a href= "Join.ur">회원가입</a>
+      		</c:if>
       </div>
       <div class="container">      	
          <div class="container-small">

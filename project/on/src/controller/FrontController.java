@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
+import action.JoinAction;
 import action.AdminProRegAcrion;
 import action.ProList1Action;
 import action.ProList2Action;
@@ -21,7 +22,8 @@ import action.ReviewListAction;
 //import action.BoardModifyFormAction;
 //import action.BoardModifyProAction;
 import action.ReviewRegAction;
-
+import action.UserIndexAction;
+import action.loginAction;
 import vo.ActionForward;
 
 @WebServlet("*.fr")
@@ -35,7 +37,14 @@ public class FrontController extends javax.servlet.http.HttpServlet{
 	      ActionForward forward = null;
 	      Action action = null;
 
-	      if(command.equals("/ProList1.fr")) {
+	      if(command.equals("/userIndex.fr")) {
+	    	  action = new UserIndexAction();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		  }else if(command.equals("/ProList1.fr")) {
 	    	  action = new ProList1Action();
 	          try {
 	             forward=action.execute(request, response);

@@ -12,12 +12,12 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div>
-    	<form action="" name= "login_form">
+    	<form action="loginAction.ur" name= "login_form" method="post">
            <div class="loginWrap">
                 <h2>로그인</h2>
                 <p>아이디와 비밀번호를 입력해주세요.</p>
-                <input type="text" id="id" placeholder="아이디"><br>  
-                <input type="password" id="pw" placeholder="비밀번호"><br>
+                <input type="text" id="id" name= "id" placeholder="아이디"><br>  
+                <input type="password" id="pw" name= "passwd" placeholder="비밀번호"><br>
                 <a href="javascript:login_form.submit()" class="login_btn">로그인</a><br>
                <a href="" class="join">회원가입</a>
                 <a href="" class="find">아이디/비밀번호찾기</a>

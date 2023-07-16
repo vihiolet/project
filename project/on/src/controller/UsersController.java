@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.AdminEmpListAction;
-import action.AdminJoinAction;
+import action.JoinAction;
+import action.JoinAction;
+import action.loginAction;
 import vo.ActionForward;
 
 @WebServlet("*.ur")
@@ -26,24 +28,32 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 		ActionForward forward= null;
 		Action action= null;
 		
-		
-		if(command.equals("/adminJoin.ur")) {			
+		//사용자 회원가입
+		if(command.equals("/Join.ur")) {			
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/admin_join.jsp");
+			forward.setPath("/join.jsp");
+		}else if(command.equals("/JoinAction.ur")) {			
+			action= new JoinAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/adminJoinAction.ur")) {			
-			action= new AdminJoinAction();	
+		//사용자 로그인
+		}else if(command.equals("/login.ur")) {			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/login.jsp");
+		}else if(command.equals("/loginAction.ur")) {			
+			action= new loginAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}if(command.equals("/adminLogin.ur")) {			
+		//관리자 로그인
+		}else if(command.equals("/adminLogin.ur")) {			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin_login.jsp");

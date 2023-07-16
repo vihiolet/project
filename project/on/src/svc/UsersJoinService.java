@@ -1,7 +1,7 @@
 package svc;
 
 import static db.JdbcUtil.*;
-import dao.AdminUsersDAO;
+import dao.UsersDAO;
 import vo.UserBean;
 import java.sql.Connection;
 
@@ -9,10 +9,10 @@ public class UsersJoinService {
 
 	public boolean joinUsers(UserBean users) {
 		boolean joinSuccess= false;
-		AdminUsersDAO adminUserDAO= AdminUsersDAO.getInstance();
+		UsersDAO userDAO= UsersDAO.getInstance();
 		Connection con= getConnection();
-		adminUserDAO.setConnection(con);
-		int insertCount= adminUserDAO.insertAdminUsers(users);
+		userDAO.setConnection(con);
+		int insertCount= userDAO.insertAdminUsers(users);
 		if(insertCount > 0) {
 			joinSuccess= true;
 			commit(con);
