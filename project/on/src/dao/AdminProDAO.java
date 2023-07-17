@@ -116,19 +116,20 @@ public class AdminProDAO {
 		return insertCount;
 	}
 	//삭제
-	public int deleteProduct(int[] intCodeArr) {
+	public int deleteProduct(int[] intProCodeArr) {
 		PreparedStatement pstmt= null;
-		String proDel_sql= "delete from product where menu_code= ?";
-		for(int i= 1; i< intCodeArr.length; i++) {
-			proDel_sql += " or menu_code= ?";
+		String proDel_sql= "delete from product where pro_code= ?";
+		for(int i= 1; i< intProCodeArr.length; i++) {
+			proDel_sql += " or pro_code= ?";
 		}	
 		
 		int deleteCount= 0;
 		try {
 			pstmt= con.prepareStatement(proDel_sql);	
 			
-			for(int i= 1; i<= intCodeArr.length; i++) {					
-				pstmt.setInt(i, intCodeArr[i-1]);
+			for(int i= 1; i<= intProCodeArr.length; i++) {					
+				pstmt.setInt(i, intProCodeArr[i-1]);
+				System.out.println(pstmt);
 			}
 			deleteCount= pstmt.executeUpdate();
 		}catch(Exception e) {

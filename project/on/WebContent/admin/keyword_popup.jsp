@@ -33,6 +33,7 @@
         		</button>
             <%} %> 
             </div>
+            <input type="button" value="닫기" onclick="window.close()">
             <div id="pageList">
             	<%if(nowPage <= 1) { %>
                		[이전]&nbsp;

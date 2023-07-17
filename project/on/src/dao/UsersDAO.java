@@ -85,7 +85,7 @@ public class UsersDAO {
 			pstmt.setString(1, user.getId());
 			pstmt.setString(2, user.getPass());
 			rs= pstmt.executeQuery();
-			//System.out.println(pstmt);
+			
 			if(rs.next()) {
 				loginId= rs.getString("id");
 			}
@@ -102,24 +102,26 @@ public class UsersDAO {
 	//로그인한 회원 불러오기
 	public ArrayList<UserBean> selectUserInfo(String id) {
 		
-		String sql= "selec id, name from users where id= ?";
+		String sql= "select id, name from users where id= ?";
 		ArrayList<UserBean> userInfo= new ArrayList<UserBean>(); 
 		UserBean ub= new UserBean();
 		
 		try {
 			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs= pstmt.executeQuery();
+			
 			if(rs.next()) {
 				ub.setId(rs.getString("id"));
 				ub.setName(rs.getString("name"));
-				userInfo.add(ub);
+				userInfo.add(ub);				
 			}
 		}catch(Exception e) {
 			System.out.println("회원정보 에러" + e);
 		}finally {
 			close(rs);
 			close(pstmt);
-		}		
+		}	
 		return userInfo;
 	}
 

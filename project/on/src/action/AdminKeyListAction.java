@@ -45,8 +45,6 @@ public class AdminKeyListAction implements Action {
 		ActionForward forword= new ActionForward();
 		forword.setPath("/admin/admin_keyword.jsp");
 		
-		System.out.println(page);
-		
 		return forword;
 	}
 

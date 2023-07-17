@@ -36,9 +36,9 @@ public class loginAction implements Action {
 		
 		if(loginResult) {
 			forword= new ActionForward();
-			session.setAttribute("userId", user.getId());
+			session.setAttribute("id", user.getId());
 			forword.setRedirect(true);
-			forword.setPath("./index.jsp");
+			forword.setPath("userIndex.fr");
 		}else {
 			response.setContentType("text/html;charset=euc-kr");
 			PrintWriter out= response.getWriter();

@@ -44,7 +44,7 @@
         	<%for(int i=0; i < articleList.size(); i++) {%>                	
             <tr class="keyword_info">            	
             	<!-- 수정 불가 컬럼 : create_dt(등록일), create_id(등록인) -->
-                <td><input type="checkbox" name="menu_code" id= "menu_code" value="<%=articleList.get(i).getMenu_code() %>" style="margin-left: 10px;"></td>
+                <td><input type="checkbox" name="pro_code" id= "pro_code" value="<%=articleList.get(i).getPro_code() %>" style="margin-left: 10px;"></td>
                 <td class="photo"><img src="images/<%=articleList.get(i).getPro_img() %>" alt=""></td>                
                 <td><span><%=articleList.get(i).getCreate_dt() %></span></td>
                 <td><input type="text" name="" id= "" class= "" size="15" value="<%=articleList.get(i).getPro_company() %>"></td>
@@ -97,20 +97,19 @@
 		//삭제
 		$('#delete_btn').on("click", function(e){
 			//체크한 srch_code  			
-			const menu_codeArr= [];
+			const pro_codeArr= [];
 			
-			let menu_code= $('input[type=checkbox][name=menu_code]:checked');
+			let pro_code= $('input[type=checkbox][name=pro_code]:checked');
 			
-			$(menu_code).each(function(){
-				menu_codeArr.push($(this).val());
+			$(pro_code).each(function(){
+				pro_codeArr.push($(this).val());
 			})  			
-			console.log(menu_codeArr);
 			
-			if(menu_code != null){
+			if(pro_code != null){
 				$.ajax({
 	   				type: "POST",
 	   				url: "adminProDel.pr",
-	   				data: { "menu_codeArr" : menu_codeArr},
+	   				data: { "pro_codeArr" : pro_codeArr},
 	   				traditional: true,
 	   				success: function(data){
 	   					//alert(data);

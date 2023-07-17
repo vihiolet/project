@@ -25,6 +25,9 @@
 	      		<a href= "login.ur">로그인</a>
 	      		<a href= "Join.ur">회원가입</a>
       		</c:if>
+      		<c:if test= "${userInfo != null}">
+      			<a href= "mypage.fr">마이페이지</a>
+      		</c:if>
       </div>
       <div class="container">      	
          <div class="container-small">

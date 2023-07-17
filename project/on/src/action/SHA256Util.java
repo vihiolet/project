@@ -25,7 +25,7 @@ public class SHA256Util {
 		try {
 			MessageDigest md= MessageDigest.getInstance("SHA-256");
 			
-			System.out.println("적용 전" + passwd+salt);
+			//System.out.println("적용 전" + passwd+salt);
 			md.update((passwd + salt).getBytes());
 			byte[] passwdSalt= md.digest();
 			
@@ -34,7 +34,7 @@ public class SHA256Util {
 				sb.append(String.format("%02x", b));
 			}
 			result= sb.toString();
-			System.out.println("적용 후" + result);
+			//System.out.println("적용 후" + result);
 		}catch(NoSuchAlgorithmException e) {
 			throw new RuntimeException(e);
 		}

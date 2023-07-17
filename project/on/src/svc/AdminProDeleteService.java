@@ -11,12 +11,12 @@ import dao.AdminProDAO;
 
 public class AdminProDeleteService {
 
-	public boolean removePro(int[] intCodeArr) {
+	public boolean removePro(int[] intProCodeArr) {
 		boolean isRemoveSuccess= false;
 		Connection con= getConnection();
 		AdminProDAO adminProDAO = AdminProDAO.getInstance();
 		adminProDAO.setConnection(con);
-		int deleteCount = adminProDAO.deleteProduct(intCodeArr);
+		int deleteCount = adminProDAO.deleteProduct(intProCodeArr);
 		
 		if(deleteCount > 0) {
 			commit(con);

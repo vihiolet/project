@@ -12,18 +12,18 @@ public class AdminProDeleteAcrion implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forword = null;
-		String[] strCodeArr= request.getParameterValues("menu_codeArr");
-		int[] intCodeArr= null;
-		if(strCodeArr != null) {
-			intCodeArr= new int[strCodeArr.length];
-			for(int i=0; i< strCodeArr.length; i++) {
-				intCodeArr[i]= Integer.parseInt(strCodeArr[i]);
+		String[] pro_codeArr= request.getParameterValues("pro_codeArr");
+		int[] intProCodeArr= null;
+		if(pro_codeArr != null) {
+			intProCodeArr= new int[pro_codeArr.length];
+			for(int i=0; i< pro_codeArr.length; i++) {
+				intProCodeArr[i]= Integer.parseInt(pro_codeArr[i]);
 			}			
 		}
 		
 		String nowPage= request.getParameter("page");
 		AdminProDeleteService actionProDeleteService = new AdminProDeleteService();
-		boolean isDelSuccess= actionProDeleteService.removePro(intCodeArr);
+		boolean isDelSuccess= actionProDeleteService.removePro(intProCodeArr);
 		if(isDelSuccess) {
 			forword= new ActionForward();
 			forword.setPath("adminKey.ke?page=" + nowPage);

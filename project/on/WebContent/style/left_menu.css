@@ -3,7 +3,7 @@
 /*body { height: 100vh; }*/
 .left_nemu{
     width: 12%;
-    height: calc(100vh - 70px); /* -(마이너스) 양 옆에 공백 필수*/
+    height: calc(100vh); /* -(마이너스) 양 옆에 공백 필수*/
     float: left;
 /*    border-right: 1px solid #ccc;*/
     background: #3a0e93;
