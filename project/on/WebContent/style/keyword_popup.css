@@ -1,0 +1,40 @@
+.content{
+
+}
+.keywordList, .titList{
+    border: 1px solid #ccc;
+    padding: 10px;
+    /*margin-bottom: 5px;*/
+}
+.titList{
+    display: flex;
+}
+.titList span{
+    width: 50%;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 14px;
+    padding-left: 13px;
+}
+button{
+    width: 100%;
+    display: flex;
+    border: 0;        /*10행까지 common에 추가했음 나중에 지우기*/
+    background: none;
+    padding: 0;
+}
+button p{
+    width: 50%;    
+    /*font-size: 16px*/
+    text-align: left;
+    padding: 10px 0; 
+    padding-left: 13px;
+    border-top: 1px solid #ccc;
+    margin: 0;        /*나중에 지우기*/
+}
+button:last-child{
+    border-bottom: 1px solid #ccc;
+}
+button:nth-child(2n){
+    background: #7c4fff14;
+}
