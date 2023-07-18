@@ -17,8 +17,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>검색점 팝업창</title>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel= "stylesheet" href="keyword_popup.css">
 </head>
 <body>
       	<%if(keywordList != null && listCount > 0){%>
@@ -26,10 +27,12 @@
             <span>비고</span>
            <div id= "keywordList" >
         	<%for(int i=0; i < keywordList.size(); i++) {%> 
-        		<button type="button"  id= "keyword">         		
+        		<button type="button"  id= "keyword">         	
+				<!--code값은 hidden으로 가져오기-->	
 	        		<input type="hidden"  name="srch_code" id= "keycd" value= "<%=keywordList.get(i).getSrch_code() %>">
-	        		<input type="text" name="srch_name" id= "keynm" value= "<%=keywordList.get(i).getSrch_name() %>">
-	        		<p id= "remark" class= "remark"><%=keywordList.get(i).getRemark() %></p>
+	        		<!--데이터 전송하지 않으니까 name 없어도 되고 input태그를 p태그로 변경-->
+                		<p id= "keynm"><%=keywordList.get(i).getSrch_name() %></p>
+	        		<p id= "remark" class= "remark"><%=keywordList.get(i).getRemark() %></p>                		
         		</button>
             <%} %> 
             </div>
