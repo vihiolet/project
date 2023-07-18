@@ -20,11 +20,9 @@ public class UserIndexAction implements Action {
 		HttpSession session= request.getSession();
 		String id= (String)session.getAttribute("id");
 		ActionForward forward= new ActionForward();
-		UserListService userListService= null;
-		ArrayList<UserBean> userInfo= null;
+		UserListService userListService= new UserListService();
+		ArrayList<UserBean> userInfo= userListService.getUserInfo(id);		
 		
-		userListService= new UserListService();
-		userInfo= userListService.getUserInfo(id);
 		request.setAttribute("userInfo", userInfo);
 		forward.setPath("./index.jsp");
 				
