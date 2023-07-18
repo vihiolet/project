@@ -15,6 +15,15 @@ public class ProList3Action implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session= request.getSession();
+		String id= (String)session.getAttribute("id");
+		UserListService userListService= null;
+		ArrayList<UserBean> userInfo= null;
+		
+		userListService= new UserListService();
+		userInfo= userListService.getUserInfo(id);
+		request.setAttribute("userInfo", userInfo);
+		
 		//전체 상품 목록 저장할 객체
 				ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
 				int page= 1;		
