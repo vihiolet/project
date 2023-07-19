@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +18,7 @@ import action.JoinAction;
 import action.loginAction;
 import vo.ActionForward;
 import dao.UsersDAO;
+import static db.JdbcUtil.*;
 
 @WebServlet("*.ur")
 public class UsersController extends javax.servlet.http.HttpServlet{
@@ -41,20 +44,25 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		//회원가입 id 중복체크 팝업
+		}else if(command.equals("/idCheckForm.ur")) {			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./front/idCheck_popup.jsp");
 		//회원가입 id 중복체크
 		}else if(command.equals("/userIdChk.ur")) {
 			
 			Connection con= getConnection();
 			UsersDAO userDAO= UsersDAO.getInstance();
-			adminEmpDAO.setConnection(con);
+			userDAO.setConnection(con);
 			
-			String id= request.getParameter("id");
+			String id= request.getParameter("chkId");
 			boolean result= userDAO.duplicationIdChk(id);
 
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out= response.getWriter();
 			if(result) out.println("0");	//id 중복
-			else out.println("1");
+			else out.println("1");		
 			
 		//사용자 로그인
 		}else if(command.equals("/login.ur")) {			

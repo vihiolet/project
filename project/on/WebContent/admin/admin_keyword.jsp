@@ -183,7 +183,7 @@
   	   				data: { "srch_codeArr" : srch_codeArr},
   	   				traditional: true,
   	   				success: function(data){
-  	   					//alert(data);
+  	   					alert(data);				//data에 아무것도 없음
   	   					alert('삭제되었습니당');
   	   					location.reload();			//새로고침
   	   				},

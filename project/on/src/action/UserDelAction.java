@@ -1,11 +1,13 @@
 package action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import svc.UserDelService;
 import svc.UserListService;
 import vo.ActionForward;
 import vo.UserBean;
@@ -17,7 +19,7 @@ public class UserDelAction implements Action {
 		
 		//HttpSession session= request.getSession();
 		//String id= (String)session.getAttribute("id");
-    String id= request.getParameter("id);
+    String id= request.getParameter("id");
 		ActionForward forward= new ActionForward();
 		UserDelService userDelService= new UserDelService();
 		boolean deleteRsult= userDelService.deleteUser(id);		

@@ -124,5 +124,30 @@ public class UsersDAO {
 		}	
 		return userInfo;
 	}
+	
+	//id 중복체크
+	public boolean duplicationIdChk(String id) {
+		
+		String sql= "select id from users where id= ?";
+		boolean selectVal= false;
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			if(rs.next()) selectVal= true;
+		}catch(Exception e) {
+			System.out.println("중복체크 에러");
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		return selectVal;
+	}
+	//회원 탈퇴
+	public int delecteUsers(String id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 }

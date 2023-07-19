@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import svc.AdminProListService;
 import svc.FrontProListService;
+import svc.UserListService;
 import vo.ActionForward;
 import vo.AdminProBean;
 import vo.PageInfo;
+import vo.UserBean;
 
 public class ProList2Action implements Action {
 

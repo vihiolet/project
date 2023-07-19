@@ -14,7 +14,7 @@
 	<form action= "JoinAction.ur" method= "post" name= "userInfo" onsubmit= "return chkValue()">
 		<div class="joinWrap">
 			<input type= "text" name= "id" placeholder="아이디 3~15자의 영문/숫자 조합하여 입력하세요." onkeydown= "inputIdChk()">
-			<input type= "button" value= "id중복확인" onclick= "openIdChk()
+			<input type= "button" value= "id중복확인" onclick= "openIdChk()">
 			<input type= "password" name= "passwd" placeholder="비밀번호">
 			<input type= "text" name= "name" placeholder="이름">
 			<input type= "hidden" name= "idDuplication" value= "idUnCheck">
@@ -45,16 +45,15 @@
 			}
 		}
 		//id 중복체크 팝업창 생성
-		function inputIdChk(){
+		function openIdChk(){
 			window.name= "parentForm"
-			window.open("front/idCheckForm.jsp", "checkForm", "width=500, height=300, resizable = no, scrollbars = no");
+			window.open("idCheckForm.ur", "checkForm", "width=500, height=300, resizable = no, scrollbars = no");
 		}
 		//중복 확인 후 사용 가능한 id면 idDuplication의 value 값은 idCheck가 된다
 		//그 상태에서 id input에 새 id를 입력할 시 idDuplication의 value 값을 다시 idUnCheck로 바꾸기
 		function inputIdChk(){
 			document.userInfoidDuplication.value = "idUnCheck";
 		}
-
-	<script>	
+	</script>	
 </body>
 </html>

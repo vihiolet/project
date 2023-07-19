@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>id 중복체크 팝업</title>
+    <title>id 중복체크 팝업</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
-<body onlade= "pValue()">
+<body onload= "pValue()">
     <div class="idChk">
         <form action="" name="" method="post">
             <input type="text" name= "idInput" id="userId">
@@ -18,15 +20,15 @@
     <script>
         //팝업 창의 id input에 부모창에 입력한 id 삽입
         function pValue(){
-            document.getElementById("userId") = opener.document.userInfo.id.value;
+            document.getElementById("userId").value = opener.document.userInfo.id.value;
         }
         
         //id 중복 체크
         function idChk(){
-            let id = ocument.getElementById("userId").value;
+            let id = document.getElementById("userId").value
             
             if(!id){
-                alert('id를 입력하세요');
+                alert('id를 입력하세요.');
                 return false;
             }else if((id < "0" || id > "9") && (id < "A" || id > "Z") && (id < "a" || id > "z")){ 
                 alert("한글 및 특수문자는 아이디로 사용하실 수 없습니다.");
@@ -39,14 +41,15 @@
                     url: "userIdChk.ur",
                     data: { chkId : id },
                     success: function(data){
+                      console.log(data);
                       if(data == 0) {
-                          alert('사용할 수 없는 id입니다');
                           document.getElementById("cancel_Btn").style.visibility = "visible";
                           document.getElementById("use_Btn").style.visibility = "hidden";
-                      }if else(data == 1){
+                          document.getElementById("mag").innerHTML= "사용할 수 없는 아이디입니다";
+                      }else if(data == 1){
                           document.getElementById("cancel_Btn").style.visibility = "hidden";
                           document.getElementById("use_Btn").style.visibility = "visible";
-                          document.getElementById("mag").innerHTML= "사용할 수 있는 id입니다"
+                          document.getElementById("mag").innerHTML= "사용할 수 있는 아이디입니다";
                       }  
                     },
                     error: function(){

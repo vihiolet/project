@@ -67,7 +67,7 @@ public class FrontProDAO {
 	public ArrayList<AdminProBean> selectArticleList(int page, int limit) {
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
-		String sql= "select * from product limit ?, 10;";
+		String sql= "select * from product t1 inner join keyword t2 on t1.srch_code1 = t2.srch_code limit ?, 10";
 		ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
 		AdminProBean adminProBean= null;
 		int startrow= (page-1) *10;	

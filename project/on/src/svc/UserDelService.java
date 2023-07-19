@@ -7,7 +7,7 @@ import java.sql.Connection;
 
 public class UserDelService {
 
-	public boolean deleteUser(String Id) {
+	public boolean deleteUser(String id) {
 		boolean deleteSuccess= false;
 		UsersDAO userDAO= UsersDAO.getInstance();
 		Connection con= getConnection();
