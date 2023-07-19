@@ -19,7 +19,7 @@ public class UserDelAction implements Action {
 		
 		//HttpSession session= request.getSession();
 		//String id= (String)session.getAttribute("id");
-    String id= request.getParameter("id");
+		String id= request.getParameter("id");
 		ActionForward forward= new ActionForward();
 		UserDelService userDelService= new UserDelService();
 		boolean deleteRsult= userDelService.deleteUser(id);		
