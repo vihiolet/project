@@ -1,0 +1,23 @@
+form{
+    width: 100%;
+}
+.joinWrap{
+    width: 265px;
+    margin: 0 auto;
+}
+input{
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 45px;
+    margin-bottom: 10px;
+}
+
+.join_btn{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    line-height: 50px;
+    background: #ccc;
+    color: #fff;
+    margin-bottom: 15px;
+}
