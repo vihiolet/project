@@ -12,14 +12,15 @@
 </head>
 <body>
 	<form action= "JoinAction.ur" method= "post" name= "userInfo" onsubmit= "return chkValue()">
-		<input type= "text" name= "id" placeholder="아이디" onkeydown= "inputIdChk()">
-		<input type= "button" value= "id중복확인" onclick= "openIdChk()
-		<input type= "password" name= "passwd" placeholder="비밀번호">
-		<input type= "text" name= "name" placeholder="이름">
-		<input type= "hidden" name= "idDuplication" value= "idUnCheck">
-		<div class="button">
-            <input type="submit" value="가입하기">
-            <input type="reset" value="다시쓰기">
+		<div class="joinWrap">
+			<input type= "text" name= "id" placeholder="아이디 3~15자의 영문/숫자 조합하여 입력하세요." onkeydown= "inputIdChk()">
+			<input type= "button" value= "id중복확인" onclick= "openIdChk()
+			<input type= "password" name= "passwd" placeholder="비밀번호">
+			<input type= "text" name= "name" placeholder="이름">
+			<input type= "hidden" name= "idDuplication" value= "idUnCheck">
+		</div>
+	<div class="button">
+            <a href="javascript:_form.submit()" class="join_btn">회원가입</a><br>
         </div>
 	</form>
 	<script>
