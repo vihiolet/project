@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import action.Action;
 import action.AdminKeyDeleteAction;
 import action.AdminKeyListAction;
+import action.AdminKeyModifyAction;
 import action.AdminKeyRegAction;
 import action.AdminProRegAcrion;	//상품등록 actoin
 import dao.AdminProDAO;
@@ -50,6 +51,14 @@ public class AdminKeywordController extends javax.servlet.http.HttpServlet{
 		//삭제
 		}else if(command.equals("/adminKeywordDel.ke")) {	
 			action= new AdminKeyDeleteAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		//수정
+		}else if(command.equals("/adminKeywordModi.ke")) {	
+			action= new AdminKeyModifyAction();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

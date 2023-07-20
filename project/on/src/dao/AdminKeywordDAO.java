@@ -136,4 +136,16 @@ public class AdminKeywordDAO {
 			}
 			return deleteCount;
 		}
+		
+		//수정시 관리자 확인
+		public boolean isAdminUser(String id) {
+			// TODO Auto-generated method stub
+			return false;
+		}
+		
+		//검색점 수정
+		public int updateKetword(KeywordBean keyword) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 }
