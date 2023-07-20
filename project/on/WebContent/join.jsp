@@ -13,13 +13,15 @@
 <body>
 	<form action= "JoinAction.ur" method= "post" name= "userInfo" onsubmit= "return chkValue()">
 		<div class="joinWrap">
+			<p>필수항목</p>
 			<input type= "text" name= "id" placeholder="아이디 15자의 영문/숫자 조합하여 입력하세요." maxlength="15" onkeydown= "inputIdChk()">
 			<input type= "button" value= "id중복확인" onclick= "openIdChk()">
+			<input type= "hidden" name= "idDuplication" value= "idUnCheck">
 			<input type= "password" name= "passwd" placeholder="비밀번호">
 			<input type= "password" name= "passwdChk" placeholder="비밀번호 확인" onchange= "passChk()">
 			<p id= "passwdCheck"></p>
-			<input type= "text" name= "name" placeholder="이름">
-			<input type= "hidden" name= "idDuplication" value= "idUnCheck">
+			<p>선택항목</p>
+			<input type= "text" name= "name" placeholder="성명">			
 		</div>
 	<div class="button">
             <a href="javascript:_form.submit()" class="join_btn">회원가입</a><br>
@@ -61,9 +63,10 @@
 			let passwd= document.userInfo.passwd.value;
 			let passwdChk= document.userInfo.passwdChk.value;
 			if(passwd == passwdChk){
-				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치합니다"
+				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치합니다";
 			}else{
-				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치하지 않습니다"
+				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치하지 않습니다";
+				passwdChk= null;	//비밀번호 확인 input값 초기화
 			}
 		}
 	</script>	
