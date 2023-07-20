@@ -30,6 +30,7 @@
    	<form action="adminKeywordReg.ke" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
             <input type="button"  class="add" value="추가" onclick= "addClick()">
+            <input type="button" value="수정" id='modify_btn'>
             <input type="submit" value="저장" id='save_btn'>            
             <input type="button" value="삭제" id= "delete_btn">
       </div>
@@ -39,7 +40,7 @@
                 <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
                 <td>검색점</td>
                 <td>등록인</td>
-                <td>사용여부</td>
+                <!-- <td>사용여부</td> -->
                 <td>비고</td>
             </tr>
         	<%for(int i=0; i < keywordList.size(); i++) {%>    
@@ -48,12 +49,14 @@
                 <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
                 <td><input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
                 <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
+                <!-- 
                 <td>
                     <select name="use_yn" id="">
                         <option value="1">사용</option>
                         <option value="2">미사용</option>
                     </select>
                 </td>
+                 -->
                 <td><input type="text" size="35" id= "remark" class= "key remark" value="<%=keywordList.get(i).getRemark() %>"></td>
             </tr>  
             <%} %>
@@ -196,6 +199,10 @@
   				alert('삭제할 검색점을 선택하세요');
   			}   			
   			//location.reload();	//여기에 쓰면 success의 alert나 console.log가 실행 안 된다 success의 마지막에 써야 된다
+  		})
+  		//수정
+  		$('#modify_btn').on("click", function(e){
+  			let 
   		})
   </script>
 </body>

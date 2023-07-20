@@ -46,7 +46,7 @@
 		}
 		//id 중복체크 팝업창 생성
 		function openIdChk(){
-			window.name= "parentForm"
+			window.name= "parentForm"	//window.name을 지정해주면 IE에서 window.opener이 undefinde되는 걸 방지할 수 있다
 			window.open("idCheckForm.ur", "checkForm", "width=500, height=300, resizable = no, scrollbars = no");
 		}
 		//중복 확인 후 사용 가능한 id면 idDuplication의 value 값은 idCheck가 된다
