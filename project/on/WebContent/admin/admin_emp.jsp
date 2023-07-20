@@ -40,7 +40,7 @@
 	            	<c:forEach var= "empList" items= "${EmpList}" varStatus="status">		
 		                <td><input type="checkbox" name="emp_code" id= "emp_code" class= "key" value="${empList.emp_code}" style="margin-left: 10px;"></td>
 		                <td><input type="text" name="emp_code" id= "emp_code" class= "key" value="${empList.emp_code}"></td>
-		                <td><input type="text" name="emp_pass" id= "emp_pass" class= "key" value="${empList.emp_pass}"></td>
+		                <!-- <td><input type="text" name="emp_pass" id= "emp_pass" class= "key" value="${empList.emp_pass}"></td> -->
 		                <td><input type="text" name="" id= "emp_name" class= "key emp_name" size="15" value="${empList.emp_name}"></td>
 		                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="${empList.create_id}"></td>
 		                <td><input type="text" size="35" id= "remark" class= "key remark" value="${empList.remark}"></td>

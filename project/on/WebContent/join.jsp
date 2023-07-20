@@ -66,7 +66,8 @@
 				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치합니다";
 			}else{
 				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치하지 않습니다";
-				passwdChk= null;	//비밀번호 확인 input값 초기화
+				document.gerElementById(ps).value= null;	//비밀번호 확인 input값 초기화
+				alert(passwdChk);
 			}
 		}
 	</script>	
