@@ -45,7 +45,7 @@
                          </div>
                          <div class="keyword_r">                     
                              <input type="button" value="추가" onclick="keywordOpen()">
-                             <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value=""  required= "required">
+                             <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value="" placeholder="추가 버튼으로 검색점을 추가하세요" required= "required">
                              <input type="hidden" id= "keycd" class="keyInput" name="srch_code1" value="" required= "required">
                          </div>
                          <div class="name_img">                     
