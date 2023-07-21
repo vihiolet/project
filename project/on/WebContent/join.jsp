@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>사용자 회원가입</title>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/join.css">
 <link rel="stylesheet" href="style/head.css">
@@ -66,8 +67,7 @@
 				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치합니다";
 			}else{
 				document.getElementById("passwdCheck").innerHTML= "비밀번호가 일치하지 않습니다";
-				document.gerElementById(ps).value= null;	//비밀번호 확인 input값 초기화
-				alert(passwdChk);
+				$("input[name=passwdChk]").val('');	//비밀번호 확인 input값 초기화
 			}
 		}
 	</script>	
