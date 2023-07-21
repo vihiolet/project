@@ -61,8 +61,8 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out= response.getWriter();
-			if(result) out.println("0");	//id 중복
-			else out.println("1");		
+			if(result) out.println("1");	//id 중복
+			else out.println("0");		
 			
 		//사용자 로그인
 		}else if(command.equals("/login.ur")) {			
