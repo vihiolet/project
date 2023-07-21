@@ -42,11 +42,11 @@
                     data: { chkId : id },
                     success: function(data){
                       console.log(data);
-                      if(data == 0) {
+                      if(data == 1) {
                           document.getElementById("cancel_Btn").style.visibility = "visible";
                           document.getElementById("use_Btn").style.visibility = "hidden";
                           document.getElementById("mag").innerHTML= "사용할 수 없는 아이디입니다";
-                      }else if(data == 1){
+                      }else if(data == 0){
                           document.getElementById("cancel_Btn").style.visibility = "hidden";
                           document.getElementById("use_Btn").style.visibility = "visible";
                           document.getElementById("mag").innerHTML= "사용할 수 있는 아이디입니다";
