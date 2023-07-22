@@ -16,6 +16,7 @@ import action.ProList2Action;
 import action.ProList3Action;
 import action.ProList4Action;
 import action.ProList5Action;
+import action.ProViewAction;
 //import action.BoardDeleteProAction;
 //import action.BoardDetailAction;
 import action.ReviewListAction;
@@ -46,6 +47,13 @@ public class FrontController extends javax.servlet.http.HttpServlet{
 	          }	   		         
 		  }else if(command.equals("/ProList1.fr")) {
 	    	  action = new ProList1Action();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		  }else if(command.equals("/Pro_view.fr")) {
+	    	  action = new ProViewAction();
 	          try {
 	             forward=action.execute(request, response);
 	          }catch(Exception e) {

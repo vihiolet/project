@@ -32,9 +32,8 @@ public class AdminProModifyAcrion implements Action{
 			out.println("history.back();");
 			out.println("</script>");
 		}else {
-			proBean.setPro_name(request.getParameter("pro_name"));
-			proBean.setRemark(request.getParameter("remark"));
-			isModifySuccess= adminProModifyService.modifyKeyword(keyword);
+			proBean.setPro_nm(request.getParameter("pro_nm"));
+			isModifySuccess= adminProModifyService.modifyPro(proBean);
 			
 			if(isModifySuccess) {
 				forward= new ActionForward();

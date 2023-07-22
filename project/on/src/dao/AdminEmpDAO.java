@@ -40,7 +40,7 @@ public class AdminEmpDAO {
 		ResultSet rs= null;
 		
 		try {
-			pstmt=con.prepareStatement("select count(*) from Emp");
+			pstmt=con.prepareStatement("select count(*) from emp");
 			rs= pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -58,7 +58,7 @@ public class AdminEmpDAO {
 	public ArrayList<AdminEmpBean> selectEmpList(int page, int limit) {
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
-		String empList_sql= "select emp_code, emp_pass, emp_name, create_dt, create_id, ifnull(remark, '') as remark from users order by emp_code asc limit ?, 10";
+		String empList_sql= "select emp_code, emp_pass, emp_name, create_dt, create_id, ifnull(remark, '') as remark from emp order by emp_code asc limit ?, 10";
 		ArrayList<AdminEmpBean> empLsit= new ArrayList<AdminEmpBean>();
 		AdminEmpBean emp= null;
 		int startrow= (page - 1) * 10;

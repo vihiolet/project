@@ -139,4 +139,15 @@ public class AdminProDAO {
 		}
 		return deleteCount;
 	}
+	//권한 확인
+	public boolean isAdminUser(String id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	//수정
+	public int updatePro(AdminProBean proBean) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

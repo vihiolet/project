@@ -5,10 +5,15 @@ public class ReviewBean {
 
 	private int pro_code;
 	private int tit_fg;
+	private String tit_text;
 	private int sub1_fg;
+	private String sub1_text;
 	private int sub2_fg;
+	private String sub2_text;
 	private int sub3_fg;
+	private String sub3_text;
 	private Date create_dt;
+	private int reviewCount;	
 	
 	public int getPro_code() {
 		return pro_code;
@@ -45,8 +50,38 @@ public class ReviewBean {
 	}
 	public void setCreate_dt(Date create_dt) {
 		this.create_dt = create_dt;
+	}	
+
+	public String getTit_text() {
+		return tit_text;
+	}
+	public void setTit_text(String tit_text) {
+		this.tit_text = tit_text;
+	}
+	public String getSub1_text() {
+		return sub1_text;
+	}
+	public void setSub1_text(String sub1_text) {
+		this.sub1_text = sub1_text;
+	}
+	public String getSub2_text() {
+		return sub2_text;
+	}
+	public void setSub2_text(String sub2_text) {
+		this.sub2_text = sub2_text;
+	}
+	public String getSub3_text() {
+		return sub3_text;
+	}
+	public void setSub3_text(String sub3_text) {
+		this.sub3_text = sub3_text;
 	}
 	
-	
+	public int getReviewCount() {
+		return reviewCount;
+	}
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
+	}
 
 }

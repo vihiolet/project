@@ -15,6 +15,7 @@ public class AdminProBean {
 	private String srch_nm3;
 	private Date create_dt;
 	private String create_id;
+	private String pro_explain;
 	
 	public int getPro_code() {
 		return pro_code;
@@ -93,5 +94,11 @@ public class AdminProBean {
 	}
 	public void setCreate_id(String create_id) {
 		this.create_id = create_id;
+	}
+	public String getPro_explain() {
+		return pro_explain;
+	}
+	public void setPro_explain(String pro_explain) {
+		this.pro_explain = pro_explain;
 	}
 }
