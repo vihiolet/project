@@ -19,6 +19,7 @@ public class AdminKeyModifyAction implements Action{
 		String id= (String)session.getAttribute("id");
 		boolean isModifySuccess= false;
 		int srch_code= Integer.parseInt(request.getParameter("srch_code"));
+		System.out.println(srch_code);
 		KeywordBean keyword= new KeywordBean();
 		KeywordModifyService keywordModifyService = new KeywordModifyService();
 		
@@ -34,7 +35,8 @@ public class AdminKeyModifyAction implements Action{
 		}else {
 			keyword.setSrch_name(request.getParameter("srch_name"));
 			keyword.setRemark(request.getParameter("remark"));
-			isModifySuccess= keywordModifyService.modifyKeyword(keyword);
+			System.out.println(request.getParameter("remark"));
+			//isModifySuccess= keywordModifyService.modifyKeyword(keyword);
 			
 			if(isModifySuccess) {
 				forward= new ActionForward();

@@ -28,7 +28,7 @@
 			         <article>
 			             <a href="#">
 			                <div class="photo">
-			                    <img src="${articleList.pro_img}" alt="">
+			                    <img src="images/${articleList.pro_img}" alt="">
 			                </div>
 			                 <div class="text">
 			                     <h3>${articleList.pro_nm}</h3>

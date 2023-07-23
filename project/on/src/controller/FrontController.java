@@ -59,6 +59,10 @@ public class FrontController extends javax.servlet.http.HttpServlet{
 	          }catch(Exception e) {
 	             e.printStackTrace();
 	          }	   		         
+		  }else if(command.equals("/Pro_reviewReg.fr")) {
+	    	  forward= new ActionForward();
+	    	  forward.setRedirect(false);
+	    	  forward.setPath("./front/review_write.jsp");
 		  }else if(command.equals("/ProList2.fr")) {
 	    	  action = new ProList2Action();
 	          try {

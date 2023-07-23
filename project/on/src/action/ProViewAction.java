@@ -16,12 +16,19 @@ public class ProViewAction implements Action {
 		
 		int pro_code= Integer.parseInt(request.getParameter("pro_code"));
 		AdminProBean pro= proViewService.getProView(pro_code); 	
-		request.setAttribute("pro", pro);		
+		request.setAttribute("pro", pro);	
 		
-		//int reviewCount= proViewService.getReviewCount(pro_code);
-		ReviewBean review= proViewService.getReviewInfo(pro_code);
-				
-		request.setAttribute("review", review);
+		ReviewBean MaxReviCount= proViewService.getReviewCount(pro_code);
+		request.setAttribute("MaxReviCount", MaxReviCount);
+		
+		int tit1Count= proViewService.getTit1Count(pro_code);
+		request.setAttribute("tit1Count", tit1Count);
+		
+		int tit2Count= proViewService.getTit2Count(pro_code);
+		request.setAttribute("tit2Count", tit2Count);
+		
+		int tit3Count= proViewService.getTit3Count(pro_code);
+		request.setAttribute("tit3Count", tit3Count);
 		
 		ActionForward forward= new ActionForward();	
 		forward.setPath("/front/Pro_view.jsp");

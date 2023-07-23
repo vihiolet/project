@@ -23,7 +23,6 @@ public class FrontProDAO {
 
 	public void setConnection(Connection con) {
 		this.con = con;
-
 	}
 	
 	//리뷰 등록

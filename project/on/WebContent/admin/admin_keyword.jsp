@@ -47,7 +47,10 @@
             	
             <tr class="keyword_info">            	
                 <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
-                <td><input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>"></td>
+                <td>
+                	<input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
+                	<input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>">
+                </td>
                 <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
                 <!-- 
                 <td>
@@ -184,9 +187,8 @@
   	   				type: "POST",
   	   				url: "adminKeywordDel.ke",
   	   				data: { "srch_codeArr" : srch_codeArr},
-  	   				traditional: true,
-  	   				success: function(data){
-  	   					alert(data);				//data에 아무것도 없음
+  	   				traditional: true,				//전달 데이터는 배열
+  	   				success: function(data){		//data에 아무것도 없음
   	   					alert('삭제되었습니당');
   	   					location.reload();			//새로고침
   	   				},
@@ -200,10 +202,50 @@
   			}   			
   			//location.reload();	//여기에 쓰면 success의 alert나 console.log가 실행 안 된다 success의 마지막에 써야 된다
   		})
+  		
   		//수정
-  		$('#modify_btn').on("click", function(e){
-  			let 
-  		})
+  		$(document).ready(function(){
+  			
+  			let srch_name= null;
+  			let remark= null;
+  			let srch_code= null;
+  				
+  			//변경된 검색점 정보 변수에 담기
+  			$('.srch_name').change(function(){
+  				srch_name= $(this).val();
+  			})
+  			$('.remark').change(function(){
+  				remark= $(this).val();
+  			})  			
+  			$('.srch_name').focus(function(){
+  				srch_code= $(this).prev().val();
+  			})
+  	  		
+  			$('#modify_btn').on("click", function(e){
+  				/*alert('srch_code ' + srch_code);
+  				alert('srch_name ' + srch_name);
+  				alert('remark ' + remark);*/
+  				
+	  			$.ajax({
+  	   				type: "POST",
+  	   				url: "adminKeywordModi.ke",
+  	   				data: { 
+  	   						"srch_code" : srch_code,
+  	   						"srch_name" : srch_name,
+  	   						"remark"	: remark
+  	   						},
+  	   				success: function(data){		
+  	   					//alert('수정됨');
+  	   					location.reload();			//새로고침
+  	   				},
+  	   				error: function(data) {
+  	   					//alert('오류!@#$%^');
+  	   					location.reload();
+  	   				}
+ 	  	   		})
+  				
+  			})
+  	  	})	
   </script>
 </body>
 </html>

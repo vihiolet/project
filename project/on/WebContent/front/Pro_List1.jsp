@@ -26,9 +26,10 @@
 	     		<!--메뉴코드 1(음식) 상품만 출력  -->
 				<c:if test= "${articleList.menu_code == 1}"> 
 			         <article>
-			             <a href="#">
+			         	 <a href="Pro_view.fr?pro_code=${articleList.pro_code}">
+			             <input type="text" name= "pro_code" value="${articleList.pro_code}">
 			                <div class="photo">
-			                    <img src="${articleList.pro_img}" alt="">
+			                    <img src="images/${articleList.pro_img}" alt="">
 			                </div>
 			                 <div class="text">
 			                 	<input type="hidden" name= "menu_code" value="${articleList.menu_code}">

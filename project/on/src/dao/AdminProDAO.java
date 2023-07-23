@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import vo.AdminProBean;
 import vo.KeywordBean;
+import vo.ReviewBean;
 
 public class AdminProDAO {
 	
@@ -141,13 +142,140 @@ public class AdminProDAO {
 	}
 	//권한 확인
 	public boolean isAdminUser(String id) {
-		// TODO Auto-generated method stub
+		PreparedStatement pstmt= null;
 		return false;
 	}
 
 	//수정
 	public int updatePro(AdminProBean proBean) {
-		// TODO Auto-generated method stub
+		PreparedStatement pstmt= null;
 		return 0;
+	}
+
+	//뷰 페이지
+	public AdminProBean selectPro(int pro_code) {
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		AdminProBean adminPro= null;
+		
+		try {
+			pstmt= con.prepareStatement("select * from product where pro_code= " + pro_code);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				adminPro = new AdminProBean();
+				adminPro.setPro_code(rs.getInt("pro_code"));
+				adminPro.setPro_nm(rs.getString("pro_nm"));
+				adminPro.setPro_company(rs.getString("pro_company"));
+				adminPro.setPro_img(rs.getString("pro_img"));
+				adminPro.setSrch_code1(rs.getInt("srch_code1"));
+				adminPro.setSrch_nm1(rs.getString("srch_nm1"));
+				adminPro.setPro_explain(rs.getString("pro_explain"));				
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return adminPro;
+	}
+
+	//리뷰 최대 개수
+	public ReviewBean getReviewCount(int pro_code) {
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		ReviewBean review= null;
+		String sql= "select t1.pro_code, tit_fg, max(titCount) as titCount from product t1 inner join "
+				+ "(select pro_code, tit_fg, count(tit_fg) as titCount from review where pro_code= " + pro_code
+				+ " group by tit_fg having count(tit_fg) >= 1) t2 on t1.pro_code = t2.pro_code where t1.pro_code = " + pro_code;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				review= new ReviewBean();
+				review.setPro_code(rs.getInt("pro_code"));
+				review.setTit_fg(rs.getInt("tit_fg"));
+				review.setReviewCount(rs.getInt("titCount"));
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return review;
+	}
+	
+	//tit_fg 표 개수 구하기 1
+	public int getTit1Count(int pro_code) {
+		
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		String sql= "select t1.pro_code, ifnull(count(tit_fg), 0) from product t1 inner join review t2 "
+				+ "on t1.pro_code= t2.pro_code where tit_fg= 1 and t1.pro_code =" + pro_code;
+		int tit1Count= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				tit1Count= rs.getInt(2);
+			}			
+		}catch(Exception e) {
+			System.out.println("리뷰1 개수 에러 발생 " + e);
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return tit1Count;
+	}
+
+	//tit_fg 표 개수 구하기 2
+	public int getTit2Count(int pro_code) {
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		String sql= "select t1.pro_code, ifnull(count(tit_fg), 0) from product t1 inner join review t2 "
+				+ "on t1.pro_code= t2.pro_code where tit_fg=2 and t1.pro_code= " + pro_code;
+		int tit2Count= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				tit2Count= rs.getInt(2);
+			}	
+		}catch(Exception e) {
+			System.out.println("리뷰1 개수 에러 발생 " + e);
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return tit2Count;
+	}
+
+	//tit_fg 표 개수 구하기 3
+	public int getTit3Count(int pro_code) {
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		String sql= "select t1.pro_code, ifnull(count(tit_fg), 0) from product t1 inner join review t2 "
+				+ "on t1.pro_code= t2.pro_code where tit_fg= 3 and t1.pro_code =" + pro_code;
+		int tit3Count= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				tit3Count= rs.getInt(2);
+			}			
+		}catch(Exception e) {
+			System.out.println("리뷰1 개수 에러 발생 " + e);
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		return tit3Count;
 	}
 }

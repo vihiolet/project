@@ -9,12 +9,12 @@
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/reg.css">
-<body>
+<body onload= "proCodeVal()">
    <section class="reg">
         <div class="container"> 
-        	<p class="review_tit">사용 후기를 등록해주세요.</p>
+        	<p class="review_tit">사용 후기를 투표해주세요.</p>
             <form action="reviewWriteRev.fr" method="post" name="reviewform">
-            	<input type="hidden" name="pro_code" value="4">            	
+            	<input type="hidden" name="pro_code" id= "pro_code" value="">            	
             	
                 <div class="reviewWrap tit">
                     <input type="radio" name="tit_fg" id="tit1" class="btn" value="1">
@@ -54,5 +54,10 @@
             </form>
        </div>
     </section>    
+    <script>
+    	function proCodeVal(){
+    		document.getElementById("pro_code").value = opener.document.getElementById("pro_code").value;
+    	}
+    </script>
 </body>
 </html>

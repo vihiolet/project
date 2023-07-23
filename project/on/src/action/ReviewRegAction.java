@@ -41,12 +41,11 @@ public class ReviewRegAction implements Action{
 	      PrintWriter out = response.getWriter();
 	      out.println("<script>");
 	      out.println("alert('등록되었습니다.');");
-	      out.println("location.href='.fr'");
+	      out.println("opener.location.reload();");		//부모창 새로고침
+	      out.println("self.close();");					//팝업 닫기
 	      out.println("</script>");
 
 	   }
-	   PageInfo pageInfo = new PageInfo();
-
 
 	   return forward;
 	   

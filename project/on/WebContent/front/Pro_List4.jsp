@@ -26,9 +26,9 @@
 	     		<!--메뉴코드 2(옷) 상품만 출력  -->
 				<c:if test= "${articleList.menu_code == 4}"> 
 			         <article>
-			             <a href="#">
+			             <a href="Pro_view.fr?pro_code=${articleList.pro_code}">			             
 			                <div class="photo">
-			                    <img src="${articleList.pro_img}" alt="">
+			                    <img src="images/${articleList.pro_img}" alt="">
 			                </div>
 			                 <div class="text">
 			                     <h3>${articleList.pro_nm}</h3>

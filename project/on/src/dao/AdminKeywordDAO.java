@@ -145,7 +145,18 @@ public class AdminKeywordDAO {
 		
 		//검색점 수정
 		public int updateKetword(KeywordBean keyword) {
-			// TODO Auto-generated method stub
+			int updateCount= 0;
+			PreparedStatement pstmt= null;
+			String sql= "update keyword set ";
+			
+			try {
+				pstmt= con.prepareStatement(sql);
+				
+			}catch(Exception e) {
+				System.err.println("검색점 수정에서 오류 : " + e);
+			}finally {
+				close(pstmt);
+			}
 			return 0;
 		}
 }
