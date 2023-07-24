@@ -40,8 +40,8 @@
                 <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
                 <td>검색점</td>
                 <td>등록인</td>
-                <!-- <td>사용여부</td> -->
-                <td>비고</td>
+                <!-- <td>사용여부</td> 
+                <td>비고</td>-->
             </tr>
         	<%for(int i=0; i < keywordList.size(); i++) {%>    
             	
@@ -51,7 +51,9 @@
                 	<input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
                 	<input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>">
                 </td>
-                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>"></td>
+                <td>                	
+                	<input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>" readonly>
+                </td>
                 <!-- 
                 <td>
                     <select name="use_yn" id="">
@@ -59,8 +61,11 @@
                         <option value="2">미사용</option>
                     </select>
                 </td>
-                 -->
-                <td><input type="text" size="35" id= "remark" class= "key remark" value="<%=keywordList.get(i).getRemark() %>"></td>
+                 
+                <td>
+                	<input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
+                	<input type="text" size="35" id= "remark" class= "key remark" value="<%=keywordList.get(i).getRemark() %>">
+                </td>-->
             </tr>  
             <%} %>
       </table> 
@@ -207,43 +212,35 @@
   		$(document).ready(function(){
   			
   			let srch_name= null;
-  			let remark= null;
   			let srch_code= null;
   				
   			//변경된 검색점 정보 변수에 담기
   			$('.srch_name').change(function(){
   				srch_name= $(this).val();
-  			})
-  			$('.remark').change(function(){
-  				remark= $(this).val();
-  			})  			
-  			$('.srch_name').focus(function(){
   				srch_code= $(this).prev().val();
+  				$('input').not(this).css({'background':'#eee', 'border':'none'}).attr('readonly', true);			
   			})
   	  		
   			$('#modify_btn').on("click", function(e){
-  				/*alert('srch_code ' + srch_code);
-  				alert('srch_name ' + srch_name);
-  				alert('remark ' + remark);*/
-  				
-	  			$.ajax({
-  	   				type: "POST",
-  	   				url: "adminKeywordModi.ke",
-  	   				data: { 
-  	   						"srch_code" : srch_code,
-  	   						"srch_name" : srch_name,
-  	   						"remark"	: remark
-  	   						},
-  	   				success: function(data){		
-  	   					//alert('수정됨');
-  	   					location.reload();			//새로고침
-  	   				},
-  	   				error: function(data) {
-  	   					//alert('오류!@#$%^');
-  	   					location.reload();
-  	   				}
- 	  	   		})
-  				
+  				/*alert('srch_code ' + srch_code);;*/
+	  			if(srch_code != null){
+	  				$.ajax({
+	  	   				type: "POST",
+	  	   				url: "adminKeywordModi.ke",
+	  	   				data: { 
+	  	   						"srch_code" : srch_code,
+	  	   						"srch_name" : srch_name
+	  	   						},
+	  	   				success: function(data){		
+	  	   					//alert('수정됨');
+	  	   					location.reload();			//새로고침
+	  	   				},
+	  	   				error: function(data) {
+	  	   					//alert('오류!@#$%^');
+	  	   					location.reload();
+	  	   				}
+	 	  	   		})
+	  			}	 							
   			})
   	  	})	
   </script>

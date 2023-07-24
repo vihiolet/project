@@ -147,16 +147,20 @@ public class AdminKeywordDAO {
 		public int updateKetword(KeywordBean keyword) {
 			int updateCount= 0;
 			PreparedStatement pstmt= null;
-			String sql= "update keyword set ";
+			String sql= "update keyword set srch_name= ? where srch_code= ?";
 			
 			try {
 				pstmt= con.prepareStatement(sql);
+				pstmt.setString(1, keyword.getSrch_name());
+				pstmt.setInt(2, keyword.getSrch_code());
+				
+				updateCount= pstmt.executeUpdate();
 				
 			}catch(Exception e) {
 				System.err.println("검색점 수정에서 오류 : " + e);
 			}finally {
 				close(pstmt);
 			}
-			return 0;
+			return updateCount;
 		}
 }

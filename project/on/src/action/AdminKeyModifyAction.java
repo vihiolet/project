@@ -18,13 +18,14 @@ public class AdminKeyModifyAction implements Action{
 		HttpSession session= request.getSession();
 		String id= (String)session.getAttribute("id");
 		boolean isModifySuccess= false;
-		int srch_code= Integer.parseInt(request.getParameter("srch_code"));
-		System.out.println(srch_code);
+		
+		
 		KeywordBean keyword= new KeywordBean();
+		
 		KeywordModifyService keywordModifyService = new KeywordModifyService();
 		
 		//관리자 계정인지 확인
-		boolean isAdminUser= keywordModifyService.isKeyWriter(id);
+		/*boolean isAdminUser= keywordModifyService.isKeyWriter(id);
 		if(!isAdminUser) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out= response.getWriter();
@@ -34,9 +35,8 @@ public class AdminKeyModifyAction implements Action{
 			out.println("</script>");
 		}else {
 			keyword.setSrch_name(request.getParameter("srch_name"));
-			keyword.setRemark(request.getParameter("remark"));
-			System.out.println(request.getParameter("remark"));
-			//isModifySuccess= keywordModifyService.modifyKeyword(keyword);
+			
+			isModifySuccess= keywordModifyService.modifyKeyword(keyword);
 			
 			if(isModifySuccess) {
 				forward= new ActionForward();
@@ -50,7 +50,26 @@ public class AdminKeyModifyAction implements Action{
 				out.println("history.back();");
 				out.println("</script>");
 			}
+		}*/
+		
+		keyword.setSrch_name(request.getParameter("srch_name"));
+		keyword.setSrch_code(Integer.parseInt(request.getParameter("srch_code")));
+
+		isModifySuccess= keywordModifyService.modifyKeyword(keyword);
+		
+		if(isModifySuccess) {
+			forward= new ActionForward();
+			forward.setPath("adminKey.ke");
+			forward.setRedirect(true);
+		}else {
+			response.setContentType("text/html;charset=utf-8");
+			PrintWriter out= response.getWriter();
+			out.println("<script>");
+			out.println("alert('수정실패');");
+			out.println("history.back();");
+			out.println("</script>");
 		}
+		
 		return forward;		
 	}
 
