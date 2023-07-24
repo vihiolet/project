@@ -12,6 +12,45 @@
     <link rel="stylesheet" href="style/footer.css">
     </head>
 <body>
-    
+    <div class="mypageWrap">
+        <div class="container">
+            <div class="myInfo">
+                <div class="pofile">
+                   <div class="pImg">
+                       <img src="" alt="">
+                   </div>
+                    <div class="pText">
+                        <p class="id">tlsdbswls77</p>
+                        <p class="logout">로그아웃</p>
+                    </div>
+                </div>
+                <div class="myMenu">
+                    <ul>
+                        <li><a href="">내 정보 수정</a></li>
+                        <li><a href="">내가 남긴 후기</a></li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="myContent">
+               <div>
+                    <div class="board">
+                        <p>내가 남긴 후기</p>
+                        <p class="myVote"><span>31</span>개</p>
+                    </div>
+                    <div class="vanner">    
+                        <div><img src="" alt=""></div>
+                        <div><img src="" alt=""></div>            
+                    </div>
+                    <p class="porList_tit">최근 리뷰 투표한 제품</p>
+                    <div class="porList">                        
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+               </div>                
+            </div>
+        </div>
+    </div>
 </body>
 </html>
