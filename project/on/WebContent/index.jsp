@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import= "vo.UserBean" %>
+<%@ page import= "java.util.*" %>    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,6 @@
 <link rel="stylesheet" href="style/head.css">
 <link rel="stylesheet" href="style/footer.css">
 <body>
-<!-- <a href="/on/ReviewWriteForm.fr">후기 쓰러 가기</a> -->
     <jsp:include page="header.jsp"></jsp:include>
     <div class="step1">
        <div class="slider">

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import= "java.util.*" %>
 <%@ page import= "vo.UserBean" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,18 +21,27 @@
 <body>
  <header>
       <div class= "login">
-      		<a href= "adminJoin.ur">관리자 로그인</a>
+      		<a href= "adminJoin.ur">관리자로그인</a>
       		<c:if test= "${userInfo == null}">
 	      		<a href= "login.ur">로그인</a>
 	      		<a href= "Join.ur">회원가입</a>
       		</c:if>
       		<c:if test= "${userInfo != null}">
+      			<c:forEach var= "userInfo" items= "${userInfo}" varStatus="status">
+      				<span>${userInfo.id}</span>
+      			</c:forEach>
       			<a href= "mypage.fr">마이페이지</a>
+      			<a href= "logout.ur">로그아웃</a>
       		</c:if>
       </div>
       <div class="container">      	
          <div class="container-small">
-              <a href="index.jsp" class="head1">로고</a>   
+         	<c:if test= "${userInfo == null}">
+              <a href="index.jsp" class="head1">로고</a> 
+           	</c:if>  
+           	<c:if test= "${userInfo != null}">
+           		<a href="userIndex.fr" class="head1">로고</a> 
+           	</c:if>
               <button type="button" class="head3">
              <i class="fa-solid fa-bars"></i>
               </button>

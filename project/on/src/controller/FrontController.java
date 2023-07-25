@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
 import action.JoinAction;
+import action.MyPageAction;
 import action.AdminProRegAcrion;
 import action.ProList1Action;
 import action.ProList2Action;
@@ -40,6 +41,14 @@ public class FrontController extends javax.servlet.http.HttpServlet{
 
 	      if(command.equals("/userIndex.fr")) {
 	    	  action = new UserIndexAction();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+	      //마이페이지
+		  }else if(command.equals("/mypage.fr")) {
+	    	  action = new MyPageAction();
 	          try {
 	             forward=action.execute(request, response);
 	          }catch(Exception e) {

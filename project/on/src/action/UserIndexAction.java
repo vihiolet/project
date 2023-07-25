@@ -18,12 +18,21 @@ public class UserIndexAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session= request.getSession();
+		
+		//loginAction에서 session.setAttribute("id", user.getId());
 		String id= (String)session.getAttribute("id");
+		
 		ActionForward forward= new ActionForward();
 		UserListService userListService= new UserListService();
 		ArrayList<UserBean> userInfo= userListService.getUserInfo(id);		
 		
 		request.setAttribute("userInfo", userInfo);
+		
+		if(userInfo.isEmpty()) {
+			userInfo= null;
+		}
+		System.out.println(userInfo);
+		
 		forward.setPath("./index.jsp");
 				
 		return forward;

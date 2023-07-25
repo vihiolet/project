@@ -16,6 +16,9 @@ public class UserListService {
 		userDAO.setConnection(con);
 		
 		ArrayList<UserBean> userInfo= userDAO.selectUserInfo(id);
+		if(userInfo.isEmpty()) {
+			userInfo= null;
+		}
 		close(con);		
 		return userInfo;
 	}
