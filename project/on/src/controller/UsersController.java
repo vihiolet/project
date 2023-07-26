@@ -87,13 +87,30 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		//로그아웃
-		}else if(command.equals("/logout.ur")) {
-			HttpSession session= request.getSession();
-			session.removeAttribute("id");
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("/index.jsp");
+		//탈퇴
+		}else if(command.equals("/userQuit.ur")) {
+			action= new UserQuitAction();	
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		//내가 남긴 후기
+		}else if(command.equals("/userReview.ur")) {
+			action= new UserReviewAction();	
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		//내 정보 수정
+		}else if(command.equals("/userInfoModi.ur")) {
+			action= new UserInfoModiAction();	
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		if(forward != null) {
