@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/*회원탈퇴 css*/
+
+.bg{
+    width: 100%;
+    display: flex;
+    flex: 1;
+    margin: 0.5%;       
+    padding-top: 50px;    
+    background: #fff;
+    border-radius: 6px;
+}
+.user_info{
+    width: 35%;
+    text-align: center;
+    font-weight: 600;
+}
+.user_info p:last-child{
+    margin-top: 11%;
+}
+.id_text p{
+   margin-top: 11%;
+   line-height: 20px;
+}
+
+.key_value{
+/*    width: 60%;*/
+/*    text-align: center;*/
+}
+
+.key_value div input{
+    margin-top: 10%;
+    line-height: 20px;
+}
+.btn{
+    width: 158px;
+    background: #d50c0c;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+}
