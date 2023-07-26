@@ -88,8 +88,16 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 				e.printStackTrace();
 			}
 		//탈퇴
+		}else if(command.equals("/userQuitForm.ur")) {
+			action= new UserQuitFormAction();	
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		//탈퇴 Action
 		}else if(command.equals("/userQuit.ur")) {
-			action= new UserQuitAction();	
+			action= new userQuitAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
@@ -104,6 +112,13 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 				e.printStackTrace();
 			}
 		//내 정보 수정
+		}else if(command.equals("/userInfoModiForm.ur")) {
+			action= new UserInfoModiFormAction();	
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}else if(command.equals("/userInfoModi.ur")) {
 			action= new UserInfoModiAction();	
 			try {
