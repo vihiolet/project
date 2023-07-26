@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ page import= "vo.UserBean" %>
+<%@ page import= "java.util.HashMap" %>
+<%@ page import= "java.util.ArrayList" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,6 +16,7 @@
     <link rel="stylesheet" href="style/footer.css">
     </head>
 <body>
+<jsp:include page="./../header.jsp"></jsp:include>
     <div class="mypageWrap">
         <div class="container">
             <div class="myInfo">
@@ -20,14 +25,15 @@
                        <img src="" alt="">
                    </div>
                     <div class="pText">
-                        <p class="id">tlsdbswls77</p>
+                        <p class="id">${userInfo.id}님</p>
                         <p class="logout">로그아웃</p>
                     </div>
                 </div>
                 <div class="myMenu">
                     <ul>
-                        <li><a href="">내 정보 수정</a></li>
-                        <li><a href="">내가 남긴 후기</a></li>
+                        <li><a href="userInfoModi.ur">내 정보 수정</a></li>
+                        <li><a href="userReview.ur">내가 남긴 후기</a></li>
+                        <li><a href="userQuit.ur">회원 탈퇴</a></li>
                     </ul>
                 </div>
             </div>            
@@ -44,13 +50,11 @@
                     <p class="porList_tit">최근 리뷰 투표한 제품</p>
                     <div class="porList">                        
                         <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
                     </div>
                </div>                
             </div>
         </div>
     </div>
+<jsp:include page="./../footer.jsp"></jsp:include>
 </body>
 </html>
