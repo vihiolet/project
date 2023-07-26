@@ -87,6 +87,13 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		//로그아웃
+		}else if(command.equals("/logout.ur")) {
+			HttpSession session= request.getSession();
+			session.removeAttribute("id");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/index.jsp");		
 		//탈퇴
 		}else if(command.equals("/userQuitForm.ur")) {
 			action= new UserQuitFormAction();	
