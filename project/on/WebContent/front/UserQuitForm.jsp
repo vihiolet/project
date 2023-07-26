@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import= "vo.UserBean" %>
 <%@ page import= "java.util.*" %>
 <!DOCTYPE html>
@@ -9,8 +10,9 @@
 </head>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style/common.css">
-<link rel="stylesheet" href="userQuit.css">
+<link rel="stylesheet" href="style/userQuit.css">
 <link rel="stylesheet" href="style/head.css">
+<link rel="stylesheet" href="style/footer.css">
 <body>
       <jsp:include page="./../header.jsp"></jsp:include>	<!--헤더-->
       <jsp:include page="./../include/left.jsp"></jsp:include>	<!--왼쪽 메뉴-->
