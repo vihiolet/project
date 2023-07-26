@@ -23,4 +23,17 @@ public class UserListService {
 		return userInfo;
 	}
 
+	public UserBean getUserInfo2(String id) {
+		UsersDAO userDAO= UsersDAO.getInstance();
+		Connection con= getConnection();
+		userDAO.setConnection(con);
+		
+		UserBean userInfo= userDAO.selectUserInfo2(id);
+		if(userInfo.isEmpty()) {
+			userInfo= null;
+		}
+		close(con);		
+		return userInfo;
+	}
+
 }
