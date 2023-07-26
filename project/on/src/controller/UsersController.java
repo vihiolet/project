@@ -97,7 +97,7 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			}
 		//탈퇴 Action
 		}else if(command.equals("/userQuit.ur")) {
-			action= new userQuitAction();	
+			action= new UserQuitAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
