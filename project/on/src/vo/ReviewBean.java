@@ -13,7 +13,8 @@ public class ReviewBean {
 	private int sub3_fg;
 	private String sub3_text;
 	private Date create_dt;
-	private int reviewCount;	
+	private int reviewCount;
+	private String create_id;
 	
 	public int getPro_code() {
 		return pro_code;
@@ -82,6 +83,12 @@ public class ReviewBean {
 	}
 	public void setReviewCount(int reviewCount) {
 		this.reviewCount = reviewCount;
+	}
+	public String getCreate_id() {
+		return create_id;
+	}
+	public void setCreate_id(String create_id) {
+		this.create_id = create_id;
 	}
 
 }

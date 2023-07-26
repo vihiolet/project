@@ -2,8 +2,11 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import svc.UserListService;
 import vo.ActionForward;
+import vo.UserBean;
 
 public class UserQuitFormAction implements Action {
 

@@ -24,14 +24,9 @@ public class UserIndexAction implements Action {
 		
 		ActionForward forward= new ActionForward();
 		UserListService userListService= new UserListService();
-		ArrayList<UserBean> userInfo= userListService.getUserInfo(id);		
+		UserBean userInfo= userListService.getUserInfo2(id);		
 		
 		request.setAttribute("userInfo", userInfo);
-		
-		if(userInfo.isEmpty()) {
-			userInfo= null;
-		}
-		System.out.println(userInfo);
 		
 		forward.setPath("./index.jsp");
 				

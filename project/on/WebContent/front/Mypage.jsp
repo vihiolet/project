@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import= "vo.UserBean" %>
+<%@ page import= "vo.ReviewBean" %>
 <%@ page import= "java.util.HashMap" %>
 <%@ page import= "java.util.ArrayList" %>
 
@@ -19,12 +20,12 @@
 <jsp:include page="./../header.jsp"></jsp:include>
     <div class="mypageWrap">
         <div class="container">
-            <jsp:include page="./../include/left_menu.jsp"></jsp:include>    <!--왼쪽 메뉴-->  
+            <jsp:include page="./../include/left.jsp"></jsp:include>    <!--왼쪽 메뉴-->  
             <div class="myContent">
                <div>
                     <div class="board">
                         <p>내가 남긴 후기</p>
-                        <p class="myVote"><span>31</span>개</p>
+                        <p class="myVote"><span>${reviewBean.reviewCount}</span>개</p>
                     </div>
                     <div class="vanner">    
                         <div><img src="" alt=""></div>

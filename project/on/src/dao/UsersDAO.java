@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import vo.ReviewBean;
 import vo.UserBean;
 
 public class UsersDAO {
@@ -125,7 +126,7 @@ public class UsersDAO {
 		return userInfo;
 	}
 	//로그인한 회원 불러오기 UserBean 타입
-	public UserBean selectUserInfo(String id) {
+	public UserBean selectUserInfo2(String id) {
 		
 		String sql= "select id, name from users where id= ?";
 		UserBean userInfo= new UserBean();
@@ -172,5 +173,60 @@ public class UsersDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	//내가 단 리뷰 
+	public ArrayList<ReviewBean> selectUserReview(String id) {
+		
+		String sql= "select * from review where id= ?";
+		ArrayList<ReviewBean> review= null;
+		ReviewBean rb= new ReviewBean();
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			while(rs.next()) {
+				review= new ArrayList<ReviewBean>();
+				rb.setPro_code(rs.getInt("pro_code"));
+				rb.setTit_fg(rs.getInt("tit_fg"));
+				rb.setSub1_fg(rs.getInt("sub1_fg"));
+				rb.setSub2_fg(rs.getInt("sub2_fg"));
+				rb.setSub3_fg(rs.getInt("sub3_fg"));
+				rb.setCreate_dt(rs.getDate("create_dt"));
+				rb.setCreate_id(rs.getString("create_dt"));
+				review.add(rb);
+			}
+		}catch(Exception e) {
+			System.out.println("내가 단 리뷰에서 에러" + e);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		
+		return review;
+	}
+	
+	//내가 쓴 리뷰 몇개?
+	public int getReviewCount(String id) {
+		String sql= "select count(*) from review where create_id= ?";
+		int ReviewCount= 0;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			
+			//쿼리 출력
+			//System.out.println(pstmt);
+			
+			if(rs.next()) ReviewCount= rs.getInt(1);			
+		}catch(Exception e) {
+			System.out.println("내가 단 리뷰 개수에서 에러" + e);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return ReviewCount;
+	}
+
 
 }

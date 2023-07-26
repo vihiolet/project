@@ -27,9 +27,7 @@
 	      		<a href= "Join.ur">회원가입</a>
       		</c:if>
       		<c:if test= "${userInfo != null}">
-      			<c:forEach var= "userInfo" items= "${userInfo}" varStatus="status">
-      				<span>${userInfo.id}</span>
-      			</c:forEach>
+      			<span>${userInfo.id}</span>
       			<a href= "mypage.fr">마이페이지</a>
       			<a href= "logout.ur">로그아웃</a>
       		</c:if>
