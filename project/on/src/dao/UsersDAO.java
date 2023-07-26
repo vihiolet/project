@@ -99,7 +99,7 @@ public class UsersDAO {
 		return loginId;
 	}
 
-	//로그인한 회원 불러오기
+	//로그인한 회원 불러오기 ArrayList 타입
 	public ArrayList<UserBean> selectUserInfo(String id) {
 		
 		String sql= "select id, name from users where id= ?";
@@ -115,6 +115,29 @@ public class UsersDAO {
 				ub.setId(rs.getString("id"));
 				ub.setName(rs.getString("name"));
 				userInfo.add(ub);				
+			}
+		}catch(Exception e) {
+			System.out.println("회원정보 에러" + e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}	
+		return userInfo;
+	}
+	//로그인한 회원 불러오기 UserBean 타입
+	public UserBean selectUserInfo(String id) {
+		
+		String sql= "select id, name from users where id= ?";
+		UserBean userInfo= new UserBean();
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				userInfo.setId(rs.getString("id"));
+				userInfo.setName(rs.getString("name"));			
 			}
 		}catch(Exception e) {
 			System.out.println("회원정보 에러" + e);
