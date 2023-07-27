@@ -7,12 +7,15 @@ import java.sql.Connection;
 
 public class UserDelService {
 
-	public boolean deleteUser(String id) {
-		boolean deleteSuccess= false;
+	public boolean deleteUser(String id, String passwdSalt) {
+		
 		UsersDAO userDAO= UsersDAO.getInstance();
 		Connection con= getConnection();
 		userDAO.setConnection(con);
-		int delecteCount= userDAO.delecteUsers(id);
+		
+		boolean deleteSuccess= false;		
+		int delecteCount= userDAO.delecteUsers(id, passwdSalt);
+		
 		if(delecteCount > 0) {
 			deleteSuccess= true;
 			commit(con);

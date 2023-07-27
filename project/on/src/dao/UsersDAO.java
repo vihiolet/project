@@ -33,7 +33,7 @@ public class UsersDAO {
 	}
 
 	public int insertAdminUsers(UserBean users) {
-		String sql= "insert into users values(?, ?, ?, ?)";
+		String sql= "insert into users values(?, ?, ?, ?, 0)";
 		int insertCount= 0;
 		
 		try {
@@ -42,6 +42,7 @@ public class UsersDAO {
 			pstmt.setString(2, users.getPass());
 			pstmt.setString(3, users.getSalt());
 			pstmt.setString(4, users.getName());
+			
 			insertCount= pstmt.executeUpdate();			
 		}catch(Exception e) {
 			System.out.println("회원가입 에러 " + e);
@@ -169,9 +170,22 @@ public class UsersDAO {
 		return selectVal;
 	}
 	//회원 탈퇴
-	public int delecteUsers(String id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delecteUsers(String id, String passwdSalt) {
+		
+		String sql = "delete from users where id=? and passwd= ?";
+		int delectCount= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, passwdSalt);
+			delectCount= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("회원탈퇴에서 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+		return delectCount;
 	}
 	
 	//내가 단 리뷰 

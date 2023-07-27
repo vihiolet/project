@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원탈퇴 Form</title>
+<title>내 정보 페이지 접근 전 비번 입력</title>
 </head>
 <body>
-	<form action="" method="post" name="">
+	<form>
+		<input type="password" name= "passwd" id= "passwd">
 	</form>
-	<script>
-	</script>
 </body>
 </html>

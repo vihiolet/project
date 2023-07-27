@@ -23,13 +23,13 @@
                     <p>아이디</p>
                     <p>비밀번호</p>
                 </div>
-                <form action="UserQuitAction" method="post">
+                <form action="userQuit.ur" method="post">
                     <div class="key_value">
                         <div class="id_text">                        	                    
-                              <p>${userBean.id}</p>
+                              <p>${userInfo.id}</p>
                          </div>
                          <div class="pass_text">                     
-                             <input type="password" name="pass" required>   
+                             <input type="password" name="passwd" required>   
                          </div>
                     </div>
                     <input type="submit" class= "btn" value="탈퇴하기">                   

@@ -25,7 +25,7 @@ public class SHA256Util {
 		try {
 			MessageDigest md= MessageDigest.getInstance("SHA-256");
 			
-			//System.out.println("적용 전" + passwd+salt);
+			//System.out.println("적용 전" + passwd + " "+ salt);
 			md.update((passwd + salt).getBytes());
 			byte[] passwdSalt= md.digest();
 			

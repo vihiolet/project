@@ -61,7 +61,7 @@
         //join페이지(부모창)으로 중복체크한 id값 전달
         function sendCheckValue() {
             opener.document.userInfo.idDuplication.value= "idCheck";
-            opener.document.userInfo.id.value= document.getElementById("userId");
+            opener.document.userInfo.id.value= document.getElementById("userId").value;
             
             if(opener != null){
                 console.log(opener);

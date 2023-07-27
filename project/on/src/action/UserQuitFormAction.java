@@ -22,6 +22,8 @@ public class UserQuitFormAction implements Action {
 		userListService= new UserListService();
 		userInfo= userListService.getUserInfo2(id);
 		request.setAttribute("userInfo", userInfo);
+		
+		forward.setPath("/front/UserQuitForm.jsp");
     
 		return forward;
 	}
