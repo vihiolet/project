@@ -5,17 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 로그인 페이지</title>
+<link rel="stylesheet" href="admin_login.css">
+<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<form action= "" method="post">
-		<table>
-			<tr>
-				<td></td>
-			</tr>
-			<tr>
-				<td><input type= "submit" value= "로그인"></td>
-			</tr>
-		</table>
-	</form>
+   <div class="loginWrap">
+        <div class="adminIcon">
+            <i class="fa-solid fa-user-gear"></i>
+            <span>관리자 페이지입니다.</span>
+        </div>
+	    <form action= "AdminLoginAction" method="post">		
+		<div>
+			<input type="text" name= "id" class="id" placeholder="ID"><br>
+	                <input type="password" name= "passwd" class="password" placeholder="PASSWORD"><br>
+	                <input type= "submit" value= "로그인" style="width: 160px; height: 35px;">
+    		</div>
+	    </form>
+   </div>
 </body>
 </html>
