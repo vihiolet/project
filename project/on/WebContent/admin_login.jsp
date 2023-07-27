@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 로그인 페이지</title>
-<link rel="stylesheet" href="admin_login.css">
+<link rel="stylesheet" href="style/admin_login.css">
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 </head>
 <body>
