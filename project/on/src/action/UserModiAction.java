@@ -8,23 +8,24 @@ import svc.UserListService;
 import vo.ActionForward;
 import vo.UserBean;
 
-public class UserInfoModiFormAction implements Action {
+public class UserModiAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		ActionForward forward= new ActionForward();		
 		HttpSession session= request.getSession();
-		String id= (String)session.getAttribute("id");
+		ActionForward forward= new ActionForward();		
 		UserListService userListService= null;
 		UserBean userInfo= null;
+		
+		String id= (String)session.getAttribute("id");
 		
 		userListService= new UserListService();
 		userInfo= userListService.getUserInfo2(id);
 		request.setAttribute("userInfo", userInfo);
 		
-		forward.setPath("/front/UserPasswdInput.jsp");
-    
+		forward.setPath("");
+		
 		return forward;
 	}
 

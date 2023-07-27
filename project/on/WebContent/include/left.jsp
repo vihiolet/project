@@ -19,7 +19,7 @@
         </div>
         <div class="myMenu">
             <ul>
-                <li><a href="userInfoModiForm.ur">내 정보 수정</a></li>
+                <li><a href="userPasswdInput.ur">내 정보 수정</a></li>
                 <li><a href="userReview.ur">내가 투표한 리뷰</a></li>
                 <li><a href="userQuitForm.ur">회원 탈퇴</a></li>
             </ul>

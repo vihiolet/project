@@ -15,15 +15,18 @@ import javax.servlet.http.HttpSession;
 import action.Action;
 import action.AdminEmpListAction;
 import action.JoinAction;
-import action.UserInfoModiAction;
-import action.UserInfoModiFormAction;
+import action.UserModiAction;
+import action.UserModiFormAction;
 import action.UserQuitAction;
 import action.UserQuitFormAction;
 import action.UserReviewAction;
 import action.JoinAction;
 import action.loginAction;
 import vo.ActionForward;
+import vo.UserBean;
 import dao.UsersDAO;
+import svc.UserListService;
+
 import static db.JdbcUtil.*;
 
 @WebServlet("*.ur")
@@ -124,15 +127,27 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 				e.printStackTrace();
 			}
 		//내 정보 수정
-		}else if(command.equals("/userInfoModiForm.ur")) {
-			action= new UserInfoModiFormAction();	
+		}else if(command.equals("/userPasswdInput.ur")) {
+			
+			HttpSession session= request.getSession();
+			UserListService userListService= new UserListService();
+			String id= (String)session.getAttribute("id");
+			UserBean userInfo= userListService.getUserInfo2(id);
+			request.setAttribute("userInfo", userInfo);
+			
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/front/UserPasswdInput.jsp");
+			
+		}else if(command.equals("/userModiForm.ur")) {
+			action= new UserModiFormAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		}else if(command.equals("/userInfoModi.ur")) {
-			action= new UserInfoModiAction();	
+		}else if(command.equals("/userModi.ur")) {
+			action= new UserModiAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

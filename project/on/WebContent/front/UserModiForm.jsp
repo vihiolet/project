@@ -20,16 +20,28 @@
           <div class="content">
             <div class="bg">
                 <div class="user_info"> 
+                    <p>이름</p>
                     <p>아이디</p>
-                    <p>비밀번호</p>
+                    <p>기존 비밀번호</p>
+                    <p>새 비밀번호</p>
+                    <p>새 비밀번호 확인</p>
                 </div>
                 <form action="userQuit.ur" method="post">
                     <div class="key_value">
-                        <div class="id_text">                        	                    
-                              <p>${userInfo.id}</p>
+                        <div class="name_text">                        	                    
+                              <input type="text" name="name" value="${userInfo.name }" readonly>
+                         </div>
+                         <div class="id_text">                        	                    
+                              <input type="text" name="id" value="${userInfo.id }" readonly>
                          </div>
                          <div class="pass_text">                     
-                             <input type="password" name="passwd" required>   
+                             <input type="password" name="oldPasswd" required>   
+                         </div>
+                         <div class="pass_text">                     
+                             <input type="password" name="newPasswd" required>   
+                         </div>
+                         <div class="pass_text">                     
+                             <input type="password" name="newPasswdChk" required>   
                          </div>
                     </div>
                     <input type="submit" class= "btn" value="탈퇴하기">                   

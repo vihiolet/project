@@ -241,6 +241,24 @@ public class UsersDAO {
 		}
 		return ReviewCount;
 	}
+	
+	//내 정보 접근 시 입력한 비밀번호와 비교
+	public String getUserPasswd(String id) {
+		String sql= "select passwd from users where id= ?";
+		String isPasswd= null;
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			if(rs.next()) isPasswd= rs.getString(1);
+		}catch(Exception e) {
+			
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return isPasswd;
+	}
 
 
 }
