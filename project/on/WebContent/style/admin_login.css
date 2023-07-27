@@ -1,0 +1,41 @@
+.loginWrap{
+    width: 700px;
+    margin: 0 auto;
+    border: 10px solid #ccc;
+    display: flex;
+}
+.adminIcon{
+    width: 41%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.adminIcon i{
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.adminIcon span{
+
+}
+form{
+    width: 59%;
+    margin: 0;
+}
+form div{
+    width: 100%;   
+    margin-top: 7%;
+    margin-bottom: 7%;
+    padding-left: 19%;
+    border-left: 1px solid #eee;
+}
+form div .id{
+    margin-bottom: 2%;
+    width: 160px;
+    height: 30px;
+}
+form div .password{
+    margin-bottom: 4%;
+    width: 160px;
+    height: 30px;
+}
