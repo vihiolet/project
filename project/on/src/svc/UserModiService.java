@@ -8,13 +8,13 @@ import java.sql.Connection;
 public class UserModiService {
 
   //비번, 이름 수정
-  public boolean userNamePassModi(String id, String naem, String passwdSalt, String salt){
+  public boolean userNamePassModi(String id, String name, String passwdSalt, String salt){
       UsersDAO userDAO= UsersDAO.getInstance();
 		  Connection con= getConnection();
 		  userDAO.setConnection(con);
 		
 		  boolean upateSuccess= false;
-      int updateCount= userDAO.userNamePassModi(id, naem, passwdSalt, salt);
+      int updateCount= userDAO.userNamePassModi(id, name, passwdSalt, salt);
       if(updateCount > 0)
         upateSuccess= true;
 			  commit(con);
@@ -43,13 +43,13 @@ public class UserModiService {
   }
 
   //이름 수정
-  public boolean userNameModi(String id, String naem){
+  public boolean userNameModi(String id, String name){
       UsersDAO userDAO= UsersDAO.getInstance();
 		  Connection con= getConnection();
 		  userDAO.setConnection(con);
 		
 		  boolean upateSuccess= false;
-      int updateCount= userDAO.userNamePassModi(id, naem);
+      int updateCount= userDAO.userNamePassModi(id, name);
       if(updateCount > 0)
         upateSuccess= true;
 			  commit(con);
