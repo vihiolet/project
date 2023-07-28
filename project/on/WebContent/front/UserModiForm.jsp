@@ -20,34 +20,32 @@
           <div class="content">
             <div class="bg">
                 <div class="user_info"> 
-                    <p>이름</p>
-                    <!--<p>이메일</p>-->
                     <p>아이디</p>
-                    <p>기존 비밀번호</p>
+                    <!--<p>이메일</p>-->
+                    <p>이름</p>
                     <p>새 비밀번호</p>
                     <p>새 비밀번호 확인</p>
                 </div>
                 <form action="userModi.ur" method="post">
                     <div class="key_value">
+                        <p class="tit">개인정보 변경</p>
+                        <div class="id_text">                        	                    
+                              <input type="text" name="id" value="${userInfo.id }" readonly>
+                         </div>
                         <div class="name_text">                        	                    
-                              <input type="text" name="name" value="${userInfo.name }" readonly>
+                              <input type="text" name="name" value="${userInfo.name }">
                          </div>
 <!--
                         <div class="email_text">                        	                    
                               <input type="text" name="name" value="${userInfo.email }">
                          </div>
--->
-                         <div class="id_text">                        	                    
-                              <input type="text" name="id" value="${userInfo.id }" readonly>
+-->                         
+                         <p class="tit">비밀번호 변경</p>
+                         <div class="pass_text">                     
+                             <input type="password" name="newPasswd">   
                          </div>
                          <div class="pass_text">                     
-                             <input type="password" name="oldPasswd" required>   
-                         </div>
-                         <div class="pass_text">                     
-                             <input type="password" name="newPasswd" required>   
-                         </div>
-                         <div class="pass_text">                     
-                             <input type="password" name="newPasswdChk" required>   
+                             <input type="password" name="newPasswdChk">   
                          </div>
                     </div>
                     <input type="submit" class= "btn" value="수정하기">                   
