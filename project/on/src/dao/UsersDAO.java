@@ -260,5 +260,55 @@ public class UsersDAO {
 		return isPasswd;
 	}
 
-
+	//비번, 이름 수정
+	public int userNamePassModi(String id, String name, String passwdSalt, String salt){
+		String sql= "update users set name= ?, passwd= ?, salt= ? where id= " + id;
+		int upateSuccess= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, passwdSalt);
+			pstmt.setString(3, salt);
+			upateSuccess= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("비번, 이름 수정 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+		return upateSuccess;
+	}
+	//이름 수정
+	public int userNamePassModi(String id, String name){
+		String sql= "update users set name= ? where id= " + id;
+		int upateSuccess= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			upateSuccess= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("이름 수정 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+		return upateSuccess;
+	}
+	//비번 수정
+	public int userNamePassModi(String id, String passwdSalt, String salt){
+		String sql= "update users set name= ?, passwd= ?, salt= ? where id= " + id;
+		int upateSuccess= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, passwdSalt);
+			pstmt.setString(2, salt);
+			upateSuccess= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("비번 수정 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+		return upateSuccess;
+	}
 }
