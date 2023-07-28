@@ -41,11 +41,11 @@ public class UserModiAction implements Action {
 			int upateSuccess= userModiService.userNamePassModi(id, newName, passwdSalt, salt);
 			
 			if(upateSuccess > 0){
-				forward= new ActionForward();
-				userListService= new UserListService();
-				userInfo= userListService.getUserInfo2(id);
-				request.setAttribute("userInfo", userInfo);
-				forward.setPath("userModiForm.ur");
+				//새로 로그인
+				session.removeAttribute("id");
+				forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("/login.jsp");
 			}else{
 				
 			}
@@ -57,11 +57,11 @@ public class UserModiAction implements Action {
 			int upateSuccess= userModiService.userNamePassModi(id, passwdSalt, salt);
 			
 			if(upateSuccess > 0){
-				forward= new ActionForward();
-				userListService= new UserListService();
-				userInfo= userListService.getUserInfo2(id);
-				request.setAttribute("userInfo", userInfo);
-				forward.setPath("userModiForm.ur");
+				session= request.getSession();
+				session.removeAttribute("id");
+				forward = new ActionForward();
+				forward.setRedirect(false);
+				forward.setPath("/login.jsp");
 			}else{
 				
 			}
@@ -74,7 +74,7 @@ public class UserModiAction implements Action {
 				userListService= new UserListService();
 				userInfo= userListService.getUserInfo2(id);
 				request.setAttribute("userInfo", userInfo);
-				forward.setPath("userModiForm.ur");
+				forward.setPath("UserModiForm.jsp");
 			}else{
 				
 			}
