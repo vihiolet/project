@@ -30,5 +30,8 @@
 	        <li>
 	            <span><a href="/on/adminReviewList.re"><i class="fa-solid fa-pencil" style="color: #ffffff;"></i> 후기 관리</a></span>
 	        </li>
+	        <li>
+	            <span><a href="/on/adminInfo.emp"><i class="fa-solid fa-user-gear" style="color: #ffffff;"></i> 내 정보 관리</a></span>
+	        </li>
 	    </ul>
 	</div>
