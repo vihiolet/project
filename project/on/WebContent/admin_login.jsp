@@ -14,12 +14,12 @@
             <i class="fa-solid fa-user-gear"></i>
             <span>관리자 페이지입니다.</span>
         </div>
-	    <form action= "AdminLoginAction" method="post">		
-		<div>
-			<input type="text" name= "id" class="id" placeholder="ID"><br>
-	                <input type="password" name= "passwd" class="password" placeholder="PASSWORD"><br>
-	                <input type= "submit" value= "로그인" style="width: 160px; height: 35px;">
-    		</div>
+	    <form action= "adminLogin.ur" method="post">		
+			<div>
+				<input type="text" name= "id" class="id" placeholder="ID"><br>
+		        <input type="password" name= "passwd" class="password" placeholder="PASSWORD"><br>
+		        <input type= "submit" value= "로그인" style="width: 160px; height: 35px;">
+	    	</div>
 	    </form>
    </div>
 </body>

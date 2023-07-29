@@ -11,19 +11,6 @@ import vo.UserBean;
 
 public class UserListService {
 
-	public ArrayList<UserBean> getUserInfo(String id) {
-		UsersDAO userDAO= UsersDAO.getInstance();
-		Connection con= getConnection();
-		userDAO.setConnection(con);
-		
-		ArrayList<UserBean> userInfo= userDAO.selectUserInfo(id);
-		if(userInfo.isEmpty()) {
-			userInfo= null;
-		}
-		close(con);		
-		return userInfo;
-	}
-
 	public UserBean getUserInfo2(String id) {
 		UsersDAO userDAO= UsersDAO.getInstance();
 		Connection con= getConnection();

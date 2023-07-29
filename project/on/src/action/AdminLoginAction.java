@@ -1,48 +1,43 @@
 package action;
 
-import static db.JdbcUtil.getConnection;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
+import svc.AdminLoginService;
+import vo.ActionForward;
+import vo.AdminEmpBean;
 
-import javax.management.RuntimeErrorException;
+public class AdminLoginAction implements Action {
 
-import dao.LoginDAO;
-import svc.LoginService;
-import vo.UserBean;
-
-public class AdminLoginAction {
-
-	//암호회된 비번 반환
-	public String getEncrypt(String pass, String salt) {
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session= request.getSession();
+		AdminEmpBean emp= new AdminEmpBean();
+		ActionForward forword= new ActionForward();
+		AdminLoginService adminLoginService = new AdminLoginService();
 		
-		UserBean loginMember = new UserBean();
-		LoginService loginService= new LoginService();
-		salt= loginService.getSaltById(loginMember.getId());
-		pass= loginMember.getPass();
+		String id= request.getParameter("id");
+		String passwd= request.getParameter("passwd");
+		emp.setEmp_id(id);
+		emp.setEmp_pass(passwd);
 		
-		String result= "";
-		try {
-			MessageDigest md = MessageDigest.getInstance("SHA-256");
-			md.update((pass + salt).getBytes());
-			byte[] passSalt= md.digest();
-			
-			StringBuffer sb= new StringBuffer();
-			for(byte b : passSalt) {
-				sb.append(String.format("%02x", b));
-			}			
-			result= sb.toString();
-		}catch(NoSuchAlgorithmException e) {
-			throw new RuntimeException(e);
-		}
-		return result;
+		boolean loginResult= adminLoginService.login(emp);
+		
+		if(loginResult) {
+			session.setAttribute("id", emp.getEmp_id());
+			forword.setRedirect(true);
+			forword.setPath("adminMain.emp");
+		}else {
+			response.setContentType("text/html;charset=euc-kr");
+			PrintWriter out= response.getWriter();
+			out.println("<script>");
+			out.println("alert('관리자 로그인 실패');");
+			out.println("location.href= './admin_login.jsp';");
+			out.println("</script>");
+		}		
+		return forword;
 	}
-
-	public UserBean LoginUser(String id, String pass) {
-		LoginService loginService= new LoginService();
-		UserBean loginUser= loginService.getLoginUser(id, pass);
-		return loginUser;
-	}
-
 }
+

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.AdminEmpListAction;
+import action.AdminLoginAction;
 import action.JoinAction;
 import action.UserModiAction;
 import action.UserModiFormAction;
@@ -85,11 +86,14 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-		//관리자 로그인
-		}else if(command.equals("/adminLogin.ur")) {			
+		//관리자 로그인 form
+		}else if(command.equals("/adminLoginForm.ur")) {			
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/admin_login.jsp");
+		//
+		}else if(command.equals("/adminLogin.ur")) {			
+			action= new AdminLoginAction();
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

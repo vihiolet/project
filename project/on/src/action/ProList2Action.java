@@ -22,10 +22,10 @@ public class ProList2Action implements Action {
 		HttpSession session= request.getSession();
 		String id= (String)session.getAttribute("id");
 		UserListService userListService= null;
-		ArrayList<UserBean> userInfo= null;
+		UserBean userInfo= null;
 		
 		userListService= new UserListService();
-		userInfo= userListService.getUserInfo(id);
+		userInfo= userListService.getUserInfo2(id);
 		request.setAttribute("userInfo", userInfo);
 		
 		//전체 상품 목록 저장할 객체

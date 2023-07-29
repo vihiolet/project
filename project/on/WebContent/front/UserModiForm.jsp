@@ -34,12 +34,7 @@
                          </div>
                         <div class="name_text">                        	                    
                               <input type="text" name="name" value="${userInfo.name }">
-                         </div>
-<!--
-                        <div class="email_text">                        	                    
-                              <input type="text" name="name" value="${userInfo.email }">
-                         </div>
--->                         
+                         </div>                         
                          <p class="tit">비밀번호 변경</p>
                          <div class="pass_text">                     
                              <input type="password" name="newPasswd">   

@@ -31,19 +31,18 @@
 	        	<tr class="emp_tit">
 	                <td><input type="checkbox" name="" style="margin-left: 10px;"></td>                
 	                <td>관리자ID</td>
-	                <td>관리자비밀번호</td>
 	                <td>관리자명</td>
 	                <td>등록인ID</td>
-	                <td>비고</td>
+	                <td>생성일</td>
             	</tr>  
 	            <tr class="emp_info">            
 	            	<c:forEach var= "empList" items= "${EmpList}" varStatus="status">		
 		                <td><input type="checkbox" name="emp_code" id= "emp_code" class= "key" value="${empList.emp_code}" style="margin-left: 10px;"></td>
-		                <td><input type="text" name="emp_code" id= "emp_code" class= "key" value="${empList.emp_code}"></td>
 		                <!-- <td><input type="text" name="emp_pass" id= "emp_pass" class= "key" value="${empList.emp_pass}"></td> -->
-		                <td><input type="text" name="" id= "emp_name" class= "key emp_name" size="15" value="${empList.emp_name}"></td>
+		                <td><input type="text" name="" id= "emp_id" class= "key emp_id" size="15" value="${empList.emp_id}"></td>
+		                <td><input type="text" name="" id= "emp_name" class= "key emp_name" size="15" value="${empList.emp_name}"></td>		                
 		                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="${empList.create_id}"></td>
-		                <td><input type="text" size="35" id= "remark" class= "key remark" value="${empList.remark}"></td>
+		                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="${empList.create_dt}"></td>
 	                </c:forEach>
 	            </tr> 
 	            

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import src.UserModiService;
+import svc.UserModiService;
 import svc.UserListService;
 import svc.UsersloginService;
 import vo.ActionForward;

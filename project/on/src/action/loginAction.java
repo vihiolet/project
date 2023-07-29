@@ -17,11 +17,11 @@ public class loginAction implements Action {
 		HttpSession session= request.getSession();		
 		UserBean user= new UserBean();
 		SHA256Util sha256util= new SHA256Util();
-		UsersloginService usersJoinService= new UsersloginService();
+		UsersloginService usersloginService= new UsersloginService();
 		ActionForward forword= null;
 		
 		String id= request.getParameter("id");
-		String salt= usersJoinService.LoginSetSalt(id);
+		String salt= usersloginService.LoginSetSalt(id);
 		String passwd= request.getParameter("passwd");
 		String passwdSalt= sha256util.getEncrypt(passwd, salt);
 		
@@ -29,7 +29,7 @@ public class loginAction implements Action {
 		user.setSalt(salt);
 		user.setPass(passwdSalt);
 		
-		boolean loginResult= usersJoinService.login(user);	
+		boolean loginResult= usersloginService.login(user);	
 		
 		if(loginResult) {
 			forword= new ActionForward();

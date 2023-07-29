@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import vo.AdminEmpBean;
 import vo.ReviewBean;
 import vo.UserBean;
 
@@ -101,12 +102,11 @@ public class UsersDAO {
 		return loginId;
 	}
 
-	//로그인한 회원 불러오기 ArrayList 타입
-	public ArrayList<UserBean> selectUserInfo(String id) {
+	//로그인한 관리자 불러오기
+	public AdminEmpBean selectUserInfo(String id) {
 		
-		String sql= "select id, name from users where id= ?";
-		ArrayList<UserBean> userInfo= new ArrayList<UserBean>(); 
-		UserBean ub= new UserBean();
+		String sql= "select emp_id, emp_name from emp where emp_id= ?";
+		AdminEmpBean empInfo= new AdminEmpBean();
 		
 		try {
 			pstmt= con.prepareStatement(sql);
@@ -114,9 +114,8 @@ public class UsersDAO {
 			rs= pstmt.executeQuery();
 			
 			if(rs.next()) {
-				ub.setId(rs.getString("id"));
-				ub.setName(rs.getString("name"));
-				userInfo.add(ub);				
+				empInfo.setEmp_id(rs.getString("emp_id"));
+				empInfo.setEmp_name(rs.getString("emp_name"));		
 			}
 		}catch(Exception e) {
 			System.out.println("회원정보 에러" + e);
@@ -124,7 +123,7 @@ public class UsersDAO {
 			close(rs);
 			close(pstmt);
 		}	
-		return userInfo;
+		return empInfo;
 	}
 	//로그인한 회원 불러오기 UserBean 타입
 	public UserBean selectUserInfo2(String id) {
@@ -262,7 +261,7 @@ public class UsersDAO {
 
 	//비번, 이름 수정
 	public int userNamePassModi(String id, String name, String passwdSalt, String salt){
-		String sql= "update users set name= ?, passwd= ?, salt= ? where id= " + id;
+		String sql= "update users set name= ?, passwd= ?, salt= ? where id= ?";
 		int upateSuccess= 0;
 		
 		try {
@@ -270,6 +269,7 @@ public class UsersDAO {
 			pstmt.setString(1, name);
 			pstmt.setString(2, passwdSalt);
 			pstmt.setString(3, salt);
+			pstmt.setString(4, id);
 			upateSuccess= pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("비번, 이름 수정 오류" + e);
@@ -280,29 +280,33 @@ public class UsersDAO {
 	}
 	//이름 수정
 	public int userNamePassModi(String id, String name){
-		String sql= "update users set name= ? where id= " + id;
+		String sql= "update users set name= ? where id= ?";
 		int upateSuccess= 0;
 		
 		try {
 			pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, name);
+			pstmt.setString(2, id);
+			
 			upateSuccess= pstmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("이름 수정 오류" + e);
+			System.out.println("이름 수정 오류 " + e);
 		}finally {
 			close(pstmt);
 		}
 		return upateSuccess;
 	}
 	//비번 수정
-	public int userNamePassModi(String id, String passwdSalt, String salt){
-		String sql= "update users set name= ?, passwd= ?, salt= ? where id= " + id;
+	public int userPassModi(String id, String passwdSalt, String salt){
+		String sql= "update users set passwd= ?, salt= ? where id= ?";
 		int upateSuccess= 0;
 		
 		try {
 			pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, passwdSalt);
 			pstmt.setString(2, salt);
+			pstmt.setString(3, id);
+			System.out.println(pstmt);
 			upateSuccess= pstmt.executeUpdate();
 		}catch(Exception e) {
 			System.out.println("비번 수정 오류" + e);
@@ -310,5 +314,27 @@ public class UsersDAO {
 			close(pstmt);
 		}
 		return upateSuccess;
+	}
+
+	//관리자 로그인
+	public String selectAdminLoginId(AdminEmpBean emp) {
+		String loginId= null;
+		try {
+			pstmt= con.prepareStatement("select emp_id from emp where emp_id= ? and emp_pass= ?");
+			pstmt.setString(1, emp.getEmp_id());
+			pstmt.setString(2, emp.getEmp_pass());
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				loginId= rs.getString("emp_id");
+			}
+		}catch(Exception e) {
+			System.out.println("로그인 에러" + e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return loginId;
 	}
 }

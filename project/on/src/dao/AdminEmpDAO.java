@@ -58,7 +58,7 @@ public class AdminEmpDAO {
 	public ArrayList<AdminEmpBean> selectEmpList(int page, int limit) {
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
-		String empList_sql= "select emp_code, emp_pass, emp_name, create_dt, create_id, ifnull(remark, '') as remark from emp order by emp_code asc limit ?, 10";
+		String empList_sql= "select emp_code, emp_id, emp_name, create_dt, create_id, ifnull(remark, '') as remark from emp order by emp_code asc limit ?, 10";
 		ArrayList<AdminEmpBean> empLsit= new ArrayList<AdminEmpBean>();
 		AdminEmpBean emp= null;
 		int startrow= (page - 1) * 10;
@@ -70,7 +70,7 @@ public class AdminEmpDAO {
 			while(rs.next()) {
 				emp= new AdminEmpBean();
 				emp.setEmp_code(rs.getInt("emp_code"));
-				emp.setEmp_pass(rs.getInt("emp_pass"));
+				emp.setEmp_id(rs.getString("emp_id"));
 				emp.setEmp_name(rs.getString("emp_name"));
 				emp.setCreate_dt(rs.getDate("create_dt"));
 				emp.setCreate_id(rs.getInt("create_id"));

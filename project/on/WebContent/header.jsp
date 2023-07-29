@@ -21,7 +21,7 @@
 <body>
  <header>
       <div class= "login">
-      		<a href= "adminJoin.ur">관리자로그인</a>
+      		<a href= "adminLoginForm.ur">관리자로그인</a>
       		<c:if test= "${userInfo == null}">
 	      		<a href= "login.ur">로그인</a>
 	      		<a href= "Join.ur">회원가입</a>

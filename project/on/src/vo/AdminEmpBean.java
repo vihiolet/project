@@ -4,7 +4,8 @@ import java.sql.Date;
 
 public class AdminEmpBean {
 	private int emp_code;
-	private int emp_pass;
+	private String emp_pass;
+	private String emp_id;
 	private String emp_name;
 	private Date create_dt;
 	private int create_id;
@@ -16,10 +17,10 @@ public class AdminEmpBean {
 	public void setEmp_code(int emp_code) {
 		this.emp_code = emp_code;
 	}
-	public int getEmp_pass() {
+	public String getEmp_pass() {
 		return emp_pass;
 	}
-	public void setEmp_pass(int emp_pass) {
+	public void setEmp_pass(String emp_pass) {
 		this.emp_pass = emp_pass;
 	}
 	public String getEmp_name() {
@@ -46,7 +47,10 @@ public class AdminEmpBean {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
-	
-
+	public String getEmp_id() {
+		return emp_id;
+	}
+	public void setEmp_id(String emp_id) {
+		this.emp_id = emp_id;
+	}
 }

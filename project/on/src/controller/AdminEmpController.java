@@ -13,6 +13,8 @@ import action.AdminEmpDelAction;
 import action.AdminEmpListAction;
 import action.AdminEmpRegAction;
 import action.AdminKeyListAction;
+import action.AdminLoginAction;
+import action.AdminMainAction;
 import vo.ActionForward;
 
 @WebServlet("*.emp")
@@ -25,7 +27,17 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 		ActionForward forward= null;
 		Action action= null;
 		
-		if(command.equals("/adminEmp.emp")) {			
+		//관리자 메인(데시보드
+		if(command.equals("/adminMain.emp")) {			
+			action= new AdminMainAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}		
+		}
+		//관리자 설정
+		else if(command.equals("/adminEmp.emp")) {			
 			action= new AdminEmpListAction();	
 			try {
 				forward= action.execute(request, response);
