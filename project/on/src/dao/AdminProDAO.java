@@ -130,7 +130,6 @@ public class AdminProDAO {
 			
 			for(int i= 1; i<= intProCodeArr.length; i++) {					
 				pstmt.setInt(i, intProCodeArr[i-1]);
-				System.out.println(pstmt);
 			}
 			deleteCount= pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -147,9 +146,26 @@ public class AdminProDAO {
 	}
 
 	//수정
-	public int updatePro(AdminProBean proBean) {
+	public int updatePro(AdminProBean proBean, int pro_code) {
 		PreparedStatement pstmt= null;
-		return 0;
+		String sql= "update product set pro_nm= ?, menu_code= ?, pro_company= ?, pro_img= ?, srch_code1= ?, srch_nm1= ? where pro_code= " +pro_code;
+		int updateCount= 0;
+		try{			
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, proBean.getPro_nm());
+			pstmt.setInt(2, proBean.getMenu_code());
+			pstmt.setString(3, proBean.getPro_company());
+			pstmt.setString(4, proBean.getPro_img());
+			pstmt.setInt(5, proBean.getSrch_code1());
+			pstmt.setString(6, proBean.getSrch_nm1());
+			
+			updateCount= pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Product Insert Error! :" + e);
+			e.printStackTrace();
+		}
+		return updateCount;
 	}
 
 	//뷰 페이지
@@ -169,7 +185,8 @@ public class AdminProDAO {
 				adminPro.setPro_img(rs.getString("pro_img"));
 				adminPro.setSrch_code1(rs.getInt("srch_code1"));
 				adminPro.setSrch_nm1(rs.getString("srch_nm1"));
-				adminPro.setPro_explain(rs.getString("pro_explain"));				
+				adminPro.setPro_explain(rs.getString("pro_explain"));	
+				adminPro.setMenu_code(rs.getInt("menu_code"));
 			}
 			
 		}catch(Exception e) {

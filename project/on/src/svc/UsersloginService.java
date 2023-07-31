@@ -1,5 +1,6 @@
 package svc;
 
+import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
@@ -14,6 +15,7 @@ public class UsersloginService {
 		Connection con= getConnection();
 		userDAO.setConnection(con);
 		String LoginSalt= userDAO.selectLoginSalt(id);
+		close(con);
 		return LoginSalt;
 	}
 
@@ -26,6 +28,7 @@ public class UsersloginService {
 		if(loginId != null) {
 			loginResult= true;
 		}
+		close(con);
 		return loginResult;
 	}
 

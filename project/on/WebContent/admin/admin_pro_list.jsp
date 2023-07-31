@@ -1,5 +1,6 @@
 <%@ page import= "java.util.HashMap" %>
 <%@ page import= "java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import= "vo.PageInfo"%>
 <%@ page import= "vo.AdminProBean"%>
@@ -41,16 +42,23 @@
                 <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
                 <td><input type="button" value="선택 제품 삭제" id= "delete_btn"></td>
             </tr>
-        	<%for(int i=0; i < articleList.size(); i++) {%>                	
-            <tr class="keyword_info">            	
-            	<!-- 수정 불가 컬럼 : create_dt(등록일), create_id(등록인) -->
+        	<%for(int i=0; i < articleList.size(); i++) {%>     
+        	
+        	          	
+            <tr class="keyword_info">       
+            		
+            	<!-- 수정 불가 컬럼 : create_dt(등록일), create_id(등록인) -->       	
                 <td><input type="checkbox" name="pro_code" id= "pro_code" value="<%=articleList.get(i).getPro_code() %>" style="margin-left: 10px;"></td>
-                <td class="photo"><img src="images/<%=articleList.get(i).getPro_img() %>" alt=""></td>                
+                <td class="photo"><a href="proModiForm.pr?pro_code=<%=articleList.get(i).getPro_code() %>&menu_code=<%=articleList.get(i).getMenu_code() %>">
+                		<img src="images/<%=articleList.get(i).getPro_img() %>" alt="">
+                	</a></td>                
                 <td><span><%=articleList.get(i).getCreate_dt() %></span></td>
                 <td><input type="text" name="" id= "" class= "" size="15" value="<%=articleList.get(i).getPro_company() %>"></td>
                 <td><input type="text" name="" id= "" class= "pro_tit" size="15" value="<%=articleList.get(i).getPro_nm() %>"></td>
                 <td><span><%=articleList.get(i).getCreate_id() %></span></td>
+                
             </tr>  
+            
           	<%} %>
 	    </table> 
 	    </form>  

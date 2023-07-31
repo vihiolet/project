@@ -5,7 +5,7 @@
 <%@ page import= "vo.AdminEmpBean" %>
 <%@ page import= "java.text.SimpleDateFormat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%	String id= (String)session.getAttribute("id"); %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 <head>
@@ -21,7 +21,7 @@
     <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
     <form action="adminEmpReg.emp" method="post" name= "regEmp" onsubmit= "return checkForm()">
         <div>
-            <input type="button"  class="add" value="추가" onclick= "addClick()">
+            <a href="adminEmpRegForm.emp">등록</a> 
             <input type="submit" value="저장" id='save_btn'>            
             <input type="button" value="삭제" id= "delete_btn">
         </div>
@@ -35,17 +35,18 @@
 	                <td>등록인ID</td>
 	                <td>생성일</td>
             	</tr>  
+            	<c:forEach var= "empList" items= "${EmpList}" varStatus="status">
 	            <tr class="emp_info">            
-	            	<c:forEach var= "empList" items= "${EmpList}" varStatus="status">		
+	            			
 		                <td><input type="checkbox" name="emp_code" id= "emp_code" class= "key" value="${empList.emp_code}" style="margin-left: 10px;"></td>
 		                <!-- <td><input type="text" name="emp_pass" id= "emp_pass" class= "key" value="${empList.emp_pass}"></td> -->
 		                <td><input type="text" name="" id= "emp_id" class= "key emp_id" size="15" value="${empList.emp_id}"></td>
 		                <td><input type="text" name="" id= "emp_name" class= "key emp_name" size="15" value="${empList.emp_name}"></td>		                
-		                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="${empList.create_id}"></td>
-		                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="${empList.create_dt}"></td>
-	                </c:forEach>
+		                <td><input type="text" name="" id= "create_id" class= "key create_id" size="15" value="${empList.create_id}" readonly></td>
+		                <td><input type="text" name="" id= "create_dt" class= "key create_dt" size="15" value="${empList.create_dt}"></td>
+	                
 	            </tr> 
-	            
+	            </c:forEach>
         	</table>        
         </c:if>
         <c:if test= " ${EmpList == null && listCount.size() == 0 }">
@@ -53,69 +54,7 @@
         </c:if>
     </form>   
     <script>
-	//=======
-	//행 추가
-	//=======
-	let rowLenght;
-  		let rowValue;
-  		let fg= true;
-  		let srch_name= $('.addInput #emp_name');
-  		
-  		//추가 버튼 이벤트 헨들러
-    function addClick(){    
-      		if(fg){                
-          		addData();
-          		removeValue();                
-      		}else{
-          		alert('내용을 저장하고 추가하십시오');
-      		}
-      		//location.reload();	
-	}
-  		
-    //이전 행 복제
-  		function addData(){
-      		$('.emp_list .emp_info').eq(0).clone().appendTo('.emp_list');            
-      		rowLenght= $('.emp_info').length;        
-  		}
-    //복제된 행 데이터 리셋
-  		function removeValue(){
-     		if(rowLenght > 1 && rowValue == undefined){
-         		$('.emp_list .emp_info:last-child').addClass('addInput'); 
-         		$('.addInput .key').val('');
-         		rowValue= $('.addInput .key').val();
-         		fg= false;
-      		}
-     		$('.addInput #emp_name').attr('name', 'emp_name');
-     		$('.addInput #create_id').attr('name', 'create_id');
-     		$('.addInput #remark').attr('name', 'remark');
-  		} 
-  		
-  		//===========
-  		//submit 체크
-  		//===========
-		function checkForm(){
-  			let srch_name= $('.addInput #emp_name');
-			let create_id= $('.addInput #create_id');
-		
-			//===========
-  			//필수값 체크
-  			//===========
-  			if(rowValue == undefined){   				//행추가 하지 않고 저장버튼을 눌렀을 경우
-  				alert('검색점을 추가 후 저장하세요.');   				
-  				return false;   				
-  			}else if(emp_name.val() == ''){			//검색점을 입력하지 않고 저장했을 경우
-  				alert('검색점은 필수값입니다.');
-  				return false;
-  			}else if(create_id.val() == ''){			//등록인을 입력하지 않고 저장했을 경우
-  				alert('등록인은 필수값입니다.');
-  				//location.reload();
-  				return false;
-  			}
-  			alert('등록되었습니다.');
-  			return true;   				
-  		}  		
-  		
-  		//삭제
+	//삭제
   		$('#delete_btn').on("click", function(e){
   			//체크한 srch_code
   			let emp_code= $('input[type=checkbox][name=emp_code]:checked').val();  

@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import svc.AdminInfoService;
 import svc.AdminProListService;
 import vo.ActionForward;
+import vo.AdminEmpBean;
 import vo.AdminProBean;
 import vo.PageInfo;
 
@@ -14,6 +17,16 @@ public class AdminProListAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		ActionForward forward= new ActionForward();
+		HttpSession session= request.getSession();
+		String id= (String)session.getAttribute("id");
+		AdminInfoService adminInfoService= null;
+		AdminEmpBean empInfo= null;
+		
+		adminInfoService= new AdminInfoService();
+		empInfo= adminInfoService.getUserInfo(id);
+		request.setAttribute("empInfo", empInfo);
 		
 		//전체 상품 목록 저장할 객체
 		ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
@@ -50,7 +63,6 @@ public class AdminProListAction implements Action{
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("articleList", articleList);
 		
-		ActionForward forward= new ActionForward();
 		forward.setPath("/admin/admin_pro_list.jsp");		
 		
 		return forward;

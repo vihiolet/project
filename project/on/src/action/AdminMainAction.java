@@ -14,13 +14,19 @@ public class AdminMainAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session= request.getSession();
-		AdminEmpBean empInfo= null;
-		String id= (String)session.getAttribute("id");
-		ActionForward forward= new ActionForward();
 		
+		String id= (String)session.getAttribute("id");
+		
+		ActionForward forward= new ActionForward();		
 		AdminInfoService adminInfoService= new AdminInfoService();
-		empInfo= adminInfoService.getUserInfo(id);
+		AdminEmpBean empInfo= adminInfoService.getUserInfo(id);
+		
 		request.setAttribute("empInfo", empInfo);
+		
+		//empInfo 객체 생성
+		
+		
+		//System.out.println(empInfo.getEmp_name());
 		
 		forward.setPath("./admin_main.jsp");
 		return forward;

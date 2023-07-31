@@ -4,8 +4,10 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import svc.AdminEmpListService;
+import svc.AdminInfoService;
 import svc.AdminKeyListService;
 import vo.ActionForward;
 import vo.AdminEmpBean;
@@ -15,6 +17,14 @@ public class AdminEmpListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		HttpSession session= request.getSession();
+		String id= (String)session.getAttribute("id");
+		AdminEmpBean empInfo= null;
+		//empInfo 객체 생성
+		AdminInfoService adminInfoService= new AdminInfoService();
+		empInfo= adminInfoService.getUserInfo(id);
+		request.setAttribute("empInfo", empInfo);
 		
 		//출력될 관리자 목록을 담을 객체 EmpList
 		ArrayList<AdminEmpBean> EmpList= new ArrayList<AdminEmpBean>();

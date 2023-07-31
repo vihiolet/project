@@ -12,6 +12,7 @@ section{width: 1200px;}
 /*엘리먼트 초기화*/
 a{ color: inherit; text-decoration: none; }
 p{margin: 0;}
+input {box-sizing: border-box;}
 img{ width: 100%; vertical-align: bottom; }
 ul, li{ padding: 0; margin: 0; list-style: none; }
 button{ border: 0; cursor: pointer; background: none; padding: 0;}
@@ -21,3 +22,5 @@ table{ table-layout: fixed; border-collapse: collapse; border-spacing: 0; }
 section, footer{padding-left: 19%; padding-right: 19%; }
 
 #pageList{ text-align: center;}
+
+.mypageWrap{  width: 100%; margin-top: 2%;}

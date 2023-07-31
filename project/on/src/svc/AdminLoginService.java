@@ -1,24 +1,35 @@
 package svc;
 
+import static db.JdbcUtil.close;
 import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
 
-import dao.UsersDAO;
+import dao.AdminEmpDAO;
 import vo.AdminEmpBean;
 
 public class AdminLoginService {
 
 	public boolean login(AdminEmpBean emp) {
-		UsersDAO userDAO= UsersDAO.getInstance();
+		AdminEmpDAO empDAO= AdminEmpDAO.getInstance();
 		Connection con= getConnection();
-		userDAO.setConnection(con);
+		empDAO.setConnection(con);
 		boolean loginResult= false;
-		String loginId= userDAO.selectAdminLoginId(emp);
+		String loginId= empDAO.selectAdminLoginId(emp);
 		if(loginId != null) {
 			loginResult= true;
 		}
+		close(con);
 		return loginResult;
+	}
+
+	public String LoginSetSalt(String id) {
+		AdminEmpDAO empDAO= AdminEmpDAO.getInstance();
+		Connection con= getConnection();
+		empDAO.setConnection(con);
+		String LoginSalt= empDAO.selectEmpSalt(id);
+		close(con);
+		return LoginSalt;
 	}
 
 }

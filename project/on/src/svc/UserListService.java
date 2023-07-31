@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.UsersDAO;
+import vo.AdminProBean;
 import vo.ReviewBean;
 import vo.UserBean;
 
@@ -43,5 +44,15 @@ public class UserListService {
 		close(con);
 		return reviewCount;
 	}
-
+	//내가 리뷰 쓴 제품
+	public ArrayList<AdminProBean> getMyReview(String id) {
+		UsersDAO userDAO= UsersDAO.getInstance();
+		Connection con= getConnection();
+		userDAO.setConnection(con);
+		ArrayList<AdminProBean> myProReview= new ArrayList<AdminProBean>();
+		myProReview= userDAO.myProReview(id);
+		close(con);
+		return myProReview;
+	}
+	
 }

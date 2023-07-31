@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%String id= (String)session.getAttribute("id"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
         	<p class="review_tit">사용 후기를 투표해주세요.</p>
             <form action="reviewWriteRev.fr" method="post" name="reviewform">
             	<input type="hidden" name="pro_code" id= "pro_code" value="">            	
-            	
+            	<input type= "hidden" name= "create_id" value= "<%=id %>">
                 <div class="reviewWrap tit">
                     <input type="radio" name="tit_fg" id="tit1" class="btn" value="1">
                     <label for="tit1" class="tit1"><i class="fa-solid fa-face-laugh"></i> 만족해요</label>

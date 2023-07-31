@@ -66,7 +66,7 @@
   		$(document).ready(function () {
   		  $(document).on("click", "button", function () {
   			opener.document.getElementById("keycd").value = $(this).find("#keycd").val();
-  			opener.document.getElementById("keynm").value = $(this).find("#keynm").val();
+  			opener.document.getElementById("keynm").value = $(this).find("#keynm").text();
   		  });
   		});
   </script>

@@ -42,7 +42,7 @@ public class AdminKeywordDAO {
 				keywordReg_sql= "insert into keyword(srch_name ,create_dt, create_id, remark) value(?, now(), ?, ?)";
 				pstmt= con.prepareStatement(keywordReg_sql);	// 이 코드가 없으면 catch문에 SQLException에서 빨간줄
 				pstmt.setString(1, keywordBean.getSrch_name());
-				pstmt.setInt(2, keywordBean.getCreate_id());
+				pstmt.setString(2, keywordBean.getCreate_id());
 				pstmt.setString(3, keywordBean.getRemark());
 				insertCount= pstmt.executeUpdate();
 				
@@ -91,7 +91,7 @@ public class AdminKeywordDAO {
 				while(rs.next()) {
 					keyword= new KeywordBean();
 					keyword.setSrch_code(rs.getInt("srch_code"));
-					keyword.setCreate_id(rs.getInt("create_id"));
+					keyword.setCreate_id(rs.getString("create_id"));
 					keyword.setSrch_name(rs.getString("srch_name"));
 					keyword.setCreate_dt(rs.getDate("create_dt"));
 					keyword.setRemark(rs.getString("remark"));

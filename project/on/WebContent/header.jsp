@@ -21,15 +21,21 @@
 <body>
  <header>
       <div class= "login">
-      		<a href= "adminLoginForm.ur">관리자로그인</a>
       		<c:if test= "${userInfo == null}">
-	      		<a href= "login.ur">로그인</a>
-	      		<a href= "Join.ur">회원가입</a>
+      			<a href= "adminLoginForm.ur">관리자로그인</a>
       		</c:if>
+      		<c:if test= "${userInfo == null}">
+	      		<div>
+	      			<a href= "login.ur">로그인</a>
+	      			<a href= "Join.ur">회원가입</a>
+	      		</div>
+      		</c:if>      		
       		<c:if test= "${userInfo != null}">
-      			<span>${userInfo.id}</span>
-      			<a href= "mypage.fr">마이페이지</a>
-      			<a href= "logout.ur">로그아웃</a>
+      			<div>
+      				<span>${userInfo.id} 님</span>
+      				<a href= "mypage.fr">마이페이지</a>
+	      			<a href= "logout.ur">로그아웃</a>
+      			</div>
       		</c:if>
       </div>
       <div class="container">      	

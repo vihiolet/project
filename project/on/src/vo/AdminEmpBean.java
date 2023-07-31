@@ -8,8 +8,9 @@ public class AdminEmpBean {
 	private String emp_id;
 	private String emp_name;
 	private Date create_dt;
-	private int create_id;
+	private String create_id;
 	private String remark;
+	private String salt;
 	
 	public int getEmp_code() {
 		return emp_code;
@@ -35,10 +36,10 @@ public class AdminEmpBean {
 	public void setCreate_dt(Date create_dt) {
 		this.create_dt = create_dt;
 	}
-	public int getCreate_id() {
+	public String getCreate_id() {
 		return create_id;
 	}
-	public void setCreate_id(int create_id) {
+	public void setCreate_id(String create_id) {
 		this.create_id = create_id;
 	}
 	public String getRemark() {
@@ -52,5 +53,11 @@ public class AdminEmpBean {
 	}
 	public void setEmp_id(String emp_id) {
 		this.emp_id = emp_id;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 }

@@ -13,19 +13,26 @@ public class AdminLoginAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		HttpSession session= request.getSession();
 		AdminEmpBean emp= new AdminEmpBean();
-		ActionForward forword= new ActionForward();
+		SHA256Util sha256util= new SHA256Util();
+		ActionForward forword= null;
 		AdminLoginService adminLoginService = new AdminLoginService();
 		
 		String id= request.getParameter("id");
+		String salt= adminLoginService.LoginSetSalt(id);
 		String passwd= request.getParameter("passwd");
+		String passwdSalt= sha256util.getEncrypt(passwd, salt);
+		
 		emp.setEmp_id(id);
-		emp.setEmp_pass(passwd);
+		emp.setSalt(salt);
+		emp.setEmp_pass(passwdSalt);
 		
 		boolean loginResult= adminLoginService.login(emp);
 		
 		if(loginResult) {
+			forword= new ActionForward();
 			session.setAttribute("id", emp.getEmp_id());
 			forword.setRedirect(true);
 			forword.setPath("adminMain.emp");

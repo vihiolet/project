@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import svc.AdminInfoService;
 import svc.AdminKeyListService;
 import vo.ActionForward;
+import vo.AdminEmpBean;
 import vo.KeywordBean;
 import vo.PageInfo;
 
@@ -14,6 +17,15 @@ public class AdminKeyListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		
+		HttpSession session= request.getSession();
+		String id= (String)session.getAttribute("id");
+		AdminEmpBean empInfo= null;
+		//empInfo 객체 생성
+		AdminInfoService adminInfoService= new AdminInfoService();
+		empInfo= adminInfoService.getUserInfo(id);
+		request.setAttribute("empInfo", empInfo);
 		
 		ArrayList<KeywordBean> keywordList= new ArrayList<KeywordBean>();
 		int page= 1;

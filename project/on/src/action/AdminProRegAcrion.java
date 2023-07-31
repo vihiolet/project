@@ -5,23 +5,40 @@ import java.util.ArrayList;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import svc.AdminInfoService;
+import svc.AdminProModifyService;
 import svc.AdminProRegService;
-
+import svc.UserListService;
 import vo.ActionForward;
+import vo.AdminEmpBean;
 import vo.AdminProBean;
 import vo.PageInfo;
 import vo.ReviewBean;
+import vo.UserBean;
 
 public class AdminProRegAcrion implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+				
+		HttpSession session= request.getSession();
+		ActionForward forward= null;	
+		String id= (String)session.getAttribute("id");
+		UserListService userListService= null;
+		AdminProModifyService adminProModifyService = new AdminProModifyService();
+		UserBean userInfo= new UserBean();
 		
-		ActionForward forward = null;	//forward는 ActionForward 인스턴스
+		if(id != null) {					
+			userListService= new UserListService();
+			userInfo= userListService.getUserInfo2(id);
+			request.setAttribute("userInfo", userInfo);
+		}
+		
 		AdminProBean adminProBean = new AdminProBean();
 		String realFolder= "";
 		String imageFolder = "/images";
@@ -36,6 +53,7 @@ public class AdminProRegAcrion implements Action{
 		adminProBean.setPro_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		adminProBean.setSrch_code1(Integer.parseInt(multi.getParameter("srch_code1")));
 		adminProBean.setSrch_nm1(multi.getParameter("srch_nm1"));	//테스트하고 ~3까지 추가하기
+		adminProBean.setCreate_id(multi.getParameter("create_id"));
 		AdminProRegService adminProRegService = new AdminProRegService();
 		boolean isSuccess = adminProRegService.registArticle(adminProBean); //등록 성공하면 true 실패하면 false
 		

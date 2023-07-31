@@ -12,6 +12,8 @@
 		int maxPage= pageInfo.getMaxPage();
 		int startPage= pageInfo.getStartPage();
 		int endPage= pageInfo.getEndPage();
+		
+		String id= (String)session.getAttribute("id");		
 %>
 
 <!DOCTYPE html>
@@ -54,18 +56,7 @@
                 <td>                	
                 	<input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>" readonly>
                 </td>
-                <!-- 
-                <td>
-                    <select name="use_yn" id="">
-                        <option value="1">사용</option>
-                        <option value="2">미사용</option>
-                    </select>
-                </td>
-                 
-                <td>
-                	<input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
-                	<input type="text" size="35" id= "remark" class= "key remark" value="<%=keywordList.get(i).getRemark() %>">
-                </td>-->
+   
             </tr>  
             <%} %>
       </table> 
@@ -119,20 +110,28 @@
   		
     //이전 행 복제
   		function addData(){
+
       		$('.keyword_list .keyword_info').eq(0).clone().appendTo('.keyword_list');            
-      		rowLenght= $('.keyword_info').length;        
+      		rowLenght= $('.keyword_info').length;  
+      		//$(this).find('.create_id').val(id);
+      		
   		}
     //복제된 행 데이터 리셋
-  		function removeValue(){
+  		function removeValue(){    	
+    	
+  			let id= '<%= id%>';
+    		
      		if(rowLenght > 1 && rowValue == undefined){
          		$('.keyword_list .keyword_info:last-child').addClass('addInput'); 
-         		$('.addInput .key').val('');
+         		$('.addInput .key').val('');  
+         		$('.addInput').find('#create_id').val(id);
          		rowValue= $('.addInput .key').val();
          		fg= false;
       		}
      		$('.addInput #srch_name').attr('name', 'srch_name');
      		$('.addInput #create_id').attr('name', 'create_id');
      		$('.addInput #remark').attr('name', 'remark');
+     	
   		} 
   		
   		//===========

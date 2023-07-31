@@ -12,8 +12,8 @@ import vo.AdminProBean;
 
 public class AdminProModifyService {
 	
-	//권한 확인
-		public boolean isKeyWriter(String id) {
+		//권한 확인
+		/*public boolean isKeyWriter(String id) {
 			boolean isAdminUser= false;
 			Connection con= getConnection();
 			AdminProDAO dao= AdminProDAO.getInstance();
@@ -21,14 +21,14 @@ public class AdminProModifyService {
 			isAdminUser= dao.isAdminUser(id);
 			close(con);
 			return isAdminUser;
-		}
+		}*/
 
-		public boolean modifyPro(AdminProBean proBean) {
+		public boolean modifyPro(AdminProBean proBean, int pro_code) {
 			boolean isModifySuccess= false;
 			Connection con= getConnection();
 			AdminProDAO dao= AdminProDAO.getInstance();
 			dao.setConnection(con);
-			int updateCount= dao.updatePro(proBean);
+			int updateCount= dao.updatePro(proBean, pro_code);
 			if(updateCount > 0) {
 				commit(con);
 				isModifySuccess= true;

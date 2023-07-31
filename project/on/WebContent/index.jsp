@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import= "vo.UserBean" %>
 <%@ page import= "java.util.*" %>    
 
@@ -79,8 +78,6 @@
            <p class="tit">검색 맛 보기</p>
            <ul class="keylist">
                <li><span>생분해</span></li>
-               <li><span>방문매장</span></li>
-               <li><span>장애인일자리제공</span></li>
            </ul>
            <ul class="prolist">
                <li>

@@ -27,7 +27,7 @@
 				<c:if test= "${articleList.menu_code == 1}"> 
 			         <article>
 			         	 <a href="Pro_view.fr?pro_code=${articleList.pro_code}">
-			             <input type="text" name= "pro_code" value="${articleList.pro_code}">
+			             <input type="hidden" name= "pro_code" value="${articleList.pro_code}">
 			                <div class="photo">
 			                    <img src="images/${articleList.pro_img}" alt="">
 			                </div>
@@ -35,10 +35,6 @@
 			                 	<input type="hidden" name= "menu_code" value="${articleList.menu_code}">
 			                     <h3>${articleList.pro_nm}</h3>
 			                     <p>${articleList.pro_company}</p>
-			                 </div>
-			                 <div class="icon">
-			                     <i class="fa-regular fa-heart"></i>
-			                     <span>123</span>
 			                 </div>
 			             </a>
 			         </article>

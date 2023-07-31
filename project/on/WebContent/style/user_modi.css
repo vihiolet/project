@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/*회원탈퇴 css*/
-
 .container .myContent{
     width: 76%;
     padding-left: 7%;
@@ -17,18 +15,28 @@ h2{
     justify-content: center;
 }
 .user_info{
-    width: 35%;
-    text-align: center;
+    width: 25%;
+    text-align: left;
     font-weight: 600;
 }
-.user_info p {
-	 padding-bottom: 10px;
+.tit{
+	padding-top: 25px;
+	padding-bottom: 15px;
+	border-top: 1px solid #eee;
+	color : #ccc;    
+    font-size: 17px;
 }
-.id_text p{
-   padding-bottom: 10px;
+.user_info p{
+	padding-bottom: 10px;
+}
+form div{
+	padding-bottom: 10px;
 }
 .key_value{
 	width: 100%;
+}
+#passwdCheck{
+	color: #ccc;
 }
 .btn{
     width: 100%;

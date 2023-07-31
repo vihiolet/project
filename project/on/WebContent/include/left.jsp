@@ -13,8 +13,8 @@
                <img src="" alt="">
            </div>
             <div class="pText">
-                <p class="id">${userInfo.id }</p>
-                <p class="logout">로그아웃<p>
+                <p class="id">${userInfo.id } 님</p>
+                <a href= "logout.ur"><p class="logout">로그아웃<p></a>
             </div>
         </div>
         <div class="myMenu">

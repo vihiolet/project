@@ -1,0 +1,28 @@
+@charset "UTF-8";
+.container .myContent{
+    width: 76%;
+    padding-left: 7%;
+    padding-top: 50px;
+}
+h2{
+	border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+.myContent > div{
+    width: 100%;
+    text-align: center;
+    margin-top: 9%;
+}
+.myContent > div p{
+	margin-top: 15px;
+    margin-bottom: 30px;
+}
+form input{
+	padding: 6px 0;
+}
+.btn{ 
+    width: 80px;
+    border: 2px solid #6239c3;
+    background: #6239c3;
+    color: #fff;    
+}

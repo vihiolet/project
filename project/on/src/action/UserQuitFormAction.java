@@ -13,15 +13,20 @@ public class UserQuitFormAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
     
-		ActionForward forward= new ActionForward();		
+		ActionForward forward= new ActionForward();				
 		HttpSession session= request.getSession();
 		String id= (String)session.getAttribute("id");
 		UserListService userListService= null;
-		UserBean userInfo= null;
+		UserBean userInfo= new UserBean();
 		
-		userListService= new UserListService();
-		userInfo= userListService.getUserInfo2(id);
-		request.setAttribute("userInfo", userInfo);
+		if(id != null) {			
+			
+			userListService= new UserListService();
+			userInfo= userListService.getUserInfo2(id);
+			request.setAttribute("userInfo", userInfo);
+			
+			System.out.println(userInfo);
+		}
 		
 		forward.setPath("/front/UserQuitForm.jsp");
     

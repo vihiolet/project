@@ -18,17 +18,28 @@ public class UserModiFormAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session= request.getSession();
+		String id= (String)session.getAttribute("id");
+		UserListService userListService= null;
+		UserBean userInfo= new UserBean();
+		
+		if(id != null) {			
+			
+			userListService= new UserListService();
+			userInfo= userListService.getUserInfo2(id);
+			request.setAttribute("userInfo", userInfo);
+			
+			System.out.println(userInfo);
+		}
+		
 		ActionForward forward= new ActionForward();			
 		SHA256Util sha256util= new SHA256Util();
-		UserListService userListService= null;
-		UserBean userInfo= null;
+
 		//내 정보 수정 service
 		UserModiService userModiService= new UserModiService();
 		
 		//비번 확인 service
 		UsersloginService usersJoinService= new UsersloginService();
 		
-		String id= (String)session.getAttribute("id");
 		String salt= usersJoinService.LoginSetSalt(id);
 		String passwd= request.getParameter("passwd");
 		String passwdSalt= sha256util.getEncrypt(passwd, salt);	

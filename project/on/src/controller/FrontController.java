@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import action.Action;
 import action.JoinAction;
@@ -22,7 +23,9 @@ import action.ReviewListAction;
 import action.ReviewRegAction;
 import action.UserIndexAction;
 import action.loginAction;
+import svc.UserListService;
 import vo.ActionForward;
+import vo.UserBean;
 
 @WebServlet("*.fr")
 public class FrontController extends javax.servlet.http.HttpServlet{
@@ -65,6 +68,7 @@ public class FrontController extends javax.servlet.http.HttpServlet{
 	             e.printStackTrace();
 	          }	   		         
 		  }else if(command.equals("/Pro_reviewReg.fr")) {
+			  
 	    	  forward= new ActionForward();
 	    	  forward.setRedirect(false);
 	    	  forward.setPath("./front/review_write.jsp");

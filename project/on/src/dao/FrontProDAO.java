@@ -28,21 +28,11 @@ public class FrontProDAO {
 	//리뷰 등록
 	public int insertArticle(ReviewBean reviewBean) {
 		PreparedStatement pstmt = null;
-		//ResultSet rs = null;
-//		int num = 0;
 		String sql = "";
 		int insertCount = 0;
 
 		try {
-//			pstmt = con.prepareStatement("select max(board_num) from board");
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next())
-//				num = rs.getInt(1) + 1;
-//			else
-//				num = 1;
-
-			sql = "insert into review (pro_code, tit_fg, sub_fg1, sub_fg2, sub_fg3, create_dt ) values(?,?,?,?,?,now())";
+			sql = "insert into review (pro_code, tit_fg, sub_fg1, sub_fg2, sub_fg3, create_dt, create_id) values(?,?,?,?,?,now(), ?)";
 			
 			pstmt = con.prepareStatement(sql);			
 			pstmt.setInt(1, reviewBean.getPro_code());			
@@ -50,7 +40,7 @@ public class FrontProDAO {
 			pstmt.setInt(3, reviewBean.getSub1_fg());
 			pstmt.setInt(4, reviewBean.getSub2_fg());
 			pstmt.setInt(5, reviewBean.getSub3_fg());
-
+			pstmt.setString(6, reviewBean.getCreate_id());
 			insertCount = pstmt.executeUpdate();
 			
 		} catch (Exception e) {

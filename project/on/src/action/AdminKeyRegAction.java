@@ -19,7 +19,7 @@ public class AdminKeyRegAction implements Action {
 		ServletContext context= request.getServletContext();
 		
 		keywordBean.setSrch_name(request.getParameter("srch_name").trim());
-		keywordBean.setCreate_id(Integer.parseInt(request.getParameter("create_id")));
+		keywordBean.setCreate_id(request.getParameter("create_id"));
 		keywordBean.setRemark(request.getParameter("remark"));			
 		
 		KeywordRegService keywordRegService= new KeywordRegService();

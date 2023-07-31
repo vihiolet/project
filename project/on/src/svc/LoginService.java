@@ -12,6 +12,7 @@ public class LoginService {
 		Connection con= getConnection();
 		loginDAO.setConnection(con);
 		String salt= loginDAO.selecSaltById(id);
+		close(con);
 		return salt;
 	}
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% session.setAttribute("id", "admin1"); %>		<!-- id 하드코딩(세션 테스트용) -->
+    <%String id= (String)session.getAttribute("id"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +28,7 @@
                   <form action="adminProReg.pr" method="post" enctype="multipart/form-data">
                   	
                     <div class="pro_value">
-                    	<input type= "hidden" name= "create_id" value= "<%=(String)session.getAttribute("id") %>">
+                    	<input type= "hidden" name= "create_id" value= "<%=id %>">
                         <div class="menu_radio">                        	                    
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
                               <input type="radio" name="menu_code" id="clothes" value="2"><label for="clothes">옷</label>
@@ -63,8 +63,8 @@
     </div>    
     <script>
         let openWin;
-        function keywordOpen(){
-        	
+        function keywordOpen(){        	
+        	window.name= "parentForm";
             openWin = window.open("adminProPopup.pr", "key_popup", "width=570, height=350, resizeable = no, left= 200, top= 200");
         }
     </script>

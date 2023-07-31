@@ -1,3 +1,9 @@
+@charset "UTF-8";
+.joinArea{
+	width: 100%;
+	margin-top: 110px;
+	margin-bottom: 150px;
+}
 form{
     width: 100%;
 }
@@ -5,19 +11,25 @@ form{
     width: 265px;
     margin: 0 auto;
 }
+h2, p{
+    text-align: center;
+    margin-bottom: 15px !important;
+}
 input{
     width: 100%;
     border: 1px solid #ccc;
     height: 45px;
     margin-bottom: 10px;
 }
-
+#passwdCheck{
+	line-height: 20px;
+	color: #ccc;
+	text-align: left;
+}
 .join_btn{
-    display: inline-block;
     text-align: center;
-    width: 100%;
-    line-height: 50px;
-    background: #ccc;
+
+    background: #6239c3;
     color: #fff;
     margin-bottom: 15px;
 }

@@ -7,14 +7,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import action.Action;
 import action.AdminKeyListAction;
 import action.AdminKeyRegAction;	//검색점 action
 import action.AdminProDeleteAcrion;
 import action.AdminProRegAcrion;	//상품등록 actoin
+import action.ProViewAction;
+import svc.AdminInfoService;
 import action.AdminProListAction;	//상품목록 actoin
+import action.AdminProModiAction;
+import action.AdminProModiFormAction;
 import action.AdminProPopupAcrion;
 import vo.ActionForward;
+import vo.AdminEmpBean;
 
 
 @WebServlet("*.pr")
@@ -35,8 +42,19 @@ public class AdminProController extends javax.servlet.http.HttpServlet{
 				e.printStackTrace();
 			}
 		}else if(command.equals("/productRegForm.pr")) {
+			
+			HttpSession session= request.getSession();
+			String id= (String)session.getAttribute("id");
+			AdminInfoService adminInfoService= null;
+			AdminEmpBean empInfo= null;
+			
+			adminInfoService= new AdminInfoService();
+			empInfo= adminInfoService.getUserInfo(id);
+			request.setAttribute("empInfo", empInfo);
+
 			forward= new ActionForward();
 			forward.setPath("/admin/admin_pro_reg.jsp");
+			
 		}else if(command.equals("/adminProReg.pr")) {
 			action= new AdminProRegAcrion();
 			try {
@@ -58,6 +76,20 @@ public class AdminProController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("/proModiForm.pr")) {
+	    	  action = new AdminProModiFormAction();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		}else if(command.equals("/proModi.pr")) {
+	    	  action = new AdminProModiAction();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
 		}
 		
 		

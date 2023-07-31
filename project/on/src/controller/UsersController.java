@@ -61,19 +61,19 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			forward.setPath("./front/idCheck_popup.jsp");
 		//회원가입 id 중복체크
 		}else if(command.equals("/userIdChk.ur")) {
-			
 			Connection con= getConnection();
 			UsersDAO userDAO= UsersDAO.getInstance();
 			userDAO.setConnection(con);
 			
 			String id= request.getParameter("chkId");
 			boolean result= userDAO.duplicationIdChk(id);
-
+			
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out= response.getWriter();
 			if(result) out.println("1");	//id 중복
 			else out.println("0");		
 			
+			close(con);
 		//사용자 로그인
 		}else if(command.equals("/login.ur")) {			
 			forward = new ActionForward();

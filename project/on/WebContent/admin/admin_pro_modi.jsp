@@ -1,6 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<% session.setAttribute("id", "admin1"); %>		<!-- id 하드코딩(세션 테스트용) -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import= "vo.AdminProBean" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import= "java.util.HashMap" %>
+<%@ page import= "java.util.ArrayList" %>
+<% AdminProBean pro= (AdminProBean)request.getAttribute("pro"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,7 @@
     <title>제품수정페이지입니다</title>
 </head>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/admin_pro.css">
 <link rel="stylesheet" href="style/head.css">
@@ -25,9 +29,10 @@
                         <p>검색점</p>
                         <p>상품 사진</p>
                   </div>
-                  <form action="adminProReg.pr" method="post" enctype="multipart/form-data">
-                  	
+                  <form action="proModi.pr" method="post" enctype="multipart/form-data">
+                  <c:if test= "${pro != null}">                  	
                     <div class="pro_value">
+                    	<input type= "hidden" id ="pro_code" name ="pro_code" value= ${pro.pro_code }>
                     	<input type= "hidden" name= "create_id" value= "<%=(String)session.getAttribute("id") %>">
                         <div class="menu_radio">                        	                    
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
@@ -37,20 +42,23 @@
                               <input type="radio" name="menu_code" id="life" value="5"><label for="life">생활</label>   
                          </div>
                          <div class="company_text">                     
-                             <input type="text" name="pro_company" value="" required>                             
+                             <input type="text" name="pro_company" value="${pro.pro_company }" required>                             
                          </div>
                          <div class="name_text">                     
-                            <input type="text" name="pro_nm" value="" required>
+                            <input type="text" name="pro_nm" value="${pro.pro_nm }" required>
                          </div>
                          <div class="keyword_r">                     
                              <input type="button" value="추가" onclick="keywordOpen()">
-                             <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value="" required>
-                             <input type="hidden" id= "keycd" class="keyInput" name="srch_code1" value="" required>
+                             <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value="${pro.srch_nm1 }" required>
+                             <input type="hidden" id= "keycd" class="keyInput" name="srch_code1" value="${pro.srch_code1 }" required>
                          </div>
                          <div class="name_img">                     
-                             <input type="file" name="pro_img">
+                             <input type="file" name="pro_img" >
+                             <img src="images/${pro.pro_img }">
+                             <input type= "hidden" id ="pro_img" name ="pro_img" value= "${pro.pro_img }">
                          </div>                    
                      </div> 
+                    </c:if>
                     <div class="button">
                         <input type="submit" value="수정">
                         <input type="reset" value="다시 쓰기">
@@ -61,27 +69,26 @@
       </div>
     </div>    
     <script>
-        let openWin;
         function keywordOpen(){
-        	
-            openWin = window.open("adminProPopup.pr", "key_popup", "width=570, height=350, resizeable = no, left= 200, top= 200");
+        	window.name= "parentForm";
+        	let openWin = window.open("adminProPopup.pr", "key_popup", "width=570, height=350, resizeable = no, left= 200, top= 200");
         }
 
         //menu_code에 따라 radio 버튼 체크
         $(document).ready(function(){
-        let menu_code= ;
-        switch(menu_code){
-            case 1 : $('#food').attr('checked', true);
-                break;
-            case 2 : $('#clothes').attr('checked', true);
-                break;
-            case 3 : $('#beauty').attr('checked', true);
-                break;
-            case 4 : $('#acce').attr('checked', true);
-                break;
-            case 5 : $('#life').attr('checked', true);
-                break;
-        }
+	        let menu_code= ${pro.menu_code };
+	        switch(menu_code){
+	            case 1 : $('#food').attr('checked', true);
+	                break;
+	            case 2 : $('#clothes').attr('checked', true);
+	                break;
+	            case 3 : $('#beauty').attr('checked', true);
+	                break;
+	            case 4 : $('#acce').attr('checked', true);
+	                break;
+	            case 5 : $('#life').attr('checked', true);
+	                break;
+	        }
     })
     </script>
 </body>

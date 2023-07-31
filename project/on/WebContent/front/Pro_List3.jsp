@@ -34,10 +34,6 @@
 			                     <h3>${articleList.pro_nm}</h3>
 			                     <p>${articleList.pro_company}</p>
 			                 </div>
-			                 <div class="icon">
-			                     <i class="fa-regular fa-heart"></i>
-			                     <span>123</span>
-			                 </div>
 			             </a>
 			         </article>
 		        </c:if>

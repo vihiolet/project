@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import svc.UserListService;
 import vo.ActionForward;
+import vo.AdminProBean;
 import vo.ReviewBean;
 import vo.UserBean;
 
@@ -31,6 +32,10 @@ public class MyPageAction implements Action {
 		reviewBean.setReviewCount(reviewCount);
 		request.setAttribute("reviewBean", reviewBean);
 		
+		ArrayList<AdminProBean> myProReview= new ArrayList<AdminProBean>();
+		myProReview= userListService.getMyReview(id);
+		request.setAttribute("myProReview", myProReview);
+				
 		forward.setPath("/front/Mypage.jsp");
 		
 		return forward;

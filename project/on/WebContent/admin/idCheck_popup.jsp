@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>id 중복체크 팝업 관리자</title>
+    <title>id 중복체크 팝업 emp</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body onload= "pValue()">
@@ -20,7 +20,7 @@
     <script>
         //팝업 창의 id input에 부모창에 입력한 id 삽입
         function pValue(){
-            document.getElementById("adminId").value = opener.document.adminInfo.id.value;
+            document.getElementById("adminId").value = opener.document.empInfo.id.value;
         }
         
         //id 중복 체크
@@ -43,13 +43,13 @@
                     success: function(data){
                       console.log(data);
                       if(data == 0) {
+                          document.getElementById("cancel_Btn").style.visibility = "hidden";
+                          document.getElementById("use_Btn").style.visibility = "visible";                          
+                          document.getElementById("mag").innerHTML= "사용할 수 있는 아이디입니다";
+                      }else if(data == 1){
                           document.getElementById("cancel_Btn").style.visibility = "visible";
                           document.getElementById("use_Btn").style.visibility = "hidden";
                           document.getElementById("mag").innerHTML= "사용할 수 없는 아이디입니다";
-                      }else if(data == 1){
-                          document.getElementById("cancel_Btn").style.visibility = "hidden";
-                          document.getElementById("use_Btn").style.visibility = "visible";
-                          document.getElementById("mag").innerHTML= "사용할 수 있는 아이디입니다";
                       }  
                     },
                     error: function(){
@@ -60,8 +60,8 @@
         }
         //join페이지(부모창)으로 중복체크한 id값 전달
         function sendCheckValue() {
-            opener.document.adminInfo.idDuplication.value= "idCheck";
-            opener.document.adminInfo.id.value= document.getElementById("userId").value;
+            opener.document.empInfo.idDuplication.value= "idCheck";
+            opener.document.empInfo.id.value= document.getElementById("adminId").value;
             
             if(opener != null){
                 console.log(opener);

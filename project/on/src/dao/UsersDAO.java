@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.sql.DataSource;
 
 import vo.AdminEmpBean;
+import vo.AdminProBean;
 import vo.ReviewBean;
 import vo.UserBean;
 
@@ -34,7 +35,7 @@ public class UsersDAO {
 	}
 
 	public int insertAdminUsers(UserBean users) {
-		String sql= "insert into users values(?, ?, ?, ?, 0)";
+		String sql= "insert into users values(?, ?, ?, ?)";
 		int insertCount= 0;
 		
 		try {
@@ -118,7 +119,7 @@ public class UsersDAO {
 				empInfo.setEmp_name(rs.getString("emp_name"));		
 			}
 		}catch(Exception e) {
-			System.out.println("회원정보 에러" + e);
+			System.out.println("관리자정보 에러" + e);
 		}finally {
 			close(rs);
 			close(pstmt);
@@ -315,26 +316,29 @@ public class UsersDAO {
 		}
 		return upateSuccess;
 	}
-
-	//관리자 로그인
-	public String selectAdminLoginId(AdminEmpBean emp) {
-		String loginId= null;
+	//내가 리뷰 쓴 제품
+	public ArrayList<AdminProBean> myProReview(String id) {
+		String sql= "select t2.pro_code, t2.pro_img from review t1 left join product t2 on t1.pro_code = t2.pro_code where t1.create_id= ? limit 4";
+		ArrayList<AdminProBean> myReview= new ArrayList<AdminProBean>();
+		AdminProBean pro= null;		
 		try {
-			pstmt= con.prepareStatement("select emp_id from emp where emp_id= ? and emp_pass= ?");
-			pstmt.setString(1, emp.getEmp_id());
-			pstmt.setString(2, emp.getEmp_pass());
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs= pstmt.executeQuery();
-			
-			if(rs.next()) {
-				loginId= rs.getString("emp_id");
+			while(rs.next()) {
+				pro= new AdminProBean();
+				pro.setPro_code(rs.getInt("pro_code"));
+				pro.setPro_img(rs.getString("pro_img"));
+				myReview.add(pro);
 			}
 		}catch(Exception e) {
-			System.out.println("로그인 에러" + e);
-		}finally {
+			System.out.println("내가 리뷰 단 제품에서 에러" + e);
+		}finally{
 			close(rs);
 			close(pstmt);
 		}
-		
-		return loginId;
+		return myReview;
 	}
+
+	
 }

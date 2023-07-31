@@ -8,6 +8,25 @@ header {
     background: rgba(255,255,255,0.9);
     border-bottom: 1px solid #e4e1db;
 }
+.login{
+	width: 100%;
+	display:flex;
+	padding-top: 7px;
+    padding-bottom: 7px;
+    background: #e9eaeb;
+}
+.login a{
+	flex: 1;
+	padding-left: 6%;
+}
+.login > div{
+	flex: 1;
+	text-align: right;
+    padding-right: 7%;
+}
+.login > div a{
+	padding-left: 15px;
+}
 .head1{
     display: inline-block;
     line-height: 70px;
@@ -21,6 +40,7 @@ header {
     padding: 20px;
     color: inherit;
     font-size:  17px;
+    font-weight: 600;
 }
 /*미디어쿼리 시작*/
 @media (min-width: 768px){
@@ -45,7 +65,7 @@ header {
     }
     
     .head2 a:hover{
-    background: rgba(0,0,0,2.3);
+    	color : #6239c3;
     }
 }
 @media (max-width: 767px){

@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mysql.cj.xdevapi.Session;
-
 import svc.UserListService;
 import vo.ActionForward;
 import vo.UserBean;
@@ -24,9 +22,14 @@ public class UserIndexAction implements Action {
 		
 		ActionForward forward= new ActionForward();
 		UserListService userListService= new UserListService();
-		UserBean userInfo= userListService.getUserInfo2(id);		
+		UserBean userInfo= new UserBean();
 		
-		request.setAttribute("userInfo", userInfo);
+		if(id != null) {			
+			
+			userListService= new UserListService();
+			userInfo= userListService.getUserInfo2(id);
+			request.setAttribute("userInfo", userInfo);
+		}
 		
 		forward.setPath("./index.jsp");
 				

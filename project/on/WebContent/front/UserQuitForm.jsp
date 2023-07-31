@@ -9,16 +9,19 @@
     <title>회원 탈퇴 form</title>
 </head>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/userQuit.css">
 <link rel="stylesheet" href="style/head.css">
 <link rel="stylesheet" href="style/footer.css">
 <body>
-      <jsp:include page="./../header.jsp"></jsp:include>	<!--헤더-->
+<jsp:include page="./../header.jsp"></jsp:include>	<!--헤더-->
+	<div class="mypageWrap">
       <div class="container"> 
-      	<jsp:include page="./../include/left.jsp"></jsp:include>	<!--왼쪽 메뉴-->       
-          <div class="content">
-            <div class="bg">
+      	<jsp:include page="./../include/left.jsp"></jsp:include>	<!--왼쪽 메뉴-->    
+      	<div class="myContent">   
+          <h2>회원 탈퇴</h2>
+          	<div>
                 <div class="user_info"> 
                     <p>아이디</p>
                     <p>비밀번호</p>
@@ -34,9 +37,10 @@
                     </div>
                     <input type="submit" class= "btn" value="탈퇴하기">                   
                 </form>
-            </div>
+         	</div>
          </div>
        </div>
-    <jsp:include page="./../footer.jsp"></jsp:include>
+	</div>
+<jsp:include page="./../footer.jsp"></jsp:include>
 </body>
 </html>
