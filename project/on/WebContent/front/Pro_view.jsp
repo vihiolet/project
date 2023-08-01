@@ -74,7 +74,7 @@
 	
 	function reviwPopup(){
 		window.name= "parentPage"
-		window.open("Pro_reviewReg.fr", "checkForm", "width=990, height=550, resizable = no, scrollbars = no, top=120, left=100");
+		window.open("Pro_reviewReg.fr", "checkForm", "width=800, height=500, resizable = no, scrollbars = no, top=120, left=100");
 	}
 </script>
 </body>

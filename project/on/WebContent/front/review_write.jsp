@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/reg.css">
 <body onload= "proCodeVal()">
-   <section class="reg">
+   <div class="reg">
         <div class="container"> 
         	<p class="review_tit">사용 후기를 투표해주세요.</p>
             <form action="reviewWriteRev.fr" method="post" name="reviewform">
@@ -49,12 +49,12 @@
                    </div>
                 </div>
                 <div class="button">
-                    <input type="submit" value="등록">
-                    <input type="reset" value="다시쓰기">
+                    <input type="submit" value="등록" class="save_btn">
+                    <input type="reset" value="다시쓰기" class= "reset_btn">
                 </div>
             </form>
        </div>
-    </section>    
+    </div>    
     <script>
     	function proCodeVal(){
     		document.getElementById("pro_code").value = opener.document.getElementById("pro_code").value;

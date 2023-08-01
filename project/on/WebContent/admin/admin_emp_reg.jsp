@@ -17,6 +17,10 @@
       <div class="container">          
           <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
           <div class="content">
+          	<div class="btn">
+	    		<a href=adminEmp.emp >관리자 조회</a>
+	    		<a href="adminEmpRegForm.emp" class= "reg">관리자 등록</a>     
+	  		</div> 
             <div class="bg">
                 <div class="pro_tit"> 
                         <p>관리자명</p>

@@ -33,7 +33,7 @@
 		<jsp:include page="../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
 		<form action="" method="post" name= "" onsubmit= "return checkForm()"> 
 	  	<div class="btn">
-	    	<a href="productRegForm.pr">제품 조회</a>
+	    	<a href="adminProList.pr" class= "pro_list">제품 조회</a>
 	    	<a href="productRegForm.pr">제품 등록</a>     
 	  	</div> 
 	    <table class="pro_list">
@@ -138,6 +138,7 @@
 			}   			
 			//location.reload();	//여기에 쓰면 success의 alert나 console.log가 실행 안 된다 success의 마지막에 써야 된다
 		})
+		
 </script>
 
 </html>

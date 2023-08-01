@@ -16,6 +16,9 @@
 form{
 	display: flex;
 }
+.pro_list{
+	background: #fff;
+}
 table {
 	border-top: 2px solid #333;
   	border-collapse: separate;

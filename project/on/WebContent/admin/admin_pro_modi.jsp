@@ -21,6 +21,10 @@
       <div class="container">          
           <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
           <div class="content">
+          	<div class="btn">
+	    		<a href="adminProList.pr" >제품 조회</a>
+	    		<a href="productRegForm.pr" class= "reg">제품 등록</a>     
+	  		</div>
             <div class="bg">
                 <div class="pro_tit"> 
                         <p>상품 분류</p>

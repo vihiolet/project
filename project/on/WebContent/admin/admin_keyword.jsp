@@ -29,6 +29,11 @@
 <body>
 	<jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
 	<jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
+<div id= "key_list">
+	<div class="btn">
+	    		<a href=adminKey.ke class= "list">검색점 조회</a>
+	    		<a href="adminKeywordModi.ke" >검색점 수정</a>     
+	 </div>
    	<form action="adminKeywordReg.ke" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
             <input type="button"  class="add" value="추가" onclick= "addClick()">
@@ -60,35 +65,35 @@
             </tr>  
             <%} %>
       </table> 
-    </form>  
-            <div id="pageList">
-            	<%if(nowPage <= 1) { %>
-               		[이전]&nbsp;
-          		<% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
-               		<a href="adminKey.ke?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
-          		<% } %>
-          		
-          		<%for(int a= startPage; a <= endPage; a++){ 
-          			if(a == nowPage){%>
-          				[<%=a %>]
-          			<%}else{ %>
-          				<a href="adminKey.ke?page=<%= a %>">[<%= a %>]</a>&nbsp;
-          			<%} %>          			
-          		<%} %>
-          		
-          		<%if(nowPage >= maxPage){ %>
-          			[다음]
-          		<%}else{ %>
-          			<a href="adminKey.ke?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
-          		<%} %>
-            </div>
-            	 
-            <%	}else{ %>  
-            	<p>등록된 검색점이 없습니다</p>  
-            <% } %>               
+    </form> 
+    </div> 
+        <div id="pageList">
+        	<%if(nowPage <= 1) { %>
+           		[이전]&nbsp;
+      		<% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
+           		<a href="adminKey.ke?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
+      		<% } %>
+      		
+      		<%for(int a= startPage; a <= endPage; a++){ 
+      			if(a == nowPage){%>
+      				[<%=a %>]
+      			<%}else{ %>
+      				<a href="adminKey.ke?page=<%= a %>">[<%= a %>]</a>&nbsp;
+      			<%} %>          			
+      		<%} %>
+      		
+      		<%if(nowPage >= maxPage){ %>
+      			[다음]
+      		<%}else{ %>
+      			<a href="adminKey.ke?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
+      		<%} %>
+        </div>
+        	 
+        <%	}else{ %>  
+        	<p>등록된 검색점이 없습니다</p>  
+        <% } %>               
   
-  
-  <script>
+ <script>
 	//=======
 	//행 추가
 	//=======

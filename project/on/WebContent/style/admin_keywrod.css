@@ -1,11 +1,53 @@
 @charset "UTF-8";
-
-table td, table tr{
-/*    border: 1px solid #222;*/
+#key_list{
+	display:flex;
+}
+.btn{
+	width: 10%;
+    text-align: center;
+    background: #eee;
+    /*height: calc(100vh);*/
+}
+.btn a{
+	display: block;
+	line-height: 50px;
+}
+.btn a:first-child{
+	margin-top: 30px;
+}
+.add{
+	background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+#modify_btn{
+	background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+#save_btn{
+	background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+#delete_btn {
+    background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
 }
 form{
-	width: 88%;
-    float: left;
+	margin: 30px;
+}
+.list{
+	background: #fff;
 }
 .keyword_list{
     border-top: 2px solid #333;

@@ -19,11 +19,15 @@
 <body>
     <jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
     <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-    <form action="adminEmpReg.emp" method="post" name= "regEmp" onsubmit= "return checkForm()">
+  <div id= "emp_list">
+    <div class="btn">
+	   <a href="adminEmp.emp" class= "list">관리자 조회</a>
+	   <a href="adminEmpRegForm.emp">관리자 등록</a>     
+	</div> 
+    <form action="adminEmpReg.emp" method="post" name= "regEmp" onsubmit= "return checkForm()">    	
         <div>
-            <a href="adminEmpRegForm.emp">등록</a> 
             <input type="submit" value="저장" id='save_btn'>            
-            <input type="button" value="삭제" id= "delete_btn">
+            <button id= "delete_btn">삭제</button>
         </div>
         <c:set var= "listCount" value="${pageInfo.getListCount()}" ></c:set>
 	    <c:if test= "${EmpList != null && EmpList.size() > 0}">
@@ -52,7 +56,8 @@
         <c:if test= " ${EmpList == null && listCount.size() == 0 }">
         	<p>등록된 관리자가 없습니다</p>
         </c:if>
-    </form>   
+    </form>
+  </div>   
     <script>
 	//삭제
   		$('#delete_btn').on("click", function(e){
