@@ -70,7 +70,6 @@
             opener.document.userInfo.id.value= document.getElementById("userId").value;
             
             if(opener != null){
-                console.log(opener);
                 opener.checkForm = null;    //checkForm은 자식창 이름
                 console.log(opener.checkForm);
                 self.close();

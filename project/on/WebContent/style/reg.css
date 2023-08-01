@@ -18,7 +18,6 @@ form{
         
 }
 .reviewWrap{
-/*    border:  1px solid #cfcfcf;*/
     width: 100%;
     display: flex;
     box-shadow: 0px 4px 17px 0px #ddd;
@@ -83,7 +82,7 @@ input[type=radio]:checked + .tit3{    /* A + B -> A 옆에 있는 B을 선택(�
 }
 
 .sub input[type="radio"]:checked {
-  border: 5px solid #5600ff;
+  border: 5px solid #6239c3;
 }
 
 /*키보드 사용자(웹접근성) 고려*/

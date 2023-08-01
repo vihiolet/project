@@ -34,7 +34,7 @@
                     <div class="pro_value">
                     	<input type= "hidden" id ="pro_code" name ="pro_code" value= ${pro.pro_code }>
                     	<input type= "hidden" name= "create_id" value= "<%=(String)session.getAttribute("id") %>">
-                        <div class="menu_radio">                        	                    
+                        <div class="menu_radio sub">                        	                    
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
                               <input type="radio" name="menu_code" id="clothes" value="2"><label for="clothes">옷</label>
                               <input type="radio" name="menu_code" id="beauty" value="3"><label for="beauty">미용</label>
@@ -48,13 +48,15 @@
                             <input type="text" name="pro_nm" value="${pro.pro_nm }" required>
                          </div>
                          <div class="keyword_r">                     
-                             <input type="button" value="추가" onclick="keywordOpen()">
+                             <input type="button" value="추가" class="keybtn" onclick="keywordOpen()">
                              <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value="${pro.srch_nm1 }" required>
                              <input type="hidden" id= "keycd" class="keyInput" name="srch_code1" value="${pro.srch_code1 }" required>
                          </div>
                          <div class="name_img">                     
                              <input type="file" name="pro_img" >
-                             <img src="images/${pro.pro_img }">
+                             <div class="img">
+                             	<img src="images/${pro.pro_img }">
+                             </div>                             
                              <input type= "hidden" id ="pro_img" name ="pro_img" value= "${pro.pro_img }">
                          </div>                    
                      </div> 

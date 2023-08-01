@@ -1,39 +1,60 @@
 @charset "UTF-8";
+/*관리자 제품 목록 css*/
+.btn{
+	width: 10%;
+    text-align: center;
+    background: #eee;
+    /*height: calc(100vh);*/
+}
+.btn a{
+	display: block;
+	line-height: 50px;
+}
+.btn a:first-child{
+	margin-top: 30px;
+}
+form{
+	display: flex;
+}
+table {
+	border-top: 2px solid #333;
+  	border-collapse: separate;
+  	border-spacing: 0 9px;
+  	margin: 30px;
+}
+.keyword_tit {
+	font-weight: 600;
+}
+table .keyword_info td{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;	
+}
+	
+.pro_code{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.create_dt, .pro_company, .pro_nm, .create_id{
+	margin-left: 35px;
+	margin-right: 35px;
+	text-align: center;
+	font-size: 15px;
+}
+.img{
+	width: 100px;
+	height:100px;
+}
+.img img{
+	width: 100px !important;
+	height:100px;
+}
 
-.list .container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+button{	
+	background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
 }
-.list article{
-    display: flex;   
-    width: calc(50% - 3.5px);
-}
-.list a:hover{
-    opacity: 0.8;
-}
-.list .text, .list .icon{
-    margin: 10px;
-}
-.list .icon span{
-    font-size: 15px;
-}
-
-/*관리자 CSS 시작*/
-.a_container{
-    height: calc(100vh - 70px); 
-    display: flex;
-}
-.a_bg{
-    width: 100%;
-    display: flex;
-    flex: 1;
-    margin: 0.5%;       
-    padding-top: 50px;    
-    background: #fff;
-    border-radius: 6px;
-}
-
 /*미디어쿼리 시작*/
 @media (min-width: 768px){   
     .list .container{

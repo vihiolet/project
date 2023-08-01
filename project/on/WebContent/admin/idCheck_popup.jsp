@@ -10,11 +10,7 @@
 </head>
 <body onload= "pValue()">
     <div class="idChk">
-<<<<<<< HEAD
     	<p class="tit">아이디 중복체크</p>
-=======
-        <p class="tit">아이디 중복체크</p>
->>>>>>> ccbb58ee07428ae3c54d75490151cd413e60c173
     	<p class="text">한글 및 특수문자는 아이디로 사용하실 수 없습니다.</p>
         <form action="" name="" method="">
             <input type="text" name= "idInput" id="adminId">

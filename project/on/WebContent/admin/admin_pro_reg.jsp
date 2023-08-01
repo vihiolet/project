@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>제품관리페이지입니다</title>
+    <title>제품 등록</title>
 </head>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style/common.css">
@@ -29,7 +29,7 @@
                   	
                     <div class="pro_value">
                     	<input type= "hidden" name= "create_id" value= "<%=id %>">
-                        <div class="menu_radio">                        	                    
+                        <div class="menu_radio sub">                        	                    
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
                               <input type="radio" name="menu_code" id="clothes" value="2"><label for="clothes">옷</label>
                               <input type="radio" name="menu_code" id="beauty" value="3"><label for="beauty">미용</label>
@@ -44,8 +44,8 @@
                             <input type="text" name="pro_nm" required= "required">
                          </div>
                          <div class="keyword_r">                     
-                             <input type="button" value="추가" onclick="keywordOpen()">
-                             <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value="" placeholder="추가 버튼으로 검색점을 추가하세요" required= "required">
+                             <input type="button" value="추가"  class="keybtn" onclick="keywordOpen()">
+                             <input type="text" id= "keynm" class="keyInput" name="srch_nm1" value="" placeholder="추가 버튼으로 검색점을 추가하세요" size="30" required= "required">
                              <input type="hidden" id= "keycd" class="keyInput" name="srch_code1" value="" required= "required">
                          </div>
                          <div class="name_img">                     

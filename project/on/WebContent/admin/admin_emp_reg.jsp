@@ -5,11 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
     <title>관리자 등록</title>
-=======
-    <title>관리자 등록 id 중복 체크</title>
->>>>>>> ccbb58ee07428ae3c54d75490151cd413e60c173
 </head>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="style/common.css">
@@ -78,11 +74,7 @@
 		//id 중복체크 팝업창 생성
 		function openIdChk(){
 			window.name= "parentForm"	//window.name을 지정해주면 IE에서 window.opener이 undefinde되는 걸 방지할 수 있다
-<<<<<<< HEAD
-				window.open("idCheckForm.emp", "checkForm", "width=460, height=260, top= 220, left= 200, resizable = no, scrollbars = no");
-=======
 			window.open("idCheckForm.emp", "checkForm", "width=460, height=260, top= 220, left= 200, resizable = no, scrollbars = no");
->>>>>>> ccbb58ee07428ae3c54d75490151cd413e60c173
 		}
 		//중복 확인 후 사용 가능한 id면 idDuplication의 value 값은 idCheck가 된다
 		//그 상태에서 id input에 새 id를 입력할 시 idDuplication의 value 값을 다시 idUnCheck로 바꾸기

@@ -20,7 +20,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자제품목록페이지</title>
+<title>관리자제품목록</title>
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/admin_pro_list.css">
 <link rel="stylesheet" href="style/list.css">
@@ -33,29 +33,33 @@
 		<jsp:include page="../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
 		<form action="" method="post" name= "" onsubmit= "return checkForm()"> 
 	  	<div class="btn">
-	    	<a href="productRegForm.pr">등록</a>    
-	    	<input type="submit" value="저장" id='save_btn'>   
+	    	<a href="productRegForm.pr">제품 조회</a>
+	    	<a href="productRegForm.pr">제품 등록</a>     
 	  	</div> 
 	    <table class="pro_list">
     	<%if(articleList != null && listCount > 0){%>
         	<tr class="keyword_tit">
-                <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
-                <td><input type="button" value="선택 제품 삭제" id= "delete_btn"></td>
+                <td><input type="checkbox" name="allcheck" class= "pro_code" onClick='allCheck()'></td>                
+                <td><button id= "delete_btn">삭제</button></td>
+                <td><p class= "create_dt">등록일</p></td>
+                <td><p class= "pro_company">제조회사</p></td>
+                <td><p class= "pro_nm">제품이름</p></td>
+                <td><p class= "create_id">등록인</p></td>
             </tr>
-        	<%for(int i=0; i < articleList.size(); i++) {%>     
-        	
-        	          	
-            <tr class="keyword_info">       
-            		
-            	<!-- 수정 불가 컬럼 : create_dt(등록일), create_id(등록인) -->       	
-                <td><input type="checkbox" name="pro_code" id= "pro_code" value="<%=articleList.get(i).getPro_code() %>" style="margin-left: 10px;"></td>
-                <td class="photo"><a href="proModiForm.pr?pro_code=<%=articleList.get(i).getPro_code() %>&menu_code=<%=articleList.get(i).getMenu_code() %>">
-                		<img src="images/<%=articleList.get(i).getPro_img() %>" alt="">
-                	</a></td>                
-                <td><span><%=articleList.get(i).getCreate_dt() %></span></td>
-                <td><input type="text" name="" id= "" class= "" size="15" value="<%=articleList.get(i).getPro_company() %>"></td>
-                <td><input type="text" name="" id= "" class= "pro_tit" size="15" value="<%=articleList.get(i).getPro_nm() %>"></td>
-                <td><span><%=articleList.get(i).getCreate_id() %></span></td>
+        	<%for(int i=0; i < articleList.size(); i++) {%>           	       	          	
+            <tr class="keyword_info">          	
+                <td><input type="checkbox" name="pro_code" class= "pro_code" value="<%=articleList.get(i).getPro_code() %>"></td>
+                <td class="photo">
+                	<a href="proModiForm.pr?pro_code=<%=articleList.get(i).getPro_code() %>&menu_code=<%=articleList.get(i).getMenu_code() %>" class= "pro_img">
+                		<div class= "img">
+                			<img src="images/<%=articleList.get(i).getPro_img() %>" alt="">
+                		</div>
+                	</a>
+                </td>                
+                <td><p class= "create_dt"><%=articleList.get(i).getCreate_dt() %></p></td>
+                <td><p class= "pro_company"><%=articleList.get(i).getPro_company() %></p></td>
+                <td><p class= "pro_nm"><%=articleList.get(i).getPro_nm() %></p></td>
+                <td><p class= "create_id"><%=articleList.get(i).getCreate_id() %></p></td>
                 
             </tr>  
             

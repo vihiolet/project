@@ -16,7 +16,7 @@ public class AdminProPopupAcrion implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ArrayList<KeywordBean> keywordList= new ArrayList<KeywordBean>();
 		int page= 1;
-		int limit= 10;
+		int limit= 5;
 		if(request.getParameter("page") != null) {
 			page= Integer.parseInt(request.getParameter("page"));
 		}
