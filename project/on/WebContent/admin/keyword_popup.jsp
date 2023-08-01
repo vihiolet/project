@@ -19,7 +19,7 @@
 <meta charset="UTF-8">
 <title>검색점 팝업창</title>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel= "stylesheet" href="keyword_popup.css">
+<link rel= "stylesheet" href="style/keyword_popup.css">
 </head>
 <body>
       	<%if(keywordList != null && listCount > 0){%>
