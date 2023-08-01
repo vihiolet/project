@@ -3,18 +3,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>id 중복체크 팝업 emp</title>
+    <title>id 중복체크</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="style/common.css">
+    <link rel="stylesheet" href="style/idchk.css">
 </head>
 <body onload= "pValue()">
     <div class="idChk">
+        <p class="tit">아이디 중복체크</p>
+    	<p class="text">한글 및 특수문자는 아이디로 사용하실 수 없습니다.</p>
         <form action="" name="" method="">
             <input type="text" name= "idInput" id="adminId">
             <input type="button" value= "중복확인" onclick="idChk()">
         </form>
         <div id="mag"></div>
-        <input type="button" value="사용하기" id="use_Btn" onclick="sendCheckValue()">
-        <input type="button" value="취소" id="cancel_Btn" onclick="window.close()">
+        <div class="btn">
+            <input type="button" value="사용하기" id="use_Btn" onclick="sendCheckValue()">
+            <input type="button" value="닫기" id="cancel_Btn" onclick="window.close()">
+        </div>
     </div>
      
     <script>
