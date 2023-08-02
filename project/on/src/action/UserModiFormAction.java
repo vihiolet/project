@@ -38,9 +38,9 @@ public class UserModiFormAction implements Action {
 		UserModiService userModiService= new UserModiService();
 		
 		//비번 확인 service
-		UsersloginService usersJoinService= new UsersloginService();
+		UsersloginService userslogininService= new UsersloginService();
 		
-		String salt= usersJoinService.LoginSetSalt(id);
+		String salt= userslogininService.LoginSetSalt(id);
 		String passwd= request.getParameter("passwd");
 		String passwdSalt= sha256util.getEncrypt(passwd, salt);	
 		
