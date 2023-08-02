@@ -49,7 +49,7 @@ public class AdminInfoAction implements Action {
 			empInfo= userListService.getUserInfo(id);
 			request.setAttribute("empInfo", empInfo);
 			
-			forward.setPath("/front/AdminInfoForm.jsp");
+			forward.setPath("/front/admin_Info.jsp");
 		}else {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out= response.getWriter();
