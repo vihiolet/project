@@ -21,7 +21,7 @@ public class UserReviewAction implements Action {
 
 		UserReviewService userReviewService = new UserReviewService();
 		ArrayList myReview= new ArrayList();
-		myReview= userReviewService.getMyReview();
+		myReview= userReviewService.getMyReview(id);
 		request.setAttribute("myReview", myReview);
 		
 		return forward;
