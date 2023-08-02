@@ -99,7 +99,14 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			if(result) out.println("1");	//id 중복
 			else out.println("0");		
 			close(con);
-		//
+		//내 정보 관리
+		}else if(command.equals("/adminInfo.emp")) {
+			action= new AdminInfoAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 		
 		
