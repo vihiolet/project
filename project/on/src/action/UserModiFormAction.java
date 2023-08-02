@@ -27,8 +27,6 @@ public class UserModiFormAction implements Action {
 			userListService= new UserListService();
 			userInfo= userListService.getUserInfo2(id);
 			request.setAttribute("userInfo", userInfo);
-			
-			System.out.println(userInfo);
 		}
 		
 		ActionForward forward= new ActionForward();			
