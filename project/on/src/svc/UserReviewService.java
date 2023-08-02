@@ -4,9 +4,10 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.UsersDAO;
+import vo.ReviewBean;
 import vo.UserBean;
 
-public class UserListService {
+public class UserReviewService {
 
 	public UserBean getUserInfo2(String id) {
 		UsersDAO userDAO= UsersDAO.getInstance();
@@ -20,14 +21,15 @@ public class UserListService {
 		return userInfo;
 	}
   	//내가 투표한 리뷰
- 	 public ArrayList getMyReview(String id){
-    		UsersDAO userDAO= UsersDAO.getInstance();
+ 	 public ArrayList<Object> getMyReview(String id){
+    	UsersDAO userDAO= UsersDAO.getInstance();
 		Connection con= getConnection();
 		userDAO.setConnection(con);
     
-    		ArrayList myReview= new ArrayList();
-		myReview= userDAO.getMyReview();
-    		close(con);		
+		ArrayList<Object> myReview = new ArrayList<Object>();
+		myReview= userDAO.getMyReview(id);
+    	close(con);	
+    	
 		return myReview;
   }
 }

@@ -4,6 +4,7 @@ import java.sql.Date;
 public class ReviewBean {
 
 	private int pro_code;
+	private int review_code;
 	private int tit_fg;
 	private String tit_text;
 	private int sub1_fg;
@@ -15,6 +16,9 @@ public class ReviewBean {
 	private Date create_dt;
 	private int reviewCount;
 	private String create_id;
+	//pro_nm, pro_img 추가 bean은 새로운 객체가 필요할 때마다 만들어쓰는건가
+	private String pro_nm;
+	private String pro_img;
 	
 	public int getPro_code() {
 		return pro_code;
@@ -89,6 +93,24 @@ public class ReviewBean {
 	}
 	public void setCreate_id(String create_id) {
 		this.create_id = create_id;
+	}
+	public int getReview_code() {
+		return review_code;
+	}
+	public void setReview_code(int review_code) {
+		this.review_code = review_code;
+	}
+	public String getPro_nm() {
+		return pro_nm;
+	}
+	public void setPro_nm(String pro_nm) {
+		this.pro_nm = pro_nm;
+	}
+	public String getPro_img() {
+		return pro_img;
+	}
+	public void setPro_img(String pro_img) {
+		this.pro_img = pro_img;
 	}
 
 }

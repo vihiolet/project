@@ -340,10 +340,11 @@ public class UsersDAO {
 		return myReview;
 	}
 	//내가 쓴 리뷰
-	public ArrayList getMyReview(String id){
-		String sql= "";
-		ArrayList myReview = new ArrayList();
-		AdminProBean pro= null;	
+	public ArrayList<Object> getMyReview(String id){
+		String sql= "select t1.pro_code, review_code, tit_fg, sub_fg1, sub_fg2, sub_fg3, t1.create_dt, t1.create_id, t2.pro_img, t2.pro_nm"
+				+ " from review t1 inner join product t2"
+				+ " where t1.pro_code = t2.pro_code and t1.create_id= ?";
+		ArrayList<Object> myReview = new ArrayList<Object>();	
 		ReviewBean review= null;
 
 		try{
@@ -351,16 +352,17 @@ public class UsersDAO {
 			pstmt.setString(1, id);
 			rs= pstmt.executeQuery();
 			while(rs.next()){
-				pro= new AdminProBean();
 				review= new ReviewBean();
-				pro.setPro_code(rs.getInt("pro_code"));
-				pro.setPro_nm(rs.getString("pro_nm"));
-				pro.setPro_img(rs.getString("pro_img"));
+				review.setPro_code(rs.getInt("pro_code"));
+				review.setPro_nm(rs.getString("pro_nm"));
+				review.setPro_img(rs.getString("pro_img"));
+				review.setReview_code(rs.getInt("review_code"));
 				review.setTit_fg(rs.getInt("tit_fg"));
-				review.setSub1_fg(rs.getInt("sub1_fg"));
-				review.setSub2_fg(rs.getInt("sub2_fg"));
-				review.setSub3_fg(rs.getInt("sub3_fg"));
-				myReview.add(pro).add(review);
+				review.setSub1_fg(rs.getInt("sub_fg1"));
+				review.setSub2_fg(rs.getInt("sub_fg2"));
+				review.setSub3_fg(rs.getInt("sub_fg3"));
+				review.setCreate_dt(rs.getDate("create_dt"));
+				myReview.add(review);				
 			}
 		}catch(Exception e) {
 			System.out.println("내가 쓴 리뷰에서 에러" + e);
@@ -368,6 +370,7 @@ public class UsersDAO {
 			close(rs);
 			close(pstmt);
 		}
+		
 		return myReview;
 			
 	}
