@@ -52,10 +52,11 @@ public class AdminKeyModifyAction implements Action{
 			}
 		}*/
 		
-		keyword.setSrch_name(request.getParameter("srch_name"));
-		keyword.setSrch_code(Integer.parseInt(request.getParameter("srch_code")));
+		String srch_code = Integer.parseInt(request.getParameter("srch_code"));
+		String srch_name = request.getParameter("srch_name");
+		String remark = request.getParameter("remark");
 
-		isModifySuccess= keywordModifyService.modifyKeyword(keyword);
+		isModifySuccess= keywordModifyService.modifyKeyword(srch_code, srch_name, remark);
 		
 		if(isModifySuccess) {
 			forward= new ActionForward();
