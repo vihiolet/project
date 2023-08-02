@@ -19,15 +19,15 @@ public class UserListService {
 		close(con);		
 		return userInfo;
 	}
-  //내가 투표한 리뷰
-  public ArrayList getMyReview(){
-    UsersDAO userDAO= UsersDAO.getInstance();
+  	//내가 투표한 리뷰
+ 	 public ArrayList getMyReview(String id){
+    		UsersDAO userDAO= UsersDAO.getInstance();
 		Connection con= getConnection();
 		userDAO.setConnection(con);
     
-    ArrayList myReview= new ArrayList();
+    		ArrayList myReview= new ArrayList();
 		myReview= userDAO.getMyReview();
-    close(con);		
+    		close(con);		
 		return myReview;
   }
 }
