@@ -47,21 +47,25 @@
                 <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
                 <td>검색점</td>
                 <td>등록인</td>
-                <!-- <td>사용여부</td> 
-                <td>비고</td>-->
+                <!-- <td>사용여부</td> -->
+                <td>비고</td>
             </tr>
         	<%for(int i=0; i < keywordList.size(); i++) {%>    
             	
-            <tr class="keyword_info">            	
-                <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
-                <td>
-                	<input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
-                	<input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>">
-                </td>
-                <td>                	
-                	<input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>" readonly>
-                </td>
-   
+            <tr class="keyword_info">    
+		<a href="adminKeywordModiForm.ke?srch_code=<%=keywordList.get(i).getSrch_code() %>" class= "srch_code">
+	                <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
+	                <td>
+	                	<input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
+	                	<input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>">
+	                </td>
+	                <td>                	
+	                	<input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>" readonly>
+	                </td>
+			<td>                	
+	                	<input type="text" name="" id= "remark" class= "key remark" size="15" value="<%=keywordList.get(i).getRemark() %>" size= "40">
+	                </td>
+   		</a>
             </tr>  
             <%} %>
       </table> 
