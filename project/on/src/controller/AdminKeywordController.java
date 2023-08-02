@@ -56,6 +56,14 @@ public class AdminKeywordController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
+		//수정 form
+		}else if(command.equals("/adminKeywordModiForm.ke")) {	
+			action= new AdminKeyModiFormAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}			
 		//수정
 		}else if(command.equals("/adminKeywordModi.ke")) {	
 			action= new AdminKeyModifyAction();
