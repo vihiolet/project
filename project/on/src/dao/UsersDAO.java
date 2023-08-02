@@ -339,6 +339,37 @@ public class UsersDAO {
 		}
 		return myReview;
 	}
+	//내가 쓴 리뷰
+	public ArrayList getMyReview(String id){
+		String sql= "";
+		ArrayList myReview = new ArrayList();
+		AdminProBean pro= null;	
+		ReviewBean review= null;
 
+		try{
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			while(rs.next()){
+				pro= new AdminProBean();
+				review= new ReviewBean();
+				pro.setPro_code(rs.getInt("pro_code"));
+				pro.setPro_nm(rs.getString("pro_nm"));
+				pro.setPro_img(rs.getString("pro_img"));
+				review.setTit_fg(rs.getInt("tit_fg"));
+				review.setSub1_fg(rs.getInt("sub1_fg"));
+				review.setSub2_fg(rs.getInt("sub2_fg"));
+				review.setSub3_fg(rs.getInt("sub3_fg"));
+				myReview.add(pro).add(review);
+			}
+		}catch(Exception e) {
+			System.out.println("내가 쓴 리뷰에서 에러" + e);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return myReview;
+			
+	}
 	
 }
