@@ -40,7 +40,7 @@ public class AdminKeyModiFormAction implements Action{
 		request.setAttribute("keyword", keyword);
 		
 		forward= new ActionForward();
-		forward.setPath("/admin/adminKeyModiForm.jsp");
+		forward.setPath("/admin/admin_key_modi.jsp");
 		forward.setRedirect(false);
 
 		
