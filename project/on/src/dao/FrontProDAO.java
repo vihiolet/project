@@ -117,11 +117,12 @@ public class FrontProDAO {
 		return review;
 	}
 	//전체 리뷰 개수
-	public int getReviewCount() {
+	public int getReviewCount(int pro_code) {
 		int reviewCount= 0;
 		
 		try {
-			pstmt=con.prepareStatement("select count(*) from review");
+			pstmt=con.prepareStatement("select count(*) from review where pro_code= ?");
+			pstmt.setInt(1, pro_code);
 			rs= pstmt.executeQuery();
 			if(rs.next()) {
 				reviewCount= rs.getInt(1);
