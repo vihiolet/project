@@ -33,7 +33,7 @@
 	           <!-- 상품 정보 끝 -->
 	           <!-- 후기 영역 시작 -->
 	           <div class="review_info">
-	                <p class="tit">35명의 후기</p>
+	                <p class="tit">${reviewCount}개의 후기</p>
 	                <div class="review">
 	                	<input type= "hidden" id ="tit_fg" value= ${MaxReviCount.tit_fg }>
 	                    <ul class="review_tit"> 
