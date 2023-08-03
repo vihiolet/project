@@ -108,3 +108,36 @@
     text-align: center;
     color: #fff;
 }
+h3{
+    margin: 0;
+    padding-bottom: 3%;
+    border-bottom: 2px solid #333;
+}
+.reviewList {
+    display: flex;
+    text-align: center;
+    line-height: 35px;
+    padding-bottom: 3%;
+    border-bottom: 1px solid #eee;
+    padding-top: 3%;
+    justify-content: center;
+}
+.icon{
+    width: 7%;
+    font-size: 30px;
+}
+.id{
+    width: 10%;
+}
+.tit{
+    width: 14%;
+    font-weight: 600;
+    color: #6239c3;
+}
+.sub{
+    width: 18%;
+}
+.create_dt{
+    width: 10%;
+    color: #ccc;
+}
