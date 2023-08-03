@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import svc.AdminModiService;
 import svc.AdminInfoService;
+import svc.AdminLoginService;
 import svc.UsersloginService;
 import vo.ActionForward;
 import vo.AdminEmpBean;
@@ -41,12 +42,12 @@ public class AdminInfoAction implements Action {
 		String passwd= request.getParameter("passwd");
 		String passwdSalt= sha256util.getEncrypt(passwd, salt);	
 		
-		String isPasswd= adminLoginService.isPasswd(id);
+		String isPasswd= userModiService.isPasswd(id);
 		
 		if(passwdSalt.equals(isPasswd)) {			
 			//form에 내 정보 입력
 			adminInfoService= new AdminInfoService();
-			empInfo= userListService.getUserInfo(id);
+			empInfo= adminInfoService.getUserInfo(id);
 			request.setAttribute("empInfo", empInfo);
 			
 			forward.setPath("/front/admin_Info.jsp");

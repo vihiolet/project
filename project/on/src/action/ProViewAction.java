@@ -37,7 +37,7 @@ public class ProViewAction implements Action {
 		int reviewCount= proViewService.getReviewCount(pro_code);
 		request.setAttribute("reviewCount", reviewCount);
 		
-		ReviewBean MaxReviCount= proViewService.getReviewCount(pro_code);
+		ReviewBean MaxReviCount= proViewService.getMaxReviewCount(pro_code);
 		request.setAttribute("MaxReviCount", MaxReviCount);
 
 		ReviewBean allReview= proViewService.getselectReview(pro_code);

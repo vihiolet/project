@@ -23,7 +23,7 @@ public class ProViewService {
 	}
 
 	//리뷰 최대 개수와 값
-	public ReviewBean getReviewCount(int pro_code) {
+	public ReviewBean getMaxReviewCount(int pro_code) {
 		Connection con= getConnection();
 		AdminProDAO adminProDAO = AdminProDAO.getInstance();
 		adminProDAO.setConnection(con);
@@ -61,4 +61,16 @@ public class ProViewService {
 			close(con);
 			return tit3Count;
 		}
+
+	//전체 리뷰 
+	public ReviewBean getselectReview(int pro_code) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	//전체 리뷰 개수
+	public int getReviewCount(int pro_code) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }

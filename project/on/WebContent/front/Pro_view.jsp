@@ -57,7 +57,9 @@
 	            </div>
 	        </div>
         </c:if>
-	<div class="container a_bg"> 
+	
+    </section>   
+    <div class="container"> 
             <h3>전체 후기</h3>
             <div class="reviewWrap">
                 <ul class="reviewList">
@@ -79,8 +81,7 @@
                     <li class="create_dt">2023.09.01</li>
                 </ul>
             </div>
-       </div>
-    </section>    
+       </div> 
 <jsp:include page="./../footer.jsp"></jsp:include>
 <script>
 	$(document).ready(function(){
