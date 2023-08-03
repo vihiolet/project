@@ -1,5 +1,5 @@
 package action;
-
+import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -32,6 +32,9 @@ public class UserModiAction implements Action {
 		String salt= null;
 		String passwdSalt= null;
 
+		//수정된 내용이 입력되었는지 확인
+		boolean modiChk= true;
+
 		//비번 input null 체크
 		if(passwd == null) passwd= "";
 
@@ -40,7 +43,8 @@ public class UserModiAction implements Action {
 			sha256util= new SHA256Util();
 			salt= sha256util.getSalt();
 			passwdSalt= sha256util.getEncrypt(passwd, salt);
-			
+
+			modiChk= false;
 			boolean upateSuccess= userModiService.userNamePassModi(id, newName, passwdSalt, salt);
 			
 			if(upateSuccess){
@@ -50,7 +54,12 @@ public class UserModiAction implements Action {
 				forward.setRedirect(false);
 				forward.setPath("/login.jsp");
 			}else{
-				
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out= response.getWriter();
+				out.println("<script>");
+				out.println("alert('수정 실패')");
+				out.println("history.back()");
+				out.println("</script>");
 			}
 		}
 		//비번만 수정
@@ -58,7 +67,8 @@ public class UserModiAction implements Action {
 			sha256util= new SHA256Util();
 			salt= sha256util.getSalt();
 			passwdSalt= sha256util.getEncrypt(passwd, salt);
-			
+
+			modiChk= false;
 			boolean upateSuccess= userModiService.userPassModi(id, passwdSalt, salt);
 			
 			if(upateSuccess){
@@ -68,11 +78,18 @@ public class UserModiAction implements Action {
 				forward.setRedirect(false);
 				forward.setPath("/login.jsp");
 			}else{
-				
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out= response.getWriter();
+				out.println("<script>");
+				out.println("alert('수정 실패')");
+				out.println("history.back()");
+				out.println("</script>");
 			}
 		}
 		//이름만 수정
 		if(!newName.equals(oldName) && (passwd == "")){
+
+			modiChk= false;
 			boolean upateSuccess= userModiService.userNameModi(id, newName);
 			if(upateSuccess){
 				forward= new ActionForward();
@@ -81,9 +98,24 @@ public class UserModiAction implements Action {
 				request.setAttribute("userInfo", userInfo);
 				forward.setPath("/front/UserModiForm.jsp");
 			}else{
-				
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out= response.getWriter();
+				out.println("<script>");
+				out.println("alert('수정 실패')");
+				out.println("history.back()");
+				out.println("</script>");
 			}
-		}		
+		}
+		
+		//수정할 입력 값이 없을 때
+		if(modiChk){
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out= response.getWriter();
+			out.println("<script>");
+			out.println("alert('수정할 정보를 입력하세요')");
+			out.println("history.back()");
+			out.println("</script>");
+		}
 		return forward;
 	}
 
