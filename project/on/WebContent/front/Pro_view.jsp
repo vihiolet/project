@@ -57,6 +57,29 @@
 	            </div>
 	        </div>
         </c:if>
+	<div class="container a_bg"> 
+            <h3>전체 후기</h3>
+            <div class="reviewWrap">
+                <ul class="reviewList">
+                    <li class="icon"><i class="fa-solid fa-face-meh"></i></li>
+                    <li class="id">tlsdbswls77</li>
+                    <li class="tit">별로예요</li>
+                    <li class="sub">가격이 높아요</li>
+                    <li class="sub">대체품 있어요</li>                    
+                    <li class="sub">품질이 좋아요</li>
+                    <li class="create_dt">2023.08.31</li>
+                </ul>
+                <ul class="reviewList">
+                    <li class="icon"><i class="fa-solid fa-face-laugh"></i></li>
+                    <li class="id">asdfg8808</li>
+                    <li class="tit">만족해요</li>                    
+                    <li class="sub">가격이 낮아요</li>
+                    <li class="sub">대체품 없어요</li>
+                    <li class="sub">언제 끝나요?</li>
+                    <li class="create_dt">2023.09.01</li>
+                </ul>
+            </div>
+       </div>
     </section>    
 <jsp:include page="./../footer.jsp"></jsp:include>
 <script>
