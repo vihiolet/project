@@ -33,9 +33,15 @@ public class ProViewAction implements Action {
 		int pro_code= Integer.parseInt(request.getParameter("pro_code"));
 		AdminProBean pro= proViewService.getProView(pro_code); 	
 		request.setAttribute("pro", pro);	
+
+		int reviewCount= proViewService.getReviewCount();
+		request.setAttribute("reviewCount", reviewCount);
 		
 		ReviewBean MaxReviCount= proViewService.getReviewCount(pro_code);
 		request.setAttribute("MaxReviCount", MaxReviCount);
+
+		ReviewBean allReview= proViewService.getselectReview(pro_code);
+		request.setAttribute("allReview", allReview);
 		
 		int tit1Count= proViewService.getTit1Count(pro_code);
 		request.setAttribute("tit1Count", tit1Count);
