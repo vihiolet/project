@@ -86,7 +86,53 @@ public class FrontProDAO {
 		
 		return articleList;
 	}
-	
-
-
+	//전체 리뷰 
+	public ArrayList<ReviewBean> getselectReview() {
+		
+		String sql= "select * from review";
+		ArrayList<ReviewBean> review= null;
+		ReviewBean rb= new ReviewBean();
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			while(rs.next()) {
+				review= new ArrayList<ReviewBean>();
+				rb.setPro_code(rs.getInt("pro_code"));
+				rb.setTit_fg(rs.getInt("tit_fg"));
+				rb.setSub1_fg(rs.getInt("sub1_fg"));
+				rb.setSub2_fg(rs.getInt("sub2_fg"));
+				rb.setSub3_fg(rs.getInt("sub3_fg"));
+				rb.setCreate_dt(rs.getDate("create_dt"));
+				rb.setCreate_id(rs.getString("create_id"));
+				review.add(rb);
+			}
+		}catch(Exception e) {
+			System.out.println("전체 리뷰에서 에러" + e);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		
+		return review;
+	}
+	//전체 리뷰 개수
+	public int getReviewCount() {
+		int reviewCount= 0;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from review");
+			rs= pstmt.executeQuery();
+			if(rs.next()) {
+				reviewCount= rs.getInt(1);
+			}
+		}catch(Exception e) {
+			System.out.println("전체 리뷰 개수에서 에러" + e);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		
+		return reviewCount;
+	}
 }
