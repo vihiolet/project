@@ -87,14 +87,14 @@ public class FrontProDAO {
 		return articleList;
 	}
 	//전체 리뷰 
-	public ArrayList<ReviewBean> getselectReview() {
-		
-		String sql= "select * from review";
+	public ArrayList<ReviewBean> getselectReview(int pro_code) {
+
 		ArrayList<ReviewBean> review= null;
 		ReviewBean rb= new ReviewBean();
 		
 		try {
-			pstmt=con.prepareStatement(sql);
+			pstmt=con.prepareStatement("select * from review where pro_code= ?");
+			pstmt.setInt(1, pro_code);
 			rs= pstmt.executeQuery();
 			while(rs.next()) {
 				review= new ArrayList<ReviewBean>();
