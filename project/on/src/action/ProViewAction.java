@@ -27,7 +27,7 @@ public class ProViewAction implements Action {
 			request.setAttribute("userInfo", userInfo);
 
 		}
-		
+		ArrayList<ReviewBean> allReview = new ArrayList<ReviewBean>();
 		ProViewService proViewService= new ProViewService();
 		
 		int pro_code= Integer.parseInt(request.getParameter("pro_code"));
@@ -40,7 +40,7 @@ public class ProViewAction implements Action {
 		ReviewBean MaxReviCount= proViewService.getMaxReviewCount(pro_code);
 		request.setAttribute("MaxReviCount", MaxReviCount);
 
-		ReviewBean allReview= proViewService.getselectReview(pro_code);
+		ArrayList<ReviewBean> allReview= proViewService.getselectReview(pro_code);
 		request.setAttribute("allReview", allReview);
 		
 		int tit1Count= proViewService.getTit1Count(pro_code);
