@@ -63,14 +63,22 @@ public class ProViewService {
 		}
 
 	//전체 리뷰 
-	public ReviewBean getselectReview(int pro_code) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<ReviewBean> getselectReview(int pro_code) {
+		Connection con= getConnection();
+		FrontDAO frontDAO = FrontDAO.getInstance();
+		frontDAO.setConnection(con);
+		ArrayList<ReviewBean> allReview= frontDAO.getselectReview(pro_code);
+		close(con);
+		return allReview;
 	}
 
 	//전체 리뷰 개수
 	public int getReviewCount(int pro_code) {
-		// TODO Auto-generated method stub
-		return 0;
+		Connection con= getConnection();
+		FrontDAO frontDAO = FrontDAO.getInstance();
+		frontDAO.setConnection(con);
+		int reviewCount= frontDAO.getReviewCount(pro_code);
+		close(con);
+		return reviewCount;
 	}
 }
