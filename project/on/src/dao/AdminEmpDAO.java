@@ -151,24 +151,30 @@ public class AdminEmpDAO {
 		return insertCount;
 	}
 	//관리자 로그인
-		public String selectAdminLoginId(AdminEmpBean emp) {
-			String loginId= null;
-			try {
-				pstmt= con.prepareStatement("select emp_id from emp where emp_id= ? and emp_pass= ?");
-				pstmt.setString(1, emp.getEmp_id());
-				pstmt.setString(2, emp.getEmp_pass());
-				rs= pstmt.executeQuery();
-				
-				if(rs.next()) {
-					loginId= rs.getString("emp_id");
-				}
-			}catch(Exception e) {
-				System.out.println("로그인 에러" + e);
-			}finally {
-				close(rs);
-				close(pstmt);
-			}
+	public String selectAdminLoginId(AdminEmpBean emp) {
+		String loginId= null;
+		try {
+			pstmt= con.prepareStatement("select emp_id from emp where emp_id= ? and emp_pass= ?");
+			pstmt.setString(1, emp.getEmp_id());
+			pstmt.setString(2, emp.getEmp_pass());
+			rs= pstmt.executeQuery();
 			
-			return loginId;
+			if(rs.next()) {
+				loginId= rs.getString("emp_id");
+			}
+		}catch(Exception e) {
+			System.out.println("로그인 에러" + e);
+		}finally {
+			close(rs);
+			close(pstmt);
 		}
+		
+		return loginId;
+	}
+
+	//입력한 비번이 맞는지 확인
+	public String getUserPasswd(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

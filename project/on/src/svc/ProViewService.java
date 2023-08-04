@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 
 import dao.AdminProDAO;
+import dao.FrontProDAO;
 import vo.AdminProBean;
 import vo.ReviewBean;
 
@@ -65,7 +66,7 @@ public class ProViewService {
 	//전체 리뷰 
 	public ArrayList<ReviewBean> getselectReview(int pro_code) {
 		Connection con= getConnection();
-		FrontDAO frontDAO = FrontDAO.getInstance();
+		FrontProDAO frontDAO = FrontProDAO.getInstance();
 		frontDAO.setConnection(con);
 		ArrayList<ReviewBean> allReview= frontDAO.getselectReview(pro_code);
 		close(con);
@@ -75,7 +76,7 @@ public class ProViewService {
 	//전체 리뷰 개수
 	public int getReviewCount(int pro_code) {
 		Connection con= getConnection();
-		FrontDAO frontDAO = FrontDAO.getInstance();
+		FrontProDAO frontDAO = FrontProDAO.getInstance();
 		frontDAO.setConnection(con);
 		int reviewCount= frontDAO.getReviewCount(pro_code);
 		close(con);

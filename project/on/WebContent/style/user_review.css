@@ -30,6 +30,9 @@ h2{
     width: 150px;
     height: 150px;
 }
+.sub_fg span{
+	display: inline-block;
+}
 button{	
 	background: #7c4fff21;
     border: none;

@@ -88,24 +88,25 @@ public class FrontProDAO {
 	}
 	//전체 리뷰 
 	public ArrayList<ReviewBean> getselectReview(int pro_code) {
-
-		ArrayList<ReviewBean> review= null;
-		ReviewBean rb= new ReviewBean();
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		ArrayList<ReviewBean> allReview= new ArrayList<ReviewBean>();
+		ReviewBean review= null;	
 		
 		try {
 			pstmt=con.prepareStatement("select * from review where pro_code= ?");
 			pstmt.setInt(1, pro_code);
 			rs= pstmt.executeQuery();
 			while(rs.next()) {
-				review= new ArrayList<ReviewBean>();
-				rb.setPro_code(rs.getInt("pro_code"));
-				rb.setTit_fg(rs.getInt("tit_fg"));
-				rb.setSub1_fg(rs.getInt("sub1_fg"));
-				rb.setSub2_fg(rs.getInt("sub2_fg"));
-				rb.setSub3_fg(rs.getInt("sub3_fg"));
-				rb.setCreate_dt(rs.getDate("create_dt"));
-				rb.setCreate_id(rs.getString("create_id"));
-				review.add(rb);
+				review= new ReviewBean();
+				review.setPro_code(rs.getInt("pro_code"));
+				review.setTit_fg(rs.getInt("tit_fg"));
+				review.setSub1_fg(rs.getInt("sub_fg1"));
+				review.setSub2_fg(rs.getInt("sub_fg2"));
+				review.setSub3_fg(rs.getInt("sub_fg3"));
+				review.setCreate_dt(rs.getDate("create_dt"));
+				review.setCreate_id(rs.getString("create_id"));
+				allReview.add(review);
 			}
 		}catch(Exception e) {
 			System.out.println("전체 리뷰에서 에러" + e);
@@ -113,12 +114,13 @@ public class FrontProDAO {
 			close(rs);
 			close(pstmt);
 		}
-		
-		return review;
+		return allReview;
 	}
 	//전체 리뷰 개수
 	public int getReviewCount(int pro_code) {
-		int reviewCount= 0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		int reviewCount= 0;	
 		
 		try {
 			pstmt=con.prepareStatement("select count(*) from review where pro_code= ?");

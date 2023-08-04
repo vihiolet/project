@@ -60,62 +60,62 @@
 	
     </section>   
     <div class="container"> 
-            <h3>전체 후기</h3>
-            <div class="reviewWrap">
+    	<h3>전체 후기</h3>
+        <div class="reviewWrap">
 		<c:forEach var= "allReview" items= "${allReview}" varStatus="status">                  
-                <ul class="reviewList">
-		    <c:choose>
-			 <c: when= "${allReview.tit_fg == 1}"
-                    		<li class="icon"><i class="fa-solid fa-face-laugh"></i></li>
-			</c:when>
-			<c: when= "${allReview.tit_fg == 2}"
-                    		<li class="icon"><i class="fa-solid fa-face-meh"></i></li>
-			</c:when>
-			<c: when= "${allReview.tit_fg == 3}"
-                    		<li class="icon"><i class="fa-solid fa-face-sad-tear"></i></li>
-			</c:when>
-		   </c:chooes>
-                    <li class="id">${allReview.create_id}</li>
-		    <c:choose>
-			 <c: when= "${allReview.tit_fg == 1}"
-                    		<li class="tit">만족해요</li>
-			</c:when>
-			<c: when= "${allReview.tit_fg == 2}"
-                    		<li class="tit">보통이요</li>
-			</c:when>
-			<c: when= "${allReview.tit_fg == 3}"
-                    		<li class="tit">아쉬워요</li>
-			</c:when>
-		   </c:chooes>
-		   <c:choose>
-			 <c: when= "${allReview.sub1_fg == 1}"
-                    		<li class="sub">가격이 낮아요</li>
-			</c:when>
-			<c: when= "${allReview.sub1_fg == 2}"
-                    		<li class="sub">가격이 높아요</li>
-			</c:when>
-                    </c:chooes>
-		   <c:choose>
-			 <c: when= "${allReview.sub2_fg == 1}"
-                    		<li class="sub">품질이 좋아요</li>
-			</c:when>
-			<c: when= "${allReview.sub2_fg == 2}"
-                    		<li class="sub">품질이 아쉬워요</li>
-			</c:when>
-                    </c:chooes>
-			<c:choose>
-			 <c: when= "${allReview.sub3_fg == 1}"
-                    		<li class="sub">대체품 없어요</li>   
-			</c:when>
-			<c: when= "${allReview.sub4_fg == 2}"
-                    		<li class="sub">대체품 있어요</li>   
-			</c:when>
-                    </c:chooes>
-                    <li class="create_dt">${allReview.create_dt}</li>
-                </ul>
+        	<ul class="reviewList">
+		    	<c:choose>
+		    		<c:when test="${allReview.tit_fg == 1}">
+		    			<li class="icon"><i class="fa-solid fa-face-laugh"></i></li>
+		    		</c:when>
+		    		<c:when test="${allReview.tit_fg == 2}">
+                    	<li class="icon"><i class="fa-solid fa-face-meh"></i></li>
+					</c:when>
+					<c:when test="${allReview.tit_fg == 3}">
+                    	<li class="icon"><i class="fa-solid fa-face-sad-tear"></i></li>
+					</c:when>
+		    	</c:choose>
+		    	<li class="id">${allReview.create_id}</li>
+		    	<c:choose>
+		    		<c:when test="${allReview.tit_fg == 1}">
+                    	<li class="tit">만족해요</li>
+					</c:when>
+					<c:when test="${allReview.tit_fg == 2}">
+                    	<li class="tit">보통이요</li>
+					</c:when>
+					<c:when test="${allReview.tit_fg == 3}">
+                    	<li class="tit">아쉬워요</li>
+					</c:when>
+				</c:choose>
+				<c:choose>	
+			 		<c:when test="${allReview.sub1_fg == 1}">
+                    	<li class="sub">가격이 낮아요</li>
+					</c:when>
+					<c:when test="${allReview.sub1_fg == 2}">
+                    	<li class="sub">가격이 높아요</li>
+					</c:when>
+				</c:choose>
+				<c:choose>
+                  	<c:when test="${allReview.sub2_fg == 1}">
+                    	<li class="sub">품질이 좋아요</li>
+					</c:when>
+					<c:when test="${allReview.sub2_fg == 2}">
+                   		<li class="sub">품질이 아쉬워요</li>
+					</c:when>
+				</c:choose>
+				<c:choose>
+                	<c:when test="${allReview.sub3_fg == 1}">
+                   		<li class="sub">대체품 없어요</li>   
+					</c:when>
+					<c:when test="${allReview.sub3_fg == 2}">
+                   		<li class="sub">대체품 있어요</li>   
+					</c:when>
+                </c:choose>
+               	<li class="create_dt">${allReview.create_dt}</li>               	
+            </ul>
 		</c:forEach>
-            </div>
-       </div> 
+       </div>
+   	</div> 
 <jsp:include page="./../footer.jsp"></jsp:include>
 <script>
 	$(document).ready(function(){

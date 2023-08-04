@@ -1,5 +1,7 @@
 package action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,7 +29,6 @@ public class ProViewAction implements Action {
 			request.setAttribute("userInfo", userInfo);
 
 		}
-		ArrayList<ReviewBean> allReview = new ArrayList<ReviewBean>();
 		ProViewService proViewService= new ProViewService();
 		
 		int pro_code= Integer.parseInt(request.getParameter("pro_code"));
