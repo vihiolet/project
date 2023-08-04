@@ -43,12 +43,41 @@
 		                	</a>
 		                </td>
 		                <td><p class= "pro_nm">${myReview.pro_nm}</p></td>
-		                <td><p class= "tit_fg">${myReview.tit_fg}</p></td>
+		                <td>
+				<c:choose>
+					 <c: when= "${myReview.tit_fg == 1}"
+		                    		<p class="tit_fg">만족해요</p>
+					</c:when>
+					<c: when= "${myReview.tit_fg == 2}"
+		                    		<p class="tit_fg">보통이요</p>
+					</c:when>
+					<c: when= "${myReview.tit_fg == 3}"
+		                    		<p class="tit_fg">아쉬워요</p>
+					</c:when>
+				</c:chooes>
+				</td>
 		                <td>
 		                	<div class= "sub_fg">
-		                		<span >${myReview.sub1_fg}</span>
-		                		<span >${myReview.sub2_fg}</span>
-		                		<span>${myReview.sub3_fg}</span>
+					<c:choose>
+					  <c: when= "${myReview.sub1_fg == 1}"
+                    				<span class="sub">가격이 낮아요</span>
+					  </c:when>
+					  <c: when= "${myReview.sub1_fg == 2}"
+		                    		<span class="sub">가격이 높아요</span>
+					  </c:when>
+					  <c: when= "${myReview.sub2_fg == 1}"
+                    				<span class="sub">품질이 좋아요</span>
+					  </c:when>
+					  <c: when= "${myReview.sub2_fg == 2}"
+		                    		<span class="sub">품질이 아쉬워요</span>
+					  </c:when>
+					  <c: when= "${myReview.sub3_fg == 1}"
+                    				<span class="sub">대체품 없어요</span>
+					  </c:when>
+					  <c: when= "${myReview.sub3_fg == 2}"
+		                    		<span class="sub">대체품 있어요</span>
+					  </c:when>
+					</c:choose>
 		                	</div>
 		                </td>
 		                <td><p class= "create_dt">${myReview.create_dt}</p></td>                
