@@ -19,13 +19,13 @@ public class KeywordModifyService {
 		close(con);
 		return isAdminUser;
 	}
-	//글 수정
+	//검색점명 수정
 	public boolean modifyKeyword(KeywordBean keyword) {
 		boolean isModifySuccess= false;
 		Connection con= getConnection();
 		AdminKeywordDAO dao= AdminKeywordDAO.getInstance();
 		dao.setConnection(con);
-		int updateCount= dao.updateKetword(keyword);
+		int updateCount= dao.updateKekword(keyword);
 		if(updateCount > 0) {
 			commit(con);
 			isModifySuccess= true;
@@ -34,6 +34,31 @@ public class KeywordModifyService {
 		}
 		close(con);
 		return isModifySuccess;
+	}
+	//검색점명 또는 비고 수정
+	public boolean modifyAllKeyword(KeywordBean keyword) {
+		boolean isModifySuccess= false;
+		Connection con= getConnection();
+		AdminKeywordDAO dao= AdminKeywordDAO.getInstance();
+		dao.setConnection(con);
+		int updateCount= dao.updateAllKeyword(keyword);
+		if(updateCount > 0) {
+			commit(con);
+			isModifySuccess= true;
+		}else {
+			rollback(con);
+		}
+		close(con);
+		return isModifySuccess;
+	}
+	//키워드 수정 form에 값 가져오기
+	public KeywordBean getKeyword(int srch_code) {
+		Connection con= getConnection();
+		AdminKeywordDAO dao= AdminKeywordDAO.getInstance();
+		dao.setConnection(con);
+		KeywordBean keyword= dao.getkeyword(srch_code);
+		close(con);
+		return keyword;
 	}
 
 }

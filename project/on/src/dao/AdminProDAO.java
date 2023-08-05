@@ -296,4 +296,42 @@ public class AdminProDAO {
 		return tit3Count;
 	}
 	
+	//후기 전체
+	public ArrayList<ReviewBean> selectReview(int page, int limit) {
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		
+		String sql= "select t1.pro_code, review_code, tit_fg, sub_fg1, sub_fg2, sub_fg3, t1.create_dt, t1.create_id, t2.pro_img, t2.pro_nm"
+				+ " from review t1 inner join product t2"
+				+ " where t1.pro_code = t2.pro_code";
+		ArrayList<ReviewBean> myReview = new ArrayList<ReviewBean>();	
+		ReviewBean review= null;
+
+		try{
+			pstmt=con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			while(rs.next()){
+				review= new ReviewBean();
+				review.setPro_code(rs.getInt("pro_code"));
+				review.setPro_nm(rs.getString("pro_nm"));
+				review.setPro_img(rs.getString("pro_img"));
+				review.setReview_code(rs.getInt("review_code"));
+				review.setTit_fg(rs.getInt("tit_fg"));
+				review.setSub1_fg(rs.getInt("sub_fg1"));
+				review.setSub2_fg(rs.getInt("sub_fg2"));
+				review.setSub3_fg(rs.getInt("sub_fg3"));
+				review.setCreate_dt(rs.getDate("create_dt"));
+				review.setCreate_id(rs.getString("create_id"));
+				myReview.add(review);				
+			}
+		}catch(Exception e) {
+			System.out.println("후기 관리에서 에러" + e);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		
+		return myReview;
+	}
+	
 }

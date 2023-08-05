@@ -28,9 +28,10 @@
                         <p>등록인</p>
                         <p>비고</p>
                   </div>
-                  <form action="adminKeywordModi.ke" method="post">
-                  	
+                  <form action="adminKeywordModi.ke" method="post">                  	
                     <div class="pro_value">
+                    	<c:if test="${keyword !=null}">
+                    		<input type="hidden" name="srch_code" value="${keyword.srch_code}">
                     	<div class="name_text">                     
                             <input type="text" name="srch_name" value="${keyword.srch_name}">
                          </div> 
@@ -39,7 +40,8 @@
                          </div>
                          <div class="pass_text">                     
                              <input type="text" name="remark" value="${keyword.remark}">    
-                         </div>                                            
+                         </div>  
+                         </c:if>                                          
                      </div> 
                     <div class="button">
                         <input type= "submit" class="btn" value="수정">

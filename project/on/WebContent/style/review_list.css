@@ -1,0 +1,58 @@
+@charset "UTF-8";
+.btn{
+	width: 10%;
+    text-align: center;
+    background: #eee;
+    /*height: calc(100vh);*/
+}
+.btn a{
+	display: block;
+	line-height: 50px;
+	background: #fff;
+	margin-top: 30px;
+}
+.list{
+	display: flex;
+}
+.review_list{
+	background: #fff;
+}
+table {
+	border-top: 2px solid #333;
+  	border-collapse: separate;
+  	border-spacing: 0 9px;
+  	margin: 30px;
+}
+.review_tit{
+	font-weight: 600;
+}
+table .review_info td{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;	
+}
+	
+.review_code{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.create_dt, .tit_fg, .pro_nm, .create_id, .sub_fg{
+	margin-left: 35px;
+	margin-right: 35px;
+	text-align: center;
+	font-size: 15px;
+}
+.img{
+	width: 100px;
+	height:100px;
+}
+.img img{
+	width: 100px !important;
+	height:100px;
+}
+
+button{	
+	background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+}

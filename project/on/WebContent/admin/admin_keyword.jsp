@@ -31,8 +31,7 @@
 	<jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
 <div id= "key_list">
 	<div class="btn">
-	    		<a href=adminKey.ke class= "list">검색점 조회</a>
-	    		<a href="adminKeywordModi.ke" >검색점 수정</a>     
+	    		<a href=adminKey.ke class= "list">검색점 조회</a>   
 	 </div>
    	<form action="adminKeywordReg.ke" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
@@ -53,19 +52,21 @@
         	<%for(int i=0; i < keywordList.size(); i++) {%>    
             	
             <tr class="keyword_info">    
-		<a href="adminKeywordModiForm.ke?srch_code=<%=keywordList.get(i).getSrch_code() %>" class= "srch_code">
+				
 	                <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
-	                <td>
-	                	<input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
-	                	<input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>">
+	                <td>	           
+		                <input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
+		                <input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>">                	
 	                </td>
 	                <td>                	
 	                	<input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>" readonly>
 	                </td>
-			<td>                	
-	                	<input type="text" name="" id= "remark" class= "key remark" size="15" value="<%=keywordList.get(i).getRemark() %>" size= "40">
+					<td>   
+						<a href="adminKeywordModiForm.ke?srch_code=<%=keywordList.get(i).getSrch_code() %>" class= "srch_code">             	
+	                		<input type="text" name="" id= "remark" class= "key remark" size="15" value="<%=keywordList.get(i).getRemark() %>" size= "40">
+	                	</a>
 	                </td>
-   		</a>
+   		
             </tr>  
             <%} %>
       </table> 

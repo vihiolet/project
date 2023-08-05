@@ -143,8 +143,8 @@ public class AdminKeywordDAO {
 			return false;
 		}
 		
-		//검색점 수정
-		public int updateKetword(KeywordBean keyword) {
+		//검색점명 수정
+		public int updateKekword(KeywordBean keyword) {
 			int updateCount= 0;
 			PreparedStatement pstmt= null;
 			String sql= "update keyword set srch_name= ? where srch_code= ?";
@@ -162,5 +162,47 @@ public class AdminKeywordDAO {
 				close(pstmt);
 			}
 			return updateCount;
+		}
+		
+		//검색점명 수정
+		public int updateAllKeyword(KeywordBean keyword) {
+			int updateCount= 0;
+			PreparedStatement pstmt= null;
+			String sql= "update keyword set srch_name= ?, remark= ? where srch_code= ?";
+			
+			try {
+				pstmt= con.prepareStatement(sql);
+				pstmt.setString(1, keyword.getSrch_name());
+				pstmt.setString(2, keyword.getRemark());
+				pstmt.setInt(3, keyword.getSrch_code());
+				
+				updateCount= pstmt.executeUpdate();
+				
+			}catch(Exception e) {
+				System.err.println("검색점 수정에서 오류 : " + e);
+			}finally {
+				close(pstmt);
+			}
+			return updateCount;
+		}
+		
+		public KeywordBean getkeyword(int srch_code) {
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			KeywordBean keyword = null;
+			try {
+				pstmt= con.prepareStatement("select * from keyword where srch_code= "+ srch_code);
+				rs= pstmt.executeQuery();
+				if(rs.next()) {
+					keyword = new KeywordBean();
+					keyword.setSrch_code(rs.getInt("srch_code"));
+					keyword.setCreate_id(rs.getString("create_id"));
+					keyword.setSrch_name(rs.getString("srch_name"));
+					keyword.setRemark(rs.getString("remark"));
+				}
+			}catch(Exception e) {
+				System.err.println("검색점 수정 form에서 오류 : " + e);
+			}
+			return keyword;
 		}
 }

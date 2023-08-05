@@ -26,8 +26,7 @@
 	</div> 
     <form action="adminEmpReg.emp" method="post" name= "regEmp" onsubmit= "return checkForm()">    	
         <div>
-            <input type="submit" value="저장" id='save_btn'>            
-            <button id= "delete_btn">삭제</button>
+            <p class="notice">*관리자 정보 수정 및 삭제는 본인만 가능합니다.</p>           
         </div>
         <c:set var= "listCount" value="${pageInfo.getListCount()}" ></c:set>
 	    <c:if test= "${EmpList != null && EmpList.size() > 0}">

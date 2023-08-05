@@ -17,11 +17,8 @@ public class AdminKeyModifyAction implements Action{
 		ActionForward forward= null;
 		HttpSession session= request.getSession();
 		String id= (String)session.getAttribute("id");
-		boolean isModifySuccess= false;
-		
-		
-		KeywordBean keyword= new KeywordBean();
-		
+		boolean isModifySuccess= false;		
+		 		
 		KeywordModifyService keywordModifyService = new KeywordModifyService();
 		
 		//관리자 계정인지 확인
@@ -53,14 +50,28 @@ public class AdminKeyModifyAction implements Action{
 		}*/
 		
 		int srch_code = Integer.parseInt(request.getParameter("srch_code"));
-		String srch_name = request.getParameter("srch_name");
-		String remark = request.getParameter("remark");
-		keyword.setSrch_code(srch_code);
-		keyword.setSrch_name(srch_name);
-		keyword.setRemark(remark);
-
-		isModifySuccess= keywordModifyService.modifyKeyword(keyword);
 		
+		KeywordBean keyword= keywordModifyService.getKeyword(srch_code); 
+		
+		String srch_name = request.getParameter("srch_name");
+		String oldRemark= keyword.getRemark();
+		String newRemark = request.getParameter("remark");		
+		
+		if(newRemark == null) newRemark= "";
+
+		if(!newRemark.equals(oldRemark)) {
+			keyword= new KeywordBean();
+			keyword.setSrch_code(srch_code);
+			keyword.setSrch_name(srch_name);
+			keyword.setRemark(newRemark);
+			isModifySuccess= keywordModifyService.modifyAllKeyword(keyword);
+		}else {
+			keyword= new KeywordBean();
+			keyword.setSrch_code(srch_code);
+			keyword.setSrch_name(srch_name);
+			isModifySuccess= keywordModifyService.modifyKeyword(keyword);
+		}
+			
 		if(isModifySuccess) {
 			forward= new ActionForward();
 			forward.setPath("adminKey.ke");

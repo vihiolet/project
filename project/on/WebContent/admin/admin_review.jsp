@@ -4,16 +4,8 @@
 <%@ page import= "vo.PageInfo"%>
 <%@ page import= "vo.AdminProBean"%>
 <%@ page import= "java.text.SimpleDateFormat"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%
-	ArrayList<AdminProBean> articleList= (ArrayList<AdminProBean>)request.getAttribute("articleList");
-	PageInfo pageInfo= (PageInfo)request.getAttribute("pageInfo");
-	int listCount= pageInfo.getListCount();
-	int nowPage= pageInfo.getPage();
-	int maxPage= pageInfo.getMaxPage();
-	int startPage= pageInfo.getStartPage();
-	int endPage= pageInfo.getEndPage();
-%>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +14,7 @@
 <title>관리자제품목록페이지</title>
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/admin_pro_list.css">
-<link rel="stylesheet" href="style/list.css">
+<link rel="stylesheet" href="style/review_list.css">
 <link rel="stylesheet" href="style/footer.css">
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -30,49 +22,78 @@
 	<body>
 		<jsp:include page="../include/admin_header.jsp"></jsp:include>	<!--헤더-->
 		<jsp:include page="../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-		<form action="" method="post" name= "" onsubmit= "return checkForm()"> 
-	  	 
-	    <table class="pro_list">
-    	<%if(articleList != null && listCount > 0){%>
-        	<tr class="keyword_tit">
-                <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
-                <td><input type="button" value="선택 제품 삭제" id= "delete_btn"></td>
-            </tr>
-        	<%for(int i=0; i < articleList.size(); i++) {%>                	
-            <tr class="keyword_info">            	
-            	<!-- 수정 불가 컬럼 : create_dt(등록일), create_id(등록인) -->
-                <td><input type="checkbox" name="menu_code" id= "menu_code" value="<%=articleList.get(i).getMenu_code() %>" style="margin-left: 10px;"></td>
-                <td class="photo"><img src="images/<%=articleList.get(i).getPro_img() %>" alt=""></td>                
-                <td><span><%=articleList.get(i).getCreate_dt() %></span></td>
-                <td><input type="text" name="" id= "" class= "" size="15" value="<%=articleList.get(i).getPro_company() %>"></td>
-                <td><input type="text" name="" id= "" class= "pro_tit" size="15" value="<%=articleList.get(i).getPro_nm() %>"></td>
-                <td><span><%=articleList.get(i).getCreate_id() %></span></td>
-            </tr>  
-          	<%} %>
-	    </table> 
-	    </form>  
-	    <div id="pageList">
-	    	<%if(nowPage <= 1) { %>
-	        	[이전]&nbsp;
-	        <% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
-	        	<a href="adminKey.ke?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
-	        <% } %>
-	        <%for(int a= startPage; a <= endPage; a++){ 
-	        	if(a == nowPage){%>
-	          		[<%=a %>]
-	          	<%}else{ %>
-	          		<a href="adminKey.ke?page=<%= a %>">[<%= a %>]</a>&nbsp;
-	          	<%} %>          			
-	        <%} %>
-	          	<%if(nowPage >= maxPage){ %>
-	          		[다음]
-	          	<%}else{ %>
-	          		<a href="adminKey.ke?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
-	          	<%} %>
-	     </div>
-	     <%	}else{ %>  
-	       	<p>등록된 검색점이 없습니다</p>  
-	     <% } %>               
+		<div class= "list">
+		  	<div class="btn">
+		    	<a href="adminProList.pr">후기 조회</a>
+		  	</div> 	  	
+		    <table class="review_list">
+	    	<c:if test= "${articleList != null && articleList.size() > 0}">
+	        	<tr class="review_tit">
+	                <td><input type="checkbox" name="allcheck" class= "review_code" onClick='allCheck()'></td>                
+	                <td><button id= "delete_btn">삭제</button></td>
+	                <td><p class= "pro_nm">제품이름</p></td>
+	                <td><p class= "tit_fg">후기제목</p></td>
+	                <td><p class= "sub_fg">후기내용</p></td>
+	                <td><p class= "create_dt">등록날짜</p></td>
+	                <td><p class= "create_id">등록회원ID</p></td>
+	            </tr>               	
+	            <c:forEach var= "articleList" items= "${articleList}" varStatus="status"> 
+	       	  	<tr class="review_info">          	
+		             <td><input type="checkbox" name="review_code" class= "review_code" value="${articleList.review_code}"></td>               
+		             <td class="photo">
+		             	<a href="Pro_view.fr?pro_code=${articleList.pro_code}" class="img">
+		             		<img src="images/${articleList.pro_img}" alt="">
+		             	</a>
+		             </td>
+		             <td><p class= "pro_nm">${articleList.pro_nm}</p></td>
+		             <td>
+						<c:choose>
+			 				<c:when test= "${articleList.tit_fg == 1}">
+			                 	<p class="tit_fg">만족해요</p>
+							</c:when>
+							<c:when test= "${articleList.tit_fg == 2}">
+			                 	<p class="tit_fg">보통이요</p>
+							</c:when>
+							<c:when test= "${articleList.tit_fg == 3}">
+			                 	<p class="tit_fg">아쉬워요</p>
+							</c:when>
+						</c:choose>
+					</td>
+	             	<td>
+	             		<div class= "sub_fg">
+							<c:choose>
+								<c:when test= "${articleList.sub1_fg == 1}">
+	               					<span class="sub">가격이 낮아요</span>
+	  							</c:when>
+	  							<c:when test= "${articleList.sub1_fg == 2}">
+	                 				<span class="sub">가격이 높아요</span>
+	  							</c:when>
+	  						</c:choose>
+	  						<c:choose>
+	  							<c:when test= "${articleList.sub2_fg == 1}">
+	               					<span class="sub">품질이 좋아요</span>
+	  							</c:when>
+	  							<c:when test= "${articleList.sub2_fg == 2}">
+	                 				<span class="sub">품질이 아쉬워요</span>
+	  							</c:when>
+	  						</c:choose>
+	  						<c:choose>
+				  				<c:when test= "${articleList.sub3_fg == 1}">
+	               					<span class="sub">대체품 없어요</span>
+	  							</c:when>
+	  							<c:when test= "${articleList.sub3_fg == 2}">
+	                 				<span class="sub">대체품 있어요</span>
+	  							</c:when>
+							</c:choose>
+	             		</div>
+	             	</td>
+	            	<td><p class= "create_dt">${articleList.create_dt}</p></td>    
+	             	<td><p class= "create_id">${articleList.create_id}</p></td>            
+	         	</tr>  
+	        	</c:forEach>                 
+	         </c:if>
+		    </table>  
+		</div>                 
 	</body>
 	<script>
 		//다중 체크

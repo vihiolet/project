@@ -38,7 +38,7 @@ public class AdminKeyModiFormAction implements Action{
 		KeywordBean keyword= new KeywordBean();		
 		KeywordModifyService keywordModifyService = new KeywordModifyService();
 		
-		keyword= keywordModifyService.getKeyword(srch_code); 	
+		keyword= keywordModifyService.getKeyword(srch_code); 
 		request.setAttribute("keyword", keyword);
 		
 		forward= new ActionForward();

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import dao.AdminProDAO;
 import vo.AdminProBean;
+import vo.ReviewBean;
 
 public class AdminProListService {
 
@@ -31,6 +32,16 @@ public class AdminProListService {
 		close(con);		
 		
 		return articleList;
+	}
+
+	//전체 후기 목록
+	public ArrayList<ReviewBean> getReviewList(int page, int limit) {
+		Connection con= getConnection();
+		AdminProDAO adminProDAO= AdminProDAO.getInstance();
+		adminProDAO.setConnection(con);
+		ArrayList<ReviewBean> allReview= adminProDAO.selectReview(page, limit);
+		close(con);
+		return allReview;
 	}
 
 }

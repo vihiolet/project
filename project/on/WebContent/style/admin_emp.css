@@ -31,6 +31,10 @@
 form{
 	margin: 30px;
 }
+.notice{
+	margin-bottom: 20px;
+	color: #999;
+}
 .list{
 	background: #fff;
 }

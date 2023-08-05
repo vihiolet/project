@@ -4,19 +4,32 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import svc.AdminInfoService;
 import svc.AdminProListService;
 import vo.ActionForward;
-import vo.AdminProBean;
+import vo.AdminEmpBean;
+import vo.ReviewBean;
 import vo.PageInfo;
 
 public class AdminReviewListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		HttpSession session= request.getSession();	
+		String id= (String)session.getAttribute("id");
+		
+		AdminInfoService adminInfoService= null;
+		AdminEmpBean empInfo= null;
+		
+		if(id != null) {					
+			adminInfoService= new AdminInfoService();
+			empInfo= adminInfoService.getUserInfo(id);
+			request.setAttribute("empInfo", empInfo);
+		}
 		//전체 상품 목록 저장할 객체
-		ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
+		ArrayList<ReviewBean> articleList= new ArrayList<ReviewBean>();
 		int page= 1;		
 		//한 페이지에 출력할 상품 최대 개수(페이지 개수 관계 X)
 		int limit= 10;
@@ -30,7 +43,7 @@ public class AdminReviewListAction implements Action {
 		//총 상품 개수
 		int listCount= adminProListService.getListCount();		
 		//(한 페이지에 나올)총 상품 저장
-		articleList= adminProListService.getArticleList(page, limit);
+		articleList= adminProListService.getReviewList(page, limit);
 		//총 페이지 수
 		int maxPage= (int)((double)listCount/limit + 0.95);
 		//현재 페이지의 첫 페이지 수
