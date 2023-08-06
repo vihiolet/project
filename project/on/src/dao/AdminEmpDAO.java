@@ -58,10 +58,10 @@ public class AdminEmpDAO {
 	//목록 보기
 	public ArrayList<AdminEmpBean> selectEmpList(int page, int limit) {
 
-		String empList_sql= "select emp_code, emp_id, emp_name, create_dt, create_id from emp order by emp_code asc limit ?, 10";
+		String empList_sql= "select emp_code, emp_id, emp_name, create_dt, create_id from emp order by emp_code asc limit ?, "+ limit;
 		ArrayList<AdminEmpBean> empLsit= new ArrayList<AdminEmpBean>();
 		AdminEmpBean emp= null;
-		int startrow= (page - 1) * 10;
+		int startrow= (page - 1) * limit;
 		
 		try {
 			pstmt= con.prepareStatement(empList_sql);
@@ -173,8 +173,78 @@ public class AdminEmpDAO {
 	}
 
 	//입력한 비번이 맞는지 확인
-	public String getUserPasswd(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getAdminPasswd(String id) {
+		String sql= "select emp_pass from emp where emp_id= ?";
+		String isPasswd= null;
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs= pstmt.executeQuery();
+			if(rs.next()) isPasswd= rs.getString(1);
+		}catch(Exception e) {
+			
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return isPasswd;
+	}
+	//비번, 이름 수정
+	public int adminNamePassModi(String id, String name, String passwdSalt, String salt) {
+		String sql= "update emp set emp_name= ?, emp_pass= ?, salt= ? where emp_id= ?";
+		int upateSuccess= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, passwdSalt);
+			pstmt.setString(3, salt);
+			pstmt.setString(4, id);
+			upateSuccess= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("비번, 이름 수정 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+		return upateSuccess;
+	}
+
+	//비번 수정
+	public int adminPassModi(String id, String passwdSalt, String salt) {
+		String sql= "update emp set emp_pass= ?, salt= ? where emp_id= ?";
+		int upateSuccess= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, passwdSalt);
+			pstmt.setString(2, salt);
+			pstmt.setString(3, id);
+			System.out.println(pstmt);
+			upateSuccess= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("비번 수정 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+		return upateSuccess;
+	}
+
+	//이름 수정
+	public int adminNamePassModi(String id, String name) {
+		String sql= "update emp set emp_name= ? where emp_id= ?";
+		int upateSuccess= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, id);
+			
+			upateSuccess= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("이름 수정 오류 " + e);
+		}finally {
+			close(pstmt);
+		}
+		return upateSuccess;
 	}
 }

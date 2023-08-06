@@ -53,17 +53,17 @@ public class FrontProDAO {
 	}
 
 	//제품 리스트
-	public ArrayList<AdminProBean> selectArticleList(int page, int limit) {
+	public ArrayList<AdminProBean> selectArticleList(int page, int limit, int menu_code) {
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
-		String sql= "select * from product t1 inner join keyword t2 on t1.srch_code1 = t2.srch_code limit ?, 10";
+		String sql= "select * from product where menu_code= " + menu_code + " limit ?, " + limit;
 		ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
 		AdminProBean adminProBean= null;
-		int startrow= (page-1) *10;	
+		int startrow= (page - 1) * limit;	
 		
 		try {
 			pstmt= con.prepareStatement(sql);
-			pstmt.setInt(1, startrow);			
+			pstmt.setInt(1, startrow);	
 			rs= pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -137,5 +137,47 @@ public class FrontProDAO {
 		}
 		
 		return reviewCount;
+	}
+	//상품 개수
+	public int selectList1Count() {
+		int listCount= 0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from product where menu_code= 1");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount= rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			System.err.println("사용자페이지 상품 개수 구하기에서 에러 발생 " + ex );
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return listCount;
+	}
+
+	public int selectList2Count() {
+		int listCount= 0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from product where menu_code= 2");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount= rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			System.err.println("사용자페이지 상품 개수 구하기에서 에러 발생 " + ex );
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return listCount;
 	}
 }

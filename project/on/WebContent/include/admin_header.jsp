@@ -20,9 +20,10 @@
              </c:if> 
               <!--<button type="button" class="head3"><i class="fa-solid fa-bars"></i></button>-->
          </div>
-          <nav class="head2">
+          <nav class="head4">
               <ul>
               	<c:if test= "${empInfo != null}">
+              	  <li><a href="logout.emp">로그아웃</a></li>
                   <li class="admin_nm">관리자 : <span>${empInfo.emp_name } 님</span></li>
                   <li class="admin_cd">관리자 ID: <span>${empInfo.emp_id }</span></li>	<!-- 세션 id -->
                 </c:if>

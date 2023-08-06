@@ -31,7 +31,7 @@ public class AdminEmpListAction implements Action {
 		
 		//시작 페이지 34행으로 이어진다
 		int page= 1;
-		int limit= 10;
+		int limit= 14;
 		//조회할 페이지로 page 변수 초기화
 		if(request.getParameter("page") != null) {
 			page= Integer.parseInt(request.getParameter("page"));
@@ -44,9 +44,9 @@ public class AdminEmpListAction implements Action {
 		//지정한 페이지에 출력될 관리자 목록 가져오기
 		EmpList= adminEmpListService.getEmpList(page, limit);
 		
-		int maxPage=   (int)((double)listCount/limit + 0.9);
+		int maxPage=   (int)((double)listCount/limit + 0.95);
 		int startPage= (((int)((double)page / 10 + 0.9)) - 1) * 10 + 1;
-		int endPage= startPage + limit - 1;
+		int endPage= startPage + 10 - 1;
 		if(endPage > maxPage) endPage = maxPage;
 		
 		PageInfo pageInfo= new PageInfo();

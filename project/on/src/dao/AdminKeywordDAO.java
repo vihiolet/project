@@ -79,10 +79,10 @@ public class AdminKeywordDAO {
 		public ArrayList<KeywordBean> selectKeywordList(int page, int limit) {
 			PreparedStatement pstmt= null;
 			ResultSet rs= null;
-			String keywordList_sql= "select srch_code, srch_name, create_dt, create_id, ifnull(remark, '') as remark from keyword order by srch_code asc limit ?, 10";
+			String keywordList_sql= "select srch_code, srch_name, create_dt, create_id, ifnull(remark, '') as remark from keyword order by srch_code asc limit ?, "+ limit;
 			ArrayList<KeywordBean> keywordLsit= new ArrayList<KeywordBean>();
 			KeywordBean keyword= null;
-			int startrow= (page - 1) * 10;
+			int startrow= (page - 1) * limit;
 			
 			try {
 				pstmt= con.prepareStatement(keywordList_sql);

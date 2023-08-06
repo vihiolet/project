@@ -42,6 +42,9 @@ header {
     font-size:  17px;
     font-weight: 600;
 }
+.head4{
+	
+}
 /*미디어쿼리 시작*/
 @media (min-width: 768px){
     header .container{
@@ -67,6 +70,9 @@ header {
     .head2 a:hover{
     	color : #6239c3;
     }
+    .head4 ul{
+		display: flex;
+	}
 }
 @media (max-width: 767px){
     header .container-small{
@@ -93,9 +99,9 @@ header {
 }
 
 /*admin style*/
-.head2 ul li span {
+.head4 ul li span {
     font-weight: 600;
 }
-.admin_cd {
+.admin_cd, .admin_nm {
     padding-left: 30px;
 }

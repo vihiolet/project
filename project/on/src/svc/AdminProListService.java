@@ -44,4 +44,15 @@ public class AdminProListService {
 		return allReview;
 	}
 
+	public int getReviewCount() {
+		int reviewCount= 0;
+		Connection con= getConnection();
+		AdminProDAO adminProDAO= AdminProDAO.getInstance();
+		adminProDAO.setConnection(con);
+		reviewCount= adminProDAO.selectReviewCount();
+		close(con);
+		
+		return reviewCount;
+	}
+
 }

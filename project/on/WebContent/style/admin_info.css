@@ -2,23 +2,39 @@
 #info_list{
 	display:flex;
 }
-.btn{
-	width: 10%;
-    text-align: center;
-    background: #eee;
-    /*height: calc(100vh);*/
+info_list{
+	 margin-top: 9%;
+    display: flex;
+    justify-content: center;
 }
-.btn a{
-	display: block;
-	line-height: 50px;
+.infoTit{
+	width: 25%;
+    text-align: left;
+    font-weight: 600;
 }
-.btn a:first-child{
-	margin-top: 30px;
+.infoTit p{
+	padding-bottom: 10px;
 }
-#save_btn{
-	background: #7c4fff21;
+form div{
+	padding-bottom: 10px;
+}
+.key_value{
+	width: 100%;
+}
+.name_text{
+	padding-bottom: 22px;
+}
+.tit{
+	color: #fff;
+}
+#passwdCheck{
+	color: #ccc;
+}
+.save_btn{
+	width: 100%;
+    background: #d50c0c;
+    color: #fff;
     border: none;
-    padding: 3px 11px;
-    border-radius: 5px;
-    font-size: 15px;
+    padding: 8px 0;
+    margin-top: 25px;
 }

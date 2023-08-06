@@ -23,8 +23,8 @@
 	     <c:set var= "listCount" value="${pageInfo.getListCount()}"></c:set>
 	     <c:if test= "${articleList != null && articleList.size() > 0}">
 	     	<c:forEach var= "articleList" items= "${articleList}" varStatus="status">
-	     		<!--메뉴코드 1(음식) 상품만 출력  -->
-				<c:if test= "${articleList.menu_code == 1}"> 
+	     		<c:if test= "${articleList.menu_code == 1}"> 
+	     		<!--메뉴코드 1(음식) 상품만 출력  -->				
 			         <article>
 			         	 <a href="Pro_view.fr?pro_code=${articleList.pro_code}">
 			             <input type="hidden" name= "pro_code" value="${articleList.pro_code}">
@@ -42,6 +42,37 @@
 	     	</c:forEach>
 	     </c:if> 
 	     </div>
+	     <div id="pageList">
+		   	<c:choose>
+		    	<c:when test="${pageInfo.page <= 1}">
+		    		[이전]&nbsp;
+		    	</c:when>
+		    	<c:otherwise>
+		    		<a href="ProList1.fr?menu_code=1&page=${pageInfo.page - 1}">[이전]</a>&nbsp;
+		    	</c:otherwise>
+		    </c:choose>
+		   	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
+		   		<c:choose>
+		   			<c:when test="${i == pageInfo.page}">
+		   				[<c:out value="${i}" />]
+		   			</c:when>
+		   			<c:otherwise>
+		   				<a href="ProList1.fr?menu_code=1&page=${i}">[${i}]</a>
+		   			</c:otherwise>
+		   		</c:choose>
+		   	</c:forEach>
+		    <c:choose>
+		    	<c:when test="${pageInfo.page >= pageInfo.maxPage}">
+		    		[다음]
+		    	</c:when>
+		    	<c:otherwise>
+		    		<a href="ProList1.fr?menu_code=1&page=${pageInfo.page + 1}">[다음]</a>
+		    	</c:otherwise>
+		    </c:choose>
+		   	<c:if test= " ${articleList == null && articleList.size() == 0 }">
+		       	<p>등록된 관리자가 없습니다</p>
+		   	</c:if>
+   		</div>
 	</section>	
 <jsp:include page="./../footer.jsp"></jsp:include>
 </body>

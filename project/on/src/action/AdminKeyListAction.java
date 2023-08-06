@@ -29,7 +29,7 @@ public class AdminKeyListAction implements Action {
 		
 		ArrayList<KeywordBean> keywordList= new ArrayList<KeywordBean>();
 		int page= 1;
-		int limit= 10;
+		int limit= 14;
 		if(request.getParameter("page") != null) {
 			page= Integer.parseInt(request.getParameter("page"));
 		}
@@ -38,11 +38,12 @@ public class AdminKeyListAction implements Action {
 		
 		int listCount= adminKeyListService.getListCount();
 		keywordList= adminKeyListService.getKeywordList(page, limit);
-		
-		int maxPage= (int)((double)listCount/limit + 0.9);
+
+		int maxPage= (int)((double)listCount/limit + 0.95);
 		//int startPage= ((page - 1)/limit) + limit + 1;
 		int startPage= (((int)((double)page / 10 + 0.9)) - 1) * 10 + 1;
-		int endPage= startPage + limit - 1;
+		int endPage= startPage + 10 - 1;
+		
 		if(endPage > maxPage) endPage = maxPage;
 		
 		PageInfo pageInfo = new PageInfo();

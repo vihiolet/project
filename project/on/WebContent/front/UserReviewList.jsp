@@ -22,7 +22,7 @@
       <div class="container"> 
       	<jsp:include page="./../include/left.jsp"></jsp:include>	<!--왼쪽 메뉴-->    
       	<div class="myContent">   
-          <h2>내가 투표한 리뷰</h2>
+          <h2>내가 투표한 후기</h2>
           	<div>
                  <table class="review_list">
 	                 <tr class="keyword_tit">

@@ -20,7 +20,7 @@
 		    	<h2>내 정보 수정</h2>
 		    	<div>
 			    	<h3>본인 확인</h3>  
-			    	<p>회원님의 정보를 보호하기 위해 비밀번호를 확인합니다.</p>	
+			    	<p>회원의 정보를 보호하기 위해 비밀번호를 확인합니다.</p>	
 					<form action="userModiForm.ur" method="post" name="">
 						<span>비밀번호</span>
 						<input type="password" name= "passwd" id= "passwd">

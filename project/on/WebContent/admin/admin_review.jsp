@@ -93,7 +93,38 @@
 	        	</c:forEach>                 
 	         </c:if>
 		    </table>  
-		</div>                 
+		</div>    
+		<div id="pageList">
+    	<c:choose>
+	    	<c:when test="${pageInfo.page <= 1}">
+	    		[이전]&nbsp;
+	    	</c:when>
+	    	<c:otherwise>
+	    		<a href="adminReviewList.re?page=${pageInfo.page - 1}">[이전]</a>&nbsp;
+	    	</c:otherwise>
+	    </c:choose>
+    	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
+    		<c:choose>
+    			<c:when test="${i == pageInfo.page}">
+    				[<c:out value="${i}" />]
+    			</c:when>
+    			<c:otherwise>
+    				<a href="adminReviewList.re?page=${i}">[${i}]</a>
+    			</c:otherwise>
+    		</c:choose>
+    	</c:forEach>
+	    <c:choose>
+	    	<c:when test="${pageInfo.page >= pageInfo.maxPage}">
+	    		[다음]
+	    	</c:when>
+	    	<c:otherwise>
+	    		<a href="adminEmp.emp?page=${pageInfo.page + 1}">[다음]</a>
+	    	</c:otherwise>
+	    </c:choose>
+    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
+        	<p>등록된 관리자가 없습니다</p>
+    	</c:if>
+    </div>             
 	</body>
 	<script>
 		//다중 체크

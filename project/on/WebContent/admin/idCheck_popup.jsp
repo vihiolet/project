@@ -27,6 +27,7 @@
         //팝업 창의 id input에 부모창에 입력한 id 삽입
         function pValue(){
             document.getElementById("adminId").value = opener.document.empInfo.id.value;
+            document.getElementById("use_Btn").style.visibility = "hidden";
         }
         
         //id 중복 체크

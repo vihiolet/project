@@ -9,7 +9,7 @@
 <html lang="UTF-8">
 <head>
     <meta charset="UTF-8">
-    <title>관리자등록</title>
+    <title></title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="style/admin_info.css">
     <link rel="stylesheet" href="style/head.css">
@@ -18,27 +18,23 @@
 <body>
     <jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
     <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-    <div id= "emp_info">
-      <div class="btn">
-  	     <a href="adminEmp.emp" class= "list">내 정보 조회</a>
-  	     <a href="adminEmpRegForm.emp">계정 삭제</a>     
-  	  </div> 
+    <div id= "info_list"> 
       <div class="infoTit"> 
           <p>아이디</p>
           <p style="padding-bottom: 26px;">이름</p>
-          <div class="tit">비밀번호 변경</div>
+          <div>비밀번호 변경</div>
           <p>새 비밀번호</p>
           <p>새 비밀번호 확인</p>
       </div>
-      <form action=".emp" method="post" name= "" onsubmit= "return checkForm()">    
+      <form action="adminInfo.emp" method="post" name= "" onsubmit= "return checkForm()">    
           <div class="key_value">
             <div class="id_text">                        	                    
-                  <input type="text" name="id" value="${empInfo.id }" readonly>
+                  <input type="text" name="id" value="${empInfo.emp_id }" readonly>
             </div>
-            <div class="name_text" style="padding-bottom: 22px;">                         	                    
-                  <input type="text" name="name" value="${empInfo.name }">
+            <div class="name_text">                         	                    
+                  <input type="text" name="name" value="${empInfo.emp_name }">
              </div>                         
-             <div class="tit" style="color: #fff;">비밀번호 변경</div>
+             <div class="tit">비밀번호 변경</div>
              <div class="pass_text">                     
                  <input type="password" name="newPasswd" placeholder="비밀번호">   
              </div>
@@ -47,7 +43,7 @@
              </div>
              <p id= "passwdCheck">비밀번호 일치 확인</p>	
           </div>
-          <input type="submit" class= "btn" value="수정하기">
+          <input type="submit" class= "save_btn" value="수정하기">
       </form>
     </div>
 </body>

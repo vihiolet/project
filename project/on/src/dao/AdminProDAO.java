@@ -60,11 +60,10 @@ public class AdminProDAO {
 		
 		PreparedStatement pstmt= null;
 		ResultSet rs= null;
-		String admin_pro_list_sql= "select * from product order by pro_code asc limit ?, 10";
+		String admin_pro_list_sql= "select * from product order by pro_code asc limit ?, "+ limit;
 		ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
 		AdminProBean adminProBean= null;
-		int startrow= (page-1) *10;
-		
+		int startrow= (page-1) * limit;		
 		try {
 			pstmt= con.prepareStatement(admin_pro_list_sql);
 			pstmt.setInt(1, startrow);
@@ -332,6 +331,27 @@ public class AdminProDAO {
 		}
 		
 		return myReview;
+	}
+
+	public int selectReviewCount() {
+		int listCount= 0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from review");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount= rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			System.err.println("글의 개수 구하기에서 에러 발생 " + ex );
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return listCount;
 	}
 	
 }

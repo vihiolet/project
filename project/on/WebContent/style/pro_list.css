@@ -2,6 +2,7 @@
 /*사용자 제품 목록 css*/
 .a_bg{
 	display: flex;
+	flex-wrap: wrap;
 }
 .photo img{
 	/*width: 260px;*/
@@ -22,7 +23,7 @@ button{
     
     .list article{
         width: calc(33.3333% - 30px);
-        margin: 50px 20px;   
+        margin: 50px 15px;   
             
     }
 }

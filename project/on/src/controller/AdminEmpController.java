@@ -18,12 +18,15 @@ import action.AdminEmpDelAction;
 import action.AdminEmpListAction;
 import action.AdminEmpRegAction;
 import action.AdminInfoAction;
+import action.AdminInfoFormAction;
 import action.AdminLoginAction;
 import action.AdminMainAction;
 import dao.AdminEmpDAO;
 import svc.AdminInfoService;
+import svc.UserListService;
 import vo.ActionForward;
 import vo.AdminEmpBean;
+import vo.UserBean;
 
 @WebServlet("*.emp")
 public class AdminEmpController extends javax.servlet.http.HttpServlet{
@@ -100,7 +103,25 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			if(result) out.println("1");	//id 중복
 			else out.println("0");		
 			close(con);
-		//내 정보 관리
+		//내 정보 관리 비번 입력
+		}else if(command.equals("/adminPasswdInput.emp")) {
+			
+			HttpSession session= request.getSession();
+			String id= (String)session.getAttribute("id");
+			AdminInfoService adminInfoService= new AdminInfoService();
+			AdminEmpBean empInfo= adminInfoService.getUserInfo(id);
+			request.setAttribute("empInfo", empInfo);
+
+			forward= new ActionForward();
+			forward.setPath("/admin/AdminPasswdInput.jsp");
+		//내 정보 관리 form
+		}else if(command.equals("/adminInfoForm.emp")) {
+			action= new AdminInfoFormAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}else if(command.equals("/adminInfo.emp")) {
 			action= new AdminInfoAction();
 			try {
@@ -108,7 +129,15 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}
+		//로그아웃
+		}else if(command.equals("/logout.emp")) {
+			HttpSession session= request.getSession();
+			session.removeAttribute("id");
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/adminLoginForm.ur");		
+		//탈퇴
+			}
 		
 		
 		if(forward != null) {

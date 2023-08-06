@@ -29,8 +29,6 @@ public class ProList2Action implements Action {
 			userListService= new UserListService();
 			userInfo= userListService.getUserInfo2(id);
 			request.setAttribute("userInfo", userInfo);
-			
-			System.out.println(userInfo);
 		}
 		
 		//전체 상품 목록 저장할 객체
@@ -46,15 +44,15 @@ public class ProList2Action implements Action {
 		FrontProListService frontProListService= new FrontProListService();
 		
 		//총 상품 개수
-		int listCount= frontProListService.getListCount();		
+		int listCount= frontProListService.selectList2Count();		
 		//(한 페이지에 나올)총 상품 저장
 		articleList= frontProListService.getArticleList(page, limit);
 		//총 페이지 수
 		int maxPage= (int)((double)listCount/limit + 0.95);
 		//현재 페이지의 첫 페이지 수
-		int startPage= ((page - 1)/limit) * limit + 1;
+		int startPage= (((int)((double)page / 10 + 0.9)) - 1) * 10 + 1;
 		//현재 페이지의 마지막 페이지 수
-		int endPage= startPage + limit - 1;
+		int endPage= startPage + 5 - 1;
 		
 		if(endPage > maxPage) endPage = maxPage;
 		

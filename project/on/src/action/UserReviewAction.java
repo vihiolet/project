@@ -30,7 +30,7 @@ public class UserReviewAction implements Action {
 		ArrayList<Object> myReview = new ArrayList<Object>();
 		myReview= userReviewService.getMyReview(id);
 		request.setAttribute("myReview", myReview);
-		System.out.println(myReview);
+		
 		forward.setPath("/front/UserReviewList.jsp");
 		
 		return forward;
