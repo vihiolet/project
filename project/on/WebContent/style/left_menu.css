@@ -5,9 +5,8 @@
     width: 12%;
     height: calc(100vh); /* -(마이너스) 양 옆에 공백 필수*/
     float: left;
-/*    border-right: 1px solid #ccc;*/
     background: #3a0e93;
-/*    padding-left: 6%;*/    /*hover할 때 왼쪽 여백이 너무 커서 별로일 거 같다*/
+    min-height: 100vh;
 }
 
 .left_nemu ul li{
