@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="style/left_menu.css">
+<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="left_nemu">
@@ -16,7 +17,7 @@
 	        </li>
 	         -->
 	        <li>
-	            <span><a href="/on/adminMain.emp"><i class="fa-solid fa-boxes-packing" style="color: #ffffff;"></i>데시보드</a></span>
+	            <span><a href="/on/adminMain.emp"><i class="fa-solid fa-boxes-packing" style="color: #ffffff;"></i> 데시보드</a></span>
 	        </li>
 	        <li>
 	            <span><a href="/on/adminProList.pr"><i class="fa-solid fa-tags" style="color: #ffffff;"></i> 제품 설정</a></span>

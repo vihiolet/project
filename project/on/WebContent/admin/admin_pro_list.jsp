@@ -64,8 +64,8 @@
             </tr>  
             
           	<%} %>
+          	
 	    </table> 
-	    </form>  
 	    <div id="pageList">
 	    	<%if(nowPage <= 1) { %>
 	        	[이전]&nbsp;
@@ -87,7 +87,9 @@
 	     </div>
 	     <%	}else{ %>  
 	       	<p>등록된 검색점이 없습니다</p>  
-	     <% } %>               
+	     <% } %>
+	    </form>  
+	                   
 	</body>
 	<script>
 		//다중 체크

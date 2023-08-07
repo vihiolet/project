@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="style/admin_pro_list.css">
 <link rel="stylesheet" href="style/review_list.css">
 <link rel="stylesheet" href="style/footer.css">
-<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 	<body>
@@ -93,8 +92,7 @@
 	        	</c:forEach>                 
 	         </c:if>
 		    </table>  
-		</div>    
-		<div id="pageList">
+		    <div id="pageList">
     	<c:choose>
 	    	<c:when test="${pageInfo.page <= 1}">
 	    		[이전]&nbsp;
@@ -124,7 +122,9 @@
     	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
         	<p>등록된 관리자가 없습니다</p>
     	</c:if>
-    </div>             
+    </div>
+		</div>    
+		             
 	</body>
 	<script>
 		//다중 체크

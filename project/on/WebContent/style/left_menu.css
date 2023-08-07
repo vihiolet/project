@@ -2,11 +2,11 @@
 
 /*body { height: 100vh; }*/
 .left_nemu{
-    width: 12%;
-    height: calc(100vh); /* -(마이너스) 양 옆에 공백 필수*/
+    width: 10%;
     float: left;
     background: #3a0e93;
-    min-height: 100vh;
+	height: calc(100vh - 70px); 
+	margin-left: 19%;
 }
 
 .left_nemu ul li{
@@ -16,12 +16,12 @@
     color: #fff;    
 }
 .left_nemu ul li span{
-    width: 95%;
+    width: 96%;
     display: inline-block;
     line-height: 40px;
 }
 .left_nemu ul li span a{
-    width: 50%;
+    width: 55%;
     margin: 0 auto;
     display: inline-block;
     text-align: left;

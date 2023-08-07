@@ -52,11 +52,7 @@
 	            </c:forEach>
         	</table>        
         </c:if>
-        
-    </form>
-       
-  </div>   
-  <div id="pageList">
+        <div id="pageList">
     	<c:choose>
 	    	<c:when test="${pageInfo.page <= 1}">
 	    		[이전]&nbsp;
@@ -87,6 +83,10 @@
         	<p>등록된 관리자가 없습니다</p>
     	</c:if>
     </div>
+    </form>
+       
+  </div>   
+  
     <script>
 	//삭제
   		$('#delete_btn').on("click", function(e){

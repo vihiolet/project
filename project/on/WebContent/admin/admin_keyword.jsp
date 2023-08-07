@@ -70,9 +70,7 @@
             </tr>  
             <%} %>
       </table> 
-    </form> 
-    </div> 
-        <div id="pageList">
+      <div id="pageList">
         	<%if(nowPage <= 1) { %>
            		[이전]&nbsp;
       		<% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
@@ -96,7 +94,10 @@
         	 
         <%	}else{ %>  
         	<p>등록된 검색점이 없습니다</p>  
-        <% } %>               
+        <% } %>      
+    </form> 
+    </div> 
+                 
   
  <script>
 	//=======

@@ -302,12 +302,14 @@ public class AdminProDAO {
 		
 		String sql= "select t1.pro_code, review_code, tit_fg, sub_fg1, sub_fg2, sub_fg3, t1.create_dt, t1.create_id, t2.pro_img, t2.pro_nm"
 				+ " from review t1 inner join product t2"
-				+ " where t1.pro_code = t2.pro_code";
+				+ " where t1.pro_code = t2.pro_code limit ?, "+ limit;
 		ArrayList<ReviewBean> myReview = new ArrayList<ReviewBean>();	
 		ReviewBean review= null;
+		int startrow =(page - 1) * limit;;
 
 		try{
-			pstmt=con.prepareStatement(sql);
+			pstmt=con.prepareStatement(sql);			
+			pstmt.setInt(1, startrow);
 			rs= pstmt.executeQuery();
 			while(rs.next()){
 				review= new ReviewBean();

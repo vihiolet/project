@@ -1,12 +1,13 @@
 @charset "UTF-8";
 #key_list{
 	display:flex;
+	margin-right: 19%;
 }
 .btn{
-	width: 10%;
+	width: 150px;
     text-align: center;
     background: #eee;
-    min-height: 100vh;
+    height: calc(100vh - 70px); 
 }
 .btn a{
 	display: block;
@@ -44,7 +45,7 @@
     font-size: 15px;
 }
 form{
-	margin: 30px;
+	margin: 30px 0 30px 30px;
 }
 .list{
 	background: #fff;

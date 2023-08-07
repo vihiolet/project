@@ -3,6 +3,7 @@
 .a_bg{
 	display: flex;
 	flex-wrap: wrap;
+	
 }
 .photo img{
 	/*width: 260px;*/
