@@ -21,110 +21,112 @@
 	<body>
 		<jsp:include page="../include/admin_header.jsp"></jsp:include>	<!--헤더-->
 		<jsp:include page="../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
+		
 		<div class= "list">
 		  	<div class="btn">
 		    	<a href="adminProList.pr">후기 조회</a>
-		  	</div> 	  	
-		    <table class="review_list">
-	    	<c:if test= "${articleList != null && articleList.size() > 0}">
-	        	<tr class="review_tit">
-	                <td><input type="checkbox" name="allcheck" class= "review_code" onClick='allCheck()'></td>                
-	                <td><button id= "delete_btn">삭제</button></td>
-	                <td><p class= "pro_nm">제품이름</p></td>
-	                <td><p class= "tit_fg">후기제목</p></td>
-	                <td><p class= "sub_fg">후기내용</p></td>
-	                <td><p class= "create_dt">등록날짜</p></td>
-	                <td><p class= "create_id">등록회원ID</p></td>
-	            </tr>               	
-	            <c:forEach var= "articleList" items= "${articleList}" varStatus="status"> 
-	       	  	<tr class="review_info">          	
-		             <td><input type="checkbox" name="review_code" class= "review_code" value="${articleList.review_code}"></td>               
-		             <td class="photo">
-		             	<a href="Pro_view.fr?pro_code=${articleList.pro_code}" class="img">
-		             		<img src="images/${articleList.pro_img}" alt="">
-		             	</a>
-		             </td>
-		             <td><p class= "pro_nm">${articleList.pro_nm}</p></td>
-		             <td>
-						<c:choose>
-			 				<c:when test= "${articleList.tit_fg == 1}">
-			                 	<p class="tit_fg">만족해요</p>
-							</c:when>
-							<c:when test= "${articleList.tit_fg == 2}">
-			                 	<p class="tit_fg">보통이요</p>
-							</c:when>
-							<c:when test= "${articleList.tit_fg == 3}">
-			                 	<p class="tit_fg">아쉬워요</p>
-							</c:when>
-						</c:choose>
-					</td>
-	             	<td>
-	             		<div class= "sub_fg">
+		  	</div> 	
+		  	<div class="review_list">  	
+			    <table>
+		    	<c:if test= "${articleList != null && articleList.size() > 0}">
+		        	<tr class="review_tit">
+		                <td><input type="checkbox" name="allcheck" class= "review_code" onClick='allCheck()'></td>                
+		                <td><button id= "delete_btn">삭제</button></td>
+		                <td><p class= "pro_nm">제품이름</p></td>
+		                <td><p class= "tit_fg">후기제목</p></td>
+		                <td><p class= "sub_fg">후기내용</p></td>
+		                <td><p class= "create_dt">등록날짜</p></td>
+		                <td><p class= "create_id">등록회원ID</p></td>
+		            </tr>               	
+		            <c:forEach var= "articleList" items= "${articleList}" varStatus="status"> 
+		       	  	<tr class="review_info">          	
+			             <td><input type="checkbox" name="review_code" class= "review_code" value="${articleList.review_code}"></td>               
+			             <td class="photo">
+			             	<a href="Pro_view.fr?pro_code=${articleList.pro_code}" class="img">
+			             		<img src="images/${articleList.pro_img}" alt="">
+			             	</a>
+			             </td>
+			             <td><p class= "pro_nm">${articleList.pro_nm}</p></td>
+			             <td>
 							<c:choose>
-								<c:when test= "${articleList.sub1_fg == 1}">
-	               					<span class="sub">가격이 낮아요</span>
-	  							</c:when>
-	  							<c:when test= "${articleList.sub1_fg == 2}">
-	                 				<span class="sub">가격이 높아요</span>
-	  							</c:when>
-	  						</c:choose>
-	  						<c:choose>
-	  							<c:when test= "${articleList.sub2_fg == 1}">
-	               					<span class="sub">품질이 좋아요</span>
-	  							</c:when>
-	  							<c:when test= "${articleList.sub2_fg == 2}">
-	                 				<span class="sub">품질이 아쉬워요</span>
-	  							</c:when>
-	  						</c:choose>
-	  						<c:choose>
-				  				<c:when test= "${articleList.sub3_fg == 1}">
-	               					<span class="sub">대체품 없어요</span>
-	  							</c:when>
-	  							<c:when test= "${articleList.sub3_fg == 2}">
-	                 				<span class="sub">대체품 있어요</span>
-	  							</c:when>
+				 				<c:when test= "${articleList.tit_fg == 1}">
+				                 	<p class="tit_fg">만족해요</p>
+								</c:when>
+								<c:when test= "${articleList.tit_fg == 2}">
+				                 	<p class="tit_fg">보통이요</p>
+								</c:when>
+								<c:when test= "${articleList.tit_fg == 3}">
+				                 	<p class="tit_fg">아쉬워요</p>
+								</c:when>
 							</c:choose>
-	             		</div>
-	             	</td>
-	            	<td><p class= "create_dt">${articleList.create_dt}</p></td>    
-	             	<td><p class= "create_id">${articleList.create_id}</p></td>            
-	         	</tr>  
-	        	</c:forEach>                 
-	         </c:if>
-		    </table>  
-		    <div id="pageList">
-    	<c:choose>
-	    	<c:when test="${pageInfo.page <= 1}">
-	    		[이전]&nbsp;
-	    	</c:when>
-	    	<c:otherwise>
-	    		<a href="adminReviewList.re?page=${pageInfo.page - 1}">[이전]</a>&nbsp;
-	    	</c:otherwise>
-	    </c:choose>
-    	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
-    		<c:choose>
-    			<c:when test="${i == pageInfo.page}">
-    				[<c:out value="${i}" />]
-    			</c:when>
-    			<c:otherwise>
-    				<a href="adminReviewList.re?page=${i}">[${i}]</a>
-    			</c:otherwise>
-    		</c:choose>
-    	</c:forEach>
-	    <c:choose>
-	    	<c:when test="${pageInfo.page >= pageInfo.maxPage}">
-	    		[다음]
-	    	</c:when>
-	    	<c:otherwise>
-	    		<a href="adminEmp.emp?page=${pageInfo.page + 1}">[다음]</a>
-	    	</c:otherwise>
-	    </c:choose>
-    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
-        	<p>등록된 관리자가 없습니다</p>
-    	</c:if>
-    </div>
-		</div>    
-		             
+						</td>
+		             	<td>
+		             		<div class= "sub_fg">
+								<c:choose>
+									<c:when test= "${articleList.sub1_fg == 1}">
+		               					<span class="sub">가격이 낮아요</span>
+		  							</c:when>
+		  							<c:when test= "${articleList.sub1_fg == 2}">
+		                 				<span class="sub">가격이 높아요</span>
+		  							</c:when>
+		  						</c:choose>
+		  						<c:choose>
+		  							<c:when test= "${articleList.sub2_fg == 1}">
+		               					<span class="sub">품질이 좋아요</span>
+		  							</c:when>
+		  							<c:when test= "${articleList.sub2_fg == 2}">
+		                 				<span class="sub">품질이 아쉬워요</span>
+		  							</c:when>
+		  						</c:choose>
+		  						<c:choose>
+					  				<c:when test= "${articleList.sub3_fg == 1}">
+		               					<span class="sub">대체품 없어요</span>
+		  							</c:when>
+		  							<c:when test= "${articleList.sub3_fg == 2}">
+		                 				<span class="sub">대체품 있어요</span>
+		  							</c:when>
+								</c:choose>
+		             		</div>
+		             	</td>
+		            	<td><p class= "create_dt">${articleList.create_dt}</p></td>    
+		             	<td><p class= "create_id">${articleList.create_id}</p></td>            
+		         	</tr>  
+		        	</c:forEach>                 
+		         </c:if>
+			    </table> 
+			    <div id="pageList">
+			    	<c:choose>
+				    	<c:when test="${pageInfo.page <= 1}">
+				    		[이전]&nbsp;
+				    	</c:when>
+				    	<c:otherwise>
+				    		<a href="adminReviewList.re?page=${pageInfo.page - 1}">[이전]</a>&nbsp;
+				    	</c:otherwise>
+				    </c:choose>
+			    	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
+			    		<c:choose>
+			    			<c:when test="${i == pageInfo.page}">
+			    				[<c:out value="${i}" />]
+			    			</c:when>
+			    			<c:otherwise>
+			    				<a href="adminReviewList.re?page=${i}">[${i}]</a>
+			    			</c:otherwise>
+			    		</c:choose>
+			    	</c:forEach>
+				    <c:choose>
+				    	<c:when test="${pageInfo.page >= pageInfo.maxPage}">
+				    		[다음]
+				    	</c:when>
+				    	<c:otherwise>
+				    		<a href="adminEmp.emp?page=${pageInfo.page + 1}">[다음]</a>
+				    	</c:otherwise>
+				    </c:choose>
+			    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
+			        	<p>등록된 관리자가 없습니다</p>
+			    	</c:if>
+    			</div> 
+			</div>		   		               
+		</div> 
 	</body>
 	<script>
 		//다중 체크

@@ -32,7 +32,7 @@ public class AdminReviewListAction implements Action {
 		ArrayList<ReviewBean> articleList= new ArrayList<ReviewBean>();
 		int page= 1;		
 		//한 페이지에 출력할 상품 최대 개수(페이지 개수 관계 X)
-		int limit= 4;
+		int limit= 6;
 		
 		if(request.getParameter("page") != null) {
 			page= Integer.parseInt(request.getParameter("page"));

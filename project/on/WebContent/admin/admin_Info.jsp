@@ -19,32 +19,33 @@
     <jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
     <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
     <div id= "info_list"> 
-      <div class="infoTit"> 
-          <p>아이디</p>
-          <p style="padding-bottom: 26px;">이름</p>
-          <div>비밀번호 변경</div>
-          <p>새 비밀번호</p>
-          <p>새 비밀번호 확인</p>
-      </div>
-      <form action="adminInfo.emp" method="post" name= "" onsubmit= "return checkForm()">    
-          <div class="key_value">
-            <div class="id_text">                        	                    
-                  <input type="text" name="id" value="${empInfo.emp_id }" readonly>
-            </div>
-            <div class="name_text">                         	                    
-                  <input type="text" name="name" value="${empInfo.emp_name }">
-             </div>                         
-             <div class="tit">비밀번호 변경</div>
-             <div class="pass_text">                     
-                 <input type="password" name="newPasswd" placeholder="비밀번호">   
-             </div>
-             <div class="pass_text">                     
-                 <input type="password" name="newPasswdChk" placeholder="비밀번호 확인" onchange= "passChk()">   
-             </div>
-             <p id= "passwdCheck">비밀번호 일치 확인</p>	
-          </div>
-          <input type="submit" class= "save_btn" value="수정하기">
-      </form>
+	      <div class="infoTit"> 
+	          <p>아이디</p>
+	          <p style="padding-bottom: 26px;">이름</p>
+	          <div style="padding-bottom: 20px;">비밀번호 변경</div>
+	          <p>새 비밀번호</p>
+	          <p>새 비밀번호 확인</p>
+	      </div>
+	      <form action="adminInfo.emp" method="post" name= "" onsubmit= "return checkForm()">    
+	          <div class="key_value">
+	            <div class="id_text">                        	                    
+	                  <input type="text" name="id" value="${empInfo.emp_id }" readonly>
+	            </div>
+	            <div class="name_text">                         	                    
+	                  <input type="text" name="name" value="${empInfo.emp_name }">
+	             </div>                         
+	             <div class="tit" style="padding-bottom: 20px;">비밀번호 변경</div>
+	             <div class="pass_text">                     
+	                 <input type="password" name="newPasswd" placeholder="비밀번호">   
+	             </div>
+	             <div class="pass_text">                     
+	                 <input type="password" name="newPasswdChk" placeholder="비밀번호 확인" onchange= "passChk()">   
+	             </div>
+	             <p id= "passwdCheck">비밀번호 일치 확인</p>	
+	          </div>
+	          <input type="submit" class= "save_btn" value="수정하기">
+	          <input type="button" class= "del_btn" value="계정삭제">
+	      </form>
     </div>
 </body>
 <script>

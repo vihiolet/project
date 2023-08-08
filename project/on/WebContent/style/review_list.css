@@ -18,6 +18,7 @@
 }
 .review_list{
 	background: #fff;
+	display: block;
 }
 table {
 	border-top: 2px solid #333;
@@ -38,16 +39,14 @@ table .review_info td{
 	margin-right: 20px;
 }
 .create_dt, .tit_fg, .pro_nm, .create_id, .sub_fg{
-	margin-left: 35px;
-	margin-right: 35px;
+	width: 130px;
 	text-align: center;
 	font-size: 15px;
 }
-.img{
-	width: 100px;
-	height:100px;
+.photo{
+	height:50px;
 }
-.img img{
+.photo img{
 	width: 100px !important;
 	height:100px;
 }

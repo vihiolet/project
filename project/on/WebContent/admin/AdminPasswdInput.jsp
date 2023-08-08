@@ -17,14 +17,16 @@
 	<jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
     <div class="container">          
         <jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
-    	<div>
-			<h3>본인 확인</h3>  
-	    	<p>관리자 정보를 보호하기 위해 비밀번호를 확인합니다.</p>	
-			<form action="adminInfoForm.emp" method="post" name="">
-				<span>비밀번호</span>
-				<input type="password" name= "passwd" id= "passwd">
-				<input type= "submit" class="btn" value="확인">
-			</form>
+    	<div class= "content">
+    		<div>
+				<h3>본인 확인</h3>  
+		    	<p>관리자 정보를 보호하기 위해 비밀번호를 확인합니다.</p>	
+				<form action="adminInfoForm.emp" method="post" name="">
+					<span>비밀번호</span>
+					<input type="password" name= "passwd" id= "passwd">
+					<input type= "submit" class="btn" value="확인">
+				</form>
+			</div>
 		</div>
     </div>
 </body>

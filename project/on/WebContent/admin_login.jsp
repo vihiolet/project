@@ -18,7 +18,7 @@
 			<div>
 				<input type="text" name= "id" class="id" placeholder="ID"><br>
 		        <input type="password" name= "passwd" class="password" placeholder="PASSWORD"><br>
-		        <input type= "submit" value= "로그인" style="width: 160px; height: 35px;">
+		        <input type= "submit" value= "로그인" style="width: 167px; height: 35px;">
 	    	</div>
 	    </form>
    </div>

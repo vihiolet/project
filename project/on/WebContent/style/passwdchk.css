@@ -26,3 +26,19 @@ form input{
     background: #6239c3;
     color: #fff;    
 }
+
+/*관리자페이지*/
+.content{
+	display: flex;
+	margin-right: 19%;
+}
+.content > div {
+	padding-top: 120px;
+    margin: 0 auto;
+}
+.content > div > h3 {
+	margin-bottom: 10px;
+}
+.content > div > p {
+	margin-bottom: 10px;
+}

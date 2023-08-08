@@ -3,6 +3,7 @@
     margin: 0 auto;
     border: 10px solid #ccc;
     display: flex;
+    margin-top: 10%;
 }
 .adminIcon{
     width: 41%;

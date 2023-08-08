@@ -36,6 +36,7 @@
 	    	<a href="adminProList.pr" class= "pro_list">제품 조회</a>
 	    	<a href="productRegForm.pr">제품 등록</a>     
 	  	</div> 
+	  	<div>
 	    <table class="pro_list">
     	<%if(articleList != null && listCount > 0){%>
         	<tr class="keyword_tit">
@@ -88,6 +89,8 @@
 	     <%	}else{ %>  
 	       	<p>등록된 검색점이 없습니다</p>  
 	     <% } %>
+	    </div>
+	    
 	    </form>  
 	                   
 	</body>

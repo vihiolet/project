@@ -2,6 +2,7 @@
 #key_list{
 	display:flex;
 	margin-right: 19%;
+	flex-wrap: wrap;
 }
 .btn{
 	width: 150px;
@@ -17,15 +18,17 @@
 	margin-top: 30px;
 }
 .add{
-	background: #7c4fff21;
-    border: none;
+	background: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    color: #444;
     padding: 3px 11px;
     border-radius: 5px;
     font-size: 15px;
 }
 #modify_btn{
-	background: #7c4fff21;
-    border: none;
+	background: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    color: #444;
     padding: 3px 11px;
     border-radius: 5px;
     font-size: 15px;
@@ -38,7 +41,7 @@
     font-size: 15px;
 }
 #delete_btn {
-    background: #7c4fff21;
+    background: #d50c0c21;
     border: none;
     padding: 3px 11px;
     border-radius: 5px;
