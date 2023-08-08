@@ -85,33 +85,6 @@
     </div>
     </form>
        
-  </div>   
-  
-    <script>
-	//삭제
-  		$('#delete_btn').on("click", function(e){
-  			//체크한 srch_code
-  			let emp_code= $('input[type=checkbox][name=emp_code]:checked').val();  
-  			
-  			if(emp_code != null){
-  				$.ajax({
-  	   				type: "POST",
-  	   				url: "adminEmpDel.emp",
-  	   				data: { emp_code : emp_code },
-  	   				success: function(data){
-  	   					alert('삭제되었습니다');
-  	   					location.reload();			//새로고침
-  	   				},
-  	   				error: function(data) {
-  	   					alert('오류');
-  	   					location.reload();
-  	   				}
-  	   			})
-  			}else{
-  				alert('삭제할 검색점을 선택하세요');
-  			}   			
-  			//location.reload();	//여기에 쓰면 success의 alert나 console.log가 실행 안 된다 success의 마지막에 써야 된다
-  		})
-  	</script> 
+  </div>  
 </body>
 </html>
