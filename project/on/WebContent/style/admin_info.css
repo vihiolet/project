@@ -1,12 +1,16 @@
 @charset "UTF-8";
-#info_list{
-	display:flex;
-	padding-top: 120px;
-	justify-content: center;
+.content{
+	display: inline-block;
+    width: 52%;
+    padding-top: 60px;
     margin-right: 19%;
 }
+#info_list{
+	display:flex;	
+	justify-content: center;    
+}
 info_list{
-	 margin-top: 9%;
+	margin-top: 9%;
     display: flex;
     justify-content: center;
 }
@@ -21,16 +25,13 @@ info_list{
 form div{
 	padding-bottom: 10px;
 }
-.key_value{
-	width: 100%;
-}
 .name_text{
 	padding-bottom: 22px;
 }
 .tit{
 	color: #fff;
 }
-#passwdCheck{
+#passwdCheck, #passwdCheck2{
 	color: #ccc;
 }
 .save_btn{
@@ -40,6 +41,13 @@ form div{
     border: none;
     padding: 8px 0;
     margin-top: 25px;
+}
+#info_del{
+	display:flex;	
+	justify-content: center;   
+	margin-top: 7%;
+	padding-top: 7%;
+    border-top: 1px solid #ccc; 
 }
 .del_btn{
 	width: 100%;

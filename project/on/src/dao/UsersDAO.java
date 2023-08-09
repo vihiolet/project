@@ -340,16 +340,18 @@ public class UsersDAO {
 		return myReview;
 	}
 	//내가 쓴 리뷰
-	public ArrayList<Object> getMyReview(String id){
+	public ArrayList<Object> getMyReview(String id, int page, int limit){
 		String sql= "select t1.pro_code, review_code, tit_fg, sub_fg1, sub_fg2, sub_fg3, t1.create_dt, t1.create_id, t2.pro_img, t2.pro_nm"
 				+ " from review t1 inner join product t2"
-				+ " where t1.pro_code = t2.pro_code and t1.create_id= ?";
+				+ " where t1.pro_code = t2.pro_code and t1.create_id= ? limit ?, " + limit;
 		ArrayList<Object> myReview = new ArrayList<Object>();	
 		ReviewBean review= null;
+		int startrow= (page - 1) * limit;
 
 		try{
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
+			pstmt.setInt(2, startrow);
 			rs= pstmt.executeQuery();
 			while(rs.next()){
 				review= new ReviewBean();
@@ -373,6 +375,5 @@ public class UsersDAO {
 		
 		return myReview;
 			
-	}
-	
+	}	
 }

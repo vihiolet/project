@@ -90,6 +90,37 @@
 		            </c:if> 
                  </table>
          	</div>
+         	<div id="pageList">
+		    	<c:choose>
+			    	<c:when test="${pageInfo.page <= 1}">
+			    		[이전]
+			    	</c:when>
+			    	<c:otherwise>
+			    		<a href="userReview.ur?page=${pageInfo.page - 1}">[이전]</a>&nbsp;
+			    	</c:otherwise>
+			    </c:choose>
+		    	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
+		    		<c:choose>
+		    			<c:when test="${i == pageInfo.page}">
+		    				[${i}]
+		    			</c:when>
+		    			<c:otherwise>
+		    				<a href="userReview.ur?page=${i}">[${i}]</a>
+		    			</c:otherwise>
+		    		</c:choose>
+		    	</c:forEach>
+			    <c:choose>
+			    	<c:when test="${pageInfo.page >= pageInfo.maxPage}">
+			    		[다음]
+			    	</c:when>
+			    	<c:otherwise>
+			    		<a href="userReview.ur?page=${pageInfo.page + 1}">[다음]</a>
+			    	</c:otherwise>
+			    </c:choose>
+		    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
+		        	<p>투표한 후기가 없습니다</p>
+		    	</c:if>
+   			</div>
          </div>
        </div>
 	</div>

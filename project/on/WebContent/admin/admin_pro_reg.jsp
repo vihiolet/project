@@ -36,8 +36,8 @@
                         <div class="menu_radio sub">                        	                    
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
                               <input type="radio" name="menu_code" id="clothes" value="2"><label for="clothes">옷</label>
-                              <input type="radio" name="menu_code" id="beauty" value="3"><label for="beauty">미용</label>
-                              <input type="radio" name="menu_code" id="acce" value="4"><label for="acce">장신구</label>
+                              <input type="radio" name="menu_code" id="acce" value="3"><label for="acce">장신구</label>
+                              <input type="radio" name="menu_code" id="beauty" value="4"><label for="beauty">미용</label>                              
                               <input type="radio" name="menu_code" id="life" value="5"><label for="life">생활</label>   
                          </div>
                          <div class="company_text">                     

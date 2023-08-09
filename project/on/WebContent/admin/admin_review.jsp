@@ -118,7 +118,7 @@
 				    		[다음]
 				    	</c:when>
 				    	<c:otherwise>
-				    		<a href="adminEmp.emp?page=${pageInfo.page + 1}">[다음]</a>
+				    		<a href="adminReviewList.re?page=${pageInfo.page + 1}">[다음]</a>
 				    	</c:otherwise>
 				    </c:choose>
 			    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">

@@ -247,4 +247,22 @@ public class AdminEmpDAO {
 		}
 		return upateSuccess;
 	}
+
+	//계정 삭제
+	public int delecteUsers(String id, String passwdSalt) {
+		String sql = "delete from emp where emp_id=? and emp_pass= ?";
+		int delectCount= 0;
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, passwdSalt);
+			delectCount= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("계정삭제에서 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+		return delectCount;
+	}
 }

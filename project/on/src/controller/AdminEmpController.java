@@ -21,6 +21,7 @@ import action.AdminInfoAction;
 import action.AdminInfoFormAction;
 import action.AdminLoginAction;
 import action.AdminMainAction;
+import action.AdminQuitAction;
 import dao.AdminEmpDAO;
 import svc.AdminInfoService;
 import svc.UserListService;
@@ -137,7 +138,14 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			forward.setRedirect(false);
 			forward.setPath("/adminLoginForm.ur");		
 		//탈퇴
+		}else if(command.equals("/adminDel.emp")) {
+			action= new AdminQuitAction();
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e){
+				e.printStackTrace();
 			}
+		}
 		
 		
 		if(forward != null) {

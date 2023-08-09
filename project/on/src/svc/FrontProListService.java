@@ -43,5 +43,35 @@ public class FrontProListService {
 		
 		return listCount;
 	}
+	public int selectList3Count() {
+		int listCount= 0;
+		Connection con = getConnection();
+		FrontProDAO frontProDAO= FrontProDAO.getInstance();
+		frontProDAO.setConnection(con);
+		listCount= frontProDAO.selectList3Count();
+		close(con);
+		
+		return listCount;
+	}
+	public int selectList4Count() {
+		int listCount= 0;
+		Connection con = getConnection();
+		FrontProDAO frontProDAO= FrontProDAO.getInstance();
+		frontProDAO.setConnection(con);
+		listCount= frontProDAO.selectList4Count();
+		close(con);
+		
+		return listCount;
+	}
+	public int selectList5Count() {
+		int listCount= 0;
+		Connection con = getConnection();
+		FrontProDAO frontProDAO= FrontProDAO.getInstance();
+		frontProDAO.setConnection(con);
+		listCount= frontProDAO.selectList5Count();
+		close(con);
+		
+		return listCount;
+	}
 
 }

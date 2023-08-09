@@ -21,15 +21,25 @@ public class UserReviewService {
 		return userInfo;
 	}
   	//내가 투표한 리뷰
- 	 public ArrayList<Object> getMyReview(String id){
+ 	 public ArrayList<Object> getMyReview(String id, int page, int limit){
     	UsersDAO userDAO= UsersDAO.getInstance();
 		Connection con= getConnection();
 		userDAO.setConnection(con);
     
 		ArrayList<Object> myReview = new ArrayList<Object>();
-		myReview= userDAO.getMyReview(id);
+		myReview= userDAO.getMyReview(id, page, limit);
     	close(con);	
     	
 		return myReview;
   }
+ 	 
+ 	//내가 투표한 리뷰 개수
+	public int getReviewCount(String id) {
+		UsersDAO userDAO= UsersDAO.getInstance();
+		Connection con= getConnection();
+		userDAO.setConnection(con);
+		int listCount= userDAO.getReviewCount(id);
+		close(con);	
+		return listCount;
+	}
 }

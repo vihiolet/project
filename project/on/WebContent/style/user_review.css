@@ -12,23 +12,30 @@ h2{
 }
 .myContent > div{
     width: 100%;
-    margin-top: 9%;
+    margin-top: 2%;
     display: flex;
+    justify-content: center;
+}
+.keyword_tit > td {
+	padding-bottom: 2%;
 }
 .review_code{
 	margin-left: 20px;
 	margin-right: 20px;
 }
 .create_dt, .pro_nm, .create_id, .tit_fg, .sub_fg{
-	margin-left: 35px;
-	margin-right: 35px;
+	width: 148px;
 	text-align: center;
 	font-size: 15px;
 }
+table .review_info td {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
 .photo a{
 	display: inline-block;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 .sub_fg span{
 	display: inline-block;

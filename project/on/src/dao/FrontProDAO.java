@@ -180,4 +180,64 @@ public class FrontProDAO {
 		}
 		return listCount;
 	}
+	public int selectList3Count() {
+		int listCount= 0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from product where menu_code= 3");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount= rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			System.err.println("사용자페이지 상품 개수 구하기에서 에러 발생 " + ex );
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return listCount;
+	}
+	public int selectList4Count() {
+		int listCount= 0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from product where menu_code= 4");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount= rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			System.err.println("사용자페이지 상품 개수 구하기에서 에러 발생 " + ex );
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return listCount;
+	}
+	public int selectList5Count() {
+		int listCount= 0;
+		PreparedStatement pstmt= null;
+		ResultSet rs= null;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from product where menu_code= 5");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount= rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			System.err.println("사용자페이지 상품 개수 구하기에서 에러 발생 " + ex );
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return listCount;
+	}
 }

@@ -1,11 +1,5 @@
 @charset "UTF-8";
-.container{
-    width: 1100px;
-    margin: 0 auto;
-    display: flex;
-}
-
-/*오른쪽 영역*/
+/*마이페이지*/
 .container .myContent{
     width: 76%;
     padding-left: 7%;
@@ -46,14 +40,18 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+}
+.myContent .porList > div:not(:first-child){
+	margin-left: 21px;
 }
 .myContent .porList > div{
-    width: 140px;
-    height: 160px;
-    flex: 1;    
-    background: #444;
+    width: 23%;
+    height: 180px;   
+    overflow: hidden;
 } 
+.myContent .porList > div img{
+	/*width: 140px !important;*/
+}
 .porList_tit {
 	padding-bottom: 18px;
     font-size: 17px;
