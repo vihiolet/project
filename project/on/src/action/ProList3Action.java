@@ -38,11 +38,11 @@ public class ProList3Action implements Action {
 				}
 				
 				FrontProListService frontProListService= new FrontProListService();
-				
+				int menu_code= Integer.parseInt(request.getParameter("menu_code"));
 				//총 상품 개수
-				int listCount= frontProListService.getListCount();		
+				int listCount= frontProListService.selectList3Count();		
 				//(한 페이지에 나올)총 상품 저장
-				articleList= frontProListService.getArticleList(page, limit);
+				articleList= frontProListService.getArticleList(page, limit, menu_code);
 				//총 페이지 수
 				int maxPage= (int)((double)listCount/limit + 0.95);
 				//현재 페이지의 첫 페이지 수

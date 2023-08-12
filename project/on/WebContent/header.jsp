@@ -41,10 +41,10 @@
       <div class="container">      	
          <div class="container-small">
          	<c:if test= "${userInfo == null}">
-              <a href="index.jsp" class="head1">로고</a> 
+              <a href="index.jsp" class="head1"><img src="images/logo.png"></a> 
            	</c:if>  
            	<c:if test= "${userInfo != null}">
-           		<a href="userIndex.fr" class="head1">로고</a> 
+           		<a href="userIndex.fr" class="head1"><img src="images/logo.png"></a> 
            	</c:if>
               <button type="button" class="head3">
              <i class="fa-solid fa-bars"></i>

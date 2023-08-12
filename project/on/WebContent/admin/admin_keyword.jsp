@@ -108,30 +108,25 @@
   		let fg= true;
   		let srch_name= $('.addInput #srch_name');
   		
-  		//추가 버튼 이벤트 헨들러
+  	//추가 버튼 이벤트 헨들러
     function addClick(){    
       		if(fg){                
           		addData();
           		removeValue();                
       		}else{
           		alert('내용을 저장하고 추가하십시오');
-      		}
-      		//location.reload();	
+      		}	
 	}
   		
     //이전 행 복제
   		function addData(){
-
       		$('.keyword_list .keyword_info').eq(0).clone().appendTo('.keyword_list');            
       		rowLenght= $('.keyword_info').length;  
-      		//$(this).find('.create_id').val(id);
-      		
   		}
     //복제된 행 데이터 리셋
-  		function removeValue(){    	
-    	
+  		function removeValue(){   
   			let id= '<%= id%>';
-    		
+  			
      		if(rowLenght > 1 && rowValue == undefined){
          		$('.keyword_list .keyword_info:last-child').addClass('addInput'); 
          		$('.addInput .key').val('');  
@@ -193,6 +188,7 @@
   			
   			let srch_code= $('input[type=checkbox][name=srch_code]:checked');
   			
+  			//체크된 행을 배열에 push
   			$(srch_code).each(function(){
   				srch_codeArr.push($(this).val());
   			})  			
@@ -203,12 +199,12 @@
   	   				url: "adminKeywordDel.ke",
   	   				data: { "srch_codeArr" : srch_codeArr},
   	   				traditional: true,				//전달 데이터는 배열
-  	   				success: function(data){		//data에 아무것도 없음
-  	   					alert('삭제되었습니당');
+  	   				success: function(data){		
+  	   					alert('삭제되었습니다');
   	   					location.reload();			//새로고침
   	   				},
   	   				error: function(data) {
-  	   					alert('오류!@#$%^');
+  	   					alert('삭제 오류');
   	   					location.reload();
   	   				}
   	   			})
@@ -219,8 +215,7 @@
   		})
   		
   		//수정
-  		$(document).ready(function(){
-  			
+  		$(document).ready(function(){  			
   			let srch_name= null;
   			let srch_code= null;
   				
@@ -232,7 +227,6 @@
   			})
   	  		
   			$('#modify_btn').on("click", function(e){
-  				/*alert('srch_code ' + srch_code);;*/
 	  			if(srch_code != null){
 	  				$.ajax({
 	  	   				type: "POST",
@@ -242,11 +236,11 @@
 	  	   						"srch_name" : srch_name
 	  	   						},
 	  	   				success: function(data){		
-	  	   					//alert('수정됨');
+	  	   					alert('수정되었습니다.');
 	  	   					location.reload();			//새로고침
 	  	   				},
 	  	   				error: function(data) {
-	  	   					//alert('오류!@#$%^');
+	  	   					alert('수정 오류');
 	  	   					location.reload();
 	  	   				}
 	 	  	   		})

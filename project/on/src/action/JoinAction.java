@@ -31,7 +31,7 @@ public class JoinAction implements Action{
 		//passwd
 		String passwd= request.getParameter("passwd");
 		String passwdSalt= sha256util.getEncrypt(passwd, salt);
-		//암호되된 비번을 Bean에 담기
+		//암호화된 비번을 Bean에 담기
 		users.setPass(passwdSalt);
 		
 		//name

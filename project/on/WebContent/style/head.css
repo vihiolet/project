@@ -35,6 +35,9 @@ header {
     color: blueviolet;
     font-size: 24px;
 }
+.head1 img{
+	width: 55%;
+}
 .head2 a{
     display: block;
     padding: 20px;
