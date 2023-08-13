@@ -41,16 +41,16 @@ form{
     
 input[type=radio]:checked + .tit1{
     box-shadow: 0 0 0 1px #6239c3;
-    color: #5600ff;
+    color: #6239c3;
     border-radius: 10px 0 0 10px;
 }
 input[type=radio]:checked + .tit2{
     box-shadow: 0 0 0 1px #6239c3;
-    color: #5600ff;
+    color: #6239c3;
 }
 input[type=radio]:checked + .tit3{    /* A + B -> A 옆에 있는 B을 선택(호출) */
     box-shadow: 0 0 0 1px #6239c3;
-    color: #5600ff;
+    color: #6239c3;
     border-radius: 0 10px 10px 0;
 }
 .sub{
@@ -100,13 +100,24 @@ input[type=radio]:checked + .tit3{    /* A + B -> A 옆에 있는 B을 선택(�
     text-align: center;
     margin-top: 8%;
 }
-.save_btn, .reset_btn {
+.save_btn {
     display: inline-block;
     text-align: center;
     width: 170px;
     line-height: 40px;
     background: #6239c3;
     color: #fff;
+    border: none;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.reset_btn {
+    display: inline-block;
+    text-align: center;
+    width: 170px;
+    line-height: 40px;
+    background: #e3e3e3;
+    color: #444;
     border: none;
     font-size: 15px;
     border-radius: 5px;

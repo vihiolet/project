@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import vo.AdminEmpBean;
 import vo.AdminProBean;
 import vo.ReviewBean;
 
@@ -240,4 +241,209 @@ public class FrontProDAO {
 		}
 		return listCount;
 	}
+
+	//index에 제품 출력1
+	public AdminProBean selectPro1(int menu_code1) {
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		AdminProBean proBean = new AdminProBean();
+		try {
+			pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= " + menu_code1 + " limit 1");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				proBean.setPro_code(rs.getInt("pro_code"));
+				proBean.setPro_nm(rs.getString("pro_nm"));
+				proBean.setPro_img(rs.getString("pro_img"));
+				proBean.setPro_company(rs.getString("pro_company"));
+			}
+		}catch(Exception e) {
+			System.out.println("메인페이지 상품 출력 에러" + e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}	
+		return proBean;
+	}
+	//index에 제품 출력1
+		public AdminProBean selectPro2(int menu_code2) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= " + menu_code2 + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 상품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
+		//index에 제품 출력3
+		public AdminProBean selectPro3(int menu_code3) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= " + menu_code3 + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 상품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
+		//index에 제품 출력4
+		public AdminProBean selectPro4(int menu_code4) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= " + menu_code4 + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 상품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
+		//index에 제품 출력5
+		public AdminProBean selectPro5(int menu_code5) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= " + menu_code5 + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 제품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
+
+		public AdminProBean selectProSrch1(int srch_code) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= 1 and srch_code1= "+ srch_code + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 검색점 조건 제품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
+		public AdminProBean selectProSrch2(int srch_code) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= 2 and srch_code1= " + srch_code + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 검색점 조건 제품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
+		public AdminProBean selectProSrch3(int srch_code) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= 3 and srch_code1= " + srch_code  + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 검색점 조건 제품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
+		public AdminProBean selectProSrch4(int srch_code) {
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			AdminProBean proBean = new AdminProBean();
+			try {
+				pstmt= con.prepareStatement("select pro_code, pro_nm, pro_img, pro_company from product where menu_code= 4 and srch_code1= " + srch_code  + " limit 1");
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					proBean.setPro_code(rs.getInt("pro_code"));
+					proBean.setPro_nm(rs.getString("pro_nm"));
+					proBean.setPro_img(rs.getString("pro_img"));
+					proBean.setPro_company(rs.getString("pro_company"));
+				}
+			}catch(Exception e) {
+				System.out.println("메인페이지 검색점 조건 제품 출력 에러" + e);
+			}finally {
+				close(rs);
+				close(pstmt);
+			}	
+			return proBean;
+		}
 }

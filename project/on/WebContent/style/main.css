@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*메인페이지만 여백 다르게*/
 .step2, .step3, .step4 {
-    padding: 0 6% 0 6%;
+    padding: 0 19.6% 0 19.6%;
 }
 
 /*슬라이드 step1*/

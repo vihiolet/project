@@ -17,26 +17,21 @@ header {
 }
 .login a{
 	flex: 1;
-	padding-left: 6%;
+	padding-left: 19.6%;
 }
 .login > div{
 	flex: 1;
 	text-align: right;
-    padding-right: 7%;
+    padding-right: 19.7%;
 }
 .login > div a{
 	padding-left: 15px;
 }
 .head1{
-    display: inline-block;
-    line-height: 70px;
-/*    padding: 0 20px 0 20px;*/ /*padding 때문에 일정하게 여백 주기 어렵네*/
-/*    background: blueviolet;*/
-    color: blueviolet;
-    font-size: 24px;
+    
 }
 .head1 img{
-	width: 55%;
+	width: 45%;
 }
 .head2 a{
     display: block;
@@ -107,4 +102,12 @@ header {
 }
 .admin_cd, .admin_nm {
     padding-right: 30px
+}
+
+.admincontainer{
+	line-height: 70px;
+}
+.admincontainer img{
+	line-height: 70px;
+    display: block;
 }

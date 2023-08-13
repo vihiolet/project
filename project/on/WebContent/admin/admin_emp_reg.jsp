@@ -34,7 +34,7 @@
                     	<div class="name_text">                     
                             <input type="text" name="name" required= "required">
                          </div> 
-                         <div class="id_text">                     
+                         <div class="id_text emp_reg">                     
                              <input type="text" name="id" required= "required"> 
                              <input type= "button" value= "id중복확인" onclick= "openIdChk()">
 							 <input type= "hidden" name= "idDuplication" value= "idUnCheck">                         
@@ -46,8 +46,8 @@
                          <p id= "passwdCheck"></p>	                                            
                      </div> 
                     <div class="button">
-                        <input type= "submit" class="btn" value="등록">
-                        <input type="reset" value="다시 쓰기">
+                        <input type= "submit" class="btn reg"  value="등록">
+                        <input type="reset" class="reset" value="다시 쓰기">
                     </div>
                   </form>
             </div>

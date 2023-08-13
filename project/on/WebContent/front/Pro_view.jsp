@@ -3,6 +3,7 @@
 <%@ page import= "vo.AdminProBean" %>
 <%@ page import= "java.util.HashMap" %>
 <%@ page import= "java.util.ArrayList" %>
+<%String id= (String)session.getAttribute("id"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,7 +124,7 @@
 		let tit_fg= ${MaxReviCount.reviewCount };
 		
 		$(".review_tit").each(function(){
-			if($(this).children(".voteCount").text() == tit_fg){
+			if($(this).children(".voteCount").text() == tit_fg && 0 < tit_fg){
 				$(this).addClass("best_vote");
 			}
 		})
@@ -131,6 +132,11 @@
 	})
 	
 	function reviwPopup(){
+		let id = '<%= id%>';
+		if(id == 'null'){
+			alert('로그인하세요.');
+			return false;
+		}
 		window.name= "parentPage"
 		window.open("Pro_reviewReg.fr", "checkForm", "width=800, height=550, resizable = no, scrollbars = no, top=120, left=100");
 	}

@@ -5,8 +5,7 @@
     width: 10%;
     float: left;
     background: #3a0e93;
-	/*height: calc(100vh - 70px);*/ 
-	min-height: 100vh; 
+	min-height: calc(100vh - 70px);
 	margin-left: 19%;
 }
 

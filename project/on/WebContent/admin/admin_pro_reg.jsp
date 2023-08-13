@@ -57,8 +57,8 @@
                          </div>                    
                      </div> 
                     <div class="button">
-                        <input type="submit" value="등록">
-                        <input type="reset" value="다시 쓰기">
+                        <input type="submit" class="reg" value="등록">
+                        <input type="reset" class="reset" value="다시 쓰기">
                     </div>
                   </form>
             </div>

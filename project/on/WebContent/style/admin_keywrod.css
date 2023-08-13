@@ -39,6 +39,7 @@
     padding: 3px 11px;
     border-radius: 5px;
     font-size: 15px;
+    border: 1px solid #7c4fff21;
 }
 #delete_btn {
     background: #d50c0c21;
@@ -46,6 +47,7 @@
     padding: 3px 11px;
     border-radius: 5px;
     font-size: 15px;
+    border: 1px solid #d50c0c21;
 }
 form{
 	margin: 30px 0 30px 30px;

@@ -4,6 +4,7 @@
     height: 480px;
     overflow: hidden;
     position: relative;
+    margin-top: 50px;
 }
 .pro_img{
     width: 50%;

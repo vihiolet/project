@@ -13,12 +13,11 @@
 </head>
 <body>
 	<header>
-      <div class="container">
+      <div class="container admincontainer">
          <div class="container-small">
          	<c:if test= "${empInfo != null}">
-              <a href="adminMain.emp" class="head1">로고</a>  
+              <a href="adminMain.emp" class="head1"><img src="images/logo.png"></a>  
              </c:if> 
-              <!--<button type="button" class="head3"><i class="fa-solid fa-bars"></i></button>-->
          </div>
           <nav class="head4">
               <ul>

@@ -5,7 +5,7 @@ footer{
     height: 170px;    
     margin-top: 4%;
 }
-footer .container{
+footer .footcont{
     display: flex;
     justify-content: space-between;
     padding-top: 40px;
@@ -27,6 +27,10 @@ footer .container{
     background: #b2b2b3;
     color: #fff;
     margin-top: 15px;
+}
+.foot1 img{
+	width: 30%;
+    display: block;
 }
 
 .foot2{

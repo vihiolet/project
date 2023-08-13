@@ -14,7 +14,7 @@
    <div class="reg">
         <div class="container"> 
         	<p class="review_tit">사용 후기를 투표해주세요.</p>
-            <form action="reviewWriteRev.fr" method="post" name="reviewform">
+            <form action="reviewWriteRev.fr" method="post" name="reviewform" onsubmit= "return chkValue()">
             	<input type="hidden" name="pro_code" id= "pro_code" value="">            	
             	<input type= "hidden" name= "create_id" value= "<%=id %>">
                 <div class="reviewWrap tit">
@@ -56,6 +56,28 @@
        </div>
     </div>    
     <script>
+  //input의 빈 값 체크
+		function chkValue(){
+			let form= document.reviewform
+			
+			if(!form.tit_fg.value){
+				alert('후기 제목을 선택하세요');
+				return false;
+			}
+			if(!form.sub1_fg.value){
+				alert('가격대를 선택하세요');
+				return false;
+			}
+			if(!form.sub2_fg.value){
+				alert('품질을 선택하세요');
+				return false;
+			}
+			if(!form.sub3_fg.value){
+				alert('대체품을 선택하세요');
+				return false;
+			}
+		}
+  
     	function proCodeVal(){
     		document.getElementById("pro_code").value = opener.document.getElementById("pro_code").value;
     	}

@@ -35,10 +35,10 @@
 	 </div>
    	<form action="adminKeywordReg.ke" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
-            <input type="button"  class="add" value="추가" onclick= "addClick()">
-            <input type="button" value="수정" id='modify_btn'>
-            <input type="submit" value="저장" id='save_btn'>            
-            <input type="button" value="삭제" id= "delete_btn">
+            <input type="button"  class="add rebtn" value="추가" onclick= "addClick()">
+            <input type="button" class="rebtn" value="수정" id='modify_btn'>
+            <input type="submit" class="rebtn" value="저장" id='save_btn'>            
+            <input type="button" class="rebtn"value="삭제" id= "delete_btn">
       </div>
       <table class="keyword_list">
       	<%if(keywordList != null && listCount > 0){%>
@@ -63,7 +63,7 @@
 	                </td>
 					<td>   
 						<a href="adminKeywordModiForm.ke?srch_code=<%=keywordList.get(i).getSrch_code() %>" class= "srch_code">             	
-	                		<input type="text" name="" id= "remark" class= "key remark" size="15" value="<%=keywordList.get(i).getRemark() %>" size= "40">
+	                		<input type="text" name="" id= "remark" class= "key remark" size="35" value="<%=keywordList.get(i).getRemark() %>" size= "40">
 	                	</a>
 	                </td>
    		
@@ -223,7 +223,7 @@
   			$('.srch_name').change(function(){
   				srch_name= $(this).val();
   				srch_code= $(this).prev().val();
-  				$('input').not(this).css({'background':'#eee', 'border':'none'}).attr('readonly', true);			
+  				$('input').not(this).not('.rebtn').css({'background':'#eee', 'border':'2px solid #eee'}).attr('readonly', true);			
   			})
   	  		
   			$('#modify_btn').on("click", function(e){

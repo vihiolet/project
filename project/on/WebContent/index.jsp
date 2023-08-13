@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import= "vo.UserBean" %>
 <%@ page import= "java.util.*" %>    
-
+<%@ page import= "vo.AdminProBean" %>
+<%@ page import= "java.util.HashMap" %>
+<%@ page import= "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,28 +32,36 @@
           <div class="banner"></div>
            <ul>
                <li>
-                  <a href="">
-                      <img src="img/B004985155.jpg" alt="">
-                   <p>상품 이름이 들어갑니다</p>
-                  </a>                   
+               	<c:if test= "${mainpro1 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainpro1.pro_code}">
+                      <img src="images/${mainpro1.pro_img }" alt="">
+                   <p>${mainpro1.pro_nm }</p>
+                  </a>       
+                 </c:if>            
                 </li>
                <li>
-                  <a href="">
-                       <img src="img/A004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                   </a>
+                  <c:if test= "${mainpro3 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainpro3.pro_code}">
+                      <img src="images/${mainpro3.pro_img }" alt="">
+                   <p>${mainpro2.pro_nm }</p>
+                  </a>       
+                 </c:if> 
                 </li>
                <li>
-                    <a href="">
-                       <img src="img/B004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                   </a>
+                   <c:if test= "${mainpro4 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainpro4.pro_code}">
+                      <img src="images/${mainpro4.pro_img }" alt="">
+                   <p>${mainpro4.pro_nm }</p>
+                  </a>       
+                 </c:if> 
                 </li>
                <li>
-                    <a href="">
-                       <img src="img/A004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                   </a>
+                 <c:if test= "${mainpro5 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainpro5.pro_code}">
+                      <img src="images/${mainpro5.pro_img }" alt="">
+                   <p>${mainpro5.pro_nm }</p>
+                  </a>       
+                 </c:if> 
                 </li>
            </ul>
    </div>
@@ -81,48 +92,48 @@
            </ul>
            <ul class="prolist">
                <li>
-                    <a href="">
-                       <img src="img/B004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                   </a>
+               	<c:if test= "${mainProSrch1 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainProSrch1.pro_code}">
+                      <img src="images/${mainProSrch1.pro_img }" alt="">
+                	   <p>${mainProSrch1.pro_nm }</p>
+                  </a>       
+                 </c:if> 
                 </li>
                <li>
-                    <a href="">
-                       <img src="img/A004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                   </a>
+                  <c:if test= "${mainProSrch2 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainProSrch2.pro_code}">
+                      <img src="images/${mainProSrch2.pro_img }" alt="">
+                	   <p>${mainProSrch2.pro_nm }</p>
+                  </a>       
+                 </c:if> 
                 </li>
                <li>
-                  <a href="">
-                       <img src="img/B004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                   </a>
-                </li>
-               <li>
-                  <a href="">
-                       <img src="img/A004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                   </a>
+                  <c:if test= "${mainProSrch3 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainProSrch3.pro_code}">
+                      <img src="images/${mainProSrch3.pro_img }" alt="">
+                	   <p>${mainProSrch3.pro_nm }</p>
+                  </a>       
+                 </c:if> 
                 </li>
                 <li>
-                    <a href="">
-                       <img src="img/A004985155.jpg" alt="">
-                       <p>상품 이름이 들어갑니다</p>
-                    </a>
+                    <c:if test= "${mainProSrch4 != null}">
+                  <a href="Pro_view.fr?pro_code=${mainProSrch4.pro_code}">
+                      <img src="images/${mainProSrch4.pro_img }" alt="">
+                	   <p>${mainProSrch4.pro_nm }</p>
+                  </a>       
+                 </c:if> 
                 </li>
            </ul>
        </div>
        <div class="keyword">
            <p class="tit">이렇게나 많은 검색점!</p>
            <div>
-               <ul class="slide">
+               <ul class="slide"> 
+               		<!-- 9개 -->
                       <li>장애인일자리제공</li>
                       <li>노인일자리제공</li>
                       <li>새활용</li>
                       <li>재활용</li>
-                      <li>생분해</li>
-                      <li>누구나이용</li>
-                      <li>잔인함X</li>
                       <li>채식지향</li>
                       <li>방문매장</li>                      
                       <li>인터넷매장</li>
@@ -132,16 +143,14 @@
                 <ul class="slide" aria-hidden="true">
                       <li>장애인일자리제공</li>                      
                       <li>노인일자리제공</li>
-                      <li>새활용</li>
-                      <li>재활용</li>
-                      <li>생분해</li>
-                      <li>누구나이용</li>
                       <li>잔인함X</li>
-                      <li>채식지향</li>
-                      <li>방문매장</li>                      
+                      <li>채식지향</li>                   
                       <li>인터넷매장</li>
                       <li>탄소발자국</li>
                       <li>수익기부</li>
+                      <li>채식지향</li>
+                      <li>방문매장</li>                      
+                      <li>인터넷매장</li>
                 </ul>
            </div>
        </div>
