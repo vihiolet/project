@@ -8,7 +8,7 @@
 		password="ajastudio45"	
 		driverClassName ="com.mysql.cj.jdbc.Driver"
 		factory = "org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
-		url ="jdbc:mysql://mydatabase.c3guwtchkl85.ap-northeast-2.rds.amazonaws.com:3306/project"
+		url ="jdbc:mysql://localhost:3306/project"
 		maxActive="500"
 		/>
 </Context>
