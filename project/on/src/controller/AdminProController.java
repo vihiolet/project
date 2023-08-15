@@ -15,6 +15,7 @@ import action.AdminKeyRegAction;	//검색점 action
 import action.AdminProDeleteAcrion;
 import action.AdminProRegAcrion;	//상품등록 actoin
 import action.ProViewAction;
+import action.srchProListAction;
 import svc.AdminInfoService;
 import action.AdminProListAction;	//상품목록 actoin
 import action.AdminProModiAction;
@@ -85,6 +86,15 @@ public class AdminProController extends javax.servlet.http.HttpServlet{
 	          }	   		         
 		}else if(command.equals("/proModi.pr")) {
 	    	  action = new AdminProModiAction();
+	          try {
+	             forward=action.execute(request, response);
+	          }catch(Exception e) {
+	             e.printStackTrace();
+	          }	   		         
+		}
+		//검색
+		else if(command.equals("/srchProList.pr")) {
+	    	  action = new srchProListAction();
 	          try {
 	             forward=action.execute(request, response);
 	          }catch(Exception e) {

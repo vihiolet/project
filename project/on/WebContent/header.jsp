@@ -2,7 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import= "java.util.*" %>
 <%@ page import= "vo.UserBean" %>
-
+<%
+	String str_menu_code= request.getParameter("menu_code");
+	int menu_code = 0;
+	if(str_menu_code != null) menu_code = Integer.parseInt(request.getParameter("menu_code"));
+	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +55,18 @@
              <i class="fa-solid fa-bars"></i>
               </button>
          </div>
-          
+          <div class="srch">
+          	<form action="srchProList.pr" method="post" name="" style="margin-right: 13px;">
+          		<input type="hidden" name="menu_code" value="<%=menu_code %>">
+          		<input type= "text" name="srch_nm" placeholder="검색점으로 검색">
+          		<input type= "submit" name="" value="검색">
+          	</form>
+          	<form action="srchProList.pr" method="post" name="" >
+          		<input type="hidden" name="menu_code" value="<%=menu_code %>">
+          		<input type= "text" name="pro_nm" placeholder="제품명으로 검색">
+          		<input type= "submit" name="" value="검색">
+          	</form>
+          </div>
           <nav class="head2">
               <ul>
                   <li><a href="ProList1.fr?menu_code=1">음식</a></li>

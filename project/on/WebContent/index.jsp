@@ -69,17 +69,9 @@
        <div>
           <ul>
             <li>
-                <img src="img/main1.jpg" alt="메인이미지2">
-                <p class="text">상품 설명이 들어갑니다</p>
-            </li>
-            <li>
-                <img src="img/main01.jpg" alt="메인이미지1">
-                <p class="text">업로드 기능을 악용하여 면</p>
-            </li>
-            <li>
-                <img src="img/main01.jpg" alt="메인이미지3">
-                <p class="text">사용자 입력 값에 대한 특수문자</p>
-            </li>                 
+                <img src="images/main1.png" alt="메인이미지1">
+                <img src="images/main2.png" alt="메인이미지2">
+            </li>                
           </ul>  
         </div> 
    </div>

@@ -35,14 +35,28 @@ header {
 }
 .head2 a{
     display: block;
-    padding: 20px;
+    padding: 30px 15px;
     color: inherit;
     font-size:  17px;
     font-weight: 600;
 }
-.head4{
-	
+.srch form{
+	display: inline-block;
 }
+.srch form input[type=text]{
+	border-radius: 50px;
+    border: 1px solid #6239c3;
+    padding: 5px;
+}
+.srch form input[type=submit]{
+	border: none;
+    padding: 5px 15px;
+    background: #6239c3;
+    color: #fff;
+        border-radius: 5px;
+}
+
+
 /*미디어쿼리 시작*/
 @media (min-width: 768px){
     header .container{

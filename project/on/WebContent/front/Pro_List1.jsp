@@ -66,7 +66,7 @@
 		    		[다음]
 		    	</c:when>
 		    	<c:otherwise>
-		    		<a href="ProList1.fr?menu_code=1&page=${pageInfo.page + 1}">[다음]</a>
+		    		<a href="ProList1.fr?menu_code=1&page=2">[다음]</a>
 		    	</c:otherwise>
 		    </c:choose>
 		   	<c:if test= " ${articleList == null && articleList.size() == 0 }">

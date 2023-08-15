@@ -45,21 +45,21 @@
             	<%if(nowPage <= 1) { %>
                		[이전]&nbsp;
           		<% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
-               		<a href="adminKey.ke?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
+               		<a href="adminProPopup.pr?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
           		<% } %>
           		
           		<%for(int a= startPage; a <= endPage; a++){ 
           			if(a == nowPage){%>
           				[<%=a %>]
           			<%}else{ %>
-          				<a href="adminKey.ke?page=<%= a %>">[<%= a %>]</a>&nbsp;
+          				<a href="adminProPopup.pr?page=<%= a %>">[<%= a %>]</a>&nbsp;
           			<%} %>          			
           		<%} %>
           		
           		<%if(nowPage >= maxPage){ %>
           			[다음]
           		<%}else{ %>
-          			<a href="adminKey.ke?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
+          			<a href="adminProPopup.pr?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
           		<%} %>
             </div>
             	 

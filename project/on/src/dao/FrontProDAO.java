@@ -446,4 +446,236 @@ public class FrontProDAO {
 			}	
 			return proBean;
 		}
+
+		//검색으로 나온 제품 개수(검색점)
+		public int selectMainSrchProCount(String srch_nm) {
+			int listCount= 0;
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			
+			try {
+				pstmt=con.prepareStatement("select count(*) from product where srch_code1= (select srch_code from keyword where srch_name= ?)");
+				pstmt.setString(1, srch_nm);
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					listCount= rs.getInt(1);
+				}
+			}catch(Exception ex) {
+				System.err.println("메인 검색으로 나온 개수 구하기에서 에러 발생 " + ex );
+			}finally {
+				close(con);
+				close(rs);
+			}
+			return listCount;
+		}
+
+		//검색으로 나온 제품 개수(제품명)
+		public int selectMainNameProCount(String pro_nm) {
+			int listCount= 0;
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			try {
+				pstmt=con.prepareStatement("select count(*) from product where pro_nm= ?");
+				pstmt.setString(1, pro_nm);
+				rs= pstmt.executeQuery();
+				
+				if(rs.next()) {
+					listCount= rs.getInt(1);
+				}
+			}catch(Exception ex) {
+				System.err.println("메인 검색으로 나온 개수 구하기에서 에러 발생 " + ex );
+			}finally {
+				close(con);
+				close(rs);
+			}
+			return listCount;
+		}
+		
+		//검색으로 나온 제품 개수(검색점)
+				public int selectSrchProCount(String srch_nm, int menu_code) {
+					int listCount= 0;
+					PreparedStatement pstmt= null;
+					ResultSet rs= null;
+					
+					try {
+						pstmt=con.prepareStatement("select count(*) from product where srch_code1= (select srch_code from keyword where srch_name= ?) and menu_code=" + menu_code);
+						pstmt.setString(1, srch_nm);
+						rs= pstmt.executeQuery();
+						
+						if(rs.next()) {
+							listCount= rs.getInt(1);
+						}
+					}catch(Exception ex) {
+						System.err.println("검색으로 나온 개수 구하기에서 에러 발생 " + ex );
+					}finally {
+						close(con);
+						close(rs);
+					}
+					return listCount;
+				}
+
+				//검색으로 나온 제품 개수(제품명)
+				public int selectNameProCount(String pro_nm, int menu_code) {
+					int listCount= 0;
+					PreparedStatement pstmt= null;
+					ResultSet rs= null;
+					try {
+						pstmt=con.prepareStatement("select count(*) from product where pro_nm= ? and menu_code=" + menu_code);
+						pstmt.setString(1, pro_nm);
+						rs= pstmt.executeQuery();
+						
+						if(rs.next()) {
+							listCount= rs.getInt(1);
+						}
+					}catch(Exception ex) {
+						System.err.println("검색으로 나온 개수 구하기에서 에러 발생 " + ex );
+					}finally {
+						close(con);
+						close(rs);
+					}
+					return listCount;
+				}
+		
+		//메뉴에서 검색하여 나온 제품
+		public ArrayList<AdminProBean> selectSrchProList(int page, int limit, int menu_code, String srch_nm) {
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			String sql= "select * from product where menu_code= " + menu_code + " and srch_code1= (select srch_code from keyword where srch_name= ?) limit ?, " + limit;
+			
+			ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
+			AdminProBean adminProBean= null;
+			int startrow= (page - 1) * limit;	
+			
+			try {
+				pstmt= con.prepareStatement(sql);
+				pstmt.setString(1, srch_nm);
+				pstmt.setInt(2, startrow);	
+				rs= pstmt.executeQuery();
+				
+				while(rs.next()) {
+					adminProBean= new AdminProBean();
+					adminProBean.setPro_code(rs.getInt("pro_code"));
+					adminProBean.setPro_nm(rs.getString("pro_nm"));
+					adminProBean.setMenu_code(rs.getInt("menu_code"));
+					adminProBean.setPro_company(rs.getString("pro_company"));
+					adminProBean.setPro_img(rs.getString("pro_img"));
+					adminProBean.setCreate_id(rs.getString("create_id"));
+					articleList.add(adminProBean);
+				}
+				
+				}catch(Exception ex) {
+					System.out.println("메뉴에서 검색하여 나온 제품에서 에러 발생 " + ex);
+				}finally {
+					close(rs);
+					close(pstmt);
+				}
+			
+			return articleList;
+		}
+
+		public ArrayList<AdminProBean> selectMainSrchProList(int page, int limit, String srch_nm) {
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			String sql= "select * from product where srch_code1= (select srch_code from keyword where srch_name= ?) limit ?, " + limit;
+			ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
+			AdminProBean adminProBean= null;
+			int startrow= (page - 1) * limit;	
+			
+			try {
+				pstmt= con.prepareStatement(sql);
+				pstmt.setString(1, srch_nm);
+				pstmt.setInt(2, startrow);	
+				rs= pstmt.executeQuery();
+				
+				while(rs.next()) {
+					adminProBean= new AdminProBean();
+					adminProBean.setPro_code(rs.getInt("pro_code"));
+					adminProBean.setPro_nm(rs.getString("pro_nm"));
+					adminProBean.setMenu_code(rs.getInt("menu_code"));
+					adminProBean.setPro_company(rs.getString("pro_company"));
+					adminProBean.setPro_img(rs.getString("pro_img"));
+					adminProBean.setCreate_id(rs.getString("create_id"));
+					articleList.add(adminProBean);
+				}
+				
+				}catch(Exception ex) {
+					System.out.println("메뉴에서 검색하여 나온 제품에서 에러 발생 " + ex);
+				}finally {
+					close(rs);
+					close(pstmt);
+				}
+			
+			return articleList;
+		}
+
+		public ArrayList<AdminProBean> selectNameProList(int page, int limit, int menu_code, String pro_nm) {
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			String sql= "select * from product where menu_code= " + menu_code + " and pro_nm= ? limit ?, " + limit;
+			ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
+			AdminProBean adminProBean= null;
+			int startrow= (page - 1) * limit;	
+			
+			try {
+				pstmt= con.prepareStatement(sql);
+				pstmt.setString(1, pro_nm);
+				pstmt.setInt(2, startrow);	
+				rs= pstmt.executeQuery();
+				
+				while(rs.next()) {
+					adminProBean= new AdminProBean();
+					adminProBean.setPro_code(rs.getInt("pro_code"));
+					adminProBean.setPro_nm(rs.getString("pro_nm"));
+					adminProBean.setMenu_code(rs.getInt("menu_code"));
+					adminProBean.setPro_company(rs.getString("pro_company"));
+					adminProBean.setPro_img(rs.getString("pro_img"));
+					adminProBean.setCreate_id(rs.getString("create_id"));
+					articleList.add(adminProBean);
+				}
+				
+				}catch(Exception ex) {
+					System.out.println("메뉴에서 검색하여 나온 제품(제품명/메뉴코드 있음)에서 에러 발생 " + ex);
+				}finally {
+					close(rs);
+					close(pstmt);
+				}
+			
+			return articleList;
+		}
+
+		public ArrayList<AdminProBean> selectMainNameProList(int page, int limit, String pro_nm) {
+			PreparedStatement pstmt= null;
+			ResultSet rs= null;
+			String sql= "select * from product where pro_nm= ? limit ?, " + limit;
+			ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
+			AdminProBean adminProBean= null;
+			int startrow= (page - 1) * limit;	
+			
+			try {
+				pstmt= con.prepareStatement(sql);
+				pstmt.setString(1, pro_nm);
+				pstmt.setInt(2, startrow);	
+				rs= pstmt.executeQuery();
+				
+				while(rs.next()) {
+					adminProBean= new AdminProBean();
+					adminProBean.setPro_code(rs.getInt("pro_code"));
+					adminProBean.setPro_nm(rs.getString("pro_nm"));
+					adminProBean.setMenu_code(rs.getInt("menu_code"));
+					adminProBean.setPro_company(rs.getString("pro_company"));
+					adminProBean.setPro_img(rs.getString("pro_img"));
+					adminProBean.setCreate_id(rs.getString("create_id"));
+					articleList.add(adminProBean);
+				}
+				
+				}catch(Exception ex) {
+					System.out.println("메뉴에서 검색하여 나온 제품(제품명/메뉴코드 없음)에서 에러 발생 " + ex);
+				}finally {
+					close(rs);
+					close(pstmt);
+				}
+			
+			return articleList;
+		}
 }

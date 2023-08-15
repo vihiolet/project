@@ -66,8 +66,8 @@
                      </div> 
                     </c:if>
                     <div class="button">
-                        <input type="submit" value="수정">
-                        <input type="reset" value="다시 쓰기">
+                        <input type="submit" class="reg" value="수정">
+                        <input type="reset" class="reset" value="다시 쓰기">
                     </div>
                   </form>
             </div>

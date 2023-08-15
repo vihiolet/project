@@ -77,6 +77,7 @@ public class AdminProDAO {
 				adminProBean.setPro_company(rs.getString("pro_company"));
 				adminProBean.setPro_img(rs.getString("pro_img"));
 				adminProBean.setCreate_id(rs.getString("create_id"));
+				adminProBean.setCreate_dt(rs.getDate("create_dt"));
 				articleList.add(adminProBean);
 			}
 			
@@ -97,16 +98,14 @@ public class AdminProDAO {
 		String sql= "";
 		
 		try {			
-			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, srch_nm1, create_dt, create_id) values(?, ?, ?, ?, ?, ?, now(), ?)";
+			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, create_dt, create_id) values(?, ?, ?, ?, ?, now(), ?)";
 			pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, adminProBean.getPro_nm());
 			pstmt.setInt(2, adminProBean.getMenu_code());
 			pstmt.setString(3, adminProBean.getPro_company());
 			pstmt.setString(4, adminProBean.getPro_img());
 			pstmt.setInt(5, adminProBean.getSrch_code1());
-			pstmt.setString(6, adminProBean.getSrch_nm1());
-			pstmt.setString(7, adminProBean.getCreate_id());
-			
+			pstmt.setString(6, adminProBean.getCreate_id());			
 			insertCount= pstmt.executeUpdate();
 			
 		} catch (SQLException e) {

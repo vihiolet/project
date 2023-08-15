@@ -4,11 +4,16 @@
 <%@ page import= "vo.AdminProBean" %>
 <%@ page import= "java.util.HashMap" %>
 <%@ page import= "java.util.ArrayList" %>
+<%
+	int menu_code= Integer.parseInt(request.getParameter("menu_code"));
+	String srch_nm= request.getParameter("srch_nm");	
+	String pro_nm= request.getParameter("pro_nm");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제품5 페이지</title>
+<title>검색 제품 목록</title>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="style/common.css">
@@ -23,8 +28,8 @@
 	     <c:set var= "listCount" value="${pageInfo.getListCount()}"></c:set>
 	     <c:if test= "${articleList != null && articleList.size() > 0}">
 	     	<c:forEach var= "articleList" items= "${articleList}" varStatus="status">
-	     		<c:if test= "${articleList.menu_code == 5}"> 
-	     		<!--메뉴코드 5(생활) 상품만 출력  -->				
+	     	<input type="hidden" value="<%=menu_code %>">
+	     		<!--검색 상품만 출력  -->				
 			         <article>
 			         	 <a href="Pro_view.fr?pro_code=${articleList.pro_code}">
 			             <input type="hidden" name= "pro_code" value="${articleList.pro_code}">
@@ -38,7 +43,6 @@
 			                 </div>
 			             </a>
 			         </article>
-		        </c:if>
 	     	</c:forEach>
 	     </c:if> 
 	     </div>
@@ -48,7 +52,7 @@
 		    		[이전]&nbsp;
 		    	</c:when>
 		    	<c:otherwise>
-		    		<a href="ProList1.fr?menu_code=5&page=${pageInfo.page - 1}">[이전]</a>&nbsp;
+		    		<a href="srchProList.pr?menu_code=<%=menu_code %>&srch_nm=<%=srch_nm %>&pro_nm=<%=pro_nm %>&page=${pageInfo.page - 1}">[이전]</a>&nbsp;
 		    	</c:otherwise>
 		    </c:choose>
 		   	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
@@ -57,7 +61,7 @@
 		   				[<c:out value="${i}" />]
 		   			</c:when>
 		   			<c:otherwise>
-		   				<a href="ProList1.fr?menu_code=5&page=${i}">[${i}]</a>
+		   				<a href="srchProList.pr?menu_code=<%=menu_code %>&srch_nm=<%=srch_nm %>&pro_nm=<%=pro_nm %>&page=${i}">[${i}]</a>
 		   			</c:otherwise>
 		   		</c:choose>
 		   	</c:forEach>
@@ -66,7 +70,7 @@
 		    		[다음]
 		    	</c:when>
 		    	<c:otherwise>
-		    		<a href="ProList1.fr?menu_code=5&page=2">[다음]</a>
+		    		<a href="srchProList.pr?menu_code=<%=menu_code %>&srch_nm=<%=srch_nm %>&pro_nm=<%=pro_nm %>&page=${pageInfo.page + 1}">[다음]</a>
 		    	</c:otherwise>
 		    </c:choose>
 		   	<c:if test= " ${articleList == null && articleList.size() == 0 }">
