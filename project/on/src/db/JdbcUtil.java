@@ -1,24 +1,31 @@
 package db;
 
 import java.sql.*;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 
 public class JdbcUtil {
+	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
+    private static final String URL = "jdbc:mysql://mydatabase.c3guwtchkl85.ap-northeast-2.rds.amazonaws.com:3306/project?serverTimezone=Asia/Seoul&characterEncoding=UTF-8";
+    private static final String USER = "admin";
+    private static final String PW = "ajastudio45";
+    public static Statement stmt;
 	
-	public static Connection getConnection() {
+	public static Connection getConnection() {	    
 		Connection con = null;
 		
 		try {			
-			Context initCtx = new InitialContext(); 
-			Context envCtx = (Context)initCtx.lookup("java:comp/env");	
-			DataSource ds = (DataSource)envCtx.lookup("jdbc/projectOn");
-			con = ds.getConnection(); 
-			con.setAutoCommit(false); 
+			//드라이버 연결
+            Class.forName(DRIVER);
+            
+            //접속 URL, mysql 유저 아이디, 비밀번호로 접속
+            con = DriverManager.getConnection(URL, USER, PW);
+
+			//접속성공 메세지
+            System.out.println("Database connection established");			
 			
 		}catch(Exception e) {
+			System.err.println("Cannot connect to database server");
+            System.err.println(e.getMessage());
 			e.printStackTrace();
 		}		
 		return con; 
