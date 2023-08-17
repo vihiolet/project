@@ -28,6 +28,7 @@
                         <p>상품 이름</p>
                         <p>검색점</p>
                         <p>상품 사진</p>
+			<p>내용</p>
                   </div>
                   <form action="adminProReg.pr" method="post" enctype="multipart/form-data">
                   	
@@ -54,6 +55,9 @@
                          </div>
                          <div class="name_img">                     
                              <input type="file" name="pro_img" required= "required">
+                         </div>    
+			<div class="pro_context">                     
+                             <input type="text" name="pro_context">
                          </div>                    
                      </div> 
                     <div class="button">
