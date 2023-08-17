@@ -23,9 +23,11 @@ public class MyPageAction implements Action {
 		UserListService userListService= null;
 		UserBean userInfo= null;
 		
-		userListService= new UserListService();
-		userInfo= userListService.getUserInfo2(id);
-		request.setAttribute("userInfo", userInfo);
+		if(id != null) {			
+			userListService= new UserListService();
+			userInfo= userListService.getUserInfo2(id);
+			request.setAttribute("userInfo", userInfo);	
+		}
 		
 		ReviewBean reviewBean= new ReviewBean();
 		int reviewCount= userListService.getReviewCount(id);
