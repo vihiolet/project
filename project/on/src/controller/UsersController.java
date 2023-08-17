@@ -105,7 +105,7 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			session.removeAttribute("id");
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/index.jsp");		
+			forward.setPath("home.do");		
 		//탈퇴
 		}else if(command.equals("/userQuitForm.ur")) {
 			action= new UserQuitFormAction();	
