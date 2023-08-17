@@ -19,7 +19,9 @@
                 <input type="password" id="pw" name= "passwd" placeholder="비밀번호"><br>
                 <a href="javascript:login_form.submit()" class="login_btn">로그인</a><br>
                 <a href="Join.ur" class="join">회원가입</a>
+		<!--
                 <a href="" class="find">아이디/비밀번호찾기</a>
+		-->
             </div>
         </form>
     </div>
