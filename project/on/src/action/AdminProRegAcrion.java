@@ -38,7 +38,7 @@ public class AdminProRegAcrion implements Action{
 		
 		AdminProBean adminProBean = new AdminProBean();
 		String realFolder= "";
-		String imageFolder = "/images";
+		String imageFolder = "var/webapps/images/";
 		int fileSize= 5*1024*1024;
 		ServletContext context = request.getServletContext();
 		realFolder= context.getRealPath(imageFolder);
@@ -49,6 +49,11 @@ public class AdminProRegAcrion implements Action{
 		adminProBean.setPro_company(multi.getParameter("pro_company"));
 		adminProBean.setPro_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		adminProBean.setSrch_code1(Integer.parseInt(multi.getParameter("srch_code1")));
+		adminProBean.setPro_explain(multi.getParameter("pro_context"));
+
+		if(multi.getParameter("pro_context") == null){
+			multi.getParameter("pro_context")= "";
+		}
 		
 		adminProBean.setCreate_id(multi.getParameter("create_id"));
 		AdminProRegService adminProRegService = new AdminProRegService();
