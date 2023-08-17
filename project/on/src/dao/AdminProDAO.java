@@ -78,6 +78,7 @@ public class AdminProDAO {
 				adminProBean.setPro_img(rs.getString("pro_img"));
 				adminProBean.setCreate_id(rs.getString("create_id"));
 				adminProBean.setCreate_dt(rs.getDate("create_dt"));
+				adminProBean.setPro_explain(rs.getString("pro_context"));
 				articleList.add(adminProBean);
 			}
 			
@@ -98,14 +99,15 @@ public class AdminProDAO {
 		String sql= "";
 		
 		try {			
-			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, create_dt, create_id) values(?, ?, ?, ?, ?, now(), ?)";
+			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, create_dt, create_id, pro_context) values(?, ?, ?, ?, ?, now(), ?, ?)";
 			pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, adminProBean.getPro_nm());
 			pstmt.setInt(2, adminProBean.getMenu_code());
 			pstmt.setString(3, adminProBean.getPro_company());
 			pstmt.setString(4, adminProBean.getPro_img());
 			pstmt.setInt(5, adminProBean.getSrch_code1());
-			pstmt.setString(6, adminProBean.getCreate_id());			
+			pstmt.setString(6, adminProBean.getCreate_id());
+			pstmt.setString(7, adminProBean.getPro_explain());
 			insertCount= pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -146,7 +148,7 @@ public class AdminProDAO {
 	//수정
 	public int updatePro(AdminProBean proBean, int pro_code) {
 		PreparedStatement pstmt= null;
-		String sql= "update product set pro_nm= ?, menu_code= ?, pro_company= ?, pro_img= ?, srch_code1= ?, srch_nm1= ? where pro_code= " +pro_code;
+		String sql= "update product set pro_nm= ?, menu_code= ?, pro_company= ?, pro_img= ?, srch_code1= ?, srch_nm1= ?, pro_context= ? where pro_code= " +pro_code;
 		int updateCount= 0;
 		try{			
 			pstmt= con.prepareStatement(sql);
@@ -156,7 +158,7 @@ public class AdminProDAO {
 			pstmt.setString(4, proBean.getPro_img());
 			pstmt.setInt(5, proBean.getSrch_code1());
 			pstmt.setString(6, proBean.getSrch_nm1());
-			
+			pstmt.setString(7, proBean.getPro_explain());			
 			updateCount= pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -183,7 +185,7 @@ public class AdminProDAO {
 				adminPro.setPro_img(rs.getString("pro_img"));
 				adminPro.setSrch_code1(rs.getInt("srch_code1"));
 				adminPro.setSrch_nm1(rs.getString("srch_nm1"));
-				adminPro.setPro_explain(rs.getString("pro_explain"));	
+				adminPro.setPro_explain(rs.getString("pro_context"));	
 				adminPro.setMenu_code(rs.getInt("menu_code"));
 			}
 			
