@@ -44,8 +44,8 @@
                          </c:if>                                          
                      </div> 
                     <div class="button">
-                        <input type= "submit" class="btn" value="수정">
-                        <input type="reset" value="다시 쓰기">
+                        <input type= "submit" class="reg" class="btn" value="수정">
+                        <input type="reset" class="reset" value="다시 쓰기">
                     </div>
                   </form>
             </div>
