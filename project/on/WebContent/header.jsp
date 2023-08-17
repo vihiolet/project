@@ -37,7 +37,7 @@
       		</c:if>      		
       		<c:if test= "${userInfo != null}">
       			<div>
-      				<span>${userInfo.id} 님</span>
+      				<span>${userInfo.name} 님</span>
       				<a href= "mypage.fr">마이페이지</a>
 	      			<a href= "logout.ur">로그아웃</a>
       			</div>
