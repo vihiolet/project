@@ -13,6 +13,16 @@ public class homeIndexAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		ActionForward forward= new ActionForward();
+		HttpSession session= request.getSession();
+		String id= (String)session.getAttribute("id");
+		UserListService userListService= null;
+		UserBean userInfo= new UserBean();
+		
+		if(id != null) {			
+			userListService= new UserListService();
+			userInfo= userListService.getUserInfo2(id);
+			request.setAttribute("userInfo", userInfo);
+		}		
 		
 		MainService mainService = new MainService();	
 		AdminProBean mainpro1= new AdminProBean();
@@ -49,7 +59,7 @@ public class homeIndexAction implements Action {
 		request.setAttribute("mainProSrch3", mainProSrch3);
 		request.setAttribute("mainProSrch4", mainProSrch4);
 		
-		forward.setPath("/home.do");
+		forward.setPath("home.do");
 		
 		return forward;
 	}
