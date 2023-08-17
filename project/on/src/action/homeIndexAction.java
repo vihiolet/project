@@ -49,7 +49,7 @@ public class homeIndexAction implements Action {
 		request.setAttribute("mainProSrch3", mainProSrch3);
 		request.setAttribute("mainProSrch4", mainProSrch4);
 		
-		forward.setPath("./index.jsp");
+		forward.setPath("/home.do");
 		
 		return forward;
 	}
