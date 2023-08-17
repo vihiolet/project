@@ -37,7 +37,7 @@ public class UserQuitAction implements Action {
 	    if(deleteRsult){
 	    	forward= new ActionForward();
 		      forward.setRedirect(true);
-		      forward.setPath("./index.jsp");
+		      forward.setPath("home.do");
 	      response.setContentType("text/html;charset=utf-8");
 	      PrintWriter out= response.getWriter();
 	      out.println("<script>");
