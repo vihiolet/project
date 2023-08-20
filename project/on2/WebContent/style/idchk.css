@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.tit{
+	width: 100%;
+	text-align: center;
+    padding: 7px 0;
+    font-weight: 600;
+	background: #e9eaeb;
+	font-size: 16px;
+}
+.text{
+	text-align: center;
+	padding: 20px 0;
+}
+form{
+	text-align: center;
+	margin-bottom: 5%;
+}
+form input{
+	padding: 2px 6px
+}
+#mag{
+	text-align: center;
+}
+.btn{
+	text-align: center;
+	margin-top: 5%;
+}
+#use_Btn, #cancel_Btn{
+	width: 110px;
+	border: none;
+    background: #6239c3;
+    color: #fff;
+    padding: 5px 6px
+}

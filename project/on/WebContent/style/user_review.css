@@ -19,6 +19,12 @@ h2{
 .keyword_tit > td {
 	padding-bottom: 2%;
 }
+.review_list{
+	width: 100%;
+}
+.checkbox{
+	width: 50px;
+}
 .review_code{
 	margin-left: 20px;
 	margin-right: 20px;
@@ -41,8 +47,8 @@ table .review_info td {
 	display: inline-block;
 }
 button{	
-	background: #7c4fff21;
-    border: none;
-    padding: 3px 11px;
-    border-radius: 5px;
+	background: #7c4fff21 !important;
+    border: none !important;
+    padding: 3px 11px !important;
+    border-radius: 5px !important;
 }

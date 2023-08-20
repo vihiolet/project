@@ -21,7 +21,7 @@ public class MyPageAction implements Action {
 		HttpSession session= request.getSession();
 		String id= (String)session.getAttribute("id");
 		UserListService userListService= null;
-		UserBean userInfo= = new UserBean();;
+		UserBean userInfo= new UserBean();;
 		
 		if(id != null) {			
 			userListService= new UserListService();

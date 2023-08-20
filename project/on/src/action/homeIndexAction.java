@@ -2,10 +2,13 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import svc.MainService;
+import svc.UserListService;
 import vo.ActionForward;
 import vo.AdminProBean;
+import vo.UserBean;
 
 public class homeIndexAction implements Action {
 
@@ -14,15 +17,7 @@ public class homeIndexAction implements Action {
 		
 		ActionForward forward= new ActionForward();
 		HttpSession session= request.getSession();
-		String id= (String)session.getAttribute("id");
-		UserListService userListService= null;
-		UserBean userInfo= new UserBean();
-		
-		if(id != null) {			
-			userListService= new UserListService();
-			userInfo= userListService.getUserInfo2(id);
-			request.setAttribute("userInfo", userInfo);
-		}		
+		session.removeAttribute("id");		
 		
 		MainService mainService = new MainService();	
 		AdminProBean mainpro1= new AdminProBean();
@@ -59,7 +54,7 @@ public class homeIndexAction implements Action {
 		request.setAttribute("mainProSrch3", mainProSrch3);
 		request.setAttribute("mainProSrch4", mainProSrch4);
 		
-		forward.setPath("home.do");
+		forward.setPath("index.jsp");
 		
 		return forward;
 	}

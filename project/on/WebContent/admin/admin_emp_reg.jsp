@@ -6,11 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <title>관리자 등록</title>
+    <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style/common.css">
+	<link rel="stylesheet" href="style/admin_pro.css">
+	<link rel="stylesheet" href="style/head.css">
 </head>
-<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style/common.css">
-<link rel="stylesheet" href="style/admin_pro.css">
-<link rel="stylesheet" href="style/head.css">
 <body>
    <div class="admin_pro">
       <jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
@@ -22,18 +22,15 @@
 	    		<a href="adminEmpRegForm.emp" class= "reg">관리자 등록</a>     
 	  		</div> 
             <div class="bg">
-                <div class="pro_tit"> 
-                        <p>관리자명</p>
+                <div class="pro_tit">                         
                         <p>관리자 ID</p>
                         <p>관리자 비밀번호</p>
+                        <p>관리자명</p>
                   </div>
                   <form action="adminEmpReg.emp" method="post" name= "empInfo" onsubmit= "return chkValue()">
                   	
                     <div class="pro_value">
-                    	<input type= "hidden" name= "create_id" value= "<%=id %>">
-                    	<div class="name_text">                     
-                            <input type="text" name="name" required= "required">
-                         </div> 
+                    	<input type= "hidden" name= "create_id" value= "<%=id %>">                    	
                          <div class="id_text emp_reg">                     
                              <input type="text" name="id" required= "required"> 
                              <input type= "button" value= "id중복확인" onclick= "openIdChk()">
@@ -41,9 +38,12 @@
                          </div>
                          <div class="pass_text">                     
                              <input type="password" name="passwd" required= "required">    
-                             <input type= "password" name= "passwdChk" placeholder="비밀번호 확인" onchange= "passChk()">                      
+                             <input type= "password" name= "passwdChk" placeholder="비밀번호 확인" onchange= "passChk()" required= "required">                      
                          </div>
-                         <p id= "passwdCheck"></p>	                                            
+                         <p id= "passwdCheck"></p>	    
+                         <div class="name_text">                     
+                            <input type="text" name="name" required= "required">
+                         </div>                                         
                      </div> 
                     <div class="button">
                         <input type= "submit" class="btn reg"  value="등록">

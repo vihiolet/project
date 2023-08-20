@@ -19,14 +19,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>관리자제품목록</title>
-<link rel="stylesheet" href="style/common.css">
-<link rel="stylesheet" href="style/admin_pro_list.css">
-<link rel="stylesheet" href="style/list.css">
-<link rel="stylesheet" href="style/footer.css">
-<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<meta charset="UTF-8">
+	<title>제품 조회</title>
+	<link rel="stylesheet" href="style/common.css">
+	<link rel="stylesheet" href="style/admin_pro_list.css">
+	<link rel="stylesheet" href="style/list.css">
+	<link rel="stylesheet" href="style/footer.css">
+	<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 	<body>
 		<jsp:include page="../include/admin_header.jsp"></jsp:include>	<!--헤더-->
@@ -40,7 +40,7 @@
 	    <table class="pro_list">
     	<%if(articleList != null && listCount > 0){%>
         	<tr class="keyword_tit">
-                <td><input type="checkbox" name="allcheck" class= "pro_code" onClick='allCheck()'></td>                
+                <td><input type="checkbox" name="allcheck" id= "allcheck" class= "pro_code" onClick='allCheck()'></td>                
                 <td><button id= "delete_btn">삭제</button></td>
                 <td><p class= "create_dt">등록일</p></td>
                 <td><p class= "pro_company">제조회사</p></td>
@@ -87,7 +87,7 @@
 	          	<%} %>
 	     </div>
 	     <%	}else{ %>  
-	       	<p>등록된 검색점이 없습니다</p>  
+	       	<p class="emptyMs proMs">등록된 제품이 없습니다.</p>  
 	     <% } %>
 	    </div>
 	    
@@ -97,8 +97,8 @@
 	<script>
 		//다중 체크
 		function allCheck(){
-			let ac= document.regKeyword.allcheck;
-			let sc= document.regKeyword.srch_code;
+			let ac= document.getElementById('allcheck');
+			let sc= document.getElementsByClassName('pro_code');
 			
 			if(ac.checked == true){
 				for(i= 0; i< sc.length; i++){
@@ -122,7 +122,7 @@
 				pro_codeArr.push($(this).val());
 			})  			
 			
-			if(pro_code != null){
+			if(pro_codeArr != 0){
 				$.ajax({
 	   				type: "POST",
 	   				url: "adminProDel.pr",
@@ -130,16 +130,16 @@
 	   				traditional: true,
 	   				success: function(data){
 	   					//alert(data);
-	   					alert('삭제되었습니당');
+	   					alert('삭제되었습니다.');
 	   					location.reload();			//새로고침
 	   				},
 	   				error: function(data) {
-	   					alert('오류!@#$%^');
+	   					alert('삭제 오류');
 	   					location.reload();
 	   				}
 	   			})
 			}else{
-				alert('삭제할 검색점을 선택하세요');
+				alert('삭제할 제품을 선택하세요');
 			}   			
 			//location.reload();	//여기에 쓰면 success의 alert나 console.log가 실행 안 된다 success의 마지막에 써야 된다
 		})

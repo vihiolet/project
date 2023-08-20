@@ -1,5 +1,6 @@
 package action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,12 +22,36 @@ public class AdminProListAction implements Action{
 		ActionForward forward= new ActionForward();
 		HttpSession session= request.getSession();
 		String id= (String)session.getAttribute("id");
-		AdminInfoService adminInfoService= null;
 		AdminEmpBean empInfo= null;
 		
-		adminInfoService= new AdminInfoService();
-		empInfo= adminInfoService.getUserInfo(id);
-		request.setAttribute("empInfo", empInfo);
+		AdminInfoService adminInfoService= new AdminInfoService();
+
+		//관리자 계정인지 확인
+		ArrayList<String> empIdList = new ArrayList<String>();
+		empIdList = adminInfoService.getEmp_idList();
+		
+		if(id == null) {
+			forward= new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("/adminLoginForm.ur");
+		}else if(id != null){			
+			for(int i=0; i < empIdList.size(); i++) {				
+				if(id.equals(empIdList.get(i).toString())) {
+					adminInfoService= new AdminInfoService();
+					empInfo= adminInfoService.getUserInfo(id);
+					request.setAttribute("empInfo", empInfo);
+					forward= new ActionForward();
+					forward= new ActionForward();
+					forward.setPath("/admin/admin_pro_list.jsp");
+				}		
+			}
+			response.setContentType("text/html;charset=euc-kr");
+			PrintWriter out= response.getWriter();
+			out.println("<script>");
+			out.println("alert('관리자 계정으로 로그인하세요.');");
+			out.println("location.href='adminLoginForm.ur';");
+			out.println("</script>");
+		}
 		
 		//전체 상품 목록 저장할 객체
 		ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();

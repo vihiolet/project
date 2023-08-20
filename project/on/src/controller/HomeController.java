@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.Action;
-import action.UserIndexAction;
 import action.homeIndexAction;
 import vo.ActionForward;
 
+@WebServlet("*.do")
 public class HomeController extends javax.servlet.http.HttpServlet{ 
 
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-	   IOException {
+	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
 		request.setCharacterEncoding("UTF-8");
 	    String RequestURI = request.getRequestURI();
 	    String contextPath = request.getContextPath();
@@ -33,24 +33,21 @@ public class HomeController extends javax.servlet.http.HttpServlet{
 	          }	   		         
 		 }
 	    if(forward != null) {
-	          if(forward.isRedirect()) {
-	             response.sendRedirect(forward.getPath());	//redirect방식 주소 변화 o
-	          }else {
-	             RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());	//forward(dispatcher) 방식 주소 변화 x
-	             dispatcher.forward(request,response);
-	          }
-	       }
-	    }
+			if(forward.isRedirect()) {
+				response.sendRedirect(forward.getPath());
+			}else {
+				RequestDispatcher dispatcher= request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response);
+				}
+			}
+		
+		}
 
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doProcess(request, response);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doProcess(request, response);
-	}
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+			doProcess(request, response);
+		}
+		
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+			doProcess(request, response);
+		}
 }

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제품2 페이지</title>
+<title>옷 제품 조회</title>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="style/common.css">
@@ -21,7 +21,7 @@
 	 <section class="list a_container">
 	     <div class="container a_bg"> 
 	     <c:set var= "listCount" value="${pageInfo.getListCount()}"></c:set>
-	     <c:if test= "${articleList != null && articleList.size() > 0}">
+	     <c:if test="${not empty articleList}">  
 	     	<c:forEach var= "articleList" items= "${articleList}" varStatus="status">
 	     		<c:if test= "${articleList.menu_code == 2}"> 
 	     		<!--메뉴코드 2(옷) 상품만 출력  -->				
@@ -43,12 +43,13 @@
 	     </c:if> 
 	     </div>
 	     <div id="pageList">
+	     <c:if test="${not empty articleList}">  
 		   	<c:choose>
 		    	<c:when test="${pageInfo.page <= 1}">
 		    		[이전]&nbsp;
 		    	</c:when>
 		    	<c:otherwise>
-		    		<a href="ProList1.fr?menu_code=1&page=${pageInfo.page - 1}">[이전]</a>&nbsp;
+		    		<a href="ProList2.fr?menu_code=2&page=${pageInfo.page - 1}">[이전]</a>&nbsp;
 		    	</c:otherwise>
 		    </c:choose>
 		   	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
@@ -57,7 +58,7 @@
 		   				[<c:out value="${i}" />]
 		   			</c:when>
 		   			<c:otherwise>
-		   				<a href="ProList1.fr?menu_code=1&page=${i}">[${i}]</a>
+		   				<a href="ProList2.fr?menu_code=2&page=${i}">[${i}]</a>
 		   			</c:otherwise>
 		   		</c:choose>
 		   	</c:forEach>
@@ -66,11 +67,12 @@
 		    		[다음]
 		    	</c:when>
 		    	<c:otherwise>
-		    		<a href="ProList1.fr?menu_code=1&page=${pageInfo.page + 1}">[다음]</a>
+		    		<a href="ProList2.fr?menu_code=2&page=${pageInfo.page + 1}">[다음]</a>
 		    	</c:otherwise>
 		    </c:choose>
-		   	<c:if test= " ${articleList == null && articleList.size() == 0 }">
-		       	<p>등록된 관리자가 없습니다</p>
+		    </c:if>
+		   	<c:if test="${empty articleList}">  
+		       	<p>등록된 제품이 없습니다</p>
 		   	</c:if>
    		</div>
 	</section>	

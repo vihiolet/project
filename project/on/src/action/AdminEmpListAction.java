@@ -1,5 +1,6 @@
 package action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +20,16 @@ public class AdminEmpListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session= request.getSession();
+		ActionForward forward= null;
 		String id= (String)session.getAttribute("id");
 		AdminEmpBean empInfo= null;
 		//empInfo 객체 생성
+
 		AdminInfoService adminInfoService= new AdminInfoService();
-		empInfo= adminInfoService.getUserInfo(id);
-		request.setAttribute("empInfo", empInfo);
+
+		//관리자 계정인지 확인
+		ArrayList<String> empIdList = new ArrayList<String>();
+		empIdList = adminInfoService.getEmp_idList();		
 		
 		//출력될 관리자 목록을 담을 객체 EmpList
 		ArrayList<AdminEmpBean> EmpList= new ArrayList<AdminEmpBean>();
@@ -59,8 +64,28 @@ public class AdminEmpListAction implements Action {
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("EmpList", EmpList);
 		
-		ActionForward forward= new ActionForward();
-		forward.setPath("/admin/admin_emp.jsp");		
+		if(id == null) {
+			forward= new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("/adminLoginForm.ur");
+		}else if(id != null){			
+			for(int i=0; i < empIdList.size(); i++) {				
+				if(id.equals(empIdList.get(i).toString())) {
+					adminInfoService= new AdminInfoService();
+					empInfo= adminInfoService.getUserInfo(id);
+					request.setAttribute("empInfo", empInfo);
+					forward= new ActionForward();
+					forward= new ActionForward();
+					forward.setPath("/admin/admin_emp.jsp");
+				}		
+			}
+			response.setContentType("text/html;charset=euc-kr");
+			PrintWriter out= response.getWriter();
+			out.println("<script>");
+			out.println("alert('관리자 계정으로 로그인하세요.');");
+			out.println("location.href='adminLoginForm.ur';");
+			out.println("</script>");
+		}
 		
 		return forward;
 	}

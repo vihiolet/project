@@ -1,0 +1,84 @@
+@charset "UTF-8";
+/*관리자 제품 목록 css*/
+.btn{
+	width: 150px;
+    text-align: center;
+    background: #eee;
+    min-height: calc(100vh - 70px);
+}
+.btn a{
+	display: block;
+	line-height: 50px;
+}
+.btn a:first-child{
+	margin-top: 30px;
+}
+form{
+	display: flex;
+	margin-right: 19%;
+}
+.pro_list{
+	background: #fff;	
+}
+table {
+	border-top: 2px solid #333;
+  	border-collapse: separate;
+  	border-spacing: 0 9px;
+  	margin: 30px 0 0 30px;
+}
+.keyword_tit {
+	font-weight: 600;
+}
+table .keyword_info td{
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;	
+}
+	
+.pro_code{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.create_dt, .pro_nm, .create_id{
+	margin-left: 35px;
+	margin-right: 35px;
+	text-align: center;
+	font-size: 15px;
+}
+.img{
+	width: 100px;
+	height:100px;
+}
+.img img{
+	width: 100px !important;
+	height:100px;
+}
+
+button{	
+	background: #d50c0c21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+}
+.pro_company, .create_id, .pro_nm{
+	text-align: center;
+    font-size: 15px;
+    width: 110px;
+}
+/*미디어쿼리 시작*/
+@media (min-width: 768px){   
+    .list .container{
+         justify-content: flex-start;         /*4행 space-between 초기화*/
+    }
+    
+    .list article{
+        width: calc(33.3333% - 30px);
+        margin: 0 15px 50px;        
+    }
+}
+@media (min-width: 1200px){
+    
+    .list article{
+        width: calc(25% - 30px);
+    }
+}
+

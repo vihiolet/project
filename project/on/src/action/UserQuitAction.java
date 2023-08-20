@@ -36,13 +36,13 @@ public class UserQuitAction implements Action {
 
 	    if(deleteRsult){
 	    	forward= new ActionForward();
-		      forward.setRedirect(true);
-		      forward.setPath("home.do");
-	      response.setContentType("text/html;charset=utf-8");
-	      PrintWriter out= response.getWriter();
-	      out.println("<script>");
-	      out.println("alert('탈퇴되었습니다');");
-	      out.println("</script>");
+		    forward.setRedirect(true);
+		    forward.setPath("/home.do");
+		    response.setContentType("text/html;charset=utf-8");
+		    PrintWriter out= response.getWriter();
+		    out.println("<script>");
+		    out.println("alert('탈퇴되었습니다');");
+		    out.println("</script>");
 	      
 	    }else{
 	      response.setContentType("text/html;charset=utf-8");

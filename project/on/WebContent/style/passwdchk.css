@@ -30,7 +30,7 @@ form input{
 /*관리자페이지*/
 .content{
 	display: flex;
-	margin-right: 19%;
+	margin-right: 15%;
 }
 .content > div {
 	padding-top: 120px;

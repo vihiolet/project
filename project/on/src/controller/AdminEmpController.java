@@ -5,6 +5,7 @@ import static db.JdbcUtil.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import action.Action;
-import action.AdminEmpDelAction;
 import action.AdminEmpListAction;
 import action.AdminEmpRegAction;
 import action.AdminInfoAction;
@@ -27,6 +27,7 @@ import svc.AdminInfoService;
 import svc.UserListService;
 import vo.ActionForward;
 import vo.AdminEmpBean;
+import vo.PageInfo;
 import vo.UserBean;
 
 @WebServlet("*.emp")
@@ -62,10 +63,11 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			String id= (String)session.getAttribute("id");
 			AdminInfoService adminInfoService= null;
 			AdminEmpBean empInfo= null;
-			
-			adminInfoService= new AdminInfoService();
-			empInfo= adminInfoService.getUserInfo(id);
-			request.setAttribute("empInfo", empInfo);
+			if(id != null) {					
+				adminInfoService= new AdminInfoService();
+				empInfo= adminInfoService.getUserInfo(id);
+				request.setAttribute("empInfo", empInfo);
+			}
 
 			forward= new ActionForward();
 			forward.setPath("/admin/admin_emp_reg.jsp");
@@ -77,14 +79,6 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}else if(command.equals("/adminEmpDel.emp")) {
-			action= new AdminEmpDelAction();
-			try {
-				forward= action.execute(request, response);
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-			//관리자 등록 id 중복체크 팝업
 		}else if(command.equals("/idCheckForm.emp")) {			
 			forward = new ActionForward();
 			forward.setRedirect(false);
@@ -109,12 +103,36 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			
 			HttpSession session= request.getSession();
 			String id= (String)session.getAttribute("id");
-			AdminInfoService adminInfoService= new AdminInfoService();
-			AdminEmpBean empInfo= adminInfoService.getUserInfo(id);
-			request.setAttribute("empInfo", empInfo);
-
-			forward= new ActionForward();
-			forward.setPath("/admin/AdminPasswdInput.jsp");
+			AdminEmpBean empInfo= null;
+			AdminInfoService adminInfoService= null;
+			if(id != null) {					
+				adminInfoService= new AdminInfoService();
+				empInfo= adminInfoService.getUserInfo(id);
+				request.setAttribute("empInfo", empInfo);
+			}
+			//관리자 계정인지 확인
+			ArrayList<String> empIdList = new ArrayList<String>();
+			empIdList = adminInfoService.getEmp_idList();
+			if(id == null) {
+				forward= new ActionForward();
+				forward.setRedirect(true);
+				forward.setPath("/adminLoginForm.ur");
+			}else if(id != null){
+				for(int i=0; i < empIdList.size(); i++) {
+					if(id.equals(empIdList.get(i).toString())) {
+						forward= new ActionForward();
+						forward.setPath("/admin/AdminPasswdInput.jsp");
+						break;
+					}else {
+						response.setContentType("text/html;charset=euc-kr");
+						PrintWriter out= response.getWriter();
+						out.println("<script>");
+						out.println("alert('관리자 계정으로 로그인하세요.');");
+						out.println("location.href='adminLoginForm.ur';");
+						out.println("</script>");
+					}				
+				}
+			}
 		//내 정보 관리 form
 		}else if(command.equals("/adminInfoForm.emp")) {
 			action= new AdminInfoFormAction();
@@ -145,8 +163,7 @@ public class AdminEmpController extends javax.servlet.http.HttpServlet{
 			}catch(Exception e){
 				e.printStackTrace();
 			}
-		}
-		
+		}		
 		
 		if(forward != null) {
 			if(forward.isRedirect()) {

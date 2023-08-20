@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자제품목록페이지</title>
+<title>후기 조회</title>
 <link rel="stylesheet" href="style/common.css">
 <link rel="stylesheet" href="style/admin_pro_list.css">
 <link rel="stylesheet" href="style/review_list.css">
@@ -28,7 +28,7 @@
 		  	</div> 	
 		  	<div class="review_list">  	
 			    <table>
-		    	<c:if test= "${articleList != null && articleList.size() > 0}">
+		    	<c:if test="${not empty articleList}"> 
 		        	<tr class="review_tit">
 		                <td><input type="checkbox" name="allcheck" class= "review_code" onClick='allCheck()'></td>                
 		                <td><button id= "delete_btn">삭제</button></td>
@@ -36,7 +36,7 @@
 		                <td><p class= "tit_fg">후기제목</p></td>
 		                <td><p class= "sub_fg">후기내용</p></td>
 		                <td><p class= "create_dt">등록날짜</p></td>
-		                <td><p class= "create_id">등록회원ID</p></td>
+		                <td><p class= "create_id">회원ID</p></td>
 		            </tr>               	
 		            <c:forEach var= "articleList" items= "${articleList}" varStatus="status"> 
 		       	  	<tr class="review_info">          	
@@ -95,6 +95,7 @@
 		         </c:if>
 			    </table> 
 			    <div id="pageList">
+			    <c:if test="${not empty articleList}">  
 			    	<c:choose>
 				    	<c:when test="${pageInfo.page <= 1}">
 				    		[이전]&nbsp;
@@ -121,8 +122,9 @@
 				    		<a href="adminReviewList.re?page=${pageInfo.page + 1}">[다음]</a>
 				    	</c:otherwise>
 				    </c:choose>
-			    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
-			        	<p>등록된 관리자가 없습니다</p>
+				    </c:if>
+			    	<c:if test="${empty articleList}">  
+			        	<p class="emptyMs">등록된 후기가 없습니다.</p>
 			    	</c:if>
     			</div> 
 			</div>		   		               
@@ -157,7 +159,7 @@
 			})  			
 			console.log(menu_codeArr);
 			
-			if(menu_code != null){
+			if(menu_codeArr != 0){
 				$.ajax({
 	   				type: "POST",
 	   				url: "adminProDel.pr",
@@ -165,16 +167,16 @@
 	   				traditional: true,
 	   				success: function(data){
 	   					//alert(data);
-	   					alert('삭제되었습니당');
+	   					alert('삭제되었습니다');
 	   					location.reload();			//새로고침
 	   				},
 	   				error: function(data) {
-	   					alert('오류!@#$%^');
+	   					alert('삭제 오류');
 	   					location.reload();
 	   				}
 	   			})
 			}else{
-				alert('삭제할 검색점을 선택하세요');
+				alert('삭제할 후기를 선택하세요');
 			}   			
 			//location.reload();	//여기에 쓰면 success의 alert나 console.log가 실행 안 된다 success의 마지막에 써야 된다
 		})

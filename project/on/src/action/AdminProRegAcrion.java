@@ -37,11 +37,9 @@ public class AdminProRegAcrion implements Action{
 		}
 		
 		AdminProBean adminProBean = new AdminProBean();
-		String realFolder= "";
-		String imageFolder = "var/webapps/images/";
+		
 		int fileSize= 5*1024*1024;
-		ServletContext context = request.getServletContext();
-		realFolder= context.getRealPath(imageFolder);
+		String realFolder= "/tomcat/apache-tomcat-9.0.78/bin/images";
 		MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize,  "UTF-8", new DefaultFileRenamePolicy());
 		adminProBean.setCreate_id(multi.getParameter("create_id"));		
 		adminProBean.setPro_nm(multi.getParameter("pro_nm"));
@@ -49,10 +47,11 @@ public class AdminProRegAcrion implements Action{
 		adminProBean.setPro_company(multi.getParameter("pro_company"));
 		adminProBean.setPro_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		adminProBean.setSrch_code1(Integer.parseInt(multi.getParameter("srch_code1")));
-		adminProBean.setPro_explain(multi.getParameter("pro_context"));
+		String pro_context= multi.getParameter("pro_context");
+		adminProBean.setPro_explain(pro_context);
 
 		if(multi.getParameter("pro_context") == null){
-			multi.getParameter("pro_context")= "";
+			pro_context= "";
 		}
 		
 		adminProBean.setCreate_id(multi.getParameter("create_id"));
@@ -63,7 +62,7 @@ public class AdminProRegAcrion implements Action{
 			response.setContentType("text/html;charset=UTF-8");		//등록실패 한글 인코딩 (테스트 해보기) - 없으면 ???으로 뜬다
 			PrintWriter out = response.getWriter();
 			out.println("<script>");		//alert 창이 어디서 뜨는지 확인하기 새 창으로 화전되고 뜨는지 해당 페이지에서 뜨는지 - 새창에서 뜸
-			out.println("alert('등록실패')");
+			out.println("alert('제품 등록 실패')");
 			out.println("</script>");
 			out.println("history.back();");
 		}else {				//상품 등록 성공

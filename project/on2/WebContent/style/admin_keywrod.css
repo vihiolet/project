@@ -1,0 +1,78 @@
+@charset "UTF-8";
+#key_list{
+	display:flex;
+	margin-right: 19%;
+	flex-wrap: wrap;
+}
+.btn{
+	width: 150px;
+    text-align: center;
+    background: #eee;
+    height: calc(100vh - 70px); 
+}
+.btn a{
+	display: block;
+	line-height: 50px;
+}
+.btn a:first-child{
+	margin-top: 30px;
+}
+.add{
+	background: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    color: #444;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+#modify_btn{
+	background: #f4f4f4;
+    border: 1px solid #e0e0e0;
+    color: #444;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+#save_btn{
+	background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 1px solid #7c4fff21;
+}
+#delete_btn {
+    background: #d50c0c21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 1px solid #d50c0c21;
+}
+form{
+	margin: 30px 0 30px 30px;
+}
+.list{
+	background: #fff;
+}
+.keyword_list{
+    border-top: 2px solid #333;
+    margin-top: 10px;
+}
+.keyword_tit{
+    border-bottom: 1px solid #999;
+    font-weight: 600;
+}
+.keyword_list td:not(:first-child) {
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+/*    font-size: 15px;*/
+}
+.keyword_info td{    
+    border-bottom: 1px solid #ccc;
+}
+.keyword_info .key{
+	/*border: none;*/
+    text-align: center;
+}

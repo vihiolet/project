@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/*마이페이지*/
+.container .myContent{
+    width: 76%;
+    padding-left: 7%;
+    padding-top: 30px;
+}
+.myContent > div{
+    width: 100%;
+}
+.myContent .board{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.myContent .board p{
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+}
+.myContent .board .myVote span{
+    color: mediumpurple;
+    font-weight: 600;
+    font-size: 22px;
+}
+.myContent .vanner{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+.myContent .vanner > div{
+    width: 90px;
+    flex: 1;
+}
+.myContent .porList{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.myContent .porList > div:not(:first-child){
+	margin-left: 21px;
+}
+.myContent .porList > div{
+    width: 23%;
+    height: 180px;   
+    overflow: hidden;
+} 
+.myContent .porList > div img{
+	/*width: 140px !important;*/
+}
+.porList_tit {
+	padding-bottom: 18px;
+    font-size: 17px;
+}

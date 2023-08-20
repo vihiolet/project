@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제품1 페이지</title>
+<title>음식 제품 조회</title>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="style/common.css">
@@ -43,6 +43,7 @@
 	     </c:if> 
 	     </div>
 	     <div id="pageList">
+	     <c:if test="${not empty articleList }">
 		   	<c:choose>
 		    	<c:when test="${pageInfo.page <= 1}">
 		    		[이전]&nbsp;
@@ -69,8 +70,9 @@
 		    		<a href="ProList1.fr?menu_code=1&page=2">[다음]</a>
 		    	</c:otherwise>
 		    </c:choose>
-		   	<c:if test= " ${articleList == null && articleList.size() == 0 }">
-		       	<p>등록된 관리자가 없습니다</p>
+		    </c:if>
+		   	<c:if test="${empty articleList }">
+		       	<p>등록된 제품이 없습니다</p>
 		   	</c:if>
    		</div>
 	</section>	

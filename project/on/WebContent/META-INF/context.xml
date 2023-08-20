@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context>
-	<Resource
+<Context>	
+		<Resource
 		name ="project"
 		auth ="Container"
 		type="javax.sql.DataSource"
@@ -11,4 +11,5 @@
 		url ="jdbc:mysql://mydatabase.c3guwtchkl85.ap-northeast-2.rds.amazonaws.com:3306/project"
 		maxActive="500"
 		/>
+		<resources mapping="/image/**" location="file:///tomcat/apache-tomcat-9.0.78/bin/images" />
 </Context>

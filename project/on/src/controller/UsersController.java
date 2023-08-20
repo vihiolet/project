@@ -21,6 +21,7 @@ import action.UserModiFormAction;
 import action.UserQuitAction;
 import action.UserQuitFormAction;
 import action.UserReviewAction;
+import action.UserReviewDelAction;
 import action.JoinAction;
 import action.loginAction;
 import vo.ActionForward;
@@ -105,7 +106,7 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			session.removeAttribute("id");
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("home.do");		
+			forward.setPath("/home.do");		
 		//탈퇴
 		}else if(command.equals("/userQuitForm.ur")) {
 			action= new UserQuitFormAction();	
@@ -152,6 +153,15 @@ public class UsersController extends javax.servlet.http.HttpServlet{
 			}
 		}else if(command.equals("/userModi.ur")) {
 			action= new UserModiAction();	
+			try {
+				forward= action.execute(request, response);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		//내가 쓴 후기 삭제
+		else if(command.equals("/userReviewDel.ur")) {
+			action= new UserReviewDelAction();	
 			try {
 				forward= action.execute(request, response);
 			}catch(Exception e) {

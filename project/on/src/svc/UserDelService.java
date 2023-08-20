@@ -18,12 +18,31 @@ public class UserDelService {
 		
 		if(delecteCount > 0) {
 			deleteSuccess= true;
+			userDAO.delUserContext(id);
 			commit(con);
 		}else {
 			rollback(con);
 		}
 		close(con);
 		return deleteSuccess;
+	}
+
+	public boolean removeReview(int[] intCodeArr) {
+		UsersDAO userDAO= UsersDAO.getInstance();
+		Connection con= getConnection();
+		userDAO.setConnection(con);
+		
+		boolean isRemoveSuccess= false;
+		int deleteCount = userDAO.deleteReview(intCodeArr);
+		if(deleteCount > 0) {
+			commit(con);
+			isRemoveSuccess= true;
+		}else {
+			rollback(con);
+		}
+		
+		close(con);				
+		return isRemoveSuccess;
 	}
 
 }

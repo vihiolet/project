@@ -9,13 +9,13 @@
 <head>
     <meta charset="UTF-8">
     <title>내가 투표한 후기</title>
+    <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<link rel="stylesheet" href="style/common.css">
+	<link rel="stylesheet" href="style/user_review.css">
+	<link rel="stylesheet" href="style/head.css">
+	<link rel="stylesheet" href="style/footer.css">
 </head>
-<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="style/common.css">
-<link rel="stylesheet" href="style/user_review.css">
-<link rel="stylesheet" href="style/head.css">
-<link rel="stylesheet" href="style/footer.css">
 <body>
 <jsp:include page="./../header.jsp"></jsp:include>	<!--헤더-->
 	<div class="mypageWrap">
@@ -26,17 +26,17 @@
           	<div>
                  <table class="review_list">
 	                 <tr class="keyword_tit">
-			                <td><input type="checkbox" name="allcheck" class= "review_code" onClick='allCheck()'></td>                
+			                <td class="checkbox"><input type="checkbox" id= "allcheck" class= "review_code" onClick='allCheck()'></td>                
 			                <td><button id= "delete_btn">삭제</button></td>
 			                <td><p class= "pro_nm">제품이름</p></td>
 			                <td><p class= "tit_fg">후기제목</p></td>
 			                <td><p class= "sub_fg">후기내용</p></td>
 			                <td><p class= "create_dt">등록날짜</p></td>
 			          </tr>
-			          <c:if test= "${myReview != null && myReview.size() > 0}">
+			          <c:if test="${not empty myReview}">
 			          <c:forEach var= "myReview" items= "${myReview}" varStatus="status"> 
 		          	  <tr class="review_info">          	
-		                <td><input type="checkbox" name="review_code" class= "review_code" value="${myReview.review_code}"></td>               
+		                <td class="checkbox"><input type="checkbox" name=review_code class= "review_code" value="${myReview.review_code}"></td>               
 		                <td class="photo">
 		                	<a href="Pro_view.fr?pro_code=${myReview.pro_code}" class="pro_img">
 		                		<img src="images/${myReview.pro_img}" alt="">
@@ -88,9 +88,11 @@
 		            </tr> 
 		            </c:forEach>
 		            </c:if> 
+		             
                  </table>
          	</div>
-         	<div id="pageList">
+         	<div id="pageList">   
+         	<c:if test="${not empty myReview}">      	
 		    	<c:choose>
 			    	<c:when test="${pageInfo.page <= 1}">
 			    		[이전]
@@ -117,9 +119,10 @@
 			    		<a href="userReview.ur?page=${pageInfo.page + 1}">[다음]</a>
 			    	</c:otherwise>
 			    </c:choose>
-		    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
-		        	<p>투표한 후기가 없습니다</p>
-		    	</c:if>
+			 </c:if>
+		     <c:if test="${empty myReview}">
+		    	<p>투표한 후기가 없습니다</p>
+		     </c:if>
    			</div>
          </div>
        </div>
@@ -129,8 +132,8 @@
 <script>
 	//다중 체크
 	function allCheck(){
-		let ac= document.regKeyword.allcheck;
-		let sc= document.regKeyword.srch_code;
+		let ac= document.getElementById('allcheck');
+		let sc= document.getElementsByClassName('review_code');
 		
 		if(ac.checked == true){
 			for(i= 0; i< sc.length; i++){
@@ -151,26 +154,24 @@
 		
 		$(review_code).each(function(){
 			review_codeArr.push($(this).val());
-		})  			
-		
-		if(review_code != null){
+		})  				
+		if(review_codeArr != 0){
 			$.ajax({
    				type: "POST",
    				url: "userReviewDel.ur",
    				data: { "review_codeArr" : review_codeArr},
    				traditional: true,
    				success: function(data){
-   					//alert(data);
-   					alert('삭제되었습니당');
+   					alert('삭제되었습니다.');
    					location.reload();			//새로고침
    				},
    				error: function(data) {
-   					alert('오류!@#$%^');
+   					alert('오류입니다');
    					location.reload();
    				}
    			})
 		}else{
-			alert('삭제할 검색점을 선택하세요');
+			alert('삭제할 후기를 선택하세요');
 		}
 	})		
 </script>

@@ -53,7 +53,7 @@ public class ProList1Action implements Action {
 		//현재 페이지의 첫 페이지 수
 		int startPage= (((int)((double)page / 10 + 0.9)) - 1) * 10 + 1;
 		//현재 페이지의 마지막 페이지 수
-		int endPage= startPage + 5 - 1;
+		int endPage= startPage + 10 - 1;
 		
 		if(endPage > maxPage) endPage = maxPage;
 		

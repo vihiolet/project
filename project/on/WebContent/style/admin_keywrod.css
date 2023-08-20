@@ -1,7 +1,7 @@
 @charset "UTF-8";
 #key_list{
 	display:flex;
-	margin-right: 19%;
+	margin-right: 15%;
 	flex-wrap: wrap;
 }
 .btn{
@@ -64,7 +64,7 @@ form{
     font-weight: 600;
 }
 .keyword_list td:not(:first-child) {
-    width: 200px;
+    width: 185px;
     padding: 10px;
     text-align: center;
 /*    font-size: 15px;*/
@@ -75,4 +75,7 @@ form{
 .keyword_info .key{
 	/*border: none;*/
     text-align: center;
+}
+.emptyMs{
+	text-align: center;
 }

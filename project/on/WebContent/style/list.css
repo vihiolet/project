@@ -15,7 +15,7 @@
 }
 form{
 	display: flex;
-	margin-right: 19%;
+	margin-right: 15%;
 }
 .pro_list{
 	background: #fff;	
@@ -63,6 +63,9 @@ button{
 	text-align: center;
     font-size: 15px;
     width: 110px;
+}
+.proMs{
+	margin-top: 60px;
 }
 /*미디어쿼리 시작*/
 @media (min-width: 768px){   

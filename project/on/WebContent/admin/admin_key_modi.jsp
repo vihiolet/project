@@ -8,11 +8,11 @@
 <head>
     <meta charset="UTF-8">
     <title>검색점 수정</title>
+    <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style/common.css">
+	<link rel="stylesheet" href="style/admin_pro.css">
+	<link rel="stylesheet" href="style/head.css">
 </head>
-<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style/common.css">
-<link rel="stylesheet" href="style/admin_pro.css">
-<link rel="stylesheet" href="style/head.css">
 <body>
    <div class="admin_pro">
       <jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
@@ -45,7 +45,6 @@
                      </div> 
                     <div class="button">
                         <input type= "submit" class="reg" class="btn" value="수정">
-                        <input type="reset" class="reset" value="다시 쓰기">
                     </div>
                   </form>
             </div>

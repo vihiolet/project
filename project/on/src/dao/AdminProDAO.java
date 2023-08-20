@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 import java.util.ArrayList;
 import vo.AdminProBean;
-import vo.KeywordBean;
 import vo.ReviewBean;
 
 public class AdminProDAO {
@@ -139,10 +138,25 @@ public class AdminProDAO {
 		}
 		return deleteCount;
 	}
-	//권한 확인
-	public boolean isAdminUser(String id) {
+	//상품 삭제되면 리뷰도 삭제
+	public void removeProReview(int[] intProCodeArr) {
 		PreparedStatement pstmt= null;
-		return false;
+		String sql= "delete from review where pro_code= ?";
+		for(int i= 1; i< intProCodeArr.length; i++) {
+			sql += " or pro_code= ?";
+		}	
+		try {
+			pstmt= con.prepareStatement(sql);	
+			
+			for(int i= 1; i<= intProCodeArr.length; i++) {					
+				pstmt.setInt(i, intProCodeArr[i-1]);
+			}
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.err.println("제품 삭제로 후기 삭제에서 오류 : " + e);
+		}finally {
+			close(pstmt);
+		}		
 	}
 
 	//수정
@@ -357,5 +371,6 @@ public class AdminProDAO {
 		}
 		return listCount;
 	}
+
 	
 }

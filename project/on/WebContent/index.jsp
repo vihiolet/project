@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import= "vo.UserBean" %>
 <%@ page import= "java.util.*" %>    
@@ -22,9 +22,9 @@
     <div class="step1">
        <div class="slider">
           <ul>
-            <li><img src="img/main1.jpg" alt="메인이미지2"></li>
-            <li><img src="img/main01.jpg" alt="메인이미지1"></li>
-            <li><img src="img/main01.jpg" alt="메인이미지3"></li>                 
+            <li><img src="images/sliderImg1.jpg" alt="메인이미지1"></li>
+            <li><img src="images/sliderImg2.jpg" alt="메인이미지2"></li>
+            <li><img src="images/sliderImg3.jpg" alt="메인이미지3"></li>                 
           </ul>  
         </div> 
    </div>
@@ -69,8 +69,8 @@
        <div>
           <ul>
             <li>
-                <img src="images/main1.png" alt="메인이미지1">
-                <img src="images/main2.png" alt="메인이미지2">
+                <a href=""><img src="images/main1.png" alt="메인이미지1"></a>
+                <a href=""><img src="images/main2.png" alt="메인이미지2"></a>
             </li>                
           </ul>  
         </div> 

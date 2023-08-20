@@ -10,7 +10,7 @@
 <html lang="UTF-8">
 <head>
     <meta charset="UTF-8">
-    <title>관리자등록</title>
+    <title>관리자 조회</title>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="style/admin_emp.css">
     <link rel="stylesheet" href="style/head.css">
@@ -78,9 +78,6 @@
 	    		<a href="adminEmp.emp?page=${pageInfo.page + 1}">[다음]</a>
 	    	</c:otherwise>
 	    </c:choose>
-    	<c:if test= " ${EmpList == null && listCount.size() == 0 }">
-        	<p>등록된 관리자가 없습니다</p>
-    	</c:if>
     </div>
     </form>
        

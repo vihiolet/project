@@ -8,13 +8,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>제품수정페이지입니다</title>
+    <title>제품 수정</title>
+    <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<link rel="stylesheet" href="style/common.css">
+	<link rel="stylesheet" href="style/admin_pro.css">
+	<link rel="stylesheet" href="style/head.css">
 </head>
-<script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="style/common.css">
-<link rel="stylesheet" href="style/admin_pro.css">
-<link rel="stylesheet" href="style/head.css">
 <body>
    <div class="admin_pro">
       <jsp:include page="./../include/admin_header.jsp"></jsp:include>	<!--헤더-->
@@ -32,6 +32,7 @@
                         <p>상품 이름</p>
                         <p>검색점</p>
                         <p>상품 사진</p>
+                        <p>내용</p>
                   </div>
                   <form action="proModi.pr" method="post" enctype="multipart/form-data">
                   <c:if test= "${pro != null}">                  	
@@ -41,8 +42,8 @@
                         <div class="menu_radio sub">                        	                    
                               <input type="radio" name="menu_code" id="food" value="1"><label for="food">음식</label>
                               <input type="radio" name="menu_code" id="clothes" value="2"><label for="clothes">옷</label>
-                              <input type="radio" name="menu_code" id="beauty" value="3"><label for="beauty">미용</label>
-                              <input type="radio" name="menu_code" id="acce" value="4"><label for="acce">장신구</label>
+                              <input type="radio" name="menu_code" id="acce" value="3"><label for="acce">장신구</label>
+                              <input type="radio" name="menu_code" id="beauty" value="4"><label for="beauty">미용</label>                              
                               <input type="radio" name="menu_code" id="life" value="5"><label for="life">생활</label>   
                          </div>
                          <div class="company_text">                     
@@ -62,12 +63,14 @@
                              	<img src="images/${pro.pro_img }">
                              </div>                             
                              <input type= "hidden" id ="pro_img" name ="pro_img" value= "${pro.pro_img }">
-                         </div>                    
+                         </div>   
+                         <div class="pro_context">                     
+                             <input type="text" name="pro_context" value= "${pro.pro_explain }">
+                        </div>                   
                      </div> 
                     </c:if>
                     <div class="button">
                         <input type="submit" class="reg" value="수정">
-                        <input type="reset" class="reset" value="다시 쓰기">
                     </div>
                   </form>
             </div>

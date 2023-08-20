@@ -31,12 +31,10 @@ public class AdminQuitAction implements Action {
 		
 		boolean deleteRsult= adminDelService.deleteAdmin(id, passwdSalt);	
 		
-		System.out.println(passwd);
-		
 		if(deleteRsult){
 		   forward= new ActionForward();
 		   forward.setRedirect(true);
-		   forward.setPath("./index.jsp");
+		   forward.setPath("/adminLoginForm.ur");
 		   response.setContentType("text/html;charset=utf-8");
 		   PrintWriter out= response.getWriter();
 		   out.println("<script>");

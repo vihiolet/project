@@ -20,7 +20,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>검색점</title>
+    <title>검색점 조회</title>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="style/admin_keywrod.css">
     <link rel="stylesheet" href="style/head.css">
@@ -92,9 +92,7 @@
       		<%} %>
         </div>
         	 
-        <%	}else{ %>  
-        	<p>등록된 검색점이 없습니다</p>  
-        <% } %>      
+        <%	}%>       
     </form> 
     </div> 
                  
@@ -193,7 +191,7 @@
   				srch_codeArr.push($(this).val());
   			})  			
   			
-  			if(srch_code != null){
+  			if(srch_codeArr != 0){
   				$.ajax({
   	   				type: "POST",
   	   				url: "adminKeywordDel.ke",

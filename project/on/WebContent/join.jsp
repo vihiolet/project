@@ -20,7 +20,7 @@
 				<input type= "button" value= "id중복확인" onclick= "openIdChk()">
 				<input type= "hidden" name= "idDuplication" value= "idUnCheck">
 				<input type= "password" name= "passwd" placeholder="비밀번호">
-				<input type= "password" name= "passwdChk" placeholder="비밀번호 확인" onchange= "passChk()">
+				<input type= "password" name= "passwdChk" placeholder="비밀번호 확인" onchange= "passChk()" required= "required">
 				<p id= "passwdCheck">비밀번호 일치 확인</p>	
 				<input type= "text" name= "name" placeholder="성명">
 				<input type= "submit" class="join_btn" value="회원가입">   	

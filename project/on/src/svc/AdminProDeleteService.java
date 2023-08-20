@@ -19,6 +19,7 @@ public class AdminProDeleteService {
 		int deleteCount = adminProDAO.deleteProduct(intProCodeArr);
 		
 		if(deleteCount > 0) {
+			adminProDAO.removeProReview(intProCodeArr);
 			commit(con);
 			isRemoveSuccess= true;
 		}else {

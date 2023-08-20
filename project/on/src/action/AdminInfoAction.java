@@ -62,7 +62,7 @@ public class AdminInfoAction implements Action {
 				session.removeAttribute("id");
 				forward = new ActionForward();
 				forward.setRedirect(false);
-				forward.setPath("/login.jsp");
+				forward.setPath("/adminLoginForm.ur");
 			}else{
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out= response.getWriter();
@@ -86,7 +86,7 @@ public class AdminInfoAction implements Action {
 				session.removeAttribute("id");
 				forward = new ActionForward();
 				forward.setRedirect(false);
-				forward.setPath("/login.jsp");
+				forward.setPath("/adminLoginForm.ur");
 			}else{
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out= response.getWriter();

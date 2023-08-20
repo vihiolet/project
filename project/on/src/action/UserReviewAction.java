@@ -26,6 +26,7 @@ public class UserReviewAction implements Action {
 		request.setAttribute("userInfo", userInfo);
 		
 		ArrayList<Object> myReview = new ArrayList<Object>();
+		
 		UserReviewService userReviewService = new UserReviewService();
 		
 		int page= 1;
@@ -50,7 +51,7 @@ public class UserReviewAction implements Action {
 		pageInfo.setStartPage(startPage);
 		pageInfo.setEndPage(endPage);
 		
-		request.setAttribute("pageInfo", pageInfo);
+		request.setAttribute("pageInfo", pageInfo);		
 		request.setAttribute("myReview", myReview);
 		
 		forward.setPath("/front/UserReviewList.jsp");

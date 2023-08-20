@@ -1,5 +1,8 @@
 package action;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,6 +13,7 @@ import svc.AdminProListService;
 import svc.FrontProListService;
 import vo.ActionForward;
 import vo.AdminEmpBean;
+import vo.PageInfo;
 
 public class AdminMainAction implements Action {
 
@@ -17,19 +21,46 @@ public class AdminMainAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session= request.getSession();
-		
+		ActionForward forward= null;
 		String id= (String)session.getAttribute("id");
-		
-		ActionForward forward= new ActionForward();		
+		AdminEmpBean empInfo= null;
+		//empInfo 객체 생성
 		AdminInfoService adminInfoService= new AdminInfoService();
-		AdminEmpBean empInfo= adminInfoService.getUserInfo(id);
+
+		//관리자 계정인지 확인
+		ArrayList<String> empIdList = new ArrayList<String>();
+		empIdList = adminInfoService.getEmp_idList();
 		
-		request.setAttribute("empInfo", empInfo);
+		if(id == null) {
+			forward= new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("/adminLoginForm.ur");
+		}else if(id != null){			
+			for(int i=0; i < empIdList.size(); i++) {				
+				if(id.equals(empIdList.get(i).toString())) {
+					adminInfoService= new AdminInfoService();
+					empInfo= adminInfoService.getUserInfo(id);
+					request.setAttribute("empInfo", empInfo);
+					forward= new ActionForward();
+					forward= new ActionForward();
+					forward.setPath("admin_main.jsp");
+				}		
+			}
+			response.setContentType("text/html;charset=euc-kr");
+			PrintWriter out= response.getWriter();
+			out.println("<script>");
+			out.println("alert('관리자 계정으로 로그인하세요.');");
+			out.println("location.href='adminLoginForm.ur';");
+			out.println("</script>");
+		}
 		
-		//제품 개수
+		
 		AdminProListService adminProListService= new AdminProListService();
-		int proCount= adminProListService.getListCount();	
-		request.setAttribute("proCount", proCount);
+		
+		//가입자 수
+		adminInfoService= new AdminInfoService();
+		int userCount= adminInfoService.getUserCount();	
+		request.setAttribute("userCount", userCount);
 		
 		//후기 개수
 		int reviewCount= adminProListService.getReviewCount();
@@ -60,15 +91,7 @@ public class AdminMainAction implements Action {
 		AdminKeyListService adminKeyListService = new AdminKeyListService();
 		int keyCount= adminKeyListService.getListCount();
 		request.setAttribute("keyCount", keyCount);
-		
-		
-		
-		//empInfo 객체 생성
-		
-		
-		//System.out.println(empInfo.getEmp_name());
-		
-		forward.setPath("./admin_main.jsp");
+				
 		return forward;
 	}
 

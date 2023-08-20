@@ -1,21 +1,17 @@
 package action;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import svc.AdminInfoService;
-import svc.AdminProModifyService;
 import svc.KeywordModifyService;
-import svc.ProViewService;
-import svc.UserListService;
 import vo.ActionForward;
 import vo.AdminEmpBean;
-import vo.AdminProBean;
 import vo.KeywordBean;
-import vo.UserBean;
 
 public class AdminKeyModiFormAction implements Action{
 	
@@ -41,23 +37,31 @@ public class AdminKeyModiFormAction implements Action{
 		keyword= keywordModifyService.getKeyword(srch_code); 
 		request.setAttribute("keyword", keyword);
 		
-		forward= new ActionForward();
-		forward.setPath("/admin/admin_key_modi.jsp");
-		forward.setRedirect(false);
-
-		
 		//관리자 계정인지 확인
-		/*boolean isAdminUser= adminProModifyService.isKeyWriter(id);
-		if(!isAdminUser) {
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out= response.getWriter();
-			out.println("<script>");
-			out.println("alert('관리자 계정으로 로그인하세요');");
-			out.println("history.back();");
-			out.println("</script>");
-		}else {
-			//25행 ~
-		}*/
+		ArrayList<String> empIdList = new ArrayList<String>();
+		empIdList = adminInfoService.getEmp_idList();
+				
+		if(id == null) {
+			forward= new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("/adminLoginForm.ur");
+		}else if(id != null){
+			for(int i=0; i < empIdList.size(); i++) {
+				if(id.equals(empIdList.get(i).toString())) {
+					forward= new ActionForward();
+					forward.setPath("/admin/admin_key_modi.jsp");
+					forward.setRedirect(false);
+					break;
+				}else {
+					response.setContentType("text/html;charset=euc-kr");
+					PrintWriter out= response.getWriter();
+					out.println("<script>");
+					out.println("alert('관리자 계정으로 로그인하세요.');");
+					out.println("location.href='adminLoginForm.ur';");
+					out.println("</script>");
+				}				
+			}
+		}
 		return forward;		
 	}
 

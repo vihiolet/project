@@ -1,0 +1,127 @@
+@charset "UTF-8";
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid #e4e1db;
+}
+.login{
+	width: 100%;
+	display:flex;
+	padding-top: 7px;
+    padding-bottom: 7px;
+    background: #e9eaeb;
+}
+.login a{
+	flex: 1;
+	padding-left: 19.6%;
+}
+.login > div{
+	flex: 1;
+	text-align: right;
+    padding-right: 19.7%;
+}
+.login > div a{
+	padding-left: 15px;
+}
+.head1{
+    
+}
+.head1 img{
+	width: 45%;
+}
+.head2 a{
+    display: block;
+    padding: 30px 15px;
+    color: inherit;
+    font-size:  17px;
+    font-weight: 600;
+}
+.srch form{
+	display: inline-block;
+}
+.srch form input[type=text]{
+	border-radius: 50px;
+    border: 1px solid #6239c3;
+    padding: 5px;
+}
+.srch form input[type=submit]{
+	border: none;
+    padding: 5px 15px;
+    background: #6239c3;
+    color: #fff;
+        border-radius: 5px;
+}
+
+
+/*미디어쿼리 시작*/
+@media (min-width: 768px){
+    header .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 19% 0 19%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .head2 ul{
+        display: flex;
+    }
+    
+    .head3{
+        display: none;
+    }
+    
+    .head2{
+        display: block !important;
+    }
+    
+    .head2 a:hover{
+    	color : #6239c3;
+    }
+    .head4 ul{
+		display: flex;
+	}
+}
+@media (max-width: 767px){
+    header .container-small{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .head3{
+        margin-right: 10px;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 25px;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+    .head2{
+        display: none;
+    }
+    .head2 ul{
+        text-align: center;
+    }
+}
+
+/*admin style*/
+.head4 ul li span {
+    font-weight: 600;
+}
+.admin_cd, .admin_nm {
+    padding-right: 30px
+}
+
+.admincontainer{
+	line-height: 70px;
+}
+.admincontainer img{
+	line-height: 70px;
+    display: block;
+}

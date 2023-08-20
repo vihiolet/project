@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제품5 페이지</title>
+<title>생활 제품 조회</title>
 <script src="https://kit.fontawesome.com/3e4d6b2bc7.js" crossorigin="anonymous"></script>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="style/common.css">
@@ -43,12 +43,13 @@
 	     </c:if> 
 	     </div>
 	     <div id="pageList">
+	     <c:if test="${not empty articleList}">  
 		   	<c:choose>
 		    	<c:when test="${pageInfo.page <= 1}">
 		    		[이전]&nbsp;
 		    	</c:when>
 		    	<c:otherwise>
-		    		<a href="ProList1.fr?menu_code=5&page=${pageInfo.page - 1}">[이전]</a>&nbsp;
+		    		<a href="ProList5.fr?menu_code=5&page=${pageInfo.page - 1}">[이전]</a>&nbsp;
 		    	</c:otherwise>
 		    </c:choose>
 		   	<c:forEach var="i" begin="1" end="${pageInfo.maxPage}" >
@@ -57,7 +58,7 @@
 		   				[<c:out value="${i}" />]
 		   			</c:when>
 		   			<c:otherwise>
-		   				<a href="ProList1.fr?menu_code=5&page=${i}">[${i}]</a>
+		   				<a href="ProList5.fr?menu_code=5&page=${i}">[${i}]</a>
 		   			</c:otherwise>
 		   		</c:choose>
 		   	</c:forEach>
@@ -66,11 +67,12 @@
 		    		[다음]
 		    	</c:when>
 		    	<c:otherwise>
-		    		<a href="ProList1.fr?menu_code=5&page=2">[다음]</a>
+		    		<a href="ProList5.fr?menu_code=5&page=2">[다음]</a>
 		    	</c:otherwise>
 		    </c:choose>
-		   	<c:if test= " ${articleList == null && articleList.size() == 0 }">
-		       	<p>등록된 관리자가 없습니다</p>
+		    </c:if>
+		   	<c:if test="${empty articleList }">
+		       	<p>등록된 제품이 없습니다</p>
 		   	</c:if>
    		</div>
 	</section>	

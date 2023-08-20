@@ -15,9 +15,7 @@
        <div class="footcont">
           <div class="foot1">
                <img src="images/logo.png">
-               <i class="fa-brands fa-youtube icon"></i>     
-               <i class="fa-brands fa-instagram icon"></i>
-               <i class="fa-regular fa-paper-plane icon"></i>  
+				<p style="margin-top: 15px;">ⓒ 2023. ShinYunJin</p>
           </div>
           <div class="foot2">
               <ul>

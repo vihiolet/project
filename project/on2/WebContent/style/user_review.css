@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/*내가 쓴 리뷰 css*/
+
+.container .myContent{
+    width: 76%;
+    padding-left: 7%;
+    padding-top: 50px;
+}
+h2{
+	border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+.myContent > div{
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+.keyword_tit > td {
+	padding-bottom: 2%;
+}
+.review_list{
+	width: 100%;
+}
+.review_code{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.create_dt, .pro_nm, .create_id, .tit_fg, .sub_fg{
+	width: 148px;
+	text-align: center;
+	font-size: 15px;
+}
+table .review_info td {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.photo a{
+	display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+.sub_fg span{
+	display: inline-block;
+}
+button{	
+	background: #7c4fff21;
+    border: none;
+    padding: 3px 11px;
+    border-radius: 5px;
+}

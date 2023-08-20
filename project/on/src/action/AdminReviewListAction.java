@@ -1,5 +1,6 @@
 package action;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,17 +19,17 @@ public class AdminReviewListAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session= request.getSession();	
+		ActionForward forward= null;
 		String id= (String)session.getAttribute("id");
 		
-		AdminInfoService adminInfoService= null;
 		AdminEmpBean empInfo= null;
+		AdminInfoService adminInfoService= new AdminInfoService();
+
+		//관리자 계정인지 확인
+		ArrayList<String> empIdList = new ArrayList<String>();
+		empIdList = adminInfoService.getEmp_idList();		
 		
-		if(id != null) {					
-			adminInfoService= new AdminInfoService();
-			empInfo= adminInfoService.getUserInfo(id);
-			request.setAttribute("empInfo", empInfo);
-		}
-		//전체 상품 목록 저장할 객체
+		//전체 후기 목록 저장할 객체
 		ArrayList<ReviewBean> articleList= new ArrayList<ReviewBean>();
 		int page= 1;		
 		//한 페이지에 출력할 상품 최대 개수(페이지 개수 관계 X)
@@ -63,8 +64,29 @@ public class AdminReviewListAction implements Action {
 		request.setAttribute("pageInfo", pageInfo);
 		request.setAttribute("articleList", articleList);
 		
-		ActionForward forward= new ActionForward();
-		forward.setPath("/admin/admin_review.jsp");		
+		//관리자 계정 확
+		if(id == null) {
+			forward= new ActionForward();
+			forward.setRedirect(true);
+			forward.setPath("/adminLoginForm.ur");
+		}else if(id != null){			
+			for(int i=0; i < empIdList.size(); i++) {				
+				if(id.equals(empIdList.get(i).toString())) {
+					adminInfoService= new AdminInfoService();
+					empInfo= adminInfoService.getUserInfo(id);
+					request.setAttribute("empInfo", empInfo);
+					forward= new ActionForward();
+					forward= new ActionForward();
+					forward.setPath("/admin/admin_review.jsp");
+				}		
+			}
+			response.setContentType("text/html;charset=euc-kr");
+			PrintWriter out= response.getWriter();
+			out.println("<script>");
+			out.println("alert('관리자 계정으로 로그인하세요.');");
+			out.println("location.href='adminLoginForm.ur';");
+			out.println("</script>");
+		}		
 		
 		return forward;
 	}

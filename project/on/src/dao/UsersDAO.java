@@ -126,6 +126,29 @@ public class UsersDAO {
 		}	
 		return empInfo;
 	}
+	
+	//관리자 계정 확인
+	public ArrayList<String> selectEmpId() {
+		String sql= "select emp_id from emp";
+		ArrayList<String> empIdList= new ArrayList<String>();
+		String empId = null;
+		try {
+			pstmt=con.prepareStatement(sql);
+			rs= pstmt.executeQuery();
+			while(rs.next()) {
+				empId = new String();
+				empId = rs.getString("emp_id");
+				empIdList.add(empId);
+			}
+		}catch(Exception e) {
+			System.out.println("관리자 계정 확인에서 에러" + e);
+		}finally{
+			close(rs);
+			close(pstmt);
+		}
+		return empIdList;
+	}
+	
 	//로그인한 회원 불러오기 UserBean 타입
 	public UserBean selectUserInfo2(String id) {
 		
@@ -192,15 +215,15 @@ public class UsersDAO {
 	public ArrayList<ReviewBean> selectUserReview(String id) {
 		
 		String sql= "select * from review where id= ?";
-		ArrayList<ReviewBean> review= null;
-		ReviewBean rb= new ReviewBean();
+		ArrayList<ReviewBean> review= new ArrayList<ReviewBean>();
+		ReviewBean rb= null;
 		
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs= pstmt.executeQuery();
 			while(rs.next()) {
-				review= new ArrayList<ReviewBean>();
+				rb= new ReviewBean();
 				rb.setPro_code(rs.getInt("pro_code"));
 				rb.setTit_fg(rs.getInt("tit_fg"));
 				rb.setSub1_fg(rs.getInt("sub1_fg"));
@@ -216,7 +239,6 @@ public class UsersDAO {
 			close(rs);
 			close(pstmt);
 		}
-		
 		return review;
 	}
 	
@@ -375,5 +397,62 @@ public class UsersDAO {
 		
 		return myReview;
 			
+	}
+
+	//탈퇴하면 등록한 후기 삭제
+	public void delUserContext(String id) {
+		String sql = "delete from review where create_id= ?";
+		
+		try {
+			pstmt= con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.out.println("탈퇴 후 후기 삭제에서 오류" + e);
+		}finally {
+			close(pstmt);
+		}
+	}
+	
+	//내가 쓴 리뷰 삭제
+	public int deleteReview(int[] intCodeArr) {
+		String sql = "delete from review where review_code= ?";
+		for(int i= 1; i< intCodeArr.length; i++) {
+			sql += " or review_code= ?";
+		}	
+		
+		int deleteCount= 0;
+		try {
+			pstmt= con.prepareStatement(sql);	
+			
+			for(int i= 1; i<= intCodeArr.length; i++) {					
+				pstmt.setInt(i, intCodeArr[i-1]);
+			}
+			deleteCount= pstmt.executeUpdate();
+		}catch(Exception e) {
+			System.err.println("내가 쓴 후기 삭제에서 오류 : " + e);
+		}finally {
+			close(pstmt);
+		}
+		return deleteCount;
+	}
+
+	public int selectUserCount() {
+		int listCount= 0;
+		
+		try {
+			pstmt=con.prepareStatement("select count(*) from users");
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount= rs.getInt(1);
+			}
+		}catch(Exception ex) {
+			System.err.println("가입자 수 구하기에서 에러 발생 " + ex );
+		}finally {
+			close(con);
+			close(rs);
+		}
+		return listCount;
 	}	
 }
