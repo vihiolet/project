@@ -16,7 +16,6 @@ public class AdminKeyRegAction implements Action {
 		
 		ActionForward forward= null;
 		KeywordBean keywordBean= new KeywordBean();
-		ServletContext context= request.getServletContext();
 		
 		keywordBean.setSrch_name(request.getParameter("srch_name").trim());
 		keywordBean.setCreate_id(request.getParameter("create_id"));

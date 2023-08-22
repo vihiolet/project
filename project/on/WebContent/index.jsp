@@ -22,14 +22,16 @@
     <div class="step1">
        <div class="slider">
           <ul>
-            <li><img src="images/sliderImg1.jpg" alt="메인이미지1"></li>
-            <li><img src="images/sliderImg2.jpg" alt="메인이미지2"></li>
-            <li><img src="images/sliderImg3.jpg" alt="메인이미지3"></li>                 
+            <li><img src="images/sliderImg1.png" alt="메인이미지1"></li>
+            <li><img src="images/sliderImg2.png" alt="메인이미지2"></li>
+            <li><img src="images/sliderImg3.png" alt="메인이미지3"></li>                 
           </ul>  
         </div> 
    </div>
    <div class="step2">
-          <div class="banner"></div>
+          <div class="banner">
+          	<p>고르고 또 골라 자신있게 추천하는 제품</p>
+          </div>
            <ul>
                <li>
                	<c:if test= "${mainpro1 != null}">

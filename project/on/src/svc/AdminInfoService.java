@@ -41,7 +41,7 @@ public class AdminInfoService {
 		userDAO.setConnection(con);
 		int userCount= userDAO.selectUserCount();
 		close(con);
-		return 0;
+		return userCount;
 	}
 
 }

@@ -7,7 +7,7 @@
 	width: 150px;
     text-align: center;
     background: #eee;
-    height: calc(100vh - 70px); 
+    min-height: calc(100vh - 70px); 
 }
 .btn a{
 	display: block;

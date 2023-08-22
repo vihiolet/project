@@ -37,9 +37,9 @@ public class AdminProRegAcrion implements Action{
 		}
 		
 		AdminProBean adminProBean = new AdminProBean();
-		
+		String realFolder= "/home/ubuntu/images";
 		int fileSize= 5*1024*1024;
-		String realFolder= "/tomcat/apache-tomcat-9.0.78/bin/images";
+
 		MultipartRequest multi = new MultipartRequest(request, realFolder, fileSize,  "UTF-8", new DefaultFileRenamePolicy());
 		adminProBean.setCreate_id(multi.getParameter("create_id"));		
 		adminProBean.setPro_nm(multi.getParameter("pro_nm"));
@@ -47,14 +47,14 @@ public class AdminProRegAcrion implements Action{
 		adminProBean.setPro_company(multi.getParameter("pro_company"));
 		adminProBean.setPro_img(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
 		adminProBean.setSrch_code1(Integer.parseInt(multi.getParameter("srch_code1")));
+		adminProBean.setSrch_nm1(multi.getParameter("srch_nm1"));
+		adminProBean.setCreate_id(multi.getParameter("create_id"));
 		String pro_context= multi.getParameter("pro_context");
 		adminProBean.setPro_explain(pro_context);
-
 		if(multi.getParameter("pro_context") == null){
 			pro_context= "";
-		}
+		}		
 		
-		adminProBean.setCreate_id(multi.getParameter("create_id"));
 		AdminProRegService adminProRegService = new AdminProRegService();
 		boolean isSuccess = adminProRegService.registArticle(adminProBean); //등록 성공하면 true 실패하면 false
 		

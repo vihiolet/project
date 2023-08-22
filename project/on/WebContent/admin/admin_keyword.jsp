@@ -41,18 +41,18 @@
             <input type="button" class="rebtn"value="삭제" id= "delete_btn">
       </div>
       <table class="keyword_list">
-      	<%if(keywordList != null && listCount > 0){%>
-           <tr class="keyword_tit">
+      	<tr class="keyword_tit">
                 <td><input type="checkbox" name="allcheck" style="margin-left: 10px;" onClick='allCheck()'></td>                
                 <td>검색점</td>
                 <td>등록인</td>
                 <!-- <td>사용여부</td> -->
                 <td>비고</td>
             </tr>
+      	<%if(keywordList != null && listCount > 0){%>
+           
         	<%for(int i=0; i < keywordList.size(); i++) {%>    
             	
-            <tr class="keyword_info">    
-				
+            <tr class="keyword_info">   				
 	                <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
 	                <td>	           
 		                <input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
@@ -63,13 +63,33 @@
 	                </td>
 					<td>   
 						<a href="adminKeywordModiForm.ke?srch_code=<%=keywordList.get(i).getSrch_code() %>" class= "srch_code">             	
-	                		<input type="text" name="" id= "remark" class= "key remark" size="35" value="<%=keywordList.get(i).getRemark() %>" size= "40">
+	                		<input type="text" name="" id= "remark" class= "key remark" size="30" value="<%=keywordList.get(i).getRemark() %>">
 	                	</a>
-	                </td>
-   		
+	                </td>  		
             </tr>  
             <%} %>
-      </table> 
+      
+       	<%}else{%>
+        	<tr class="keyword_info">   				
+	                <td><input type="checkbox" name="srch_code" id= "srch_code"  style="margin-left: 10px;"></td>
+	                <td>	           
+		                <input type="hidden" value="">
+		                <input type="text" name="srch_name" id= "srch_name" class="firstkey" size="15" >                	
+	                </td>
+	                <td>                	
+	                	<input type="text" name="create_id" id= "create_id" class= "" size="15" value="<%=id %>" readonly>
+	                </td>
+					<td>                	
+                		<input type="text" name="remark" id= "remark" class= "" size="35" value="" size= "40" placeholder="">
+	                </td>  		
+            </tr>
+        <%} %>
+       </table> 
+       <%if(keywordList != null && listCount > 0){%>
+       		
+       <%}else{%>
+       		<p class="emptyKey">최초 검색점을 등록하세요.</p>
+       <%} %>
       <div id="pageList">
         	<%if(nowPage <= 1) { %>
            		[이전]&nbsp;
@@ -92,25 +112,29 @@
       		<%} %>
         </div>
         	 
-        <%	}%>       
+              
     </form> 
     </div> 
                  
   
  <script>
+	 
 	//=======
 	//행 추가
 	//=======
 	let rowLenght;
-  		let rowValue;
-  		let fg= true;
-  		let srch_name= $('.addInput #srch_name');
+	let rowValue;
+	let fg= true;
+	let srch_name= $('.addInput #srch_name');
   		
   	//추가 버튼 이벤트 헨들러
     function addClick(){    
       		if(fg){                
           		addData();
-          		removeValue();                
+          		removeValue();  
+          		document.querySelector('.addInput').querySelector('.srch_code').addEventListener('click', function(e) {
+          		     e.preventDefault();                                                                                             
+          		 });
       		}else{
           		alert('내용을 저장하고 추가하십시오');
       		}	
@@ -144,20 +168,18 @@
 		function checkForm(){
   			let srch_name= $('.addInput #srch_name');
 			let create_id= $('.addInput #create_id');
+			
+			let srch_nameFirst= $('.firstkey');
 		
 			//===========
   			//필수값 체크
   			//===========
-  			if(rowValue == undefined){   				//행추가 하지 않고 저장버튼을 눌렀을 경우
+  			if(rowLenght > 1 && rowValue == undefined){  //행추가 하지 않고 저장버튼을 눌렀을 경우
   				alert('검색점을 추가 후 저장하세요.');   				
   				return false;   				
-  			}else if(srch_name.val() == ''){			//검색점을 입력하지 않고 저장했을 경우
+  			}else if(srch_name.val() == '' || srch_nameFirst.val() == ''){			//검색점을 입력하지 않고 저장했을 경우
   				alert('검색점은 필수값입니다.');
-  				return false;
-  			}else if(create_id.val() == ''){			//등록인을 입력하지 않고 저장했을 경우
-  				alert('등록인은 필수값입니다.');
-  				//location.reload();
-  				return false;
+  				return false;  			
   			}
   			alert('등록되었습니다.');
   			return true;   				
@@ -168,7 +190,19 @@
   			let ac= document.regKeyword.allcheck;
   			let sc= document.regKeyword.srch_code;
   			
+  			//검색점 1개일 때 체크
   			if(ac.checked == true){
+  				if(sc.length == undefined){
+  					sc.checked = true;
+  				}
+  			}else{
+  				if(sc.length == undefined){
+  					sc.checked = false;
+  				}
+  			}
+  			
+  			//검색점이 두 개 이상일 때 체크
+  			if(ac.checked == true ){
   				for(i= 0; i< sc.length; i++){
   					sc[i].checked = true;
   				}
@@ -191,15 +225,19 @@
   				srch_codeArr.push($(this).val());
   			})  			
   			
+  			let valueCk= $('.firstkey').val();
+  			
   			if(srch_codeArr != 0){
   				$.ajax({
   	   				type: "POST",
   	   				url: "adminKeywordDel.ke",
   	   				data: { "srch_codeArr" : srch_codeArr},
   	   				traditional: true,				//전달 데이터는 배열
-  	   				success: function(data){		
-  	   					alert('삭제되었습니다');
-  	   					location.reload();			//새로고침
+  	   				success: function(data){	
+  	   					if(valueCk != ''){
+	  	   					alert('삭제되었습니다');
+	  	   					location.reload();			//새로고침
+  	   					}  	   					
   	   				},
   	   				error: function(data) {
   	   					alert('삭제 오류');

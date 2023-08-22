@@ -1,7 +1,7 @@
 //페이지 로드될 때 스크립트 시작 너무 느리다 첫 슬라이드까지 9초 넘게 걸린다
 setInterval(function(){
     moveRight();
-},4500);
+},4000);
 
 let slideCount = $(".slider ul li").length;
 let slideWidth = $(".slider ul li").width();

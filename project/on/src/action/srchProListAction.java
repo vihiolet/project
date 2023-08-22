@@ -56,7 +56,7 @@ public class srchProListAction implements Action {
 		
 		if(srch_nm != "") {
 			//검색점으로 검색한 상품 개수
-			listCount= frontProListService.selectMainSrchProCount(srch_nm);
+			//listCount= frontProListService.selectMainSrchProCount(srch_nm);
 			if(menu_code != 0) {		
 				//검색점으로 검색한 상품 개수
 				listCount= frontProListService.selectSrchProCount(srch_nm, menu_code);
@@ -72,7 +72,8 @@ public class srchProListAction implements Action {
 		}
 		
 		if(pro_nm != "") {			
-			pro_nm= (String)session.getAttribute("pro_nm");
+			//pro_nm= (String)session.getAttribute("pro_nm");
+			//listCount= frontProListService.selectMainNameProCount(pro_nm);			
 			if(menu_code != 0) {
 				//제품명으로 검색한 상품 개수
 				listCount= frontProListService.selectNameProCount(pro_nm, menu_code);

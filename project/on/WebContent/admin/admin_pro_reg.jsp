@@ -57,7 +57,8 @@
                              <input type="file" name="pro_img" required= "required">
                          </div>    
 						<div class="pro_context">                     
-                             <input type="text" name="pro_context">
+                             <input type="text" name="pro_context" size="48"  maxlength="30">
+                             <p class="contextMs">띄어쓰기 포함 30자</p>
                         </div>                    
                      </div> 
                     <div class="button">

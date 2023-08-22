@@ -33,7 +33,7 @@ public class AdminKeyListAction implements Action {
 		
 		ArrayList<KeywordBean> keywordList= new ArrayList<KeywordBean>();
 		int page= 1;
-		int limit= 14;
+		int limit= 10;
 		if(request.getParameter("page") != null) {
 			page= Integer.parseInt(request.getParameter("page"));
 		}

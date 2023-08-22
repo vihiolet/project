@@ -29,8 +29,8 @@
                         <p class="myVote"><span>${reviewBean.reviewCount}</span>개</p>
                     </div>
                     <div class="vanner">    
-                        <div><a href=""><img src="images/vanner1.png" alt=""></a></div>
-                        <div><a href=""><img src="images/vanner2.png" alt=""></a></div>            
+                        <div><a href="ProList1.fr?menu_code=1"><img src="images/vanner1.png" alt=""></a></div>
+                        <div><a href="ProList3.fr?menu_code=3"><img src="images/vanner2.png" alt=""></a></div>            
                     </div>
                     <p class="porList_tit">최근 후기 투표한 제품</p>
                     <div class="porList">   

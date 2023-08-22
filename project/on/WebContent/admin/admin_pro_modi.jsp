@@ -23,7 +23,7 @@
           <div class="content">
           	<div class="btn">
 	    		<a href="adminProList.pr" >제품 조회</a>
-	    		<a href="productRegForm.pr" class= "reg">제품 등록</a>     
+	    		<a href="productRegForm.pr">제품 등록</a>     
 	  		</div>
             <div class="bg">
                 <div class="pro_tit"> 
@@ -65,8 +65,9 @@
                              <input type= "hidden" id ="pro_img" name ="pro_img" value= "${pro.pro_img }">
                          </div>   
                          <div class="pro_context">                     
-                             <input type="text" name="pro_context" value= "${pro.pro_explain }">
-                        </div>                   
+                             <input type="text" name="pro_context" size="48"  maxlength="25">
+                             <p class="contextMs">띄어쓰기 포함 25자</p>
+                        </div>                     
                      </div> 
                     </c:if>
                     <div class="button">

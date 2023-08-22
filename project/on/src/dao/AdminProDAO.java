@@ -98,15 +98,16 @@ public class AdminProDAO {
 		String sql= "";
 		
 		try {			
-			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, create_dt, create_id, pro_context) values(?, ?, ?, ?, ?, now(), ?, ?)";
+			sql= "insert into product(pro_nm, menu_code, pro_company, pro_img, srch_code1, srch_nm1, create_dt, create_id, pro_context) values(?, ?, ?, ?, ?, ?, now(), ?, ?)";
 			pstmt= con.prepareStatement(sql);
 			pstmt.setString(1, adminProBean.getPro_nm());
 			pstmt.setInt(2, adminProBean.getMenu_code());
 			pstmt.setString(3, adminProBean.getPro_company());
 			pstmt.setString(4, adminProBean.getPro_img());
 			pstmt.setInt(5, adminProBean.getSrch_code1());
-			pstmt.setString(6, adminProBean.getCreate_id());
-			pstmt.setString(7, adminProBean.getPro_explain());
+			pstmt.setString(6, adminProBean.getSrch_nm1());
+			pstmt.setString(7, adminProBean.getCreate_id());
+			pstmt.setString(8, adminProBean.getPro_explain());
 			insertCount= pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
