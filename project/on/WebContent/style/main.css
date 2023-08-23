@@ -29,7 +29,7 @@
 .step2 .banner{
     width: 100%;
     height: 82px;
-    background: #222;
+    background: #6239c3;
     color: #fff;
     text-align: center;
     line-height: 82px;
@@ -64,6 +64,7 @@
     overflow: hidden;
     height: 400px;
     padding-top: 5.5%;
+    margin-bottom: 5.5%;
 }
 
 .step3 div ul {
@@ -144,7 +145,10 @@
     font-size: 22px;
     padding-left: 50px;
     font-weight: 600;
-    color: #999;
+    color: #222;
+}
+.step4 .keyword .tit span{
+	font-size: 15px;
 }
 .step4 .keyword > div{
 /*    --gap: 5rem;*/

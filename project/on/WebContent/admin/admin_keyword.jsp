@@ -17,9 +17,9 @@
 %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>검색점 조회</title>
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="style/admin_keywrod.css">
@@ -31,13 +31,13 @@
 	<jsp:include page="./../include/left_menu.jsp"></jsp:include>	<!--왼쪽 메뉴-->
 <div id= "key_list">
 	<div class="btn">
-	    		<a href=adminKey.ke class= "list">검색점 조회</a>   
+	    	<a href=adminKey.ke class= "list">검색점 조회</a>   
 	 </div>
    	<form action="adminKeywordReg.ke" method="post" name= "regKeyword" onsubmit= "return checkForm()">
       <div>
             <input type="button"  class="add rebtn" value="추가" onclick= "addClick()">
             <input type="button" class="rebtn" value="수정" id='modify_btn'>
-            <input type="submit" class="rebtn" value="저장" id='save_btn'>            
+            <input type="submit" class="reg rebtn" value="저장" id='save_btn'>            
             <input type="button" class="rebtn"value="삭제" id= "delete_btn">
       </div>
       <table class="keyword_list">
@@ -48,12 +48,13 @@
                 <!-- <td>사용여부</td> -->
                 <td>비고</td>
             </tr>
-      	<%if(keywordList != null && listCount > 0){%>
+
+            <%if(keywordList != null && listCount > 0){%>
            
         	<%for(int i=0; i < keywordList.size(); i++) {%>    
             	
             <tr class="keyword_info">   				
-	                <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
+	                <td><input type="checkbox" name="srch_code" id= "srch_code" class= "key srch_code" value="<%=keywordList.get(i).getSrch_code() %>" style="margin-left: 10px;"></td>
 	                <td>	           
 		                <input type="hidden" value="<%=keywordList.get(i).getSrch_code() %>">
 		                <input type="text" name="" id= "srch_name" class= "key srch_name" size="15" value="<%=keywordList.get(i).getSrch_name() %>">                	
@@ -62,62 +63,57 @@
 	                	<input type="text" name="" id= "create_id" class= "key create_id" size="15" value="<%=keywordList.get(i).getCreate_id() %>" readonly>
 	                </td>
 					<td>   
-						<a href="adminKeywordModiForm.ke?srch_code=<%=keywordList.get(i).getSrch_code() %>" class= "srch_code">             	
+						<a href="adminKeywordModiForm.ke?srch_code=<%=keywordList.get(i).getSrch_code() %>" class= "mvModiForm">             	
 	                		<input type="text" name="" id= "remark" class= "key remark" size="30" value="<%=keywordList.get(i).getRemark() %>">
 	                	</a>
 	                </td>  		
             </tr>  
             <%} %>
       
-       	<%}else{%>
-        	<tr class="keyword_info">   				
-	                <td><input type="checkbox" name="srch_code" id= "srch_code"  style="margin-left: 10px;"></td>
-	                <td>	           
-		                <input type="hidden" value="">
-		                <input type="text" name="srch_name" id= "srch_name" class="firstkey" size="15" >                	
-	                </td>
-	                <td>                	
-	                	<input type="text" name="create_id" id= "create_id" class= "" size="15" value="<%=id %>" readonly>
-	                </td>
-					<td>                	
-                		<input type="text" name="remark" id= "remark" class= "" size="35" value="" size= "40" placeholder="">
-	                </td>  		
-            </tr>
-        <%} %>
-       </table> 
-       <%if(keywordList != null && listCount > 0){%>
-       		
+	       	<%}else{%>
+	        	<tr class="keyword_info">   				
+		                <td><input type="checkbox" name="srch_code" id= "srch_code"  style="margin-left: 10px;"></td>
+		                <td>	           
+			                <input type="hidden" value="">
+			                <input type="text" name="srch_name" id= "srch_name" class="firstkey" size="15" >                	
+		                </td>
+		                <td>                	
+		                	<input type="text" name="create_id" id= "create_id" class= "" size="15" value="<%=id %>" readonly>
+		                </td>
+						<td>                	
+	                		<input type="text" name="remark" id= "remark" class= "" size="35" value="" size= "40" placeholder="">
+		                </td>  		
+	            </tr>
+	        <%} %>
+         </table>
+         <%if(keywordList != null && listCount > 0){%>
+       		<div id="pageList">
+	        	<%if(nowPage <= 1) { %>
+	           		[이전]&nbsp;
+	      		<% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
+	           		<a href="adminKey.ke?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
+	      		<% } %>
+	      		
+	      		<%for(int a= startPage; a <= endPage; a++){ 
+	      			if(a == nowPage){%>
+	      				[<%=a %>]
+	      			<%}else{ %>
+	      				<a href="adminKey.ke?page=<%= a %>">[<%= a %>]</a>&nbsp;
+	      			<%} %>          			
+	      		<%} %>
+	      		
+	      		<%if(nowPage >= maxPage){ %>
+	      			[다음]
+	      		<%}else{ %>
+	      			<a href="adminKey.ke?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
+	      		<%} %>
+        	</div>
        <%}else{%>
        		<p class="emptyKey">최초 검색점을 등록하세요.</p>
-       <%} %>
-      <div id="pageList">
-        	<%if(nowPage <= 1) { %>
-           		[이전]&nbsp;
-      		<% }else {%>		<!-- 이전 페이지가 존재하면 [이전] 텍스트에 직전 페이지 링크 -->
-           		<a href="adminKey.ke?page=<%=nowPage - 1 %>">[이전]</a>&nbsp;
-      		<% } %>
-      		
-      		<%for(int a= startPage; a <= endPage; a++){ 
-      			if(a == nowPage){%>
-      				[<%=a %>]
-      			<%}else{ %>
-      				<a href="adminKey.ke?page=<%= a %>">[<%= a %>]</a>&nbsp;
-      			<%} %>          			
-      		<%} %>
-      		
-      		<%if(nowPage >= maxPage){ %>
-      			[다음]
-      		<%}else{ %>
-      			<a href="adminKey.ke?page=<%= nowPage + 1 %>">[다음]</a>&nbsp;
-      		<%} %>
-        </div>
-        	 
-              
+       <%} %>      
     </form> 
     </div> 
-                 
-  
- <script>
+  <script>
 	 
 	//=======
 	//행 추가
@@ -128,16 +124,20 @@
 	let srch_name= $('.addInput #srch_name');
   		
   	//추가 버튼 이벤트 헨들러
-    function addClick(){    
-      		if(fg){                
-          		addData();
-          		removeValue();  
-          		document.querySelector('.addInput').querySelector('.srch_code').addEventListener('click', function(e) {
-          		     e.preventDefault();                                                                                             
-          		 });
-      		}else{
-          		alert('내용을 저장하고 추가하십시오');
-      		}	
+    function addClick(){   
+  		let addBtn= '<%= listCount%>';
+   		if(fg && addBtn > 0){                
+       		addData();
+       		removeValue();  
+       		document.querySelector('.addInput').querySelector('.srch_code').addEventListener('click', function(e) {
+       		     e.preventDefault();                                                                                             
+       		 });
+       		document.querySelector('.addInput').querySelector('.mvModiForm').addEventListener('click', function(e) {
+      		     e.preventDefault();                                                                                             
+      		 });
+   		}else{
+       		alert('내용을 저장하고 추가하십시오');
+   		}	
 	}
   		
     //이전 행 복제
@@ -251,7 +251,7 @@
   		})
   		
   		//수정
-  		$(document).ready(function(){  			
+  		$(document).ready(function(){  	
   			let srch_name= null;
   			let srch_code= null;
   				
@@ -259,7 +259,13 @@
   			$('.srch_name').change(function(){
   				srch_name= $(this).val();
   				srch_code= $(this).prev().val();
-  				$('input').not(this).not('.rebtn').css({'background':'#eee', 'border':'2px solid #eee'}).attr('readonly', true);			
+  				$('input').not(this).not('.rebtn').css({'background':'#eee', 'border':'2px solid #eee'}).attr('readonly', true);
+  				
+  				//저장 버튼 통제
+  				document.querySelector('.reg').addEventListener('click', function(e) {
+  	      		     e.preventDefault();                                  
+  	      		     alert('수정버튼을 누르세요.');
+  	      		 });
   			})
   	  		
   			$('#modify_btn').on("click", function(e){

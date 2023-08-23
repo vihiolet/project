@@ -43,19 +43,6 @@ public class AdminProModiFormAction implements Action{
 		forward.setPath("/admin/admin_pro_modi.jsp");
 		forward.setRedirect(false);
 
-		
-		//관리자 계정인지 확인
-		/*boolean isAdminUser= adminProModifyService.isKeyWriter(id);
-		if(!isAdminUser) {
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out= response.getWriter();
-			out.println("<script>");
-			out.println("alert('관리자 계정으로 로그인하세요');");
-			out.println("history.back();");
-			out.println("</script>");
-		}else {
-			//25행 ~
-		}*/
 		return forward;		
 	}
 

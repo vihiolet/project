@@ -42,9 +42,7 @@
 		       	  	<tr class="review_info">          	
 			             <td><input type="checkbox" name="review_code" class= "review_code" value="${articleList.review_code}"></td>               
 			             <td class="photo">
-			             	<a href="Pro_view.fr?pro_code=${articleList.pro_code}" class="img">
-			             		<img src="images/${articleList.pro_img}" alt="">
-			             	</a>
+			             	<img src="images/${articleList.pro_img}" alt="">
 			             </td>
 			             <td><p class= "pro_nm">${articleList.pro_nm}</p></td>
 			             <td>
@@ -133,8 +131,8 @@
 	<script>
 		//다중 체크
 		function allCheck(){
-			let ac= document.regKeyword.allcheck;
-			let sc= document.regKeyword.srch_code;
+			let ac= document.getElementById('allcheck');
+			let sc= document.getElementsByClassName('review_code');
 			
 			if(ac.checked == true){
 				for(i= 0; i< sc.length; i++){

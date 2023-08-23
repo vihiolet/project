@@ -476,8 +476,8 @@ public class FrontProDAO {
 			PreparedStatement pstmt= null;
 			ResultSet rs= null;
 			try {
-				pstmt=con.prepareStatement("select count(*) from product where pro_nm= ?");
-				pstmt.setString(1, pro_nm);
+				pstmt=con.prepareStatement("select count(*) from product where pro_nm like ?");
+				pstmt.setString(1, "%"+pro_nm+"%");
 				rs= pstmt.executeQuery();
 				
 				if(rs.next()) {
@@ -493,49 +493,50 @@ public class FrontProDAO {
 		}
 		
 		//검색으로 나온 제품 개수(검색점)
-				public int selectSrchProCount(String srch_nm, int menu_code) {
-					int listCount= 0;
-					PreparedStatement pstmt= null;
-					ResultSet rs= null;
+			public int selectSrchProCount(String srch_nm, int menu_code) {
+				int listCount= 0;
+				PreparedStatement pstmt= null;
+				ResultSet rs= null;
+				
+				try {
+					pstmt=con.prepareStatement("select count(*) from product where srch_code1= (select srch_code from keyword where srch_name= ?) and menu_code=" + menu_code);
+					pstmt.setString(1, srch_nm);
+					rs= pstmt.executeQuery();
 					
-					try {
-						pstmt=con.prepareStatement("select count(*) from product where srch_code1= (select srch_code from keyword where srch_name= ?) and menu_code=" + menu_code);
-						pstmt.setString(1, srch_nm);
-						rs= pstmt.executeQuery();
-						
-						if(rs.next()) {
-							listCount= rs.getInt(1);
-						}
-					}catch(Exception ex) {
-						System.err.println("검색으로 나온 개수 구하기에서 에러 발생 " + ex );
-					}finally {
-						close(con);
-						close(rs);
+					if(rs.next()) {
+						listCount= rs.getInt(1);
 					}
-					return listCount;
+				}catch(Exception ex) {
+					System.err.println("검색으로 나온 개수 구하기에서 에러 발생 " + ex );
+				}finally {
+					close(con);
+					close(rs);
 				}
+				return listCount;
+			}
 
-				//검색으로 나온 제품 개수(제품명)
-				public int selectNameProCount(String pro_nm, int menu_code) {
-					int listCount= 0;
-					PreparedStatement pstmt= null;
-					ResultSet rs= null;
-					try {
-						pstmt=con.prepareStatement("select count(*) from product where pro_nm= ? and menu_code=" + menu_code);
-						pstmt.setString(1, pro_nm);
-						rs= pstmt.executeQuery();
-						
-						if(rs.next()) {
-							listCount= rs.getInt(1);
-						}
-					}catch(Exception ex) {
-						System.err.println("검색으로 나온 개수 구하기에서 에러 발생 " + ex );
-					}finally {
-						close(con);
-						close(rs);
+			//검색으로 나온 제품 개수(제품명)
+			public int selectNameProCount(String pro_nm, int menu_code) {
+				int listCount= 0;
+				PreparedStatement pstmt= null;
+				ResultSet rs= null;
+				try {
+					pstmt=con.prepareStatement("select count(*) from product where pro_nm like ? and menu_code=" + menu_code);
+					pstmt.setString(1, "%"+pro_nm+"%");
+					rs= pstmt.executeQuery();
+					
+					if(rs.next()) {
+						listCount= rs.getInt(1);
 					}
-					return listCount;
+				}catch(Exception ex) {
+					System.err.println("검색으로 나온 개수 구하기에서 에러 발생 " + ex );
+				}finally {
+					close(con);
+					close(rs);
 				}
+				
+				return listCount;
+			}
 		
 		//메뉴에서 검색하여 나온 제품
 		public ArrayList<AdminProBean> selectSrchProList(int page, int limit, int menu_code, String srch_nm) {
@@ -612,16 +613,17 @@ public class FrontProDAO {
 		public ArrayList<AdminProBean> selectNameProList(int page, int limit, int menu_code, String pro_nm) {
 			PreparedStatement pstmt= null;
 			ResultSet rs= null;
-			String sql= "select * from product where menu_code= " + menu_code + " and pro_nm= ? limit ?, " + limit;
+			String sql= "select * from product where menu_code= " + menu_code + " and pro_nm like ? limit ?, " + limit;
 			ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
 			AdminProBean adminProBean= null;
 			int startrow= (page - 1) * limit;	
 			
 			try {
 				pstmt= con.prepareStatement(sql);
-				pstmt.setString(1, pro_nm);
+				pstmt.setString(1, "%"+pro_nm+"%");
 				pstmt.setInt(2, startrow);	
 				rs= pstmt.executeQuery();
+				System.out.println(pstmt);
 				
 				while(rs.next()) {
 					adminProBean= new AdminProBean();
@@ -647,14 +649,14 @@ public class FrontProDAO {
 		public ArrayList<AdminProBean> selectMainNameProList(int page, int limit, String pro_nm) {
 			PreparedStatement pstmt= null;
 			ResultSet rs= null;
-			String sql= "select * from product where pro_nm= ? limit ?, " + limit;
+			String sql= "select * from product where pro_nm like ? limit ?, " + limit;
 			ArrayList<AdminProBean> articleList= new ArrayList<AdminProBean>();
 			AdminProBean adminProBean= null;
 			int startrow= (page - 1) * limit;	
 			
 			try {
 				pstmt= con.prepareStatement(sql);
-				pstmt.setString(1, pro_nm);
+				pstmt.setString(1, "%"+pro_nm+"%");
 				pstmt.setInt(2, startrow);	
 				rs= pstmt.executeQuery();
 				

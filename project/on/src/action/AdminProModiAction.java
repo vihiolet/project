@@ -52,7 +52,14 @@ public class AdminProModiAction implements Action {
 		pro.setPro_company(multi.getParameter("pro_company"));
 		pro.setPro_img(multi.getParameter("pro_img"));
 		pro.setSrch_code1(Integer.parseInt(multi.getParameter("srch_code1")));
-		pro.setSrch_nm1(multi.getParameter("srch_nm1"));	//테스트하고 ~3까지 추가하기
+		pro.setSrch_nm1(multi.getParameter("srch_nm1"));	
+		pro.setCreate_id(multi.getParameter("create_id"));
+		String pro_context= multi.getParameter("pro_context");
+		pro.setPro_explain(pro_context);
+		if(multi.getParameter("pro_context") == null){
+			pro_context= "";
+		}
+		
 		request.setAttribute("pro", pro);
 		
 		boolean isModifySuccess= false;

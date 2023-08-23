@@ -65,7 +65,7 @@
                              <input type= "hidden" id ="pro_img" name ="pro_img" value= "${pro.pro_img }">
                          </div>   
                          <div class="pro_context">                     
-                             <input type="text" name="pro_context" size="48"  maxlength="25">
+                             <input type="text" name="pro_context" size="48"  value="${pro.pro_explain }" maxlength="25">
                              <p class="contextMs">띄어쓰기 포함 25자</p>
                         </div>                     
                      </div> 

@@ -12,5 +12,4 @@
 		url ="jdbc:mysql://mydatabase.c3guwtchkl85.ap-northeast-2.rds.amazonaws.com:3306/project"
 		maxActive="500"
 		/>
-
 </Context>

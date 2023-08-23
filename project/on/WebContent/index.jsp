@@ -45,7 +45,7 @@
                   <c:if test= "${mainpro3 != null}">
                   <a href="Pro_view.fr?pro_code=${mainpro3.pro_code}">
                       <img src="images/${mainpro3.pro_img }" alt="">
-                   <p>${mainpro2.pro_nm }</p>
+                   <p>${mainpro3.pro_nm }</p>
                   </a>       
                  </c:if> 
                 </li>
@@ -71,14 +71,14 @@
        <div>
           <ul>
             <li>
-                <a href=""><img src="images/main1.png" alt="메인이미지1"></a>
-                <a href=""><img src="images/main2.png" alt="메인이미지2"></a>
+                <a href="https://vihiolet.github.io/"><img src="images/main1.png" alt="메인이미지1"></a>
+                <a href="https://vihiolet.github.io/"><img src="images/main2.png" alt="메인이미지2"></a>
             </li>                
           </ul>  
         </div> 
    </div>
    <div class="step4">
-
+		<!-- >
        <div class="keywordEx">
            <p class="tit">검색 맛 보기</p>
            <ul class="keylist">
@@ -119,32 +119,30 @@
                 </li>
            </ul>
        </div>
+       <-->
        <div class="keyword">
-           <p class="tit">이렇게나 많은 검색점!</p>
+           <p class="tit">이렇게나 많은 검색점! <span>어떤 주제로 윤리적인 제품을 찾고 싶으세요?</span></p>
            <div>
                <ul class="slide"> 
-               		<!-- 9개 -->
+               		<!-- 7개 -->
                       <li>장애인일자리제공</li>
-                      <li>노인일자리제공</li>
+                      <li>어르신일자리제공</li>
                       <li>새활용</li>
                       <li>재활용</li>
                       <li>채식지향</li>
-                      <li>방문매장</li>                      
-                      <li>인터넷매장</li>
-                      <li>탄소발자국</li>
+                      <li>탄소발자국절감</li>
                       <li>수익기부</li>
+                      <li>친환경</li>
                 </ul>
                 <ul class="slide" aria-hidden="true">
                       <li>장애인일자리제공</li>                      
-                      <li>노인일자리제공</li>
+                      <li>어르신일자리제공</li>
                       <li>잔인함X</li>
-                      <li>채식지향</li>                   
-                      <li>인터넷매장</li>
-                      <li>탄소발자국</li>
+                      <li>채식지향</li>     
                       <li>수익기부</li>
                       <li>채식지향</li>
-                      <li>방문매장</li>                      
-                      <li>인터넷매장</li>
+                      <li>친환경</li>
+                      <li>새활용</li>
                 </ul>
            </div>
        </div>

@@ -41,14 +41,14 @@ public class UserQuitAction implements Action {
 		    response.setContentType("text/html;charset=utf-8");
 		    PrintWriter out= response.getWriter();
 		    out.println("<script>");
-		    out.println("alert('탈퇴되었습니다');");
+		    out.println("alert('탈퇴되었습니다.');");
 		    out.println("</script>");
 	      
 	    }else{
 	      response.setContentType("text/html;charset=utf-8");
 	      PrintWriter out= response.getWriter();
 	      out.println("<script>");
-	      out.println("alert('탈퇴 실패');");
+	      out.println("alert('비밀번호를 확인하세요.');");
 	      out.println("location.href=history.back();");
 	      out.println("</script>");
 	    }			

@@ -43,7 +43,7 @@
 		                 <input type="password" name="newPasswd" placeholder="비밀번호">   
 		             </div>
 		             <div class="pass_text">                     
-		                 <input type="password" name="newPasswdChk" placeholder="비밀번호 확인" onchange= "passChk()">   
+		                 <input type="password" name="newPasswdChk" placeholder="비밀번호 확인" onchange= "passChk()" required= "required">   
 		             </div>
 		             <p id= "passwdCheck">비밀번호 일치 확인</p>	
 		          <input type="submit" class= "save_btn" value="수정하기">
@@ -62,7 +62,7 @@
 			        	<input type="password" name="nowPasswd" placeholder="비밀번호">   
 			        </div>
 			        <div class="pass_text">                     
-			        	<input type="password" name="PasswdChk" placeholder="비밀번호 확인" onchange= "passChk2()">   
+			        	<input type="password" name="PasswdChk" placeholder="비밀번호 확인" onchange= "passChk2()" required= "required">   
 			        </div>
 			        <p id= "passwdCheck2">비밀번호 일치 확인</p>	
 			      	<input type="submit" class= "del_btn" value="계정삭제">

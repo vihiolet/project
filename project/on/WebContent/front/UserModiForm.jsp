@@ -41,7 +41,7 @@
                              <input type="password" name="newPasswd" placeholder="비밀번호">   
                          </div>
                          <div class="pass_text">                     
-                             <input type="password" name="newPasswdChk" placeholder="비밀번호 확인" onchange= "passChk()">   
+                             <input type="password" name="newPasswdChk" placeholder="비밀번호 확인" onchange= "passChk()" required= "required">   
                          </div>
                          <p id= "passwdCheck">비밀번호 일치 확인</p>	
                     </div>

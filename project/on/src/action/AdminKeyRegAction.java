@@ -1,8 +1,6 @@
 package action;
 
 import java.io.PrintWriter;
-
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,7 +11,7 @@ import vo.KeywordBean;
 public class AdminKeyRegAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
+   
 		ActionForward forward= null;
 		KeywordBean keywordBean= new KeywordBean();
 		

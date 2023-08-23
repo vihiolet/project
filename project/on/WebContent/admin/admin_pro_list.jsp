@@ -51,7 +51,7 @@
             <tr class="keyword_info">          	
                 <td><input type="checkbox" name="pro_code" class= "pro_code" value="<%=articleList.get(i).getPro_code() %>"></td>
                 <td class="photo">
-                	<a href="proModiForm.pr?pro_code=<%=articleList.get(i).getPro_code() %>&menu_code=<%=articleList.get(i).getMenu_code() %>" class= "pro_img">
+               		<a href="proModiForm.pr?pro_code=<%=articleList.get(i).getPro_code() %>&menu_code=<%=articleList.get(i).getMenu_code() %>" class= "pro_img">
                 		<div class= "img">
                 			<img src="images/<%=articleList.get(i).getPro_img() %>" alt="">
                 		</div>

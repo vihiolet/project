@@ -30,7 +30,7 @@
                         <p>상품 사진</p>
 						<p>내용</p>
                   </div>
-                  <form action="adminProReg.pr" method="post" enctype="multipart/form-data">
+                  <form action="adminProReg.pr" method="post" name="proReg" enctype="multipart/form-data" onsubmit= "return checkForm()">
                   	
                     <div class="pro_value">
                     	<input type= "hidden" name= "create_id" value= "<%=id %>">
@@ -58,7 +58,7 @@
                          </div>    
 						<div class="pro_context">                     
                              <input type="text" name="pro_context" size="48"  maxlength="30">
-                             <p class="contextMs">띄어쓰기 포함 30자</p>
+                             <p class="contextMs">띄어쓰기 포함 25자</p>
                         </div>                    
                      </div> 
                     <div class="button">
@@ -71,11 +71,21 @@
       </div>
     </div>    
     <script>
-        let openWin;
-        function keywordOpen(){        	
+        
+        function keywordOpen(){     
+        	let openWin;
         	window.name= "parentForm";
             openWin = window.open("adminProPopup.pr", "key_popup", "width=570, height=350, resizeable = no, left= 200, top= 200");
         }
+        
+        function checkForm(){
+    		let menu_cd= document.proReg.menu_code.value;
+    		if(menu_cd == ''){
+    			alert('상품분류를 선택하세요.');
+    			return false;
+    		}
+    		return true;
+    	}   
     </script>
 </body>
 </html>

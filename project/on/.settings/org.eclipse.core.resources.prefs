@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//WebContent/admin/admin_keyword.jsp=UTF-8
 encoding//WebContent/front/idCheck_popup.jsp=UTF-8
+encoding//src/controller/AdminKeywordController.java=UTF-8

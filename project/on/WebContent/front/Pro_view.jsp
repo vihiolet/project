@@ -54,7 +54,7 @@
 	            </div>
 	            <div class="btn">
 	                <input type="button" class="go_review" value="후기 남기기" onclick="reviwPopup()">
-	                <a href="" class="go_buy">구매하러 가기</a>
+	                <a href="https://vihiolet.github.io/" class="go_buy">구매하러 가기</a>
 	            </div>
 	        </div>
         </c:if>
