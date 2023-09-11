@@ -17,6 +17,8 @@
   소비자에게 윤리적인 소비의 문턱을 낮추고 제작자에게 새로운 홍보 수단이 될 수 있습니다.
 
 ## 기술 스택
+<img src="https://img.shields.io/badge/java-%23007396.svg?&style=for-the-badge&logo=java&logoColor=white" />
+<img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=black" />
 
 ## 화면 구성
 - **제품 보기**
