@@ -59,10 +59,10 @@
 ## 화면 구성
 - **제품 보기**
 <table>
-  <tr>
-   <td>U+2460 메인 페이지</td>
-   <td>2) 제품 목록</td>
-   <td>3) 제품 상세페이지</td>
+  <tr style="text-align:center;">
+   <td>① 메인 페이지</td>
+   <td>② 제품 목록</td>
+   <td>③ 제품 상세페이지</td>
   </tr>
   <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
@@ -74,10 +74,10 @@
 - **마이페이지**
 <table>
   <tr>
-    <td>1) 로그인</td>
-    <td>2) 마이페이지</td>
-    <td>3) 내가 투표한 후기</td>
-    <td>3) 내 정보 관리</td>
+    <td>① 로그인</td>
+    <td>② 마이페이지</td>
+    <td>③ 내가 투표한 후기</td>
+    <td>③ 내 정보 관리</td>
   </tr>
   <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
@@ -88,12 +88,114 @@
 </table>
 
 - **후기 등록**
+<table>
+  <tr>
+    <td>① 로그인</td>
+    <td>② 마이페이지</td>
+    <td>③ 내가 투표한 후기</td>
+    <td>③ 내 정보 관리</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+   <td></td>
+   <td></td>
+  </tr>
+</table>
+
 - **관리자 데시보드**
+<table>
+  <tr>
+    <td>①관리자 로그인</td>
+    <td>② 데시보드</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+  </tr>
+</table>
+
 - **관리자 설정**
+<table>
+  <tr>
+    <td>① 관리자 로그인</td>
+    <td>② 마이페이지</td>
+    <td>③ 내가 투표한 후기</td>
+    <td>③ 내 정보 관리</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+   <td></td>
+   <td></td>
+  </tr>
+</table>
+
 - **제품 설정**
+<table>
+  <tr>
+    <td>① 관리자 로그인</td>
+    <td>② 제품 설정(조회)</td>
+    <td>③ 제품 등록</td>
+    <td>③ 제품 수정</td>
+    <td>③ 제품 삭제</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+  </tr>
+</table>
+
 - **검색점 설정**
+<table>
+  <tr>
+    <td>① 관리자 로그인</td>
+    <td>② 검색점 설정(조회)</td>
+    <td>③ 검색점 등록</td>
+    <td>③ 검색점 수정</td>
+    <td>③ 검색점 삭제</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+   <td></td>
+   <td></td>
+   <td></td>
+  </tr>
+</table>
+
 - **후기 관리**
+<table>
+  <tr>
+    <td>① 관리자 로그인</td>
+    <td>② 후기 관리</td>
+    <td>③ 후기 삭제</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+   <td></td>
+  </tr>
+</table>
+
 - **관리자 정보 관리**
+<table>
+  <tr>
+    <td>① 관리자 로그인</td>
+    <td>② 내 정보 관리</td>
+    <td>③ 내 정보 수정</td>
+    <td>③ 관리자 계정 삭제</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+   <td></td>
+   <td></td>
+  </tr>
+</table>
 
 ## 주요 기능
 #### 회원가입/로그인
