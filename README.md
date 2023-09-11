@@ -49,8 +49,8 @@
 
 #### 서버
 <div>
-  <img src="https://img.shields.io/badge/amazon%20EC2-%FF9900?&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/amazon%20RDS-%FF9900?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/amazon%20EC2-%23FF9900?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/amazon%20RDS-%23FF9900?&style=for-the-badge" />
 </div>
 
 #### 프론트엔드
