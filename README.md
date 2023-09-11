@@ -31,13 +31,13 @@
 #### 통신
 <div>
   <img src="https://img.shields.io/badge/apache%20tomcat-%23F8DC75?&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/ajax-%4285f4?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/ajax-%1E96EB?&style=for-the-badge" />
 </div>
 
 #### 라이브러리
 <div>
   <img src="https://img.shields.io/badge/jquery-%230769AD?&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/chart.js-%FF6384?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/chart.js-%FF3366?&style=for-the-badge" />
 </div>
 
 #### 서버
@@ -46,8 +46,9 @@
   <img src="https://img.shields.io/badge/amazon%20RDS-%FF9900?&style=for-the-badge" />
 </div>
 
-#### 프론트앤드
+#### 프론트엔드
 <div>
+  <img src="https://img.shields.io/badge/jsp-%23007396?&style=for-the-badge" />
   <img src="https://img.shields.io/badge/html5-%23E34F26?&style=for-the-badge" />
   <img src="https://img.shields.io/badge/css3-%231572B6?&style=for-the-badge" />
 </div>
