@@ -58,9 +58,18 @@
 
 ## 화면 구성
 - **제품 보기**<br>
-|메인 페이지|제품 목록|제품 상세페이지|
-|---|---|---|
-|<img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">|테스트2|테스트3|
+<table>
+  <tr>
+   <td>메인 페이지</td>
+   <td>제품 목록</td>
+   <td>제품 상세페이지</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
+   <td></td>
+   <td></td>
+  </tr>
+</table>
   
 - **마이페이지**
 - **후기 등록**
