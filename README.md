@@ -45,8 +45,8 @@
 
 #### 서버
 <div>
-  <img src="https://img.shields.io/badge/amazon%20EC2-%#FF9900?&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/amazon%20RDS-%#FF9900?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/amazon%20EC2-%FF9900?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/amazon%20RDS-%FF9900?&style=for-the-badge" />
 </div>
 
 #### 프론트엔드
@@ -58,6 +58,10 @@
 
 ## 화면 구성
 - **제품 보기**
+|메인 페이지|제품 목록|제품 상세페이지|
+|---|---|---|
+|<img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed">|테스트2|테스트3|
+  
 - **마이페이지**
 - **후기 등록**
 - **관리자 데시보드**
