@@ -19,28 +19,37 @@
 ## 기술 스택
 #### 언어
 <div>
-  <img src="https://img.shields.io/badge/java-%23007396.svg?&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/java-%23007396?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/javascript-%23F7DF1E?&style=for-the-badge" />
 </div>
 
 #### 데이터베이스
 <div>
-  <img src="https://img.shields.io/badge/mysql-%234479A1.svg?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/mysql-%234479A1?&style=for-the-badge" />
+</div>
+
+#### 통신
+<div>
+  <img src="https://img.shields.io/badge/apache%20tomcat-%23F8DC75?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/ajax-%4285f4?&style=for-the-badge" />
 </div>
 
 #### 라이브러리
 <div>
-  <img src="https://img.shields.io/badge/jquery-%230769AD.svg?&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/chart.js-%FF6384.svg?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/jquery-%230769AD?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/chart.js-%FF6384?&style=for-the-badge" />
 </div>
-<img src="https://img.shields.io/badge/html5-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white" />
-<img src="https://img.shields.io/badge/css3-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white" />
 
+#### 서버
+<div>
+  <img src="https://img.shields.io/badge/amazon%20EC2-%FF9900?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/amazon%20RDS-%FF9900?&style=for-the-badge" />
+</div>
 
-<img src="https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?&style=for-the-badge&logo=apache%20tomcat&logoColor=black" />
-<img src="https://img.shields.io/badge/ajax-%23F8DC75.svg?&style=for-the-badge&logo=ajax&logoColor=black" />
-<img src="https://img.shields.io/badge/amazon%20EC2-%FF9900.svg?&style=for-the-badge&logo=amazonec2&logoColor=black" />
-<img src="https://img.shields.io/badge/amazon%20RDS-%FF9900.svg?&style=for-the-badge&logo=amazonrds&logoColor=black" />
+#### 프론트앤드
+<div>
+  <img src="https://img.shields.io/badge/html5-%23E34F26?&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/css3-%231572B6?&style=for-the-badge" />
 </div>
 
 ## 화면 구성
