@@ -20,36 +20,36 @@
   소비자에게 윤리적인 소비의 문턱을 낮추고 제작자에게 새로운 홍보 수단이 될 수 있습니다.
 
 ## 기술 스택
-- **언어**
+#### 언어
 <div>
   <img src="https://img.shields.io/badge/java-%23007396?&style=for-the-badge" />
   <img src="https://img.shields.io/badge/javascript-%23F7DF1E?&style=for-the-badge" />
 </div>
 
-- **데이터베이스**
+#### 데이터베이스
 <div>
   <img src="https://img.shields.io/badge/mysql-%234479A1?&style=for-the-badge" />
 </div>
 
-- **통신**
+#### 통신
 <div>
   <img src="https://img.shields.io/badge/apache%20tomcat-%23F8DC75?&style=for-the-badge" />
   <img src="https://img.shields.io/badge/ajax-%230790C0?&style=for-the-badge" />
 </div>
 
-- **라이브러리**
+#### 라이브러리
 <div>
   <img src="https://img.shields.io/badge/jquery-%230769AD?&style=for-the-badge" />
   <img src="https://img.shields.io/badge/chart.js-%23FC60A8?&style=for-the-badge" />
 </div>
 
-- **서버**
+#### 서버
 <div>
   <img src="https://img.shields.io/badge/amazon%20EC2-%FF9900?&style=for-the-badge" />
   <img src="https://img.shields.io/badge/amazon%20RDS-%FF9900?&style=for-the-badge" />
 </div>
 
-- **프론트엔드**
+#### 프론트엔드
 <div>
   <img src="https://img.shields.io/badge/jsp-%23007396?&style=for-the-badge" />
   <img src="https://img.shields.io/badge/html5-%23E34F26?&style=for-the-badge" />
@@ -200,12 +200,24 @@
 ## 주요 기능
 #### 회원가입/로그인
   - 비밀번호 암호화
-  
+    <div>
+     <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">
+    </div>
+
 #### 검색점으로 검색
   - 해당 검색점으로 등록된 제품 목록이 출력됩니다.
+    <div>
+     <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">
+    </div>
 
 #### 후기 투표
   - 후기를 투표하면 가장 많은 표를 받은 후기가 주황색으로 표시됩니다.
+    <div>
+      <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">
+    </div>
 
 #### 검색점 추가
   - 버튼을 누르면 새로운 행이 생성되어 검색점을 추가할 수 있습니다.
+    <div>
+       <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">
+    </div>
