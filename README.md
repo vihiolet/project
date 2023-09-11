@@ -60,7 +60,7 @@
 - **제품 보기**
 <table>
   <tr>
-   <td>1) 메인 페이지</td>
+   <td>U+2460 메인 페이지</td>
    <td>2) 제품 목록</td>
    <td>3) 제품 상세페이지</td>
   </tr>
@@ -72,20 +72,20 @@
 </table>
   
 - **마이페이지**
-  <table>
-   <tr>
+<table>
+  <tr>
     <td>1) 로그인</td>
     <td>2) 마이페이지</td>
     <td>3) 내가 투표한 후기</td>
     <td>3) 내 정보 관리</td>
-   </tr>
-   <tr>
+  </tr>
+  <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
    <td></td>
    <td></td>
    <td></td>
   </tr>
- </table>
+</table>
 
 - **후기 등록**
 - **관리자 데시보드**
