@@ -172,7 +172,6 @@
   <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/8dfae534-af93-4984-8d0a-ddc371cc3b9b" width="260" height="200"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/91ce2bf5-d181-4ca1-8270-cdda35a246db" width="260" height="200"></td>
   </tr>
 </table>
 <table>
@@ -221,17 +220,18 @@
 #### 검색점으로 검색
   - 해당 검색점으로 등록된 제품 목록이 출력됩니다.
     <div>
-     <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">
+     <img src="https://github.com/vihiolet/project/assets/108925254/9236f6a6-2aef-4ad6-939a-0e4ab1eef156" width="300" height="210">
     </div>
 
 #### 후기 투표
   - 후기를 투표하면 가장 많은 표를 받은 후기가 주황색으로 표시됩니다.
     <div>
-      <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">
+      <img src="https://github.com/vihiolet/project/assets/108925254/b57622fa-f21e-4efb-b3c3-3852f6245c01" width="300" height="210">
     </div>
 
 #### 검색점 추가
   - 버튼을 누르면 새로운 행이 생성되어 검색점을 추가할 수 있습니다.
     <div>
-       <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150">
+       <img src="https://github.com/vihiolet/project/assets/108925254/991347e3-012a-434b-9be4-12eb0cd9f653" width="300" height="210">
+       <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="300" height="210">
     </div>
