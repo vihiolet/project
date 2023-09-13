@@ -70,8 +70,8 @@
    <td>③ 제품 상세페이지</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/be4cfa75-e85f-4f13-93f2-3ef7a78b9d2a" width="200" height="150"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/6c1430d8-fcfb-4639-96e2-20643cd397da" width="200" height="150"></td>
    <td></td>
   </tr>
 </table>
