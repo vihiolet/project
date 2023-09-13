@@ -70,9 +70,9 @@
    <td>③ 제품 상세페이지</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/be4cfa75-e85f-4f13-93f2-3ef7a78b9d2a" width="200" height="150"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/6c1430d8-fcfb-4639-96e2-20643cd397da" width="200" height="150"></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/be4cfa75-e85f-4f13-93f2-3ef7a78b9d2a" width="220" height="170"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/9dc27b04-f307-4184-9283-d3e5ef8fab89" width="220" height="170"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/2443c637-96f7-4451-9b9d-230b34a6d6a9" width="220" height="170"></td>
   </tr>
 </table>
   
@@ -81,14 +81,16 @@
   <tr>
     <td>① 로그인</td>
     <td>② 마이페이지</td>
+    <td>③ 내 정보 수정</td>
     <td>③ 내가 투표한 후기</td>
-    <td>③ 내 정보 관리</td>
+    <td>③ 회원 탈퇴</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
-   <td></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/9ef9f171-ed4e-4d93-b3c3-cdcb444f1cfb" width="220" height="170"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/7b22aeda-fad7-45da-a169-5bf32e6648ae" width="220" height="170"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/900b0515-add5-413f-bd2b-37b1053ffc52" width="220" height="170"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/594c7869-0cb7-406a-ba0f-559d17b31e90" width="220" height="170"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/f8350035-06a5-4153-b2f0-4c19ecbf7dfc" width="220" height="170"></td>
   </tr>
 </table>
 
@@ -96,13 +98,11 @@
 <table>
   <tr>
     <td>① 로그인</td>
-    <td>② 마이페이지</td>
-    <td>③ 내가 투표한 후기</td>
-    <td>③ 내 정보 관리</td>
+    <td>② 제품 목록</td>
+    <td>③ 후기 등록 팝업창</td>
   </tr>
   <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
    <td></td>
    <td></td>
   </tr>
