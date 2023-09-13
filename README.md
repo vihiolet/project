@@ -146,13 +146,19 @@
   <tr>
     <td>① 관리자 로그인</td>
     <td>② 제품 설정(조회)</td>
-    <td>③ 제품 등록</td>
-    <td>③ 제품 수정</td>
   </tr>
   <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/36cf180f-41ff-4c16-9c2c-a3046594884c" width="260" height="200"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/36cf180f-41ff-4c16-9c2c-a3046594884c" width="260" height="200"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>③ 제품 등록</td>
+    <td>③ 제품 수정</td>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/3e610ed4-b9f2-4ccc-97fb-e3184e6ffe0d" width="260" height="200"></td>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/603cb0cf-e9b2-4576-b079-c03de2b8e745" width="260" height="200"></td>
   </tr>
 </table>
@@ -162,12 +168,19 @@
   <tr>
     <td>① 관리자 로그인</td>
     <td>② 검색점 설정(조회)</td>
-    <td>③ 검색점 등록</td>
-    <td>③ 검색점 수정</td>
   </tr>
   <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/8dfae534-af93-4984-8d0a-ddc371cc3b9b" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/91ce2bf5-d181-4ca1-8270-cdda35a246db" width="260" height="200"></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>③ 검색점 등록</td>
+    <td>③ 검색점 수정</td>
+  </tr>
+  <tr>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/91ce2bf5-d181-4ca1-8270-cdda35a246db" width="260" height="200"></td>
    <td><img src="https://github.com/vihiolet/project/assets/108925254/dc4e6e81-1a48-491d-90f8-e990a6dbd277" width="260" height="200"></td>
   </tr>
