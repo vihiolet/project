@@ -232,6 +232,6 @@
 #### 검색점 추가
   - 버튼을 누르면 새로운 행이 생성되어 검색점을 추가할 수 있습니다.
     <div>
+       <img src="https://github.com/vihiolet/project/assets/108925254/4bc76f5e-abae-4822-9e3b-bb4a5ba56748" width="300" height="210">
        <img src="https://github.com/vihiolet/project/assets/108925254/991347e3-012a-434b-9be4-12eb0cd9f653" width="300" height="210">
-       <img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="300" height="210">
     </div>
