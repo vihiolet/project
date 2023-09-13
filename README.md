@@ -70,9 +70,9 @@
    <td>③ 제품 상세페이지</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/be4cfa75-e85f-4f13-93f2-3ef7a78b9d2a" width="240" height="190"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/9dc27b04-f307-4184-9283-d3e5ef8fab89" width="240" height="190"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/2443c637-96f7-4451-9b9d-230b34a6d6a9" width="240" height="190"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/be4cfa75-e85f-4f13-93f2-3ef7a78b9d2a" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/9dc27b04-f307-4184-9283-d3e5ef8fab89" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/2443c637-96f7-4451-9b9d-230b34a6d6a9" width="260" height="200"></td>
   </tr>
 </table>
   
@@ -83,8 +83,8 @@
     <td>② 마이페이지</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/9ef9f171-ed4e-4d93-b3c3-cdcb444f1cfb" width="240" height="190"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/7b22aeda-fad7-45da-a169-5bf32e6648ae" width="240" height="190"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/9ef9f171-ed4e-4d93-b3c3-cdcb444f1cfb" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/7b22aeda-fad7-45da-a169-5bf32e6648ae" width="260" height="200"></td>
   </tr>
 </table>
 <table>
@@ -94,9 +94,9 @@
     <td>③ 회원 탈퇴</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/900b0515-add5-413f-bd2b-37b1053ffc52" width="240" height="190"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/594c7869-0cb7-406a-ba0f-559d17b31e90" width="240" height="190"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/f8350035-06a5-4153-b2f0-4c19ecbf7dfc" width="240" height="190"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/900b0515-add5-413f-bd2b-37b1053ffc52" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/594c7869-0cb7-406a-ba0f-559d17b31e90" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/f8350035-06a5-4153-b2f0-4c19ecbf7dfc" width="260" height="200"></td>
   </tr>
 </table>
 
@@ -109,9 +109,9 @@
     <td>③ 후기 등록 팝업창</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/9dc27b04-f307-4184-9283-d3e5ef8fab89" width="240" height="190"></td>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/6ada0355-b712-4c0a-b4d4-c5e9021e87f1" width="240" height="190"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/e378d8e5-76f7-4076-b758-3681fe03f00e" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/9dc27b04-f307-4184-9283-d3e5ef8fab89" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/6ada0355-b712-4c0a-b4d4-c5e9021e87f1" width="260" height="200"></td>
   </tr>
 </table>
 
@@ -122,8 +122,8 @@
     <td>② 데시보드</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/6e5388d2-564c-49a7-8582-4f1a6850c984" width="260" height="200"></td>
   </tr>
 </table>
 
@@ -131,15 +131,13 @@
 <table>
   <tr>
     <td>① 관리자 로그인</td>
-    <td>② 마이페이지</td>
-    <td>③ 내가 투표한 후기</td>
-    <td>③ 내 정보 관리</td>
+    <td>② 관리자 설정(조회)</td>
+    <td>③ 관리자 등록</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
-   <td></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8d46401c-6ef0-41cd-80ec-4b85ab2976a7" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8bfd7bc4-64bd-45bc-96a2-12bce4ac5920" width="260" height="200"></td>
   </tr>
 </table>
 
@@ -150,14 +148,12 @@
     <td>② 제품 설정(조회)</td>
     <td>③ 제품 등록</td>
     <td>③ 제품 수정</td>
-    <td>③ 제품 삭제</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
-   <td></td>
-   <td></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/36cf180f-41ff-4c16-9c2c-a3046594884c" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/36cf180f-41ff-4c16-9c2c-a3046594884c" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/603cb0cf-e9b2-4576-b079-c03de2b8e745" width="260" height="200"></td>
   </tr>
 </table>
 
@@ -168,14 +164,12 @@
     <td>② 검색점 설정(조회)</td>
     <td>③ 검색점 등록</td>
     <td>③ 검색점 수정</td>
-    <td>③ 검색점 삭제</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
-   <td></td>
-   <td></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8dfae534-af93-4984-8d0a-ddc371cc3b9b" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/91ce2bf5-d181-4ca1-8270-cdda35a246db" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/dc4e6e81-1a48-491d-90f8-e990a6dbd277" width="260" height="200"></td>
   </tr>
 </table>
 
@@ -184,28 +178,22 @@
   <tr>
     <td>① 관리자 로그인</td>
     <td>② 후기 관리</td>
-    <td>③ 후기 삭제</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/dadb3bba-dfec-4b2e-a3c4-1aa0c7f60e56" width="260" height="200"></td>
   </tr>
 </table>
 
-#### 관리자 정보 관리
+#### 내 정보 관리
 <table>
   <tr>
     <td>① 관리자 로그인</td>
     <td>② 내 정보 관리</td>
-    <td>③ 내 정보 수정</td>
-    <td>③ 관리자 계정 삭제</td>
   </tr>
   <tr>
-   <td><img src="https://github.com/vihiolet/project/assets/108925254/adbd3001-ff3a-46fc-8ae9-a53f8425aeed" width="200" height="150"></td>
-   <td></td>
-   <td></td>
-   <td></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/8b8f2986-93ec-4203-9b65-225d0915bf65" width="260" height="200"></td>
+   <td><img src="https://github.com/vihiolet/project/assets/108925254/327352c0-a0e0-4306-bba1-256193435417" width="260" height="200"></td>
   </tr>
 </table>
 <br><br><br>
